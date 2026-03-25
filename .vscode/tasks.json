@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run main",
+            "type": "shell",
+            "command": "uv run python main.py",
+            "group": "build"
+        },
+        {
+            "label": "Run tests",
+            "type": "shell",
+            "command": "uv run pytest",
+            "group": "test"
+        }
+    ]
+}
