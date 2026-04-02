@@ -19,7 +19,11 @@ from agents.opportunity_agent import OpportunityAgent
 def ingest_articles() -> List[Dict[str, Any]]:
     """Simple ingestion placeholder for one or more RSS feeds."""
     # Minimal valid flow path. In real code, use config+error handling.
-    urls = ["https://example.com/ai-framework"]
+    urls = [
+        "https://hnrss.org/frontpage",
+        "https://hnrss.org/newest",
+        "http://export.arxiv.org/rss/cs.AI",
+        ]
     return fetch_rss_articles(urls=urls, max_items=10)
 
 
@@ -29,7 +33,7 @@ def run_daily_pipeline(founder_profile: Dict[str, Any] = None) -> Dict[str, Any]
 
     articles = ingest_articles()
 
-    filter_agent = FilterAgent(keywords=["AI", "emerging tech"])
+    filter_agent = FilterAgent(categories=["ai", "robotics", "startup"], threshold=0.03)
     filtered = filter_agent.process(articles)
 
     opportunity_agent = OpportunityAgent(model="gpt-placeholder")
