@@ -29,7 +29,7 @@ def run_daily_pipeline(founder_profile: Dict[str, Any] = None) -> Dict[str, Any]
 
     articles = ingest_articles()
 
-    filter_agent = FilterAgent(keywords={"keywords": ["AI", "emerging tech"]})
+    filter_agent = FilterAgent(keywords=["AI", "emerging tech"])
     filtered = filter_agent.process(articles)
 
     opportunity_agent = OpportunityAgent(model="gpt-placeholder")
@@ -40,5 +40,3 @@ def run_daily_pipeline(founder_profile: Dict[str, Any] = None) -> Dict[str, Any]
         "filtered": filtered,
         "opportunities": opportunities,
     }
-
-

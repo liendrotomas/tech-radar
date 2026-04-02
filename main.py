@@ -10,8 +10,12 @@ logger = get_logger("main")
 
 def cli() -> None:
     parser = argparse.ArgumentParser(description="Tech Radar AI pipeline runner")
-    parser.add_argument("--dry-run", action="store_true", help="Run without persistence")
-    parser.add_argument("--founder", type=str, default="{}", help="Founder profile JSON string")
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Run without persistence"
+    )
+    parser.add_argument(
+        "--founder", type=str, default="{}", help="Founder profile JSON string"
+    )
     args = parser.parse_args()
 
     logger.info("Starting Tech Radar daily pipeline")
@@ -24,7 +28,9 @@ def cli() -> None:
         logger.warning("Could not parse founder profile, using empty profile: %s", exc)
 
     results = run_daily_pipeline(founder_profile=setup_profile)
-    logger.info("Pipeline complete, opportunities=%d", len(results.get("opportunities", [])))
+    logger.info(
+        "Pipeline complete, opportunities=%d", len(results.get("opportunities", []))
+    )
 
     if args.dry_run:
         print("Dry run output:", results)
