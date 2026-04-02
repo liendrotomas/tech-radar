@@ -1,0 +1,21 @@
+# Tech Radar configuration (YAML)
+# Supports source-specific credentials and thresholds.
+
+ingestion:
+  rss:
+    urls:
+      - "https://techcrunch.com/feed/"
+      - "https://thenextweb.com/feed/"
+    max_items: 50
+
+agents:
+  filter:
+    threshold: 0.1
+  enrichment:
+    llm_model: "placeholder-model"
+  opportunity:
+    prompt_template: "Evaluate this event for startup opportunity"
+
+database:
+  backend: "sqlite"
+  dsn: "sqlite:///tech_radar.db"

@@ -1,6 +1,34 @@
-def main():
-    print("Hello from tech-radar!")
+"""Tech Radar entrypoint and CLI."""
+
+import argparse
+
+from src.pipeline.daily_pipeline import run_daily_pipeline
+from src.utils.logger import get_logger
+
+logger = get_logger("main")
+
+
+def cli() -> None:
+    parser = argparse.ArgumentParser(description="Tech Radar AI pipeline runner")
+    parser.add_argument("--dry-run", action="store_true", help="Run without persistence")
+    parser.add_argument("--founder", type=str, default="{}", help="Founder profile JSON string")
+    args = parser.parse_args()
+
+    logger.info("Starting Tech Radar daily pipeline")
+    setup_profile = {}
+    try:
+        import json
+
+        setup_profile = json.loads(args.founder)
+    except Exception as exc:
+        logger.warning("Could not parse founder profile, using empty profile: %s", exc)
+
+    results = run_daily_pipeline(founder_profile=setup_profile)
+    logger.info("Pipeline complete, opportunities=%d", len(results.get("opportunities", [])))
+
+    if args.dry_run:
+        print("Dry run output:", results)
 
 
 if __name__ == "__main__":
-    main()
+    cli()

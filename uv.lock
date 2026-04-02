@@ -518,7 +518,7 @@ wheels = [
 [[package]]
 name = "tech-radar"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "black" },
     { name = "loguru" },
