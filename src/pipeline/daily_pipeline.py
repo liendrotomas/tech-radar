@@ -25,11 +25,19 @@ def ingest_articles() -> List[Dict[str, Any]]:
     return fetch_rss_articles(urls=rss_urls, max_items=max_items)
 
 
-def run_daily_pipeline(founder_profile: Dict[str, Any] = None) -> Dict[str, Any]:
+def run_daily_pipeline(
+    founder_profile: Dict[str, Any] = None, args=None
+) -> Dict[str, Any]:
     """Orchestrate pipeline: ingest -> filter -> enrich -> opportunity."""
+    is_mock = getattr(args, "dry_run", False)
+
     founder_profile = founder_profile or {}
 
     articles = ingest_articles()
+    if is_mock:
+        # For dry run, return early with ingested articles
+        articles = articles[0]  # Limit to 1 for dry run
+
     cfg = load_config()
 
     filter_agent = FilterAgent(
