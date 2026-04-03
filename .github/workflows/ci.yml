@@ -1,10 +1,10 @@
 name: CI
 
 on:
-  pull_request:
-    branches: [ main ]
   push:
-    branches: [ main ]
+    branches: [ "*" ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   test-and-run:
@@ -31,3 +31,8 @@ jobs:
       - name: Run dry pipeline
         run: |
           uv run python main.py --dry-run
+
+      - name: Fail fast if pipeline returns empty
+        run: |
+          uv run python main.py --dry-run | tee output.txt
+          grep "Filtered 0" output.txt && exit 1 || true
