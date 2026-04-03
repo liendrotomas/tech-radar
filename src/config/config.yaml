@@ -6,7 +6,10 @@ ingestion:
     urls:
       - "https://techcrunch.com/feed/"
       - "https://thenextweb.com/feed/"
-    max_items: 50
+      - "https://hnrss.org/frontpage"
+      - "https://hnrss.org/newest"
+      - "http://export.arxiv.org/rss/cs.AI"
+    max_items: 30
 
 agents:
   filter:

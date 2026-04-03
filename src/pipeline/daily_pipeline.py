@@ -10,6 +10,7 @@ Steps:
 
 from typing import Dict, Any, List
 
+from config.config import load_config, get_config_value
 from ingestion.rss_ingestion import fetch_rss_articles
 from agents.filter_agent import FilterAgent
 from agents.enrichment_agent import EnrichmentAgent
@@ -17,14 +18,12 @@ from agents.opportunity_agent import OpportunityAgent
 
 
 def ingest_articles() -> List[Dict[str, Any]]:
-    """Simple ingestion placeholder for one or more RSS feeds."""
-    # Minimal valid flow path. In real code, use config+error handling.
-    urls = [
-        "https://hnrss.org/frontpage",
-        "https://hnrss.org/newest",
-        "http://export.arxiv.org/rss/cs.AI",
-        ]
-    return fetch_rss_articles(urls=urls, max_items=10)
+    """Load config and fetch articles from RSS feeds."""
+    cfg = load_config()
+    rss_urls = get_config_value(cfg, "ingestion.rss.urls", [])
+    max_items = get_config_value(cfg, "ingestion.rss.max_items", 50)
+    print(f"Ingesting articles from {len(rss_urls)} RSS feeds with max_items={max_items}")
+    return fetch_rss_articles(urls=rss_urls, max_items=max_items)
 
 
 def run_daily_pipeline(founder_profile: Dict[str, Any] = None) -> Dict[str, Any]:
