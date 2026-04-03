@@ -10,6 +10,7 @@ pydantic==2.6.4
 
 # --- HTTP / APIs ---
 requests==2.31.0
+feedparser==6.0.12
 
 # --- Config ---
 python-dotenv==1.0.1
