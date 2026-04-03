@@ -1,0 +1,98 @@
+{
+    "name": "Tomas Liendro",
+    "archetype": "AI-native builder + systems thinker",
+    "superpowers": [
+        "Rapid prototyping of AI-driven products (Python, APIs, automation)",
+        "Strong product intuition: focuses on leverage, not features",
+        "Ability to combine multiple tools into cohesive systems (LLMs, data pipelines, APIs)",
+        "Bias for action: prefers building and iterating over theorizing",
+        "Comfortable operating across tech + product + business layers"
+    ],
+    "technical_profile": {
+        "level": "advanced",
+        "stack": [
+            "Python",
+            "APIs",
+            "LLMs (OpenAI, multi-agent systems)",
+            "Data pipelines",
+            "Automation tools"
+        ],
+        "strengths": [
+            "System design for AI workflows",
+            "Integration over invention",
+            "Fast debugging and iteration",
+            "Pragmatic engineering (gets things working end-to-end)"
+        ],
+        "weaknesses": [
+            "May skip deep optimization early",
+            "Can underinvest in UX polish initially"
+        ]
+    },
+    "builder_style": {
+        "approach": "build → validate → iterate fast",
+        "preference": "lean MVPs with real-world feedback",
+        "risk_tolerance": "high",
+        "speed_vs_quality": "speed-first, then refine"
+    },
+    "interests": [
+        "AI agents and autonomous systems",
+        "Tech radar / signal aggregation",
+        "Financial markets and trading systems",
+        "Developer tools",
+        "Automation replacing human workflows",
+        "Information asymmetry and edge creation"
+    ],
+    "unfair_advantages": [
+        "Thinks in systems, not features",
+        "Early adopter mindset for AI tooling",
+        "Understands both technical implementation and business potential",
+        "High curiosity across domains (tech, finance, trends)"
+    ],
+    "constraints": [
+        "Limited time → prefers high leverage opportunities",
+        "Prefers ideas that can be validated quickly",
+        "Avoids heavy ops or slow-moving industries"
+    ],
+    "ideal_startups": {
+        "stage": "0→1",
+        "type": [
+            "AI-first products",
+            "Agent-based systems",
+            "Developer tooling",
+            "Market intelligence platforms",
+            "Automation SaaS with clear ROI"
+        ],
+        "characteristics": [
+            "Clear wedge",
+            "Fast to MVP",
+            "Can generate revenue early",
+            "Compounding data advantage",
+            "Scalable via software, not people"
+        ]
+    },
+    "anti_patterns": [
+        "Generic SaaS without differentiation",
+        "Heavy enterprise sales cycles",
+        "Ideas requiring large upfront capital",
+        "Non-technical or ops-heavy businesses",
+        "Trend-chasing without real edge"
+    ],
+    "current_focus": [
+        "building an AI tech radar pipeline",
+        "exploring automated opportunity generation",
+        "interested in AI-driven trading systems"
+    ],
+    "taste": {
+        "likes": [
+            "Non-obvious opportunities",
+            "High leverage ideas",
+            "Systems that get smarter over time",
+            "Products that feel like 'cheat codes'"
+        ],
+        "dislikes": [
+            "Incremental improvements",
+            "Buzzword-driven ideas",
+            "Overengineered solutions"
+        ]
+    }
+}
