@@ -12,20 +12,34 @@ from src.utils.logger import get_logger
 
 logger = get_logger("filter_agent")
 
+
 class FilterAgent(BaseAgent):
     """Filter articles by relevant technology keywords."""
 
     # Define keyword categories for easy extension
     KEYWORD_CATEGORIES = {
-        "ai": ["AI", "artificial intelligence", "machine learning", "LLM", "neural", "deep learning"],
+        "ai": [
+            "AI",
+            "artificial intelligence",
+            "machine learning",
+            "LLM",
+            "neural",
+            "deep learning",
+        ],
         "robotics": ["robotics", "robot", "automation", "autonomous"],
-        "startup": ["startup", "founder", "venture", "startup opportunity", "investment"],
+        "startup": [
+            "startup",
+            "founder",
+            "venture",
+            "startup opportunity",
+            "investment",
+        ],
     }
 
     def __init__(self, categories: List[str] = None, threshold: float = 0.0) -> None:
         """
         Initialize filter agent.
-        
+
         Args:
             categories: List of category names to include (default: all)
             threshold: Minimum match score (0.0-1.0) to keep article
@@ -41,7 +55,9 @@ class FilterAgent(BaseAgent):
                     k.lower() for k in self.KEYWORD_CATEGORIES[category]
                 )
             else:
-                logger.warning(f"Category '{category}' not found in KEYWORD_CATEGORIES. Adding to keywords directly.")
+                logger.warning(
+                    f"Category '{category}' not found in KEYWORD_CATEGORIES. Adding to keywords directly."
+                )
                 self.keywords.add(category.lower())
 
     def _calculate_match_score(self, article: Dict) -> float:
@@ -49,9 +65,11 @@ class FilterAgent(BaseAgent):
         title = article.get("title", "").lower()
         summary = article.get("summary", "").lower()
         text = f"{title} {summary}"
-        
+
         matches = sum(1 for keyword in self.keywords if keyword in text)
-        logger.info(f"Article: {title[:30]}... | Matches: {matches} | Score: {matches / max(len(self.keywords), 1):.2f}")
+        logger.info(
+            f"Article: {title[:30]}... | Matches: {matches} | Score: {matches / max(len(self.keywords), 1):.2f}"
+        )
         return min(matches / max(len(self.keywords), 1), 1.0)
 
     def process(self, items: List[Dict]) -> List[Dict]:
@@ -62,6 +80,7 @@ class FilterAgent(BaseAgent):
             if score >= self.threshold:
                 item["filter_score"] = score
                 filtered.append(item)
-        logger.info(f"Filtered {len(filtered)} out of {len(items)} articles with threshold {self.threshold}")
+        logger.info(
+            f"Filtered {len(filtered)} out of {len(items)} articles with threshold {self.threshold}"
+        )
         return filtered
-

@@ -9,16 +9,31 @@ ingestion:
       - "https://hnrss.org/frontpage"
       - "https://hnrss.org/newest"
       - "http://export.arxiv.org/rss/cs.AI"
+      # Tech general
+      - "https://techcrunch.com/feed/"
+      # Hacker News
+      - "https://hnrss.org/frontpage"
+      - "https://hnrss.org/newest"
+
+      # AI papers
+      - "http://export.arxiv.org/rss/cs.AI"
+      - "http://export.arxiv.org/rss/cs.LG"
+
+      # Startups / VC
+      - "https://www.ycombinator.com/blog/feed"
+
+      # Optional
+      - "https://www.producthunt.com/feed"
+
     max_items: 10
 
 agents:
   filter:
-    threshold: 0.03
+    threshold: 0.0
   enrichment:
-    llm_model: "placeholder-model"
+    model: "gpt-4.1-mini"
   opportunity:
-    model: "gpt-placeholder"
-    prompt_template: "Evaluate this event for startup opportunity"
+    model: "gpt-4.1-mini"
 
 database:
   backend: "sqlite"
