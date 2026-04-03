@@ -36,7 +36,7 @@ def run_daily_pipeline(
     articles = ingest_articles()
     if is_mock:
         # For dry run, return early with ingested articles
-        articles = articles[0]  # Limit to 1 for dry run
+        articles = [articles[0]]  # Limit to 1 for dry run
 
     cfg = load_config()
 

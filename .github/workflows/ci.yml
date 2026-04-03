@@ -35,3 +35,7 @@ jobs:
       - name: Run dry pipeline
         run: |
           uv run python main.py --dry-run
+
+      - name: Run full pipeline
+        run: |
+          uv run python main.py
