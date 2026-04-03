@@ -33,7 +33,7 @@ class FilterAgent(BaseAgent):
         self.categories = categories or list(self.KEYWORD_CATEGORIES.keys())
         self.threshold = threshold
         self.keywords: Set[str] = set()
-        
+
         # Build flat set of all keywords from selected categories
         for category in self.categories:
             if category in self.KEYWORD_CATEGORIES:

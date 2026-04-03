@@ -79,6 +79,6 @@ def fetch_rss_articles(
             logger.error(f"Error fetching {feed_url}: {exc}")
             continue
     
-    logger.info(f"Fetched {len(articles)} unique articles from {len(urls)} feeds")
+    logger.info(f"Fetched {len(articles)} unique articles from {len(urls)} feeds with max_items={max_items}")
     return articles
 

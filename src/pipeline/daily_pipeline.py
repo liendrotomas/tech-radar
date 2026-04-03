@@ -16,13 +16,11 @@ from agents.filter_agent import FilterAgent
 from agents.enrichment_agent import EnrichmentAgent
 from agents.opportunity_agent import OpportunityAgent
 
-
 def ingest_articles() -> List[Dict[str, Any]]:
     """Load config and fetch articles from RSS feeds."""
     cfg = load_config()
     rss_urls = get_config_value(cfg, "ingestion.rss.urls", [])
     max_items = get_config_value(cfg, "ingestion.rss.max_items", 50)
-    print(f"Ingesting articles from {len(rss_urls)} RSS feeds with max_items={max_items}")
     return fetch_rss_articles(urls=rss_urls, max_items=max_items)
 
 
@@ -31,11 +29,11 @@ def run_daily_pipeline(founder_profile: Dict[str, Any] = None) -> Dict[str, Any]
     founder_profile = founder_profile or {}
 
     articles = ingest_articles()
-
-    filter_agent = FilterAgent(categories=["ai", "robotics", "startup"], threshold=0.03)
+    cfg = load_config()
+    filter_agent = FilterAgent(categories=["ai", "robotics", "startup"], threshold=get_config_value(cfg, "agents.filter.threshold", 0.1))
     filtered = filter_agent.process(articles)
 
-    opportunity_agent = OpportunityAgent(model="gpt-placeholder")
+    opportunity_agent = OpportunityAgent(model=get_config_value(cfg, "agents.opportunity.model", "gpt-placeholder"))
     opportunities = opportunity_agent.process(filtered, founder_profile=founder_profile)
 
     return {
