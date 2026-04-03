@@ -4,18 +4,27 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
+
 dependencies = [
-    "black==24.3.0",
-    "loguru==0.7.2",
-    "numpy==1.26.4",
-    "openai==1.14.3",
-    "pandas==2.2.1",
-    "pydantic==2.6.4",
-    "pytest==8.1.1",
-    "python-dotenv==1.0.1",
-    "pyyaml==6.0.1",
-    "requests==2.31.0",
-    "feedparser==6.0.12"
+  # --- Core AI / LLM ---
+  "openai==2.30",
+  # --- Data handling ---
+  "pandas==2.2.1",
+  "numpy==1.26.4",
+  # --- Validation / schemas ---
+  "pydantic==2.6.4",
+  # --- HTTP / APIs ---
+  "requests==2.31.0",
+  "feedparser==6.0.12",
+  "httpx==0.27.0",
+  # --- Config ---
+  "python-dotenv==1.0.1",
+  "pyyaml==6.0.1",
+  # --- Logging / utils ---
+  "loguru==0.7.2",
+  # --- Dev tools ---
+  "black==24.3.0",
+  "pytest==8.1.1",
 ]
 
 [project.scripts]

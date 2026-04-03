@@ -1,40 +1,98 @@
-"""
-Opportunity agent.
+from typing import List, Dict
+from openai import OpenAI
+import os
+import json
+import re
 
-- Input: filtered articles + founder profile
-- Output: list of startup ideas
-
-For now:
-- generate simple mock ideas based on article titles
-"""
-
-from typing import List, Dict, Any
-
-from src.utils.logger import get_logger
 from .base_agent import BaseAgent
+from dotenv import load_dotenv
 
-logger = get_logger("opportunity_agent")
+load_dotenv()
 
 class OpportunityAgent(BaseAgent):
-    """Agent responsible for generating startup ideas from articles."""
-
-    def __init__(self, model: str = "gpt-placeholder") -> None:
+    def __init__(self, model: str):
+        self.client = OpenAI()
         self.model = model
-        logger.info(f"Initializing OpportunityAgent with model: {self.model}")
 
-    def _mock_generate_ideas(self, article: Dict, founder_profile: Dict) -> List[Dict]:
-        title = article.get("title", "Unknown topic")
-        ideas = [
+    def process(self, enriched_articles: List[Dict], founder_profile: Dict) -> List[Dict]:
+        # Implement grouping of similar trends before sending to LLM
+        grouped_articles = self._group_similar_trends(enriched_articles)
+        prompt = self._build_prompt(grouped_articles, founder_profile)
+
+        response = self.client.responses.create(
+            model=self.model,
+            input=prompt,
+        )
+
+        content = response.output[0].content[0].text
+        return self._parse_response(content)
+
+    def _build_prompt(self, articles: List[Dict], founder: Dict) -> str:
+
+        simplified = [
             {
-                "idea": f"Startup idea based on '{title}' for {founder_profile.get('name', 'a founder')}",
-                "description": f"This idea is inspired by the article '{title}' and the founder's profile.",
+                "title": a.get("title"),
+                "summary": a.get("summary"),
+                "tags": a.get("tags"),
             }
+            for a in articles
         ]
-        return ideas
 
-    def process(self, items: List[Dict], founder_profile: Dict) -> List[Dict]:
-        all_ideas = []
-        for item in items:
-            ideas = self._mock_generate_ideas(item, founder_profile)
-            all_ideas.extend(ideas)
-        return all_ideas
+        return f"""
+        You are a top-tier deeptech VC.
+
+        Analyze the following tech signals:
+
+        {json.dumps(simplified, indent=2)}
+
+        Founder profile:
+
+        {json.dumps(founder, indent=2)}
+
+        Identify 3-5 HIGH-CONVICTION startup opportunities.
+
+        Rules:
+        - Must be technically grounded
+        - Must have a clear "why now"
+        - Must have a clear understanding of the founder fit (if defined, otherwise indicate what founder profile would be ideal)
+        - Provide a numerical "wedge" score (0-10) indicating how easy it would be for a startup to gain initial traction in this space, based on current competition and market awareness.
+
+        Return STRICT JSON ONLY:
+
+        [
+        {{
+            "name": "...",
+            "description": "...",
+            "why_now": "...",
+            "founder_fit": "...",
+            "wedge": "...",
+            "wedge_score": "...",
+            "risk": "...",
+            "required_insight": "..."
+        }}
+        ]
+        """
+
+    def _parse_response(self, content: str) -> List[Dict]:
+
+        try:
+            return json.loads(content)
+        except Exception:
+            # try to extract JSON block
+            match = re.search(r"\[.*\]", content, re.DOTALL)
+            if match:
+                try:
+                    return json.loads(match.group(0))
+                except Exception:
+                    pass
+
+            return [{"error": "failed_to_parse", "raw": content}]
+        
+    def _group_similar_trends(self, articles: List[Dict]) -> List[Dict]:
+        sorted_articles = sorted(
+            articles,
+            key=lambda a: a.get("filter_score", 0),
+            reverse=True
+        )
+
+        return sorted_articles[:15]

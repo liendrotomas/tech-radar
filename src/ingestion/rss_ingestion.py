@@ -78,7 +78,15 @@ def fetch_rss_articles(
         except Exception as exc:
             logger.error(f"Error fetching {feed_url}: {exc}")
             continue
-    
-    logger.info(f"Fetched {len(articles)} unique articles from {len(urls)} feeds with max_items={max_items}")
-    return articles
+
+    seen = set()
+    unique_articles = []
+
+    for article in articles:
+        if article["link"] not in seen:
+            seen.add(article["link"])
+            unique_articles.append(article)
+
+    logger.info(f"Fetched {len(unique_articles)} unique articles from {len(urls)} feeds with max_items={max_items}")
+    return unique_articles
 
