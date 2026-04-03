@@ -23,14 +23,16 @@ class ScoringAgent(BaseAgent):
         )
 
         content = response.output[0].content[0].text
-        parsed_list = self._parse_batch_response(content, expected_len=len(opportunities))
+        parsed_list = self._parse_batch_response(
+            content, expected_len=len(opportunities)
+        )
 
         scored = []
         for opp, score_data in zip(opportunities, parsed_list):
             record = score_data.copy()
             record["original"] = opp
             scored.append(record)
-        
+
         return sorted(scored, key=lambda x: x.get("score", 0), reverse=True)
 
     def _build_batch_prompt(self, opportunities: List[Dict], founder: Dict) -> str:

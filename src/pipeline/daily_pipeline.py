@@ -18,8 +18,7 @@ from agents.enrichment_agent import EnrichmentAgent
 from agents.opportunity_agent import OpportunityAgent
 
 
-
-def ingest_articles(rss_urls: List[str], max_items: int=50) -> List[Dict[str, Any]]:
+def ingest_articles(rss_urls: List[str], max_items: int = 50) -> List[Dict[str, Any]]:
     """Load config and fetch articles from RSS feeds."""
     return fetch_rss_articles(urls=rss_urls, max_items=max_items)
 
@@ -34,15 +33,16 @@ def run_daily_pipeline(
     founder_profile = founder_profile or {}
 
     max_items = 1 if is_mock else get_config_value(cfg, "ingestion.rss.max_items", 50)
-    
-    articles = ingest_articles(rss_urls=get_config_value(cfg, "ingestion.rss.urls", []),
-                               max_items=max_items)
+
+    articles = ingest_articles(
+        rss_urls=get_config_value(cfg, "ingestion.rss.urls", []), max_items=max_items
+    )
 
     cfg = load_config()
 
     filter_agent = FilterAgent(
         signal_threshold=get_config_value(cfg, "agents.filter.signal_threshold", 0.1),
-        noise_threshold=get_config_value(cfg, "agents.filter.noise_threshold", 0.5)
+        noise_threshold=get_config_value(cfg, "agents.filter.noise_threshold", 0.5),
     )
     filtered = filter_agent.process(articles)
     top_articles = sorted(filtered, key=lambda x: x["filter_score"], reverse=True)[:5]
@@ -59,11 +59,9 @@ def run_daily_pipeline(
     opportunities = opportunity_agent.process(enriched, founder_profile=founder_profile)
 
     # Create a scoring agent instance and score the opportunities
-    scoring_agent = ScoringAgent(
-        model=get_config_value(cfg, "agents.scoring.model")
-    )
+    scoring_agent = ScoringAgent(model=get_config_value(cfg, "agents.scoring.model"))
     scored_opportunities = scoring_agent.process(opportunities, founder_profile)
-    
+
     return {
         "articles": articles,
         "filtered": filtered,

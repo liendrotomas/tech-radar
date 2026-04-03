@@ -27,13 +27,22 @@ class FilterAgent(BaseAgent):
             "neural",
             "deep learning",
         ],
+        "ai": [
+            "AI",
+            "artificial intelligence",
+            "machine learning",
+            "LLM",
+            "neural",
+            "deep learning",
+        ],
         "robotics": ["robotics", "robot", "automation", "autonomous"],
         "startup": [
             "startup",
             "founder",
             "venture",
             "startup opportunity",
-            "investment"],
+            "investment",
+        ],
         "trending": [
             "breakthrough",
             "launch",
@@ -63,7 +72,12 @@ class FilterAgent(BaseAgent):
         "click here",
     }
 
-    def __init__(self, categories: List[str] = None, signal_threshold: float = 0.0, noise_threshold: float = 0.5) -> None:
+    def __init__(
+        self,
+        categories: List[str] = None,
+        signal_threshold: float = 0.0,
+        noise_threshold: float = 0.5,
+    ) -> None:
         """
         Initialize filter agent.
 
@@ -87,6 +101,9 @@ class FilterAgent(BaseAgent):
                 logger.warning(
                     f"Category '{category}' not found in KEYWORD_CATEGORIES. Adding to keywords directly."
                 )
+                logger.warning(
+                    f"Category '{category}' not found in KEYWORD_CATEGORIES. Adding to keywords directly."
+                )
                 self.keywords.add(category.lower())
 
     def _calculate_match_score(self, article: Dict) -> float:
@@ -96,7 +113,10 @@ class FilterAgent(BaseAgent):
         text = f"{title} {summary}"
 
         matches = sum(1 for keyword in self.keywords if keyword in text)
-        
+        logger.info(
+            f"Article: {title[:30]}... | Matches: {matches} | Score: {matches / max(len(self.keywords), 1):.2f}"
+        )
+
         return min(matches / max(len(self.keywords), 1), 1.0)
 
     def process(self, items: List[Dict]) -> List[Dict]:
@@ -107,9 +127,12 @@ class FilterAgent(BaseAgent):
             # Add noise score to penalize irrelevant articles
             noise_score = self.noise_score(item)  # Adjust weight of noise
             logger.info(
-            f"Article: {item.get('title', '')[:30]}... | Signal Score: {signal_score:.2f} | Noise Score: {noise_score:.2f}"
-        )
-            if signal_score >= self.signal_threshold and noise_score < self.noise_threshold:
+                f"Article: {item.get('title', '')[:30]}... | Signal Score: {signal_score:.2f} | Noise Score: {noise_score:.2f}"
+            )
+            if (
+                signal_score >= self.signal_threshold
+                and noise_score < self.noise_threshold
+            ):
                 item["filter_score"] = (signal_score, noise_score)
                 filtered.append(item)
         logger.info(

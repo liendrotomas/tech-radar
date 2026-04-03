@@ -1,7 +1,7 @@
 """Tech Radar entrypoint and CLI."""
 
 import argparse
-
+import os, sys
 from src.pipeline.daily_pipeline import run_daily_pipeline
 from src.utils.logger import get_logger
 
@@ -23,7 +23,16 @@ def cli() -> None:
     try:
         import json
 
-        setup_profile = json.loads(args.founder)
+        if args.founder.endswith(".json"):
+            founder_filename = args.founder
+        else:
+            founder_filename = args.founder + ".json"
+
+        with open(
+            os.path.join("src", "config", "profiles", founder_filename), "r"
+        ) as f:
+            setup_profile = json.load(f)
+
     except Exception as exc:
         logger.warning("Could not parse founder profile, using empty profile: %s", exc)
     results = run_daily_pipeline(founder_profile=setup_profile, args=args)
