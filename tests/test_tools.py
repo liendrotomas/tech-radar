@@ -1,3 +1,8 @@
+import sys, os
+
+this_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(this_dir, ".."))
+
 from src.config.config import load_config, get_config_value
 
 

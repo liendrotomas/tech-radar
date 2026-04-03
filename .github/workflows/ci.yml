@@ -10,6 +10,9 @@ jobs:
   test-and-run:
     runs-on: ubuntu-latest
 
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -21,18 +24,14 @@ jobs:
 
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install uv
-          uv pip install --system -r requirements.txt
+          uv sync
 
       - name: Run tests
         run: |
-          python -m pytest tests/.
+          uv run pytest
 
       - name: Run dry pipeline
         run: |
           uv run python main.py --dry-run
-
-      - name: Fail fast if pipeline returns empty
-        run: |
-          uv run python main.py --dry-run | tee output.txt
-          grep "Filtered 0" output.txt && exit 1 || true

@@ -35,8 +35,7 @@ def cli() -> None:
 
     except Exception as exc:
         logger.warning("Could not parse founder profile, using empty profile: %s", exc)
-
-    results = run_daily_pipeline(founder_profile=setup_profile)
+    results = run_daily_pipeline(founder_profile=setup_profile, args=args)
     logger.info(
         "Pipeline complete, opportunities=%d", len(results.get("opportunities", []))
     )
