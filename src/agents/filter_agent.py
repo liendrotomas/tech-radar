@@ -136,9 +136,6 @@ class FilterAgent(BaseAgent):
                 item["filter_score"] = (signal_score, noise_score)
                 filtered.append(item)
         logger.info(
-            f"Filtered {len(filtered)} out of {len(items)} articles with threshold {self.threshold}"
-        )
-        logger.info(
             f"Filtered {len(filtered)} out of {len(items)} articles with thresholds: signal={self.signal_threshold}, noise={self.noise_threshold}"
         )
         return filtered
