@@ -16,6 +16,7 @@ from agents.filter_agent import FilterAgent
 from agents.enrichment_agent import EnrichmentAgent
 from agents.opportunity_agent import OpportunityAgent
 
+
 def ingest_articles() -> List[Dict[str, Any]]:
     """Load config and fetch articles from RSS feeds."""
     cfg = load_config()
@@ -31,18 +32,25 @@ def run_daily_pipeline(founder_profile: Dict[str, Any] = None) -> Dict[str, Any]
     articles = ingest_articles()
     cfg = load_config()
 
-    filter_agent = FilterAgent(categories=["ai", "robotics", "startup"], threshold=get_config_value(cfg, "agents.filter.threshold", 0.1))
+    filter_agent = FilterAgent(
+        categories=["ai", "robotics", "startup"],
+        threshold=get_config_value(cfg, "agents.filter.threshold", 0.1),
+    )
     filtered = filter_agent.process(articles)
     top_articles = sorted(filtered, key=lambda x: x["filter_score"], reverse=True)[:5]
 
     # Create enrichment agent instance
-    enrichment_agent = EnrichmentAgent(model=get_config_value(cfg, "agents.enrichment.model", "gpt-placeholder"))
+    enrichment_agent = EnrichmentAgent(
+        model=get_config_value(cfg, "agents.enrichment.model", "gpt-placeholder")
+    )
     enriched = enrichment_agent.process(top_articles)
 
     # Create opportunity agent instance and generate ideas
-    opportunity_agent = OpportunityAgent(model=get_config_value(cfg, "agents.opportunity.model", "gpt-placeholder"))
+    opportunity_agent = OpportunityAgent(
+        model=get_config_value(cfg, "agents.opportunity.model", "gpt-placeholder")
+    )
     opportunities = opportunity_agent.process(enriched, founder_profile=founder_profile)
-    
+
     return {
         "articles": articles,
         "filtered": filtered,

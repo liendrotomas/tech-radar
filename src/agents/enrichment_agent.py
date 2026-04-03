@@ -15,6 +15,7 @@ import os
 
 load_dotenv()
 
+
 class EnrichmentAgent(BaseAgent):
     """Agent responsible for enriching events with metadata."""
 
@@ -50,6 +51,7 @@ class EnrichmentAgent(BaseAgent):
         text = response.output[0].content[0].text
 
         import json
+
         try:
             return json.loads(text)
         except:

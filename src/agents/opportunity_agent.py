@@ -9,12 +9,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class OpportunityAgent(BaseAgent):
     def __init__(self, model: str):
         self.client = OpenAI()
         self.model = model
 
-    def process(self, enriched_articles: List[Dict], founder_profile: Dict) -> List[Dict]:
+    def process(
+        self, enriched_articles: List[Dict], founder_profile: Dict
+    ) -> List[Dict]:
         # Implement grouping of similar trends before sending to LLM
         grouped_articles = self._group_similar_trends(enriched_articles)
         prompt = self._build_prompt(grouped_articles, founder_profile)
@@ -87,12 +90,10 @@ class OpportunityAgent(BaseAgent):
                     pass
 
             return [{"error": "failed_to_parse", "raw": content}]
-        
+
     def _group_similar_trends(self, articles: List[Dict]) -> List[Dict]:
         sorted_articles = sorted(
-            articles,
-            key=lambda a: a.get("filter_score", 0),
-            reverse=True
+            articles, key=lambda a: a.get("filter_score", 0), reverse=True
         )
 
         return sorted_articles[:15]

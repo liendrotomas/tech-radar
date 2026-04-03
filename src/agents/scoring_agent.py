@@ -68,7 +68,15 @@ class ScoringAgent(BaseAgent):
 
         # fallback: put all items at score 0
         return [
-            {"score": 0, "market_size": 0, "technical_advantage": 0, "timing": 0, "founder_fit": 0, "defensibility": 0, "notes": "failed_to_parse"}
+            {
+                "score": 0,
+                "market_size": 0,
+                "technical_advantage": 0,
+                "timing": 0,
+                "founder_fit": 0,
+                "defensibility": 0,
+                "notes": "failed_to_parse",
+            }
             for _ in opportunities
         ]
 
