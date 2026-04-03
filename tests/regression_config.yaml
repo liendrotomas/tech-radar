@@ -1,0 +1,19 @@
+
+ingestion:
+  rss:
+    urls:
+      - "https://techcrunch.com/feed/"
+      - "https://thenextweb.com/feed/"
+      - "https://hnrss.org/frontpage"
+      - "https://hnrss.org/newest"
+      - "http://export.arxiv.org/rss/cs.AI"
+    max_items: 10
+
+agents:
+  filter:
+    threshold: 0.03
+  enrichment:
+    llm_model: "placeholder-model"
+  opportunity:
+    model: "gpt-placeholder"
+    prompt_template: "Evaluate this event for startup opportunity"

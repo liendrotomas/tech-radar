@@ -11,3 +11,6 @@ wheels/
 
 .env
 .vscode/settings.json
+
+# Project generation
+bootstrap.py
