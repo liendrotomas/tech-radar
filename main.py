@@ -4,6 +4,7 @@ import argparse
 import os, sys
 from src.pipeline.daily_pipeline import run_daily_pipeline
 from src.utils.logger import get_logger
+from src.utils.report import print_report
 
 logger = get_logger("main")
 
@@ -39,6 +40,7 @@ def cli() -> None:
     logger.info(
         "Pipeline complete, opportunities=%d", len(results.get("opportunities", []))
     )
+    print_report(results)
 
     if args.dry_run:
         print("Dry run output:", results)

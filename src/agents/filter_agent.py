@@ -113,10 +113,6 @@ class FilterAgent(BaseAgent):
         text = f"{title} {summary}"
 
         matches = sum(1 for keyword in self.keywords if keyword in text)
-        logger.info(
-            f"Article: {title[:30]}... | Matches: {matches} | Score: {matches / max(len(self.keywords), 1):.2f}"
-        )
-
         return min(matches / max(len(self.keywords), 1), 1.0)
 
     def process(self, items: List[Dict]) -> List[Dict]:
