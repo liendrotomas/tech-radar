@@ -1,7 +1,7 @@
 from typing import List, Dict
 from openai import OpenAI
 import json
-
+import re
 from .base_agent import BaseAgent
 
 
@@ -10,8 +10,7 @@ class ScoringAgent(BaseAgent):
         self.client = OpenAI()
         self.model = model
 
-    # Optimize by batching multiple opportunities in a single LLM call instead of one per opportunity
-    def run(self, opportunities: List[Dict], founder_profile: Dict) -> List[Dict]:
+    def process(self, opportunities: List[Dict], founder_profile: Dict) -> List[Dict]:
         """Score a list of opportunity proposals in one request."""
         if not opportunities:
             return []
@@ -24,14 +23,14 @@ class ScoringAgent(BaseAgent):
         )
 
         content = response.output[0].content[0].text
-        parsed_list = self._parse_batch_response(content)
+        parsed_list = self._parse_batch_response(content, expected_len=len(opportunities))
 
         scored = []
         for opp, score_data in zip(opportunities, parsed_list):
             record = score_data.copy()
             record["original"] = opp
             scored.append(record)
-
+        
         return sorted(scored, key=lambda x: x.get("score", 0), reverse=True)
 
     def _build_batch_prompt(self, opportunities: List[Dict], founder: Dict) -> str:
@@ -53,20 +52,30 @@ class ScoringAgent(BaseAgent):
 
         Return ONLY valid JSON (list with same length as opportunities):
         [
-          {{"score": int, "market_size": int, "technical_advantage": int, "timing": int, "founder_fit": int, "defensibility": int, "notes": "..."}},
-          ...
+          {{"score": int, 
+          "market_size": int, 
+          "technical_advantage": int, 
+          "timing": int, 
+          "founder_fit": int, 
+          "defensibility": int, 
+          "notes": "..."}},
         ]
         """
 
-    def _parse_batch_response(self, content: str) -> List[Dict]:
+    def _parse_batch_response(self, content: str, expected_len: int) -> List[Dict]:
+        import json
+
         try:
             results = json.loads(content)
-            if isinstance(results, list):
+
+            # validar formato
+            if isinstance(results, list) and len(results) == expected_len:
                 return results
+
         except Exception:
             pass
 
-        # fallback: put all items at score 0
+        # fallback seguro
         return [
             {
                 "score": 0,
@@ -77,7 +86,7 @@ class ScoringAgent(BaseAgent):
                 "defensibility": 0,
                 "notes": "failed_to_parse",
             }
-            for _ in opportunities
+            for _ in range(expected_len)
         ]
 
     def _build_prompt(self, opp: Dict, founder: Dict) -> str:
@@ -113,9 +122,6 @@ class ScoringAgent(BaseAgent):
         """
 
     def _parse_response(self, content: str) -> Dict:
-        import json
-        import re
-
         try:
             return json.loads(content)
         except Exception:

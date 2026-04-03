@@ -29,10 +29,13 @@ ingestion:
 
 agents:
   filter:
-    threshold: 0.0
+    signal_threshold: 0.03
+    noise_threshold: 0.02
   enrichment:
     model: "gpt-4.1-mini"
   opportunity:
+    model: "gpt-4.1-mini"
+  scoring:
     model: "gpt-4.1-mini"
 
 database:

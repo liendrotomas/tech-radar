@@ -6,6 +6,7 @@ Filter agent for Tech Radar.
 - Keyword-based filtering with extensible category system
 """
 
+from turtle import title
 from typing import List, Dict, Set
 from .base_agent import BaseAgent
 from src.utils.logger import get_logger
@@ -32,20 +33,48 @@ class FilterAgent(BaseAgent):
             "founder",
             "venture",
             "startup opportunity",
-            "investment",
+            "investment"],
+        "trending": [
+            "breakthrough",
+            "launch",
+            "raises",
+            "open source",
+            "new model",
+            "benchmark",
+            "research",
         ],
     }
 
-    def __init__(self, categories: List[str] = None, threshold: float = 0.0) -> None:
+    NOISE_KEYWORDS = {
+        "newsletter",
+        "opinion",
+        "roundup",
+        "weekly recap",
+        "sponsored",
+        "press release",
+        "earnings call",
+        "stock price",
+        "celebrity",
+        "gossip",
+        "lifestyle",
+        "how to use chatgpt",
+        "beginner guide",
+        "top 10 tools",
+        "click here",
+    }
+
+    def __init__(self, categories: List[str] = None, signal_threshold: float = 0.0, noise_threshold: float = 0.5) -> None:
         """
         Initialize filter agent.
 
         Args:
             categories: List of category names to include (default: all)
-            threshold: Minimum match score (0.0-1.0) to keep article
+            signal_threshold: Minimum match score (0.0-1.0) to keep article
+            noise_threshold: Maximum noise score (0.0-1.0) to keep article
         """
         self.categories = categories or list(self.KEYWORD_CATEGORIES.keys())
-        self.threshold = threshold
+        self.signal_threshold = signal_threshold
+        self.noise_threshold = noise_threshold  # Adjust this value as needed
         self.keywords: Set[str] = set()
 
         # Build flat set of all keywords from selected categories
@@ -67,20 +96,34 @@ class FilterAgent(BaseAgent):
         text = f"{title} {summary}"
 
         matches = sum(1 for keyword in self.keywords if keyword in text)
-        logger.info(
-            f"Article: {title[:30]}... | Matches: {matches} | Score: {matches / max(len(self.keywords), 1):.2f}"
-        )
+        
         return min(matches / max(len(self.keywords), 1), 1.0)
 
     def process(self, items: List[Dict]) -> List[Dict]:
         """Filter and score articles."""
         filtered = []
         for item in items:
-            score = self._calculate_match_score(item)
-            if score >= self.threshold:
-                item["filter_score"] = score
+            signal_score = self._calculate_match_score(item)
+            # Add noise score to penalize irrelevant articles
+            noise_score = self.noise_score(item)  # Adjust weight of noise
+            logger.info(
+            f"Article: {item.get('title', '')[:30]}... | Signal Score: {signal_score:.2f} | Noise Score: {noise_score:.2f}"
+        )
+            if signal_score >= self.signal_threshold and noise_score < self.noise_threshold:
+                item["filter_score"] = (signal_score, noise_score)
                 filtered.append(item)
         logger.info(
-            f"Filtered {len(filtered)} out of {len(items)} articles with threshold {self.threshold}"
+            f"Filtered {len(filtered)} out of {len(items)} articles with thresholds: signal={self.signal_threshold}, noise={self.noise_threshold}"
         )
         return filtered
+
+    def noise_score(self, article: dict) -> int:
+        text = f"{article.get('title','')} {article.get('summary','')}".lower()
+
+        score = 0
+
+        for kw in self.NOISE_KEYWORDS:
+            if kw in text:
+                score += 1
+
+        return score
