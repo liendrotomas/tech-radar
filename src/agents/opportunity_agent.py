@@ -15,6 +15,7 @@ from .base_agent import BaseAgent
 
 logger = get_logger("opportunity_agent")
 
+
 class OpportunityAgent(BaseAgent):
     """Agent responsible for generating startup ideas from articles."""
 
