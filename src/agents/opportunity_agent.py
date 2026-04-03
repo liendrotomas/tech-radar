@@ -26,7 +26,6 @@ class OpportunityAgent(BaseAgent):
             model=self.model,
             input=prompt,
         )
-
         content = response.output[0].content[0].text
         return self._parse_response(content)
 
@@ -52,7 +51,7 @@ class OpportunityAgent(BaseAgent):
 
         {json.dumps(founder, indent=2)}
 
-        Identify 3-5 HIGH-CONVICTION startup opportunities.
+        Identify one or more HIGH-CONVICTION startup opportunities.
 
         Rules:
         - Must be technically grounded
@@ -95,5 +94,4 @@ class OpportunityAgent(BaseAgent):
         sorted_articles = sorted(
             articles, key=lambda a: a.get("filter_score", 0), reverse=True
         )
-
         return sorted_articles[:15]
