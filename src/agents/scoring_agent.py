@@ -54,7 +54,9 @@ class ScoringAgent(BaseAgent):
 
         Return ONLY valid JSON (list with same length as opportunities):
         [
-          {{"score": int, 
+          {{
+          "name": str,
+          "score": int, 
           "market_size": int, 
           "technical_advantage": int, 
           "timing": int, 
@@ -80,6 +82,7 @@ class ScoringAgent(BaseAgent):
         # fallback seguro
         return [
             {
+                "name": "N/A",
                 "score": 0,
                 "market_size": 0,
                 "technical_advantage": 0,
@@ -113,6 +116,7 @@ class ScoringAgent(BaseAgent):
         Return ONLY JSON:
 
         {{
+        "name": str,
         "score": int,
         "market_size": int,
         "technical_advantage": int,
