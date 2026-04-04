@@ -17,6 +17,13 @@ def cli() -> None:
     parser.add_argument(
         "--founder", type=str, default="{}", help="Founder profile JSON string"
     )
+    parser.add_argument(
+        "--update_db",
+        action="store_true",
+        default=False,
+        help="Update the database with new opportunities",
+    )
+
     args = parser.parse_args()
 
     logger.info("Starting Tech Radar daily pipeline")

@@ -6,18 +6,38 @@ ingestion:
     urls:
       - "https://techcrunch.com/feed/"
       - "https://thenextweb.com/feed/"
-      - "https://hnrss.org/frontpage"
-      - "https://hnrss.org/newest"
       - "http://export.arxiv.org/rss/cs.AI"
-      # Tech general
-      - "https://techcrunch.com/feed/"
-      # Hacker News
-      - "https://hnrss.org/frontpage"
-      - "https://hnrss.org/newest"
 
-      # AI papers
+      # Papers
+      - "https://arxiv.org/rss/cs.RO"
+      - "https://arxiv.org/rss/eess.AS"      
       - "http://export.arxiv.org/rss/cs.AI"
       - "http://export.arxiv.org/rss/cs.LG"
+
+      # Industry
+      - "https://techcrunch.com/tag/robotics/feed/"
+      - "https://techcrunch.com/tag/space/feed/"
+      - "https://spacenews.com/feed/"
+
+      # Research engineering
+      - "https://spectrum.ieee.org/rss/robotics/fulltext"
+      - "https://www.technologyreview.com/feed/"
+      - "https://technology.nasa.gov/rss.xml"
+
+      # Defense
+      - "https://www.darpa.mil/rss"
+
+      # Hardware
+      - "https://hackaday.com/blog/feed/"
+
+      # Startups
+      - "https://news.crunchbase.com/feed/"
+
+      # Patents
+      - "https://patents.google.com/rss/search?q=robotics"
+
+      # Tech general
+      - "https://techcrunch.com/feed/"
 
       # Startups / VC
       - "https://www.ycombinator.com/blog/feed"
@@ -25,7 +45,7 @@ ingestion:
       # Optional
       - "https://www.producthunt.com/feed"
 
-    max_items: 20
+    max_items: 100
 
 agents:
   filter:
@@ -37,7 +57,3 @@ agents:
     model: "gpt-4.1-mini"
   scoring:
     model: "gpt-4.1-mini"
-
-database:
-  backend: "sqlite"
-  dsn: "sqlite:///tech_radar.db"

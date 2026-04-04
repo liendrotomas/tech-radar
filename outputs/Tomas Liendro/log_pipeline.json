@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-04-05T00:16:21.520535",
+    "articles_count": 20,
+    "filtered_count": 13,
+    "opportunities_count": 3
+  },
+  {
+    "date": "2026-04-05T00:18:36.824674",
+    "articles_count": 20,
+    "filtered_count": 13,
+    "opportunities_count": 3
+  },
+  {
+    "date": "2026-04-05T00:19:19.422187",
+    "articles_count": 20,
+    "filtered_count": 13,
+    "opportunities_count": 3
+  },
+  {
+    "date": "2026-04-05T01:14:52.346852",
+    "articles_count": 20,
+    "filtered_count": 11,
+    "opportunities_count": 3
+  }
+]
