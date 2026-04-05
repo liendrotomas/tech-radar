@@ -114,6 +114,50 @@ tech-radar/
 └── README.md               # This file
 ```
 
+## Main Dependency Diagram
+
+This diagram shows the `main.py` execution path, the pipeline stages invoked by `run_daily_pipeline()`, and the output artifacts created by the run.
+
+```mermaid
+flowchart TB
+    Main["main.py"]
+    CLI["cli()"]
+    Run["run_daily_pipeline()"]
+    Logger["get_logger()"]
+    Config["load_config() / get_config_value()"]
+    Ingest["ingest_articles()"]
+    Fetch["fetch_rss_articles()"]
+    Filter["FilterAgent.process()"]
+    Enrich["EnrichmentAgent.process()"]
+    Opportunity["OpportunityAgent.process()"]
+    Scoring["ScoringAgent.process()"]
+    Print["print_report()"]
+    UpdateDB["update_opportunity_database()"]
+    LogRun["log_pipeline_run()"]
+    Results["results dict"]
+    Files["outputs/<name>/opportunities.json\noutputs/<name>/log_pipeline.json"]
+
+    Main --> CLI
+    Main --> Logger
+    CLI --> Run
+    CLI --> Results
+    Run --> Config
+    Run --> Ingest
+    Ingest --> Fetch
+    Run --> Filter
+    Run --> Enrich
+    Run --> Opportunity
+    Run --> Scoring
+    Run --> Print
+    Run --> Results
+    Run --> UpdateDB
+    Run --> LogRun
+    UpdateDB --> Files
+    LogRun --> Files
+    Results --> Print
+    Results --> Files
+```
+
 ## Development
 
 ### Adding New Agents
