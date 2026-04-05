@@ -53,8 +53,6 @@ def run_daily_pipeline(
         is_mock=is_mock,
     )
 
-    cfg = load_config()
-
     filter_agent = FilterAgent(
         signal_threshold=get_config_value(cfg, "agents.filter.signal_threshold"),
         noise_threshold=get_config_value(cfg, "agents.filter.noise_threshold"),

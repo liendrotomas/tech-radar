@@ -13,6 +13,7 @@ import json, re, os
 import requests
 from utils.logger import get_logger
 from utils.formatting import html_clean_summary
+from src.templates.outputs import feed_template
 
 logger = get_logger("ingestion.rss")
 
@@ -94,17 +95,19 @@ def fetch_rss_articles(
                 else:
                     published_at = datetime.utcnow().isoformat()
 
-                article = {
-                    "id": max_id,
-                    "title": entry.get("title", "Untitled"),
-                    "link": link,
-                    "summary": CLEANUP_FUNCTIONS.get(source_name, html_clean_summary)(
-                        entry.get("summary", "")
-                    ),
-                    "published_at": published_at,
-                    "source": source_name,
-                    "keywords": [],  # Can be enriched later by enrichment agent
-                }
+                # Create a new article dict based on the feed_template
+                article = feed_template.copy()
+                article["id"] = max_id
+                article["title"] = entry.get("title", "Untitled")
+                article["link"] = link
+                article["summary"] = CLEANUP_FUNCTIONS.get(
+                    source_name, html_clean_summary
+                )(entry.get("summary", ""))
+                article["published_at"] = published_at
+                article["source"] = source_name
+                article["keywords"] = entry.get("tags", entry.get("keywords", []))
+                if article["keywords"] == []:
+                    logger.info(f"Error occurred while fetching keywords for {link}.")
 
                 articles.append(article)
 

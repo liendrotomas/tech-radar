@@ -6,7 +6,6 @@ Filter agent for Tech Radar.
 - Keyword-based filtering with extensible category system
 """
 
-from turtle import title
 from typing import List, Dict, Set
 from .base_agent import BaseAgent
 from src.utils.logger import get_logger
