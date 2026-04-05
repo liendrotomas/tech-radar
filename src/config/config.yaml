@@ -45,7 +45,7 @@ ingestion:
       # Optional
       - "https://www.producthunt.com/feed"
 
-    max_items: 100
+    max_items: 5
 
 agents:
   filter:

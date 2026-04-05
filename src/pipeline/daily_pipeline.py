@@ -57,7 +57,7 @@ def run_daily_pipeline(
         signal_threshold=get_config_value(cfg, "agents.filter.signal_threshold"),
         noise_threshold=get_config_value(cfg, "agents.filter.noise_threshold"),
     )
-    filtered = filter_agent.process(articles)
+    filtered = filter_agent.process(articles, args=args)
 
     # Create enrichment agent instance
     enrichment_agent = EnrichmentAgent(

@@ -23,6 +23,12 @@ def cli() -> None:
         default=False,
         help="Update the database with new opportunities",
     )
+    parser.add_argument(
+        "--filter-update-all",
+        action="store_true",
+        default=False,
+        help="Update the filtered and enriched database with all articles instead of just new ones",
+    )
 
     args = parser.parse_args()
 

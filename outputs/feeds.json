@@ -1,1 +1,133 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Peter Thiel\u2019s big bet on solar-powered cow collars",
+    "link": "https://techcrunch.com/2026/04/04/unpacking-peter-thiels-big-bet-on-solar-powered-cow-collars/",
+    "summary": "Why did Founders Fund invest $220 million in cattle management startup Halter?",
+    "published_at": "2026-04-04T21:30:00",
+    "source": "TechCrunch",
+    "keywords": [
+      "Startups",
+      "Hardware",
+      "Venture"
+    ],
+    "signal_score": 0.09090909090909091,
+    "noise_score": 0,
+    "is_noise": false,
+    "processing_metadata": [
+      {
+        "last_processed": "2026-04-05T21:06:21.014876",
+        "threshold_signal": 0.03,
+        "threshold_noise": 0.02
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Embattled startup Delve has \u2018parted ways\u2019 with Y Combinator",
+    "link": "https://techcrunch.com/2026/04/04/embattled-startup-delve-has-parted-ways-with-y-combinator/",
+    "summary": "The controversy around Delve appears to have cost the compliance startup its relationship with accelerator Y Combinator.",
+    "published_at": "2026-04-04T21:03:43",
+    "source": "TechCrunch",
+    "keywords": [
+      "Enterprise",
+      "Startups",
+      "Delve",
+      "karun kaushik",
+      "selin kocalar",
+      "Y Combinator"
+    ],
+    "signal_score": 0.045454545454545456,
+    "noise_score": 0,
+    "is_noise": false,
+    "processing_metadata": [
+      {
+        "last_processed": "2026-04-05T21:06:21.014876",
+        "threshold_signal": 0.03,
+        "threshold_noise": 0.02
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Anthropic says Claude Code subscribers will need to pay extra for OpenClaw usage",
+    "link": "https://techcrunch.com/2026/04/04/anthropic-says-claude-code-subscribers-will-need-to-pay-extra-for-openclaw-support/",
+    "summary": "It\u2019s about to become more expensive for Claude Code subscribers to use Anthropic\u2019s coding assistant with OpenClaw and other third-party tools.",
+    "published_at": "2026-04-04T16:32:22",
+    "source": "TechCrunch",
+    "keywords": [
+      "AI",
+      "Startups",
+      "Anthropic",
+      "claude code",
+      "openclaw",
+      "Peter Steinberger"
+    ],
+    "signal_score": 0.0,
+    "noise_score": 0,
+    "is_noise": true,
+    "processing_metadata": [
+      {
+        "last_processed": "2026-04-05T21:06:21.015782",
+        "threshold_signal": 0.03,
+        "threshold_noise": 0.02
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "After fighting malware for decades, this cybersecurity veteran is now hacking drones",
+    "link": "https://techcrunch.com/2026/04/04/after-fighting-malware-for-decades-this-cybersecurity-veteran-is-now-hacking-drones/",
+    "summary": "Mikko Hypp\u00f6nen is one of the most recognizable faces of the cybersecurity industry. After fighting computer viruses, worms, and malware, for more than 35 years, he tells TechCrunch why he is now working on systems to stop killer drones.",
+    "published_at": "2026-04-04T13:00:00",
+    "source": "TechCrunch",
+    "keywords": [
+      "Security",
+      "malware",
+      "drones",
+      "russia",
+      "Spyware",
+      "Virus",
+      "computer virus",
+      "cybersecurity",
+      "cybercrime",
+      "mikko hypponen"
+    ],
+    "signal_score": 0.0,
+    "noise_score": 0,
+    "is_noise": true,
+    "processing_metadata": [
+      {
+        "last_processed": "2026-04-05T21:06:21.016068",
+        "threshold_signal": 0.03,
+        "threshold_noise": 0.02
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Anthropic is having a moment in the private markets; SpaceX could spoil the party",
+    "link": "https://techcrunch.com/2026/04/03/anthropic-is-having-a-moment-in-the-private-markets-spacex-could-spoil-the-party/",
+    "summary": "Glen Anderson, president of Rainmaker Securities, says the secondary market for private shares has never been more active \u2014 with Anthropic the hottest trade around, OpenAI losing ground, and SpaceX's looming IPO poised to reshape the landscape for everyone.",
+    "published_at": "2026-04-04T01:31:00",
+    "source": "TechCrunch",
+    "keywords": [
+      "AI",
+      "TC",
+      "SpaceX",
+      "Exclusive",
+      "OpenAI",
+      "Anthropic"
+    ],
+    "signal_score": 0.045454545454545456,
+    "noise_score": 0,
+    "is_noise": false,
+    "processing_metadata": [
+      {
+        "last_processed": "2026-04-05T21:06:21.016068",
+        "threshold_signal": 0.03,
+        "threshold_noise": 0.02
+      }
+    ]
+  }
+]

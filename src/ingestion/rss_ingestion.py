@@ -105,7 +105,17 @@ def fetch_rss_articles(
                 )(entry.get("summary", ""))
                 article["published_at"] = published_at
                 article["source"] = source_name
-                article["keywords"] = entry.get("tags", entry.get("keywords", []))
+                # Get keywords.terms or tags or keywords if available, else empty list
+                article["keywords"] = []
+                if "keywords" in entry and isinstance(entry["keywords"], list):
+                    article["keywords"] = [
+                        kw.get("term", "") for kw in entry["keywords"]
+                    ]
+                elif "tags" in entry and isinstance(entry["tags"], list):
+                    article["keywords"] = [tag.get("term", "") for tag in entry["tags"]]
+                elif "keywords" in entry and isinstance(entry["keywords"], str):
+                    article["keywords"] = re.split(r"[,\s]+", entry["keywords"])
+
                 if article["keywords"] == []:
                     logger.info(f"Error occurred while fetching keywords for {link}.")
 
