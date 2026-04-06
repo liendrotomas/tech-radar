@@ -47,6 +47,24 @@ ingestion:
 
     max_items: 5
 
+  opportunity:
+    urls:
+    - https://www.nasa.gov/rss/dyn/breaking_news.rss
+    - https://www.nasa.gov/rss/dyn/technology.rss
+    - https://www.nasa.gov/rss/dyn/artemis.rss
+    - https://api.www.sbir.gov/public/api/solicitations
+    - https://www.darpa.mil/news-events
+    - https://www.darpa.mil/news-events
+    - http://sci.esa.int/newssyndication/rss/sciweb.xml
+    - https://www.nsf.gov/rss/funding.xml
+    - https://www.nsf.gov/rss/upcoming-due-dates.xml
+    - https://api.www.sbir.gov/public/api/solicitations
+    - https://www.ycombinator.com/blog
+    - https://www.techstars.com/newsroom
+    
+    
+    max_items: 5
+
 agents:
   filter:
     signal_threshold: 0.03
