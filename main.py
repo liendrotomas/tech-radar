@@ -27,16 +27,10 @@ def cli() -> None:
         "--founder", type=str, default="tom", help="Founder profile JSON string"
     )
     parser.add_argument(
-        "--update_db",
+        "--update-db",
         action="store_true",
         default=False,
         help="Update the database with new opportunities",
-    )
-    parser.add_argument(
-        "--filter-update-all",
-        action="store_true",
-        default=False,
-        help="Update the filtered and enriched database with all articles instead of just new ones",
     )
     parser.add_argument(
         "--database-file",
@@ -49,6 +43,12 @@ def cli() -> None:
         type=str,
         default=DEFAULT_OUTPUT_DIR,
         help="Path to the opportunities output file",
+    )
+    parser.add_argument(
+        "--generate-opp",
+        action="store_true",
+        default=False,
+        help="Generate opportunities from enriched articles",
     )
 
     args = parser.parse_args()

@@ -62,5 +62,53 @@
     "timing": 7,
     "defensibility": 6,
     "notes": "Smaller niche market with increasing relevance; technically challenging with need for ongoing R&D; founder fits well for fast integration and tool building; wedge moderate but requires sustained effort and domain expertise."
+  },
+  {
+    "name": "Agentic AI Systems for Interactive Optimization",
+    "description": "Build AI-native agentic systems that integrate multiple LLM-powered modules for domain-specific optimization via interactive conversations and role-based collaboration. Focus on creating modular, neuro-symbolic agents for real-world decision-making tasks such as scheduling, supply chain, financial portfolio management, or infrastructure investment, leveraging recent advances in multi-agent coordination, role clarity, and interactive evaluation.",
+    "why_now": "Recent breakthroughs in multi-agent LLM frameworks (e.g., Holos, ChatDev, Qwen), role-consistency improvements, and frameworks for interactive optimization indicate that AI agents can now reliably handle complex, long-horizon planning and reasoning tasks. Computational capacity and tool integration have improved, enabling practical deployment of agentic systems beyond one-shot tasks. The complexity of modern enterprise workflows and optimization problems calls for AI-native decision agents as force multipliers.",
+    "founder_fit": 9,
+    "wedge": "Clear wedge by focusing on domains where interactive AI agent-based optimization outperforms traditional model-free or single-shot approaches. Leverage early adopter enterprises or domain experts frustrated by current static optimization tools. Opportunities to develop proprietary role-clarity frameworks and domain-specific customization improve defensibility.",
+    "wedge_score": 8,
+    "risk": "Medium - requires deep system design, integration with domain expertise, and initial market education to convince users, but growing AI agent adoption supports product-market fit.",
+    "required_insight": "Understanding of multi-agent role clarity mechanisms, cost and computation trade-offs in agent orchestration, and domain-specific constraints for high-value optimization use-cases.",
+    "score": 8,
+    "market_size": 8,
+    "technical_advantage": 8,
+    "timing": 9,
+    "defensibility": 8,
+    "notes": "Strong alignment with Tomas' systems thinking, agentic AI interest, and rapid prototyping skills. Market is sizable with modernization waves in AI agents for complex workflows. Timing is excellent given recent breakthroughs. Defensibility solid due to proprietary role-clarity and domain specialization, but medium risk from complexity and education required."
+  },
+  {
+    "name": "LLM-Powered Automated Technical Verification and Validation (AutoVerifier & AIVV)",
+    "description": "Develop AI-driven agentic verification and validation systems for complex technical claim assessment, regulatory compliance, and anomaly detection in time-series or engineering contexts. Products would automate structured claim extraction, cross-source consistency checks, and expert-level decision-making workflows to reduce human-in-the-loop bottlenecks in domains like technology R&D, finance, and critical infrastructure.",
+    "why_now": "There is increasing demand for trustworthy AI systems that can reliably validate technical claims and flag system anomalies as complexity grows. Newly published agentic frameworks like AutoVerifier and AIVV show feasibility of scalable LLM councils reasoning collaboratively over multi-layer structured data. Industries face rising pressures for transparent and explainable AI-driven oversight, and recent advances enable hybrid neural-symbolic and multi-agent approaches.",
+    "founder_fit": 7,
+    "wedge": "Moderate to strong wedge due to unmet market needs for automated V&V in high-stakes, compliance-heavy technical fields. Opportunities to build proprietary knowledge-graph-integrated pipelines and multi-agent councils that outperform manual or rule-based approaches. Barriers to entry include expertise required and integration complexity.",
+    "wedge_score": 7,
+    "risk": "Medium - verticalization and trust-building required; sales cycles may be longer depending on target industries; technical complexity requires strong execution.",
+    "required_insight": "Deep understanding of structured knowledge extraction, multi-agent LLM orchestration, domain-specific compliance challenges, and data pipeline engineering.",
+    "score": 7,
+    "market_size": 7,
+    "technical_advantage": 8,
+    "timing": 8,
+    "defensibility": 7,
+    "notes": "Good technical fit with Tomas' strengths in multi-agent systems and pipelines, but domain verticalization and longer sales cycles less ideal given his constraints and preference for faster validation. Market is niche but critical. Timing solid due to compliance and trustworthy AI trends. Defensibility moderate but requires deep domain expertise."
+  },
+  {
+    "name": "AI-Driven Market Intelligence and Tech Radar Platform",
+    "description": "Build a platform that aggregates, filters, and synthesizes cutting-edge AI and deep tech trends into actionable intelligence using agentic LLMs, advanced data pipelines, and automation. This product would serve innovators, investors, and operators by providing curated insights, risk assessment, and opportunity spotting powered by scalable AI workflows designed for real-time relevance and signal extraction.",
+    "why_now": "The explosion of AI research, startups, and technologies has created information overload. Agentic LLMs and neuro-symbolic reasoning enable automated and reliable tech radar pipelines that were previously manual or shallow. The combination of multi-agent orchestration, scalable data ingestion, and trend synthesis enables differentiation in speed and quality.",
+    "founder_fit": 10,
+    "wedge": "Strong wedge in a fragmented space where current offerings are manual or shallow. Deep technical expertise can lead to defensibility via proprietary pipelines and data curation mechanisms. Early traction possible through targeted verticals like VC funds, innovation teams, or strategy groups.",
+    "wedge_score": 8,
+    "risk": "Low to medium - relatively fast to market with MVP given existing models and data streams; monetization possible early via subscriptions or API; requires continuous innovation in curation quality.",
+    "required_insight": "Knowledge of scalable data pipelines, agentic LLM coordination for synthesis, and domain expertise in AI/deeptech trends combined with founder business intuition in information markets.",
+    "score": 9,
+    "market_size": 7,
+    "technical_advantage": 7,
+    "timing": 9,
+    "defensibility": 8,
+    "notes": "Excellent fit for Tomas given current interest and builder style, rapid iteration, and automation focus. Market is broad but somewhat fragmented; competition exists but early mover advantage on quality tech radar possible. Timing is prime due to explosion of AI research and noise. Defensibility via proprietary pipelines and curation aligns well."
   }
 ]

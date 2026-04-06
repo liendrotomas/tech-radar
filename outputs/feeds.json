@@ -20,7 +20,7 @@
     "is_noise": true,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.896013",
+        "last_processed": "2026-04-06T23:36:07.039773",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -44,7 +44,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.906203",
+        "last_processed": "2026-04-06T23:36:07.039773",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -79,7 +79,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.906888",
+        "last_processed": "2026-04-06T23:36:07.039773",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -119,7 +119,7 @@
     "is_noise": true,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.906888",
+        "last_processed": "2026-04-06T23:36:07.039773",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -147,7 +147,7 @@
     "is_noise": true,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.906888",
+        "last_processed": "2026-04-06T23:36:07.039773",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -172,7 +172,7 @@
     "is_noise": true,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.906888",
+        "last_processed": "2026-04-06T23:36:07.039773",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -200,7 +200,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.907900",
+        "last_processed": "2026-04-06T23:36:07.039773",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -237,7 +237,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.907900",
+        "last_processed": "2026-04-06T23:36:07.045095",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -278,7 +278,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.907900",
+        "last_processed": "2026-04-06T23:36:07.045095",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -317,7 +317,7 @@
     "is_noise": true,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.908895",
+        "last_processed": "2026-04-06T23:36:07.045095",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -348,7 +348,7 @@
     "is_noise": true,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.908895",
+        "last_processed": "2026-04-06T23:36:07.045095",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -375,7 +375,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.908895",
+        "last_processed": "2026-04-06T23:36:07.046122",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -413,7 +413,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.908895",
+        "last_processed": "2026-04-06T23:36:07.046122",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -450,7 +450,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.909897",
+        "last_processed": "2026-04-06T23:36:07.046122",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -489,7 +489,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.909897",
+        "last_processed": "2026-04-06T23:36:07.047120",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -527,7 +527,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.909897",
+        "last_processed": "2026-04-06T23:36:07.047120",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -567,7 +567,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.909897",
+        "last_processed": "2026-04-06T23:36:07.047120",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -606,7 +606,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.910897",
+        "last_processed": "2026-04-06T23:36:07.047120",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -643,7 +643,7 @@
     "is_noise": true,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.910897",
+        "last_processed": "2026-04-06T23:36:07.048134",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -672,7 +672,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.910897",
+        "last_processed": "2026-04-06T23:36:07.048134",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -710,7 +710,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.910897",
+        "last_processed": "2026-04-06T23:36:07.048134",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -747,7 +747,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.911898",
+        "last_processed": "2026-04-06T23:36:07.048134",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -786,7 +786,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.911898",
+        "last_processed": "2026-04-06T23:36:07.048882",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -825,7 +825,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.911898",
+        "last_processed": "2026-04-06T23:36:07.048882",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -861,7 +861,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.912912",
+        "last_processed": "2026-04-06T23:36:07.048882",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -898,7 +898,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.912912",
+        "last_processed": "2026-04-06T23:36:07.048882",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -933,7 +933,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.912912",
+        "last_processed": "2026-04-06T23:36:07.050122",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -971,7 +971,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.913894",
+        "last_processed": "2026-04-06T23:36:07.050992",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1010,7 +1010,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.913894",
+        "last_processed": "2026-04-06T23:36:07.050992",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1047,7 +1047,7 @@
     "is_noise": true,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.913894",
+        "last_processed": "2026-04-06T23:36:07.050992",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1070,7 +1070,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.914898",
+        "last_processed": "2026-04-06T23:36:07.050992",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1109,7 +1109,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.914898",
+        "last_processed": "2026-04-06T23:36:07.050992",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1147,7 +1147,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.914898",
+        "last_processed": "2026-04-06T23:36:07.050992",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1183,7 +1183,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.915899",
+        "last_processed": "2026-04-06T23:36:07.053717",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1219,7 +1219,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.916431",
+        "last_processed": "2026-04-06T23:36:07.053717",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1254,7 +1254,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.916431",
+        "last_processed": "2026-04-06T23:36:07.053717",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1289,7 +1289,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.916431",
+        "last_processed": "2026-04-06T23:36:07.053717",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1327,7 +1327,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.916431",
+        "last_processed": "2026-04-06T23:36:07.054726",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1363,7 +1363,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.917439",
+        "last_processed": "2026-04-06T23:36:07.054726",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1400,7 +1400,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.917439",
+        "last_processed": "2026-04-06T23:36:07.054726",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1435,7 +1435,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.917439",
+        "last_processed": "2026-04-06T23:36:07.055742",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1474,7 +1474,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.918437",
+        "last_processed": "2026-04-06T23:36:07.055742",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1510,7 +1510,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.918437",
+        "last_processed": "2026-04-06T23:36:07.055742",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1547,7 +1547,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.918437",
+        "last_processed": "2026-04-06T23:36:07.055742",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1582,7 +1582,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.919436",
+        "last_processed": "2026-04-06T23:36:07.056731",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1618,7 +1618,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.919436",
+        "last_processed": "2026-04-06T23:36:07.056731",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1653,7 +1653,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.919436",
+        "last_processed": "2026-04-06T23:36:07.057744",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1689,7 +1689,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.920444",
+        "last_processed": "2026-04-06T23:36:07.057744",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1723,7 +1723,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.920444",
+        "last_processed": "2026-04-06T23:36:07.057744",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1758,7 +1758,7 @@
     "is_noise": false,
     "processing_metadata": [
       {
-        "last_processed": "2026-04-06T21:31:05.920444",
+        "last_processed": "2026-04-06T23:36:07.058728",
         "threshold_signal": 0.03,
         "threshold_noise": 0.02
       }
@@ -1776,6 +1776,193 @@
         "LLM evaluation",
         "temporal health data",
         "AI benchmarking"
+      ]
+    }
+  },
+  {
+    "id": 51,
+    "title": "Startup Battlefield 200 applications open: A chance for VC access, TechCrunch coverage, and $100K",
+    "link": "https://techcrunch.com/2026/04/06/startup-battlefield-200-applications-open-get-vc-access-techcrunch-coverage-and-100k/",
+    "summary": "Nominate your startup, or one you know that deserves the spotlight, and finish the process by applying. Selected 200 have a chance at VC access, TechCrunch coverage, and $100K for Startup Battlefield 200. Applications close on May 27.",
+    "published_at": "2026-04-06T14:30:00",
+    "source": "TechCrunch",
+    "keywords": [
+      "TC",
+      "Startups",
+      "Climate",
+      "Fintech",
+      "Biotech & Health",
+      "Venture",
+      "AI",
+      "Apps",
+      "Robotics",
+      "Fundraising",
+      "Startup Battlefield",
+      "Startup Battlefield 200",
+      "TechCrunch Disrupt 2026"
+    ],
+    "signal_score": 0.045454545454545456,
+    "noise_score": 0,
+    "is_noise": false,
+    "processing_metadata": [
+      {
+        "last_processed": "2026-04-06T23:36:07.058728",
+        "threshold_signal": 0.03,
+        "threshold_noise": 0.02
+      }
+    ],
+    "enriched": {
+      "what": "Startup Battlefield 200 is accepting applications until May 27 to select 200 startups for a chance to gain venture capital access, TechCrunch media coverage, and $100K in funding.",
+      "why": "This initiative aims to spotlight promising startups, providing them with resources and exposure to accelerate their growth and visibility in the tech ecosystem.",
+      "opportunity": "Nominate and apply for Startup Battlefield 200 to secure funding, increase investor visibility, and leverage TechCrunch's platform for brand recognition.",
+      "tags": [
+        "Startup Battlefield 200",
+        "venture capital",
+        "TechCrunch coverage",
+        "startup funding",
+        "startup applications",
+        "early-stage startups",
+        "tech media"
+      ]
+    }
+  },
+  {
+    "id": 52,
+    "title": "How to use the new ChatGPT app integrations, including DoorDash, Spotify, Uber, and others",
+    "link": "https://techcrunch.com/2026/04/06/how-to-use-chatgpt-apps-doordash-spotify-uber/",
+    "summary": "Learn how to use Spotify, Canva, Figma, Expedia, and other apps directly in ChatGPT.",
+    "published_at": "2026-04-06T14:11:42",
+    "source": "TechCrunch",
+    "keywords": [
+      "AI",
+      "Apps",
+      "ChatGPT",
+      "evergreens"
+    ],
+    "signal_score": 0.0,
+    "noise_score": 0,
+    "is_noise": true,
+    "processing_metadata": [
+      {
+        "last_processed": "2026-04-06T23:36:07.058728",
+        "threshold_signal": 0.03,
+        "threshold_noise": 0.02
+      }
+    ],
+    "enriched": "N/A"
+  },
+  {
+    "id": 53,
+    "title": "Ticket savings of up to $500 this week for TechCrunch Disrupt 2026",
+    "link": "https://techcrunch.com/2026/04/06/massive-ticket-savings-of-up-to-500-this-week-for-techcrunch-disrupt-2026/",
+    "summary": "Starting today, you have 5 days to save\u00a0nearly $500\u00a0on your ticket to\u00a0TechCrunch\u00a0Disrupt 2026. This offer disappears Friday, April 10, at 11:59 p.m. PT. Register here to secure these low rates.",
+    "published_at": "2026-04-06T14:00:00",
+    "source": "TechCrunch",
+    "keywords": [
+      "Fintech",
+      "Fundraising",
+      "Robotics",
+      "Gadgets",
+      "Apps",
+      "AI",
+      "Media & Entertainment",
+      "Venture",
+      "Biotech & Health",
+      "Enterprise",
+      "Climate",
+      "Hardware",
+      "Space",
+      "Security",
+      "Transportation",
+      "Startups",
+      "TC",
+      "TechCrunch Disrupt 2026"
+    ],
+    "signal_score": 0.0,
+    "noise_score": 0,
+    "is_noise": true,
+    "processing_metadata": [
+      {
+        "last_processed": "2026-04-06T23:36:07.058728",
+        "threshold_signal": 0.03,
+        "threshold_noise": 0.02
+      }
+    ],
+    "enriched": "N/A"
+  },
+  {
+    "id": 54,
+    "title": "Convicted spyware maker Bryan Fleming avoids jail at sentencing",
+    "link": "https://techcrunch.com/2026/04/06/convicted-spyware-maker-bryan-fleming-avoids-jail-at-sentencing/",
+    "summary": "The pcTattletale founder escapes a custodial sentence following the first successful prosecution of a spyware maker in the U.S. for over a decade.",
+    "published_at": "2026-04-06T13:03:04",
+    "source": "TechCrunch",
+    "keywords": [
+      "Security",
+      "bryan fleming",
+      "cybersecurity",
+      "data breach",
+      "pctattletale",
+      "stalkerware"
+    ],
+    "signal_score": 0.09090909090909091,
+    "noise_score": 0,
+    "is_noise": false,
+    "processing_metadata": [
+      {
+        "last_processed": "2026-04-06T23:36:07.059726",
+        "threshold_signal": 0.03,
+        "threshold_noise": 0.02
+      }
+    ],
+    "enriched": {
+      "what": "Bryan Fleming, founder of the spyware tool pcTattletale, was sentenced without jail time in the first successful U.S. prosecution of a spyware maker in over ten years.",
+      "why": "Despite the conviction, the court opted for a lenient sentence likely due to legal complexities and the novelty of prosecuting spyware developers.",
+      "opportunity": "Develop advanced anti-spyware software and monitoring services tailored to detect emerging spyware threats as legal enforcement against such tools gains momentum.",
+      "tags": [
+        "spyware",
+        "cybersecurity",
+        "legal",
+        "prosecution",
+        "software",
+        "tech regulation"
+      ]
+    }
+  },
+  {
+    "id": 55,
+    "title": "Spain\u2019s Xoople raises $130 million Series B to map the Earth for AI",
+    "link": "https://techcrunch.com/2026/04/06/spains-xoople-raises-130-million-series-b-to-map-the-earth-for-ai/",
+    "summary": "The company is also announcing a deal with L3Harris to build the sensors for Xoople's spacecraft.",
+    "published_at": "2026-04-06T13:00:00",
+    "source": "TechCrunch",
+    "keywords": [
+      "Space",
+      "AI",
+      "Exclusive"
+    ],
+    "signal_score": 0.09090909090909091,
+    "noise_score": 0,
+    "is_noise": false,
+    "processing_metadata": [
+      {
+        "last_processed": "2026-04-06T23:36:07.059726",
+        "threshold_signal": 0.03,
+        "threshold_noise": 0.02
+      }
+    ],
+    "enriched": {
+      "what": "Spain-based Xoople secured $130 million in Series B funding to advance its Earth mapping technology for AI applications and announced a partnership with L3Harris to develop sensors for its spacecraft.",
+      "why": "The collaboration enables Xoople to enhance its sensor technology, crucial for capturing high-quality Earth data, positioning the company to meet increasing AI demand for precise geospatial information.",
+      "opportunity": "Develop specialized AI-driven analytics platforms that leverage Xoople\u2019s high-resolution Earth mapping data to provide actionable insights for sectors like agriculture, urban planning, and environmental monitoring.",
+      "tags": [
+        "SpaceTech",
+        "EarthObservation",
+        "AI",
+        "GeospatialData",
+        "SeriesB",
+        "SatelliteSensors",
+        "Partnership"
       ]
     }
   }

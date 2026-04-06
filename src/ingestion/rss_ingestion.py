@@ -35,7 +35,6 @@ def is_valid_url(url: str) -> bool:
 def fetch_rss_articles(
     urls: List[str],
     max_items: int = 50,
-    update_db: bool = False,
     is_mock: bool = False,
     database_file: str = None,
 ) -> List[Dict]:
@@ -126,14 +125,13 @@ def fetch_rss_articles(
 
                 if len(articles) >= max_items:
                     logger.info(f"Reached max_items limit: {max_items}")
-                    if update_db and not is_mock:
-                        logger.info("Updating feed database with new articles.")
-                        if database is []:
-                            database = articles
-                        else:
-                            database.extend(articles)
-                        with open(articles_database_file, "r+") as f:
-                            json.dump(database, f, indent=2)
+                    logger.info("Updating feed database with new articles.")
+                    if database is []:
+                        database = articles
+                    else:
+                        database.extend(articles)
+                    with open(articles_database_file, "r+") as f:
+                        json.dump(database, f, indent=2)
                     return articles
 
         except Exception as exc:

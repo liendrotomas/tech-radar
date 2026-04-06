@@ -26,7 +26,6 @@ import json
 def ingest_articles(
     rss_urls: List[str],
     max_items: int = 50,
-    update_db: bool = False,
     is_mock: bool = False,
     database_file: str = None,
 ) -> List[Dict[str, Any]]:
@@ -34,7 +33,6 @@ def ingest_articles(
     return fetch_rss_articles(
         urls=rss_urls,
         max_items=max_items,
-        update_db=update_db,
         is_mock=is_mock,
         database_file=database_file,
     )
@@ -74,20 +72,20 @@ def run_daily_pipeline(
 
     max_items = 1 if is_mock else get_config_value(cfg, "ingestion.rss.max_items", 50)
 
-    articles = ingest_articles(
-        rss_urls=get_config_value(cfg, "ingestion.rss.urls", []),
-        max_items=max_items,
-        update_db=getattr(args, "update_db", False),
-        is_mock=is_mock,
-        database_file=database_file,
-    )
-
+    if getattr(args, "update_db", False):
+        ingest_articles(
+            rss_urls=get_config_value(cfg, "ingestion.rss.urls", []),
+            max_items=max_items,
+            is_mock=is_mock,
+            database_file=database_file,
+        )
+    articles = retrieve_database(database_file)
     filter_agent = FilterAgent(
         signal_threshold=get_config_value(cfg, "agents.filter.signal_threshold"),
         noise_threshold=get_config_value(cfg, "agents.filter.noise_threshold"),
         database_file=database_file,
     )
-    filtered = filter_agent.process(retrieve_database(database_file), args=args)
+    filtered = filter_agent.process(articles, args=args)
 
     # Create enrichment agent instance
     enrichment_agent = EnrichmentAgent(
@@ -96,17 +94,22 @@ def run_daily_pipeline(
     )
     enriched = enrichment_agent.process(filtered)
 
-    # Create opportunity agent instance and generate ideas
-    opportunity_agent = OpportunityAgent(
-        model=get_config_value(cfg, "agents.opportunity.model")
-    )
-    opportunities = opportunity_agent.process(enriched, founder_profile=founder_profile)
+    if getattr(args, "generate_opp", False):
+        # Create opportunity agent instance and generate ideas
+        opportunity_agent = OpportunityAgent(
+            model=get_config_value(cfg, "agents.opportunity.model")
+        )
+        opportunities = opportunity_agent.process(
+            enriched, founder_profile=founder_profile
+        )
 
-    # Create a scoring agent instance and score the opportunities
-    scoring_agent = ScoringAgent(
-        model=get_config_value(cfg, "agents.scoring.model"), output_file=output_file
-    )
-    scored_opportunities = scoring_agent.process(opportunities, founder_profile)
+        # Create a scoring agent instance and score the opportunities
+        scoring_agent = ScoringAgent(
+            model=get_config_value(cfg, "agents.scoring.model"), output_file=output_file
+        )
+        scored_opportunities = scoring_agent.process(opportunities, founder_profile)
+    else:
+        scored_opportunities = []
 
     if is_mock and not getattr(args, "keep_temp", False) and os.path.exists(".tmp"):
         os.rmdir(".tmp")
