@@ -53,6 +53,14 @@ An AI-powered system for detecting emerging technology trends and startup opport
 
 ## Usage
 
+Run the application from the repository root:
+
+```bash
+uv run python main.py
+```
+
+This executes the CLI defined in `main.py` using the environment managed by `uv`.
+
 ### Configuration
 
 Edit `src/config/config.yaml` to configure:
@@ -62,7 +70,19 @@ Edit `src/config/config.yaml` to configure:
 
 ### Running the Pipeline
 
-#### Dry Run (Recommended for Testing)
+The main entrypoint is `main.py`. Use these commands from the project root after running `uv sync`.
+
+#### Default Run
+
+To run the pipeline with the default founder profile:
+
+```bash
+uv run python main.py
+```
+
+By default, the CLI loads the `tom` founder profile from `src/config/profiles/tom.json`.
+
+#### Dry Run
 
 To run a dry run without persisting data:
 ```bash
@@ -71,24 +91,36 @@ uv run python main.py --dry-run
 
 This will execute the full pipeline (ingestion → filtering → enrichment → opportunity generation) and print the results to stdout.
 
-#### Full Run
+#### Update the Database
 
-To run the complete pipeline with data persistence:
+To persist new opportunities into the feeds database:
 ```bash
-uv run python main.py
+uv run python main.py --update-db
 ```
 
-#### Custom Founder Profile
+#### Founder Profile Selection
 
-Pass a JSON string with founder profile:
+Pass the founder profile name or a JSON filename from `src/config/profiles/`:
+
 ```bash
-uv run python main.py --founder '{"skills": ["AI", "Python"], "vision": "Build AI startups"}'
+uv run python main.py --founder tom
+```
+
+or:
+
+```bash
+uv run python main.py --founder tom.json
 ```
 
 ### CLI Options
 
 - `--dry-run`: Run without persistence
-- `--founder`: JSON string with founder profile (default: empty dict)
+- `--keep-temp`: Keep temporary files after a dry run
+- `--founder`: Founder profile name or JSON filename from `src/config/profiles/` (default: `tom`)
+- `--update-db`: Update `outputs/feeds.json` with new opportunities
+- `--database-file`: Override the feeds database path
+- `--output-file`: Override the output path
+- `--generate-opp`: Generate opportunities from enriched articles
 
 ## Project Structure
 
