@@ -9,6 +9,7 @@ Steps:
 """
 
 import os
+import sys
 from typing import Dict, Any, List
 
 from agents.scoring_agent import ScoringAgent
@@ -18,10 +19,8 @@ from agents.filter_agent import FilterAgent
 from agents.enrichment_agent import EnrichmentAgent
 from agents.opportunity_agent import OpportunityAgent
 
-from utils.database import (
-    update_opportunity_database,
-    log_pipeline_run,
-)
+
+import json
 
 
 def ingest_articles(
@@ -29,20 +28,49 @@ def ingest_articles(
     max_items: int = 50,
     update_db: bool = False,
     is_mock: bool = False,
+    database_file: str = None,
 ) -> List[Dict[str, Any]]:
     """Load config and fetch articles from RSS feeds."""
     return fetch_rss_articles(
-        urls=rss_urls, max_items=max_items, update_db=update_db, is_mock=is_mock
+        urls=rss_urls,
+        max_items=max_items,
+        update_db=update_db,
+        is_mock=is_mock,
+        database_file=database_file,
     )
+
+
+def retrieve_database(database_file: str = None):
+    with open(database_file, "r+") as f:
+        database = json.load(f)
+    return database
 
 
 def run_daily_pipeline(
     founder_profile: Dict[str, Any] = {}, args=None
 ) -> Dict[str, Any]:
     """Orchestrate pipeline: ingest -> filter -> enrich -> opportunity."""
+
     cfg = load_config()
 
     is_mock = getattr(args, "dry_run", False)
+
+    # Save logs and outputs in database as json
+    database_file = (
+        os.path.join(".tmp", getattr(args, "database_file"))
+        if is_mock
+        else getattr(args, "database_file")
+    )
+    output_file = (
+        os.path.join(".tmp", getattr(args, "output_file"))
+        if is_mock
+        else getattr(args, "output_file")
+    )
+    # Ensure the directories exist for the database and output files
+    os.makedirs(os.path.dirname(database_file), exist_ok=True)
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+
+    database_file = getattr(args, "database_file")
 
     max_items = 1 if is_mock else get_config_value(cfg, "ingestion.rss.max_items", 50)
 
@@ -51,17 +79,20 @@ def run_daily_pipeline(
         max_items=max_items,
         update_db=getattr(args, "update_db", False),
         is_mock=is_mock,
+        database_file=database_file,
     )
 
     filter_agent = FilterAgent(
         signal_threshold=get_config_value(cfg, "agents.filter.signal_threshold"),
         noise_threshold=get_config_value(cfg, "agents.filter.noise_threshold"),
+        database_file=database_file,
     )
-    filtered = filter_agent.process(articles, args=args)
+    filtered = filter_agent.process(retrieve_database(database_file), args=args)
 
     # Create enrichment agent instance
     enrichment_agent = EnrichmentAgent(
-        model=get_config_value(cfg, "agents.enrichment.model")
+        model=get_config_value(cfg, "agents.enrichment.model"),
+        database_file=database_file,
     )
     enriched = enrichment_agent.process(filtered)
 
@@ -72,38 +103,13 @@ def run_daily_pipeline(
     opportunities = opportunity_agent.process(enriched, founder_profile=founder_profile)
 
     # Create a scoring agent instance and score the opportunities
-    scoring_agent = ScoringAgent(model=get_config_value(cfg, "agents.scoring.model"))
+    scoring_agent = ScoringAgent(
+        model=get_config_value(cfg, "agents.scoring.model"), output_file=output_file
+    )
     scored_opportunities = scoring_agent.process(opportunities, founder_profile)
 
-    # Save logs and outputs in database as json
-    if args.update_db:
-        output_file = (
-            os.path.join(".tmp", "mock", "opportunities.json")
-            if is_mock
-            else os.path.join(
-                "outputs",
-                f"{founder_profile.get('name', 'unknown')}",
-                "opportunities.json",
-            )
-        )
-        log_pipeline_file = (
-            os.path.join(".tmp", "mock", "log_pipeline.json")
-            if is_mock
-            else os.path.join(
-                "outputs",
-                f"{founder_profile.get('name', 'unknown')}",
-                "log_pipeline.json",
-            )
-        )
-        update_opportunity_database(scored_opportunities, output_file=output_file)
-        log_pipeline_run(
-            log_data={
-                "articles_count": len(articles),
-                "filtered_count": len(filtered),
-                "opportunities_count": len(scored_opportunities),
-            },
-            log_file=log_pipeline_file,
-        )
+    if is_mock and not getattr(args, "keep_temp", False) and os.path.exists(".tmp"):
+        os.rmdir(".tmp")
 
     return {
         "articles": articles,

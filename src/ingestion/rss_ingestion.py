@@ -33,7 +33,11 @@ def is_valid_url(url: str) -> bool:
 
 
 def fetch_rss_articles(
-    urls: List[str], max_items: int = 50, update_db: bool = False, is_mock: bool = False
+    urls: List[str],
+    max_items: int = 50,
+    update_db: bool = False,
+    is_mock: bool = False,
+    database_file: str = None,
 ) -> List[Dict]:
     """
     Fetch articles from multiple RSS feeds.
@@ -53,8 +57,7 @@ def fetch_rss_articles(
         existing_urls = set()
     else:
         # Read the feeds database and get the existing urls to avoid duplicates
-        articles_database_file = os.path.join("outputs", "feeds.json")
-        os.makedirs(os.path.dirname(articles_database_file), exist_ok=True)
+        articles_database_file = database_file
 
         if not os.path.exists(articles_database_file):
             with open(articles_database_file, "w") as f:

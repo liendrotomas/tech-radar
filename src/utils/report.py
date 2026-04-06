@@ -16,10 +16,10 @@ def print_report(results: dict):
     print("-" * 60)
 
     for i, opp in enumerate(opportunities, 1):
-        print(f"\n{i}. {opp['original'].get('name', 'N/A')}")
+        print(f"\n{i}. {opp.get('name', 'N/A')}")
         print(f"   Score: {opp.get('score', 'N/A')}")
-        print(f"   Why now: {opp['original'].get('why_now', '')[:120]}")
-        print(f"   Wedge: {opp['original'].get('wedge', '')[:120]}")
-        print(f"   Risk: {opp['original'].get('risk', '')[:120]}")
+        print(f"   Why now: {opp.get('why_now', '')[:120]}")
+        print(f"   Wedge: {opp.get('wedge', '')[:120]}")
+        print(f"   Risk: {opp.get('risk', '')[:120]}")
 
     print("\n" + "=" * 60 + "\n")

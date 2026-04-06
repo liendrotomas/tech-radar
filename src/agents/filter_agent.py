@@ -66,6 +66,7 @@ class FilterAgent(BaseAgent):
         "beginner guide",
         "top 10 tools",
         "click here",
+        "subscription",
     }
 
     def __init__(
@@ -73,6 +74,7 @@ class FilterAgent(BaseAgent):
         categories: List[str] = None,
         signal_threshold: float = 0.0,
         noise_threshold: float = 0.5,
+        database_file: str = None,
     ) -> None:
         """
         Initialize filter agent.
@@ -86,6 +88,7 @@ class FilterAgent(BaseAgent):
         self.signal_threshold = signal_threshold
         self.noise_threshold = noise_threshold  # Adjust this value as needed
         self.keywords: Set[str] = set()
+        self.database_file = database_file
 
         # Build flat set of all keywords from selected categories
         for category in self.categories:
@@ -111,9 +114,7 @@ class FilterAgent(BaseAgent):
         matches = sum(1 for keyword in self.keywords if keyword in text)
         return min(matches / max(len(self.keywords), 1), 1.0)
 
-    def process(
-        self, items: List[Dict], output_dir: str = None, args=None
-    ) -> List[Dict]:
+    def process(self, items: List[Dict], args=None) -> List[Dict]:
         """Filter and score articles."""
         filtered = []
         for item in items:
@@ -146,15 +147,11 @@ class FilterAgent(BaseAgent):
         logger.info(
             f"Filtered {len(filtered)} out of {len(items)} articles with thresholds: signal={self.signal_threshold}, noise={self.noise_threshold}"
         )
-        if output_dir is None:
-            output_file = os.path.join("outputs", f"feeds.json")
-        else:
-            output_file = os.path.join(output_dir, f"filtered_database.json")
+
         if args.update_db:
-            self.update_filter_database(filtered, output_file=output_file)
+            self.update_filter_database(filtered)
         # return only non-noise articles for next steps, but could also return all with flags if desired
-        filtered_non_noise = [item for item in filtered if not item["is_noise"]]
-        return filtered_non_noise
+        return filtered
 
     def noise_score(self, article: dict) -> int:
         text = f"{article.get('title','')} {article.get('summary','')}".lower()
@@ -167,17 +164,11 @@ class FilterAgent(BaseAgent):
 
         return score
 
-    def update_filter_database(self, filtered: List[Dict], output_file: str) -> None:
+    def update_filter_database(self, filtered: List[Dict]) -> None:
         """Update the feed database with new entries, avoiding duplicates."""
-        import json, os
-
-        try:
-            with open(output_file, "r+") as f:
-                database = json.load(f)
-        except FileNotFoundError:
-            database = []
+        import json
 
         logger.info("Updating filtered database with new articles.")
 
-        with open(output_file, "r+") as f:
+        with open(self.database_file, "r+") as f:
             json.dump(filtered, f, indent=2)
