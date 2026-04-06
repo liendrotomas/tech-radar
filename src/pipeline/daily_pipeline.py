@@ -112,7 +112,10 @@ def run_daily_pipeline(
         scored_opportunities = []
 
     if is_mock and not getattr(args, "keep_temp", False) and os.path.exists(".tmp"):
-        os.rmdir(".tmp")
+        try:
+            os.rmdir(".tmp")
+        except:
+            pass
 
     return {
         "articles": articles,
