@@ -6,8 +6,12 @@ Filter agent for Tech Radar.
 - Keyword-based filtering with extensible category system
 """
 
-from turtle import title
+from datetime import datetime
+import os
+import sys
 from typing import List, Dict, Set
+
+from ingestion.rss_ingestion import CLEANUP_FUNCTIONS
 from .base_agent import BaseAgent
 from src.utils.logger import get_logger
 
@@ -19,14 +23,6 @@ class FilterAgent(BaseAgent):
 
     # Define keyword categories for easy extension
     KEYWORD_CATEGORIES = {
-        "ai": [
-            "AI",
-            "artificial intelligence",
-            "machine learning",
-            "LLM",
-            "neural",
-            "deep learning",
-        ],
         "ai": [
             "AI",
             "artificial intelligence",
@@ -70,6 +66,7 @@ class FilterAgent(BaseAgent):
         "beginner guide",
         "top 10 tools",
         "click here",
+        "subscription",
     }
 
     def __init__(
@@ -77,6 +74,7 @@ class FilterAgent(BaseAgent):
         categories: List[str] = None,
         signal_threshold: float = 0.0,
         noise_threshold: float = 0.5,
+        database_file: str = None,
     ) -> None:
         """
         Initialize filter agent.
@@ -90,6 +88,7 @@ class FilterAgent(BaseAgent):
         self.signal_threshold = signal_threshold
         self.noise_threshold = noise_threshold  # Adjust this value as needed
         self.keywords: Set[str] = set()
+        self.database_file = database_file
 
         # Build flat set of all keywords from selected categories
         for category in self.categories:
@@ -115,7 +114,7 @@ class FilterAgent(BaseAgent):
         matches = sum(1 for keyword in self.keywords if keyword in text)
         return min(matches / max(len(self.keywords), 1), 1.0)
 
-    def process(self, items: List[Dict]) -> List[Dict]:
+    def process(self, items: List[Dict], args=None) -> List[Dict]:
         """Filter and score articles."""
         filtered = []
         for item in items:
@@ -125,15 +124,33 @@ class FilterAgent(BaseAgent):
             logger.info(
                 f"Article: {item.get('title', '')[:30]}... | Signal Score: {signal_score:.2f} | Noise Score: {noise_score:.2f}"
             )
+            item["signal_score"] = signal_score
+            item["noise_score"] = noise_score
             if (
                 signal_score >= self.signal_threshold
                 and noise_score < self.noise_threshold
             ):
-                item["filter_score"] = (signal_score, noise_score)
-                filtered.append(item)
+                item["is_noise"] = False
+            else:
+                item["is_noise"] = True
+                # Optionally include low-scoring articles with a flag instead of filtering out completely
+
+            item["processing_metadata"] = (
+                {
+                    "last_processed": datetime.now().isoformat(),
+                    "threshold_signal": self.signal_threshold,
+                    "threshold_noise": self.noise_threshold,
+                },
+            )
+            filtered.append(item)
+
         logger.info(
             f"Filtered {len(filtered)} out of {len(items)} articles with thresholds: signal={self.signal_threshold}, noise={self.noise_threshold}"
         )
+
+        if args.update_db:
+            self.update_filter_database(filtered)
+        # return only non-noise articles for next steps, but could also return all with flags if desired
         return filtered
 
     def noise_score(self, article: dict) -> int:
@@ -146,3 +163,12 @@ class FilterAgent(BaseAgent):
                 score += 1
 
         return score
+
+    def update_filter_database(self, filtered: List[Dict]) -> None:
+        """Update the feed database with new entries, avoiding duplicates."""
+        import json
+
+        logger.info("Updating filtered database with new articles.")
+
+        with open(self.database_file, "r+") as f:
+            json.dump(filtered, f, indent=2)

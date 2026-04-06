@@ -11,6 +11,10 @@ wheels/
 
 .env
 .vscode/settings.json
+.tmp/
 
 # Project generation
 bootstrap.py
+
+# Output files
+output/

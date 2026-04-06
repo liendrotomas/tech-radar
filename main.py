@@ -8,6 +8,9 @@ from src.utils.report import print_report
 
 logger = get_logger("main")
 
+DEFAULT_DATABASE_FILE = os.path.join("outputs", "feeds.json")
+DEFAULT_OUTPUT_DIR = os.path.join("outputs")
+
 
 def cli() -> None:
     parser = argparse.ArgumentParser(description="Tech Radar AI pipeline runner")
@@ -15,8 +18,39 @@ def cli() -> None:
         "--dry-run", action="store_true", help="Run without persistence"
     )
     parser.add_argument(
-        "--founder", type=str, default="{}", help="Founder profile JSON string"
+        "--keep-temp",
+        action="store_true",
+        default=False,
+        help="Keep temporary files after dry run",
     )
+    parser.add_argument(
+        "--founder", type=str, default="tom", help="Founder profile JSON string"
+    )
+    parser.add_argument(
+        "--update-db",
+        action="store_true",
+        default=False,
+        help="Update the database with new opportunities",
+    )
+    parser.add_argument(
+        "--database-file",
+        type=str,
+        default=DEFAULT_DATABASE_FILE,
+        help="Path to the feeds database file",
+    )
+    parser.add_argument(
+        "--output-file",
+        type=str,
+        default=DEFAULT_OUTPUT_DIR,
+        help="Path to the opportunities output file",
+    )
+    parser.add_argument(
+        "--generate-opp",
+        action="store_true",
+        default=False,
+        help="Generate opportunities from enriched articles",
+    )
+
     args = parser.parse_args()
 
     logger.info("Starting Tech Radar daily pipeline")
@@ -33,6 +67,12 @@ def cli() -> None:
             os.path.join("src", "config", "profiles", founder_filename), "r"
         ) as f:
             setup_profile = json.load(f)
+
+        args.output_file = os.path.join(
+            DEFAULT_OUTPUT_DIR,
+            f"{setup_profile.get('name', 'founder')}",
+            "opportunities.json",
+        )
 
     except Exception as exc:
         logger.warning("Could not parse founder profile, using empty profile: %s", exc)

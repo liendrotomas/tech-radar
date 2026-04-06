@@ -3,12 +3,16 @@ from openai import OpenAI
 import json
 import re
 from .base_agent import BaseAgent
+from src.utils.logger import get_logger
+
+logger = get_logger("scoring_agent")
 
 
 class ScoringAgent(BaseAgent):
-    def __init__(self, model: str):
+    def __init__(self, model: str, output_file: str = None):
         self.client = OpenAI()
         self.model = model
+        self.output_file = output_file
 
     def process(self, opportunities: List[Dict], founder_profile: Dict) -> List[Dict]:
         """Score a list of opportunity proposals in one request."""
@@ -29,11 +33,29 @@ class ScoringAgent(BaseAgent):
 
         scored = []
         for opp, score_data in zip(opportunities, parsed_list):
-            record = score_data.copy()
-            record["original"] = opp
+            # Combine the opp and score data as a flatten dictionary
+            record = {**opp, **score_data}
             scored.append(record)
+        self.update_opportunity_database(scored)
 
         return sorted(scored, key=lambda x: x.get("score", 0), reverse=True)
+
+    def update_opportunity_database(self, scored: List[Dict]) -> None:
+        """Update the feed database with new entries, avoiding duplicates."""
+        import json
+
+        logger.info("Updating scored database with new articles.")
+
+        # Append the new scored opportunities to the existing output file, or create it if it doesn't exist
+        try:
+            with open(self.output_file, "r+") as f:
+                existing = json.load(f)
+                existing.extend(scored)
+                f.seek(0)
+                json.dump(existing, f, indent=2)
+        except FileNotFoundError:
+            with open(self.output_file, "w") as f:
+                json.dump(scored, f, indent=2)
 
     def _build_batch_prompt(self, opportunities: List[Dict], founder: Dict) -> str:
         return f"""
