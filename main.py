@@ -8,8 +8,7 @@ from src.utils.report import print_report
 
 logger = get_logger("main")
 
-DEFAULT_DATABASE_FILE = os.path.join("outputs", "feeds.json")
-DEFAULT_OUTPUT_DIR = os.path.join("outputs")
+DEFAULT_DATABASE_FILE = os.path.join("outputs", "tech_radar.db")
 
 
 def cli() -> None:
@@ -39,15 +38,15 @@ def cli() -> None:
         help="Path to the feeds database file",
     )
     parser.add_argument(
-        "--output-file",
-        type=str,
-        default=DEFAULT_OUTPUT_DIR,
-        help="Path to the opportunities output file",
+        "--recreate-on-schema-change",
+        action="store_true",
+        default=True,
+        help="Recreate the database if schema changes (data loss)",
     )
     parser.add_argument(
         "--generate-opp",
         action="store_true",
-        default=False,
+        default=True,
         help="Generate opportunities from enriched articles",
     )
 
@@ -67,12 +66,6 @@ def cli() -> None:
             os.path.join("src", "config", "profiles", founder_filename), "r"
         ) as f:
             setup_profile = json.load(f)
-
-        args.output_file = os.path.join(
-            DEFAULT_OUTPUT_DIR,
-            f"{setup_profile.get('name', 'founder')}",
-            "opportunities.json",
-        )
 
     except Exception as exc:
         logger.warning("Could not parse founder profile, using empty profile: %s", exc)

@@ -11,7 +11,8 @@ import os
 import sys
 from typing import List, Dict, Set
 
-from ingestion.rss_ingestion import CLEANUP_FUNCTIONS
+from src.database.database import Database, Feed
+from src.ingestion.rss_ingestion import CLEANUP_FUNCTIONS
 from .base_agent import BaseAgent
 from src.utils.logger import get_logger
 
@@ -67,28 +68,42 @@ class FilterAgent(BaseAgent):
         "top 10 tools",
         "click here",
         "subscription",
+        "war",
+        "politics",
+        "celebrity",
+        "iran",
+        "russia",
+        "ukraine",
+        "trump",
+        "biden",
+        "exclusive",
+        "apps",
+        "events",
     }
 
     def __init__(
         self,
         categories: List[str] = None,
-        signal_threshold: float = 0.0,
-        noise_threshold: float = 0.5,
-        database_file: str = None,
+        filter_config: Dict[str, float] = None,
+        db_hndlr: Database = None,
     ) -> None:
         """
         Initialize filter agent.
 
         Args:
             categories: List of category names to include (default: all)
-            signal_threshold: Minimum match score (0.0-1.0) to keep article
-            noise_threshold: Maximum noise score (0.0-1.0) to keep article
+            filter_config: Dictionary containing filter configuration
+            db_hndlr: Database handler instance
         """
         self.categories = categories or list(self.KEYWORD_CATEGORIES.keys())
-        self.signal_threshold = signal_threshold
-        self.noise_threshold = noise_threshold  # Adjust this value as needed
+        self.signal_threshold = (
+            filter_config.get("signal_threshold", 0.0) if filter_config else 0.0
+        )
+        self.noise_threshold = (
+            filter_config.get("noise_threshold", 0.5) if filter_config else 0.5
+        )  # Adjust this value as needed
         self.keywords: Set[str] = set()
-        self.database_file = database_file
+        self.db_hndlr = db_hndlr
 
         # Build flat set of all keywords from selected categories
         for category in self.categories:
@@ -105,56 +120,60 @@ class FilterAgent(BaseAgent):
                 )
                 self.keywords.add(category.lower())
 
-    def _calculate_match_score(self, article: Dict) -> float:
+    def _calculate_match_score(self, article: Feed) -> float:
         """Calculate how well article matches keywords (0.0 to 1.0)."""
-        title = article.get("title", "").lower()
-        summary = article.get("summary", "").lower()
+        title = getattr(article, "title", "").lower()
+        summary = getattr(article, "summary", "").lower()
         text = f"{title} {summary}"
 
         matches = sum(1 for keyword in self.keywords if keyword in text)
         return min(matches / max(len(self.keywords), 1), 1.0)
 
-    def process(self, items: List[Dict], args=None) -> List[Dict]:
+    def process(self, args=None):
         """Filter and score articles."""
-        filtered = []
+        items = self.db_hndlr.retrieve_items(Feed)
+        filtered = 0
         for item in items:
             signal_score = self._calculate_match_score(item)
             # Add noise score to penalize irrelevant articles
             noise_score = self.noise_score(item)  # Adjust weight of noise
             logger.info(
-                f"Article: {item.get('title', '')[:30]}... | Signal Score: {signal_score:.2f} | Noise Score: {noise_score:.2f}"
+                f"Article: {getattr(item, 'title', '')[:30]}... | Signal Score: {signal_score:.2f} | Noise Score: {noise_score:.2f}"
             )
-            item["signal_score"] = signal_score
-            item["noise_score"] = noise_score
+            setattr(item, "signal_score", signal_score)
+            setattr(item, "noise_score", noise_score)
             if (
                 signal_score >= self.signal_threshold
                 and noise_score < self.noise_threshold
             ):
-                item["is_noise"] = False
+                setattr(item, "is_noise", False)
             else:
-                item["is_noise"] = True
+                setattr(item, "is_noise", True)
                 # Optionally include low-scoring articles with a flag instead of filtering out completely
 
-            item["processing_metadata"] = (
+            setattr(
+                item,
+                "processing_metadata",
                 {
                     "last_processed": datetime.now().isoformat(),
                     "threshold_signal": self.signal_threshold,
                     "threshold_noise": self.noise_threshold,
                 },
             )
-            filtered.append(item)
-
+            filtered = (
+                filtered + 1 if not getattr(item, "is_noise", False) else filtered
+            )
+            self.db_hndlr.add_item(
+                item
+            )  # Update the item in the database with new scores and noise flag
         logger.info(
-            f"Filtered {len(filtered)} out of {len(items)} articles with thresholds: signal={self.signal_threshold}, noise={self.noise_threshold}"
+            f"Filtered {filtered} out of {len(items)} articles with thresholds: signal={self.signal_threshold}, noise={self.noise_threshold}"
         )
 
-        if args.update_db:
-            self.update_filter_database(filtered)
-        # return only non-noise articles for next steps, but could also return all with flags if desired
-        return filtered
-
     def noise_score(self, article: dict) -> int:
-        text = f"{article.get('title','')} {article.get('summary','')}".lower()
+        text = (
+            f"{getattr(article, 'title', '')} {getattr(article, 'summary', '')}".lower()
+        )
 
         score = 0
 
@@ -163,12 +182,3 @@ class FilterAgent(BaseAgent):
                 score += 1
 
         return score
-
-    def update_filter_database(self, filtered: List[Dict]) -> None:
-        """Update the feed database with new entries, avoiding duplicates."""
-        import json
-
-        logger.info("Updating filtered database with new articles.")
-
-        with open(self.database_file, "r+") as f:
-            json.dump(filtered, f, indent=2)

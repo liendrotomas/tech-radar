@@ -1,4 +1,5 @@
 from typing import List, Dict
+from src.database.database import Database, Feed, Founder, Opportunity
 from openai import OpenAI
 import os
 import json
@@ -17,19 +18,24 @@ load_dotenv()
 
 
 class OpportunityAgent(BaseAgent):
-    def __init__(self, model: str):
+    def __init__(self, model: str, db_hndlr: Database = None) -> None:
         self.client = OpenAI()
         self.model = model
+        self.db_hndlr = db_hndlr
 
     def embedder(self, texts):
         res = self.client.embeddings.create(model="text-embedding-3-small", input=texts)
         return [e.embedding for e in res.data]
 
-    def process(
-        self, enriched_articles: List[Dict], founder_profile: Dict
-    ) -> List[Dict]:
+    def process(self, founder_name, args=None) -> None:
+        items = self.db_hndlr.retrieve_items(Feed)
+        filtered_articles = [item for item in items if not item.is_noise]
+        
+        founders = self.db_hndlr.retrieve_items(Founder)
+        founder_profile = next((f for f in founders if f.name == founder_name), None)
+        
         # Implement grouping of similar trends before sending to LLM
-        grouped_articles = self._group_similar_trends(enriched_articles)
+        grouped_articles = self._group_similar_trends(filtered_articles)
         prompt = self._build_prompt(grouped_articles, founder_profile)
 
         response = self.client.responses.create(
@@ -37,7 +43,20 @@ class OpportunityAgent(BaseAgent):
             input=prompt,
         )
         content = response.output[0].content[0].text
-        return self._parse_response(content)
+        parsed_response = self._parse_response(content)
+        for opp in parsed_response:
+            opportunity = Opportunity()
+            setattr(opportunity, "founder_name", founder_name)
+            setattr(opportunity, "title", opp.get("name", ""))
+            setattr(opportunity, "description", opp.get("description", ""))
+            setattr(opportunity, "score", opp.get("score", 0))
+            setattr(opportunity, "why_now", opp.get("why_now", ""))
+            setattr(opportunity, "founder_fit", opp.get("founder_fit", ""))
+            setattr(opportunity, "wedge", opp.get("wedge", ""))
+            setattr(opportunity, "wedge_score", opp.get("wedge_score", 0))
+            setattr(opportunity, "risk", opp.get("risk", ""))
+            setattr(opportunity, "required_insight", opp.get("required_insight", ""))
+            self.db_hndlr.add_item(opportunity)
 
     def _build_prompt(self, articles: List[Dict], founder: Dict) -> str:
 
@@ -45,7 +64,7 @@ class OpportunityAgent(BaseAgent):
             {
                 "title": a.get("title"),
                 "summary": a.get("summary"),
-                "keywords": a.get("keywords"),
+                "keywords": a.get("keywords", []),
             }
             for a in articles
         ]
@@ -62,7 +81,7 @@ class OpportunityAgent(BaseAgent):
 
         Founder profile:
 
-        {json.dumps(founder, indent=2)}
+        {json.dumps(getattr(founder,"profile", {}), indent=2)}
 
         Identify two or more HIGH-CONVICTION startup opportunities.
 
@@ -105,8 +124,8 @@ class OpportunityAgent(BaseAgent):
 
     def _group_similar_trends(self, articles):
         # Filter out articles if is_noise field is true
-        articles = [a for a in articles if not a.get("is_noise", False)]
-        texts = [a["title"] + " " + a["summary"] for a in articles]
+        articles = [a for a in articles if not getattr(a, "is_noise", False)]
+        texts = [getattr(a, "title", "") + " " + getattr(a, "summary", "") for a in articles]
 
         embeddings = self.embedder(texts)  # shape: (n, d)
 
@@ -120,10 +139,10 @@ class OpportunityAgent(BaseAgent):
         # For each cluster, combine the articles into a single article with concatenated titles and summaries, and merged keywords
         for l, group in clusters.items():
             clusters[l] = {
-                "title": " / ".join(set(a["title"] for a in group)),
-                "summary": " / ".join(set(a["summary"] for a in group)),
+                "title": " / ".join(set(getattr(a, "title", "") for a in group)),
+                "summary": " / ".join(set(getattr(a, "summary", "") for a in group)),
                 "keywords": list(
-                    set(tag for a in group for tag in a.get("keywords", []))
+                    set(tag for a in group for tag in getattr(a, "keywords", []))
                 ),
             }
 
