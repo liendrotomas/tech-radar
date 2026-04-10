@@ -27,6 +27,7 @@ dependencies = [
   "pytest==8.1.1",
   "beautifulsoup4>=4.14.3",
   "scikit-learn==1.8.0",
+  "sqlmodel>=0.0.30",
 ]
 
 [project.scripts]

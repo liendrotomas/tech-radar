@@ -1,15 +1,15 @@
-from typing import List, Dict
-from openai import OpenAI
-import os
 import json
 import re
+from typing import Any, Dict, List, Optional
 
-from .base_agent import BaseAgent
-from dotenv import load_dotenv
-from src.utils.logger import get_logger
-
+from openai import OpenAI
 from sklearn.cluster import KMeans
-import numpy as np
+
+from dotenv import load_dotenv
+
+from src.database.database import Database, Feed, Founder, Opportunity
+from src.utils.logger import get_logger
+from .base_agent import BaseAgent
 
 logger = get_logger("opportunity_agent")
 
@@ -17,19 +17,25 @@ load_dotenv()
 
 
 class OpportunityAgent(BaseAgent):
-    def __init__(self, model: str):
+    def __init__(self, model: str, db_hndlr: Database = None) -> None:
         self.client = OpenAI()
         self.model = model
+        self.db_hndlr = db_hndlr
 
-    def embedder(self, texts):
+    def embedder(self, texts: List[str]) -> List[List[float]]:
         res = self.client.embeddings.create(model="text-embedding-3-small", input=texts)
         return [e.embedding for e in res.data]
 
-    def process(
-        self, enriched_articles: List[Dict], founder_profile: Dict
-    ) -> List[Dict]:
-        # Implement grouping of similar trends before sending to LLM
-        grouped_articles = self._group_similar_trends(enriched_articles)
+    def process(self, founder_name: Optional[str], args=None) -> List[Dict[str, Any]]:
+        items = self.db_hndlr.retrieve_items(Feed)
+        filtered_articles = [item for item in items if not item.is_noise]
+        if not filtered_articles:
+            return []
+
+        founders = self.db_hndlr.retrieve_items(Founder)
+        founder_profile = next((f for f in founders if f.name == founder_name), None)
+
+        grouped_articles = self._group_similar_trends(filtered_articles)
         prompt = self._build_prompt(grouped_articles, founder_profile)
 
         response = self.client.responses.create(
@@ -37,15 +43,35 @@ class OpportunityAgent(BaseAgent):
             input=prompt,
         )
         content = response.output[0].content[0].text
-        return self._parse_response(content)
+        parsed_response = self._parse_response(content)
+        persisted_opportunities: List[Dict[str, Any]] = []
 
-    def _build_prompt(self, articles: List[Dict], founder: Dict) -> str:
+        for opp in parsed_response:
+            opportunity = Opportunity(
+                founder_name=founder_name or "",
+                title=opp.get("name", ""),
+                description=opp.get("description", ""),
+                why_now=opp.get("why_now", ""),
+                founder_fit=opp.get("founder_fit", ""),
+                wedge=opp.get("wedge", ""),
+                wedge_score=float(opp.get("wedge_score", 0) or 0),
+                risk=opp.get("risk", ""),
+                required_insight=opp.get("required_insight", ""),
+            )
+            self.db_hndlr.add_item(opportunity)
+            persisted_opportunities.append(self._serialize_opportunity(opportunity))
+
+        return persisted_opportunities
+
+    def _build_prompt(
+        self, articles: List[Dict[str, Any]], founder: Optional[Founder]
+    ) -> str:
 
         simplified = [
             {
                 "title": a.get("title"),
                 "summary": a.get("summary"),
-                "keywords": a.get("keywords"),
+                "keywords": a.get("keywords", []),
             }
             for a in articles
         ]
@@ -62,7 +88,7 @@ class OpportunityAgent(BaseAgent):
 
         Founder profile:
 
-        {json.dumps(founder, indent=2)}
+        {json.dumps(getattr(founder, "profile", {}), indent=2)}
 
         Identify two or more HIGH-CONVICTION startup opportunities.
 
@@ -88,27 +114,43 @@ class OpportunityAgent(BaseAgent):
         ]
         """
 
-    def _parse_response(self, content: str) -> List[Dict]:
+    def _parse_response(self, content: str) -> List[Dict[str, Any]]:
 
         try:
-            return json.loads(content)
+            parsed = json.loads(content)
+            if isinstance(parsed, list):
+                return parsed
         except Exception:
-            # try to extract JSON block
             match = re.search(r"\[.*\]", content, re.DOTALL)
             if match:
                 try:
-                    return json.loads(match.group(0))
+                    parsed = json.loads(match.group(0))
+                    if isinstance(parsed, list):
+                        return parsed
                 except Exception:
                     pass
 
             return [{"error": "failed_to_parse", "raw": content}]
 
-    def _group_similar_trends(self, articles):
-        # Filter out articles if is_noise field is true
-        articles = [a for a in articles if not a.get("is_noise", False)]
-        texts = [a["title"] + " " + a["summary"] for a in articles]
+    def _group_similar_trends(self, articles: List[Feed]) -> List[Dict[str, Any]]:
+        if not articles:
+            return []
 
-        embeddings = self.embedder(texts)  # shape: (n, d)
+        if len(articles) == 1:
+            article = articles[0]
+            return [
+                {
+                    "title": getattr(article, "title", ""),
+                    "summary": getattr(article, "summary", ""),
+                    "keywords": list(getattr(article, "keywords", [])),
+                }
+            ]
+
+        texts = [
+            getattr(a, "title", "") + " " + getattr(a, "summary", "") for a in articles
+        ]
+
+        embeddings = self.embedder(texts)
 
         k = min(10, len(articles))
         labels = KMeans(n_clusters=k, random_state=0).fit_predict(embeddings)
@@ -117,14 +159,18 @@ class OpportunityAgent(BaseAgent):
         for a, l in zip(articles, labels):
             clusters.setdefault(l, []).append(a)
 
-        # For each cluster, combine the articles into a single article with concatenated titles and summaries, and merged keywords
         for l, group in clusters.items():
             clusters[l] = {
-                "title": " / ".join(set(a["title"] for a in group)),
-                "summary": " / ".join(set(a["summary"] for a in group)),
+                "title": " / ".join(set(getattr(a, "title", "") for a in group)),
+                "summary": " / ".join(set(getattr(a, "summary", "") for a in group)),
                 "keywords": list(
-                    set(tag for a in group for tag in a.get("keywords", []))
+                    set(tag for a in group for tag in getattr(a, "keywords", []))
                 ),
             }
 
         return list(clusters.values())
+
+    def _serialize_opportunity(self, opportunity: Opportunity) -> Dict[str, Any]:
+        data = opportunity.model_dump(mode="json")
+        data["name"] = data.get("title", "")
+        return data
