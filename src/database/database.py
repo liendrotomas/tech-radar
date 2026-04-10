@@ -2,15 +2,17 @@ from sqlmodel import JSON, Column, SQLModel, create_engine, Session, Field, sele
 from sqlalchemy import delete, inspect, text
 from typing import Optional
 from datetime import datetime
+from pydantic_core import PydanticUndefined
 
 
 class Database:
-    def __init__(self, output_db: str, recreate_on_schema_change: bool = False):
+    def __init__(self, output_db: str, recreate_on_schema_change: bool = True):
         self.output_db = output_db
         self.recreate_on_schema_change = recreate_on_schema_change
         self.engine = create_engine(f"sqlite:///{output_db}")
         SQLModel.metadata.create_all(self.engine)
         self._apply_schema_migrations()
+        self._normalize_legacy_data()
 
     def _apply_schema_migrations(self):
         inspector = inspect(self.engine)
@@ -21,7 +23,8 @@ class Database:
                     continue
 
                 existing_columns = {
-                    column["name"]: column for column in inspector.get_columns(table_name)
+                    column["name"]: column
+                    for column in inspector.get_columns(table_name)
                 }
 
                 drift = self._get_schema_drift(table, existing_columns)
@@ -55,7 +58,11 @@ class Database:
 
             existing_type = existing_column["type"].compile(dialect=self.engine.dialect)
             model_type = model_column.type.compile(dialect=self.engine.dialect)
-            if existing_type != model_type or existing_column["nullable"] != model_column.nullable:
+            nullable_mismatch = (
+                not model_column.primary_key
+                and existing_column["nullable"] != model_column.nullable
+            )
+            if existing_type != model_type or nullable_mismatch:
                 incompatible_columns.add(column_name)
 
         return {
@@ -86,7 +93,12 @@ class Database:
                     return "'{}'"
                 if field_info.default_factory is list:
                     return "'[]'"
-                if field_info.default is not None:
+                if field_info.default_factory is datetime.utcnow:
+                    return self._format_default_sql(datetime.utcnow().isoformat())
+                if (
+                    field_info.default is not PydanticUndefined
+                    and field_info.default is not None
+                ):
                     return self._format_default_sql(field_info.default)
 
         if column.default is not None and getattr(column.default, "is_scalar", False):
@@ -124,13 +136,51 @@ class Database:
                 return model_class
         return None
 
+    def _normalize_legacy_data(self):
+        with self.engine.begin() as connection:
+            connection.execute(
+                text(
+                    "UPDATE opportunity SET created_at = :timestamp "
+                    "WHERE created_at IS NULL OR created_at = '' OR created_at = 'PydanticUndefined'"
+                ),
+                {"timestamp": datetime.utcnow().isoformat()},
+            )
+            connection.execute(
+                text(
+                    "UPDATE feed SET enriched = '{}' "
+                    "WHERE enriched IS NULL "
+                    "OR enriched = '' "
+                    "OR enriched = 'N/A' "
+                    "OR enriched = 'null' "
+                    "OR enriched = 'PydanticUndefined' "
+                    "OR enriched = '\"N/A\"'"
+                )
+            )
+            connection.execute(
+                text(
+                    "UPDATE feed SET processing_metadata = '{}' "
+                    "WHERE processing_metadata IS NULL "
+                    "OR processing_metadata = '' "
+                    "OR processing_metadata = 'null' "
+                    "OR processing_metadata = 'PydanticUndefined'"
+                )
+            )
+            connection.execute(
+                text(
+                    "UPDATE founder SET profile = '{}' "
+                    "WHERE profile IS NULL "
+                    "OR profile = '' "
+                    "OR profile = 'null' "
+                    "OR profile = 'PydanticUndefined'"
+                )
+            )
 
     def get_engine(self):
         return self.engine
 
     def add_item(self, item):
         with Session(self.engine) as session:
-            session.add(item)
+            session.merge(item)
             session.commit()
 
     def remove_item(self, item):
@@ -176,13 +226,21 @@ class Opportunity(SQLModel, table=True):
     title: str
     description: str
     score: float = 0
+    created_at: datetime = Field(default_factory=datetime.utcnow)
     why_now: str = Field(default="")
     founder_fit: str = Field(default="")
+    founder_fit_score: int = Field(default=0)
     wedge: str = Field(default="")
     wedge_score: float = Field(default=0)
     risk: str = Field(default="")
     required_insight: str = Field(default="")
-
+    # scoring fields
+    final_score: float = Field(default=0.0)
+    market_size: int = Field(default=0)
+    technical_advantage: int = Field(default=0)
+    timing: int = Field(default=0)
+    defensibility: int = Field(default=0)
+    notes: str = Field(default="")
 
 
 class Feedback(SQLModel, table=True):

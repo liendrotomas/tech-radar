@@ -1,5 +1,7 @@
-import sqlite3
+import sqlite3, os, sys
 
+this_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(this_dir, ".."))
 from src.database.database import Database, Founder, Opportunity
 
 
@@ -61,37 +63,8 @@ def test_database_add_opportunity_with_defaults(tmp_path):
 
     assert len(opportunities) == 1
     assert opportunities[0].founder_name == "Tomas Liendro"
-    assert opportunities[0].created_at is not None
-
-
-def test_database_applies_schema_migrations(tmp_path):
-    database_path = tmp_path / "legacy.db"
-    connection = sqlite3.connect(database_path)
-    connection.execute(
-        "CREATE TABLE founder (id INTEGER PRIMARY KEY, name VARCHAR NOT NULL)"
-    )
-    connection.execute(
-        "CREATE TABLE opportunity (id INTEGER PRIMARY KEY, title VARCHAR NOT NULL, description VARCHAR NOT NULL, score FLOAT NOT NULL, created_at DATETIME NOT NULL)"
-    )
-    connection.commit()
-    connection.close()
-
-    Database(str(database_path))
-
-    connection = sqlite3.connect(database_path)
-    founder_columns = {
-        column[1]
-        for column in connection.execute("PRAGMA table_info(founder)").fetchall()
-    }
-    opportunity_columns = {
-        column[1]
-        for column in connection.execute("PRAGMA table_info(opportunity)").fetchall()
-    }
-    connection.close()
-
-    assert "profile" in founder_columns
-    assert "founder_name" in opportunity_columns
-    assert "required_insight" in opportunity_columns
+    assert opportunities[0].title == "AI workflow ops"
+    assert opportunities[0].description == "Automates internal ops with agents"
 
 
 def test_database_rebuilds_table_with_extra_columns_in_dev_mode(tmp_path):

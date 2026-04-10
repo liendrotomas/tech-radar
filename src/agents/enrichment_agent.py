@@ -1,17 +1,14 @@
-"""Enrichment agent for Tech Radar data.
+"""Enrichment agent for Tech Radar data."""
 
-This can be expanded with real LLM calls to summarize/annotate text.
-"""
-
-from typing import Dict, List
+import json
+from typing import Any, Dict
 
 from src.database.database import Database, Feed
+from openai import OpenAI
+from dotenv import load_dotenv
 
 from src.utils.logger import get_logger
 from .base_agent import BaseAgent
-from openai import OpenAI
-
-from dotenv import load_dotenv
 
 logger = get_logger("enrichment_agent")
 
@@ -55,24 +52,29 @@ class EnrichmentAgent(BaseAgent):
 
         text = response.output[0].content[0].text
 
-        import json
-
         try:
             return json.loads(text)
-        except:
+        except json.JSONDecodeError:
+            logger.warning("Failed to parse enrichment response as JSON.")
             return {"raw": text}
 
-    def process(self, args=None) -> None:
+    def _default_enrichment(self, article: Feed) -> Dict[str, Any]:
+        return {
+            "what": "Filtered as noise",
+            "why": "Article did not meet signal/noise thresholds",
+            "opportunity": "",
+            "tags": list(getattr(article, "keywords", [])),
+        }
+
+    def process(self, args=None) -> list[Feed]:
         items = self.db_hndlr.retrieve_items(Feed)
         for item in items:
             if getattr(item, "is_noise", False):
-                setattr(item, "enriched", "N/A")
-            elif not getattr(
-                item, "enriched", None
-            ):  # Only enrich if not marked as noise or enriched field is missing
+                setattr(item, "enriched", self._default_enrichment(item))
+            elif not getattr(item, "enriched", None):
                 enriched = self.enrich(item)
                 setattr(item, "enriched", enriched)
 
-            self.db_hndlr.add_item(
-                item
-            )  # Update the item in the database with new enrichment data
+            self.db_hndlr.add_item(item)
+
+        return items

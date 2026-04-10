@@ -7,12 +7,9 @@ Filter agent for Tech Radar.
 """
 
 from datetime import datetime
-import os
-import sys
 from typing import List, Dict, Set
 
 from src.database.database import Database, Feed
-from src.ingestion.rss_ingestion import CLEANUP_FUNCTIONS
 from .base_agent import BaseAgent
 from src.utils.logger import get_logger
 
@@ -78,6 +75,8 @@ class FilterAgent(BaseAgent):
         "biden",
         "exclusive",
         "apps",
+        "ios",
+        "android",
         "events",
     }
 
@@ -115,9 +114,6 @@ class FilterAgent(BaseAgent):
                 logger.warning(
                     f"Category '{category}' not found in KEYWORD_CATEGORIES. Adding to keywords directly."
                 )
-                logger.warning(
-                    f"Category '{category}' not found in KEYWORD_CATEGORIES. Adding to keywords directly."
-                )
                 self.keywords.add(category.lower())
 
     def _calculate_match_score(self, article: Feed) -> float:
@@ -129,14 +125,13 @@ class FilterAgent(BaseAgent):
         matches = sum(1 for keyword in self.keywords if keyword in text)
         return min(matches / max(len(self.keywords), 1), 1.0)
 
-    def process(self, args=None):
+    def process(self, args=None) -> List[Feed]:
         """Filter and score articles."""
         items = self.db_hndlr.retrieve_items(Feed)
-        filtered = 0
+        filtered_items: List[Feed] = []
         for item in items:
             signal_score = self._calculate_match_score(item)
-            # Add noise score to penalize irrelevant articles
-            noise_score = self.noise_score(item)  # Adjust weight of noise
+            noise_score = self.noise_score(item)
             logger.info(
                 f"Article: {getattr(item, 'title', '')[:30]}... | Signal Score: {signal_score:.2f} | Noise Score: {noise_score:.2f}"
             )
@@ -147,9 +142,9 @@ class FilterAgent(BaseAgent):
                 and noise_score < self.noise_threshold
             ):
                 setattr(item, "is_noise", False)
+                filtered_items.append(item)
             else:
                 setattr(item, "is_noise", True)
-                # Optionally include low-scoring articles with a flag instead of filtering out completely
 
             setattr(
                 item,
@@ -160,15 +155,12 @@ class FilterAgent(BaseAgent):
                     "threshold_noise": self.noise_threshold,
                 },
             )
-            filtered = (
-                filtered + 1 if not getattr(item, "is_noise", False) else filtered
-            )
-            self.db_hndlr.add_item(
-                item
-            )  # Update the item in the database with new scores and noise flag
+            self.db_hndlr.add_item(item)
+
         logger.info(
-            f"Filtered {filtered} out of {len(items)} articles with thresholds: signal={self.signal_threshold}, noise={self.noise_threshold}"
+            f"Filtered {len(filtered_items)} out of {len(items)} articles with thresholds: signal={self.signal_threshold}, noise={self.noise_threshold}"
         )
+        return filtered_items
 
     def noise_score(self, article: dict) -> int:
         text = (

@@ -6,15 +6,15 @@ RSS ingestion module for Tech Radar.
 - Includes error handling and timeout management
 """
 
-from typing import List, Dict
+from typing import List
 from datetime import datetime
-from src.database.database import Database, Feed
 import feedparser
-import json, re, os
+import re
 import requests
+
+from src.database.database import Database, Feed
 from src.utils.logger import get_logger
 from src.utils.formatting import html_clean_summary
-from src.templates.outputs import feed_template
 
 logger = get_logger("ingestion.rss")
 
@@ -37,7 +37,7 @@ def fetch_rss_articles(
     urls: List[str],
     max_items: int = 50,
     db_hndlr: Database = None,
-) -> List[Dict]:
+) -> List[Feed]:
     """
     Fetch articles from multiple RSS feeds.
 
@@ -51,15 +51,15 @@ def fetch_rss_articles(
         - title, link, summary, published_at, source
     """
 
-    # Read the feeds database and get the existing urls to avoid duplicates
-
-    existing_urls = set(db_hndlr.retrieve_items(Feed.link))
-    # Get max id from existing database to assign new ids to new feeds
-    max_id = max(db_hndlr.retrieve_items(Feed.id), default=0)
+    existing_articles = db_hndlr.retrieve_items(Feed)
+    existing_urls = {
+        article.link for article in existing_articles if getattr(article, "link", None)
+    }
+    max_id = max((article.id or 0 for article in existing_articles), default=0)
+    new_articles: List[Feed] = []
 
     for feed_url in urls:
         try:
-
             logger.info(f"Fetching RSS from {feed_url}")
             feed = feedparser.parse(feed_url)
 
@@ -73,12 +73,10 @@ def fetch_rss_articles(
                 link = entry.get("link", "")
                 if link in existing_urls or not link or not is_valid_url(link):
                     continue
-                else:
-                    new_entries += 1
-                    existing_urls.add(link)
+
+                new_entries += 1
+                existing_urls.add(link)
                 max_id += 1
-                # Parse published date
-                published_at = None
                 if hasattr(entry, "published_parsed") and entry.published_parsed:
                     published_at = datetime(*entry.published_parsed[:6]).isoformat()
                 elif hasattr(entry, "updated_parsed") and entry.updated_parsed:
@@ -86,18 +84,18 @@ def fetch_rss_articles(
                 else:
                     published_at = datetime.utcnow().isoformat()
 
-                # Create a new article dict based on the feed_template
-                article = Feed()
-                article.id = max_id
-                article.title = entry.get("title", "Untitled")
-                article.link = link
-                article.summary = CLEANUP_FUNCTIONS.get(
-                    source_name, html_clean_summary
-                )(entry.get("summary", ""))
-                article.published_at = published_at
-                article.source = source_name
-                # Get keywords.terms or tags or keywords if available, else empty list
-                article.keywords = []
+                article = Feed(
+                    id=max_id,
+                    title=entry.get("title", "Untitled"),
+                    link=link,
+                    summary=CLEANUP_FUNCTIONS.get(source_name, html_clean_summary)(
+                        entry.get("summary", "")
+                    ),
+                    published_at=published_at,
+                    source=source_name,
+                    keywords=[],
+                )
+
                 if "keywords" in entry and isinstance(entry["keywords"], list):
                     article.keywords = [kw.get("term", "") for kw in entry["keywords"]]
                 elif "tags" in entry and isinstance(entry["tags"], list):
@@ -109,13 +107,14 @@ def fetch_rss_articles(
                     logger.info(f"Error occurred while fetching keywords for {link}.")
 
                 db_hndlr.add_item(article)
+                new_articles.append(article)
 
                 if new_entries >= max_items:
                     logger.info(f"Reached max_items limit: {max_items}")
-                    return
+                    return new_articles
 
         except Exception as exc:
             logger.error(f"Error fetching {feed_url}: {exc}")
             continue
 
-    return
+    return new_articles
