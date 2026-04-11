@@ -56,7 +56,7 @@ def _ensure_founder(
 
 def run_daily_pipeline(
     founder_profile: Optional[Dict[str, Any]] = None, args=None
-) -> Dict[str, Any]:
+) -> None:
     """Run ingestion, filtering, enrichment, opportunity generation, and scoring."""
 
     founder_profile = founder_profile or {}
@@ -77,7 +77,6 @@ def run_daily_pipeline(
     founder = _ensure_founder(db_hndlr, founder_profile)
 
     max_items = 1 if is_mock else getattr(args, "update_db", 0)
-    articles = []
 
     if max_items > 0:
         logger.info(
@@ -89,26 +88,20 @@ def run_daily_pipeline(
             db_hndlr=db_hndlr,
         )
 
-    articles = db_hndlr.retrieve_items(Feed)
+    if getattr(args, "refilter", False):
+        logger.info("Re-filtering articles in database.")
+        filter_agent = FilterAgent(
+            filter_config=get_config_value(cfg, "agents.filter"),
+            db_hndlr=db_hndlr,
+        )
+        filter_agent.process(args=args)
 
-    filter_agent = FilterAgent(
-        filter_config=get_config_value(cfg, "agents.filter"),
-        db_hndlr=db_hndlr,
-    )
-    filter_agent.process(args=args)
-    filtered_articles = [
-        article
-        for article in db_hndlr.retrieve_items(Feed)
-        if not getattr(article, "is_noise", False)
-    ]
+        enrichment_agent = EnrichmentAgent(
+            model=get_config_value(cfg, "agents.enrichment.model"),
+            db_hndlr=db_hndlr,
+        )
+        enrichment_agent.process()
 
-    enrichment_agent = EnrichmentAgent(
-        model=get_config_value(cfg, "agents.enrichment.model"),
-        db_hndlr=db_hndlr,
-    )
-    enrichment_agent.process()
-
-    scored_opportunities = []
     founder_name = founder.name if founder is not None else "Unknown"
 
     if getattr(args, "generate_opp", False):
@@ -132,18 +125,10 @@ def run_daily_pipeline(
             model=get_config_value(cfg, "agents.scoring.model"),
             db_hndlr=db_hndlr,
         )
-        scored_opportunities = scoring_agent.process(founder_name, args=args)
-    else:
-        scored_opportunities = []
+        scoring_agent.process(founder_name, args=args)
 
     if is_mock and not getattr(args, "keep_temp", False) and os.path.exists(".tmp"):
         try:
             os.rmdir(".tmp")
         except OSError:
             pass
-
-    return {
-        "articles": [_serialize_model(article) for article in articles],
-        "filtered": [_serialize_model(article) for article in filtered_articles],
-        "opportunities": scored_opportunities,
-    }

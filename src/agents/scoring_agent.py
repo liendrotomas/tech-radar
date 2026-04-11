@@ -21,50 +21,65 @@ class ScoringAgent(BaseAgent):
         """Score a list of opportunity proposals in one request."""
         opportunities_source = self.db_hndlr.retrieve_items(Opportunity)
         if getattr(args, "update_scores", False):
+            opportunities = opportunities_source
+        else:
             opportunities = [
                 opp for opp in opportunities_source if opp.final_score == 0.0
             ]
-        else:
-            opportunities = opportunities_source
 
+        logger.info("Found %s opportunities to score.", len(opportunities))
         if not opportunities_source:
             return []
 
         founders = self.db_hndlr.retrieve_items(Founder)
         founder_profile = next((f for f in founders if f.name == founder_name), None)
-        prompt = self._build_batch_prompt(opportunities, founder_profile)
-        response = self.client.responses.create(
-            model=self.model,
-            input=prompt,
-        )
-        logger.info("Scoring opportunities")
-        content = response.output[0].content[0].text
-        parsed_list = self._parse_batch_response(
-            content, expected_len=len(opportunities)
-        )
-
+        # Process the opportunities in batches of 5 to avoid hitting token limits
+        batch_size = 5
         scored = []
-        for opp, score_data in zip(opportunities, parsed_list):
-            setattr(opp, "market_size", score_data.get("market_size", 0))
-            setattr(
-                opp,
-                "technical_advantage",
-                score_data.get("technical_advantage", 0),
-            )
-            setattr(opp, "timing", score_data.get("timing", 0))
-            setattr(
-                opp,
-                "founder_fit_score",
-                score_data.get("founder_fit_score", 0),
-            )
-            setattr(opp, "defensibility", score_data.get("defensibility", 0))
-            setattr(opp, "score", score_data.get("score", 0))
-            setattr(opp, "final_score", self.compute_final_score(score_data))
-            setattr(opp, "notes", score_data.get("notes", ""))
-            self.db_hndlr.add_item(opp)
-            scored.append(opp)
 
-        self._persist_scores(scored)
+        for i in range(0, len(opportunities), batch_size):
+            logger.info(
+                "Scoring batch %s-%s of %s.",
+                i + 1,
+                min(i + batch_size, len(opportunities)),
+                len(opportunities),
+            )
+            batch = opportunities[i : i + batch_size]
+            prompt = self._build_batch_prompt(batch, founder_profile)
+            response = self.client.responses.create(
+                model=self.model,
+                input=prompt,
+            )
+            content = response.output[0].content[0].text
+            parsed_list, ret = self._parse_batch_response(
+                content, expected_len=len(batch)
+            )
+            if not ret:
+                logger.warning(
+                    "Failed to parse batch response, skipping scoring for this batch."
+                )
+                continue
+
+            for opp, score_data in zip(batch, parsed_list):
+                setattr(opp, "market_size", score_data.get("market_size", 0))
+                setattr(
+                    opp,
+                    "technical_advantage",
+                    score_data.get("technical_advantage", 0),
+                )
+                setattr(opp, "timing", score_data.get("timing", 0))
+                setattr(
+                    opp,
+                    "founder_fit_score",
+                    score_data.get("founder_fit_score", 0),
+                )
+                setattr(opp, "defensibility", score_data.get("defensibility", 0))
+                setattr(opp, "score", score_data.get("score", 0))
+                setattr(opp, "final_score", self.compute_final_score(score_data))
+                setattr(opp, "notes", score_data.get("notes", ""))
+                self.db_hndlr.add_item(opp)
+                scored.append(opp)
+
         return [self._serialize_opportunity(opportunity) for opportunity in scored]
 
     @staticmethod
@@ -122,11 +137,11 @@ class ScoringAgent(BaseAgent):
         try:
             results = json.loads(content)
             if isinstance(results, list) and len(results) == expected_len:
-                return results
+                return results, True
+            else:
+                return [], False
         except Exception:
-            raise ValueError(
-                f"Invalid response format. Expected a JSON list of length {expected_len}."
-            )
+            return [], False
 
     def _persist_scores(self, opportunities: List[Opportunity]) -> None:
         with Session(self.db_hndlr.get_engine()) as session:
