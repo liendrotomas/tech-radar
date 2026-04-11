@@ -1,123 +1,121 @@
 {
     "name": "Tomas Liendro",
-    "archetype": "Emerging Deep-Tech Founder / Systems-Oriented Builder",
-    "mission": "Build technology that has real-world impact, ideally in deep-tech domains like space or advanced systems",
-    "vision": "Lead a company that deploys meaningful technology in the physical world (not just software), with long-term ambition toward space or frontier tech",
-    "superpowers": [
-        "Thinks in systems and opportunities, not isolated features",
-        "Strong product intuition (what could exist vs what exists)",
-        "High curiosity and fast learning across domains",
-        "Bias toward action and experimentation",
-        "Ability to connect ideas across industries (AI, robotics, space, finance)"
+    "archetype": "Space Systems Engineer transitioning to Founder",
+    "current_role": {
+        "title": "Space Systems Engineer",
+        "company": "ispace Japan",
+        "focus": "Lunar rover development and system-level engineering"
+    },
+    "previous_experience": [
+        {
+            "company": "Skyloom",
+            "domain": "Space-based optical communications",
+            "focus": "Satellite systems / communications infrastructure"
+        }
     ],
+    "founder_activity": {
+        "company": "Spacebee Technologies",
+        "project": "Rover Tito",
+        "focus": "Early-stage space robotics",
+        "stage": "exploration / prototyping"
+    },
     "technical_profile": {
-        "level": "intermediate → advancing",
+        "level": "intermediate_to_advanced",
+        "domains": [
+            "space systems engineering",
+            "robotics",
+            "mechatronics",
+            "embedded systems"
+        ],
         "stack": [
             "Python",
+            "embedded systems",
+            "hardware-software integration",
             "APIs",
-            "No-code/low-code tools (Make, Notion)",
-            "Basic AI/LLM usage (APIs, prompting)"
+            "automation tools"
         ],
         "strengths": [
-            "Rapid prototyping",
-            "Building functional MVPs",
-            "Integrating tools into workflows",
-            "Understanding how systems should behave"
+            "system-level thinking",
+            "working with real-world constraints (hardware + environment)",
+            "integration of multidisciplinary systems",
+            "rapid prototyping",
+            "ability to operate in high-complexity environments"
         ],
         "weaknesses": [
-            "Not yet deep in AI systems architecture",
-            "Limited experience training or fine-tuning models",
-            "Infra / scaling not yet a strength",
-            "Still developing strong technical depth in one domain"
+            "not yet deep in a single technical niche (e.g., propulsion, comms, autonomy)",
+            "limited experience owning full system architecture end-to-end",
+            "AI systems knowledge mostly at application level"
         ]
     },
     "builder_style": {
-        "approach": "explore → build → learn → iterate",
-        "preference": "practical experimentation over theoretical depth",
+        "approach": "build → test → iterate",
+        "preference": "hands-on experimentation",
         "risk_tolerance": "high",
-        "speed_vs_quality": "speed-first to learn, then refine",
-        "learning_style": "learn by building real things, not studying in isolation"
+        "speed_vs_quality": "speed-first for learning, then refinement",
+        "decision_style": "developing toward structured, trade-off-based decisions"
     },
     "interests": [
-        "Space and frontier technologies",
-        "Deep-tech startups",
-        "AI as an enabler (not the end itself)",
-        "Automation and leverage through software",
-        "Financial systems (trading, signals)",
-        "Tech trends and opportunity detection"
+        "space technology (lunar systems, infrastructure)",
+        "space robotics",
+        "satellite systems and data",
+        "AI as an enabler for physical systems",
+        "autonomous and decision-making systems",
+        "logistics and real-world signal extraction"
     ],
     "unfair_advantages": [
-        "System-level thinking early (rare at your stage)",
-        "Good instinct for valuable problems",
-        "Willingness to explore different domains before locking in",
-        "Not dogmatic about tools → flexible builder",
-        "Can operate at intersection of tech + product + opportunity"
+        "direct experience inside space industry (Skyloom, ispace)",
+        "exposure to both communications and lunar systems",
+        "ability to understand real constraints of space hardware",
+        "system-level perspective across software and hardware",
+        "early founder initiative within the same domain"
     ],
     "constraints": [
-        "Still building deep technical mastery",
-        "Limited time → needs leverage",
-        "Needs momentum to stay engaged",
-        "Risk of staying too broad instead of committing"
+        "limited exposure to market dynamics (especially government / defense procurement)",
+        "limited direct experience with customers and revenue generation",
+        "still transitioning from contributor to full system owner",
+        "balancing full-time engineering role with founder exploration"
     ],
-    "ideal_startups": {
-        "stage": "0→1",
-        "type": [
-            "Software-first wedge into deep-tech",
-            "AI-enabled tools (not pure AI infra)",
-            "Products that can evolve into deeper tech over time"
+    "market_gaps": {
+        "knowledge": [
+            "government procurement processes (RFPs, contracts, funding flows)",
+            "how space companies sell to agencies and defense",
+            "budget structures and buying triggers in space industry"
         ],
-        "characteristics": [
-            "Fast MVP possible",
-            "Real users early",
-            "Revenue early if possible",
-            "Path toward deeper technical moat later",
-            "Can bridge software → real-world applications"
+        "experience": [
+            "direct interaction with customers",
+            "closing deals or participating in sales cycles",
+            "defining products based on market demand"
         ]
     },
-    "startup_thesis": {
-        "core_belief": "Start with software and intelligence layers, then move toward deeper, real-world technological impact",
-        "long_game": "Use early software products as a stepping stone toward deep-tech / space",
-        "strategy": "Enter through speed and iteration, evolve toward depth and defensibility"
+    "ideal_startups": {
+        "domain": "space / deep-tech",
+        "entry_strategy": "software or data-driven wedge into space ecosystem",
+        "characteristics": [
+            "leverages existing industry exposure",
+            "solves a specific operational or data problem",
+            "can start small (tooling, data, workflows)",
+            "potential to expand into deeper tech over time"
+        ]
     },
     "anti_patterns": [
-        "Jumping directly into deep-tech without capability or capital",
-        "Overly complex systems too early",
-        "Pure hype-driven AI ideas",
-        "Businesses that don't build toward a bigger vision",
-        "Getting stuck in tools instead of building products"
+        "jumping directly into capital-intensive deep-tech without market validation",
+        "overengineering early-stage ideas",
+        "building without clear customer or buyer",
+        "pure software ideas disconnected from real-world impact"
     ],
     "current_focus": [
-        "Exploring AI-enabled products (tech radar, trading ideas)",
-        "Understanding how to build useful intelligent systems",
-        "Looking for a strong first wedge product",
-        "Learning by building rather than studying"
+        "lunar rover project at ispace",
+        "developing Spacebee Technologies",
+        "exploring intersections of space systems and software",
+        "improving decision-making sharpness",
+        "understanding space market dynamics"
     ],
-    "next_moves": [
-        "Pick one focused wedge and commit",
-        "Ship something people actually use",
-        "Validate willingness to pay",
-        "Build technical depth through real problems",
-        "Avoid over-expanding into multiple ideas"
+    "next_steps": [
+        "gain exposure to business development and customer side within space industry",
+        "study real contracts and procurement processes (NASA, JAXA, ESA)",
+        "validate at least one idea with a real potential customer",
+        "take ownership of a larger system or problem internally",
+        "develop structured decision-making (sharpness)"
     ],
-    "taste": {
-        "likes": [
-            "Things that connect to real-world impact",
-            "Leverage through technology",
-            "Ideas that can evolve into something much bigger",
-            "Clean, simple MVPs with potential",
-            "Frontier tech (especially space)"
-        ],
-        "dislikes": [
-            "Purely digital fluff with no real impact",
-            "Overengineered systems early",
-            "Buzzword AI without substance",
-            "Low ambition ideas",
-            "Slow-moving, bureaucratic environments"
-        ]
-    },
-    "long_term_goal": "Build or lead a deep-tech company, ideally in space or frontier technology, with real-world deployment and lasting impact",
-    "identity_shift_needed": {
-        "from": "Explorer building many things",
-        "to": "Founder committed to one path that compounds over time"
-    }
+    "long_term_goal": "found or lead a space technology company with real-world deployment, combining strong technical systems with clear market demand"
 }
