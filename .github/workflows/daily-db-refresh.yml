@@ -74,17 +74,37 @@ jobs:
           MAX_OPPS_INPUT="${{ github.event.inputs.max_opps }}"
           SKIP_SCORE_OPPS_INPUT="${{ github.event.inputs.skip_score_opps }}"
 
-          FOUNDER="${FOUNDER_INPUT:-$DEFAULT_FOUNDER}"
-          UPDATE_DB="${UPDATE_DB_INPUT:-$DEFAULT_UPDATE_DB}"
-          MAX_OPPS="${MAX_OPPS_INPUT:-$DEFAULT_MAX_OPPS}"
+          FOUNDER="$FOUNDER_INPUT"
+          UPDATE_DB="$UPDATE_DB_INPUT"
+          MAX_OPPS="$MAX_OPPS_INPUT"
+
+          if [ -z "$FOUNDER" ]; then
+            FOUNDER="$DEFAULT_FOUNDER"
+          fi
+
+          if [ -z "$UPDATE_DB" ]; then
+            UPDATE_DB="$DEFAULT_UPDATE_DB"
+          fi
+
+          if [ -z "$MAX_OPPS" ]; then
+            MAX_OPPS="$DEFAULT_MAX_OPPS"
+          fi
 
           COMMAND=(uv run python main.py --founder "$FOUNDER" --update-db "$UPDATE_DB")
 
-          if [ "${GENERATE_OPP_INPUT:-true}" = "true" ]; then
+          if [ -z "$GENERATE_OPP_INPUT" ]; then
+            GENERATE_OPP_INPUT="true"
+          fi
+
+          if [ "$GENERATE_OPP_INPUT" = "true" ]; then
             COMMAND+=(--generate-opp --max-opps "$MAX_OPPS")
           fi
 
-          if [ "${SKIP_SCORE_OPPS_INPUT:-false}" = "true" ]; then
+          if [ -z "$SKIP_SCORE_OPPS_INPUT" ]; then
+            SKIP_SCORE_OPPS_INPUT="false"
+          fi
+
+          if [ "$SKIP_SCORE_OPPS_INPUT" = "true" ]; then
             COMMAND+=(--skip-score-opps)
           fi
 
