@@ -82,6 +82,12 @@ def cli() -> None:
         help="Fetch RSS articles and update database before processing (provide max items to fetch)",
     )
     parser.add_argument(
+        "--refilter",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="Re-filter articles in the database",
+    )
+    parser.add_argument(
         "--database-file",
         type=str,
         default=DEFAULT_DATABASE_FILE,
@@ -153,12 +159,8 @@ def cli() -> None:
     except Exception as exc:
         logger.warning("Could not parse founder profile, using empty profile: %s", exc)
     _clear_database(args)
-    results = run_daily_pipeline(founder_profile=setup_profile, args=args)
-    logger.info(
-        "Pipeline complete, opportunities=%d",
-        len(results.get("opportunities", [])),
-    )
-    print_report(results)
+    run_daily_pipeline(founder_profile=setup_profile, args=args)
+    logger.info("Pipeline complete.")
 
 
 if __name__ == "__main__":
