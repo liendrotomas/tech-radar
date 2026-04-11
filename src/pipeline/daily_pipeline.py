@@ -7,7 +7,7 @@ from src.agents.enrichment_agent import EnrichmentAgent
 from src.agents.filter_agent import FilterAgent
 from src.config.config import load_config, get_config_value
 from src.database.database import Database, Feed, Founder
-from src.ingestion.rss_ingestion import fetch_rss_articles
+from src.ingestion.rss_ingestion import fetch_rss_articles, fetch_scraping_articles, fetch_query_articles , fetch_sns_articles
 from src.utils.logger import get_logger
 
 logger = get_logger("daily_pipeline")
@@ -88,6 +88,25 @@ def run_daily_pipeline(
             max_items=max_items,
             db_hndlr=db_hndlr,
         )
+        if get_config_value(cfg, "ingestion.scraping.enabled", False):
+            fetch_scraping_articles(
+                urls=get_config_value(cfg, "ingestion.scraping.urls", []),
+                max_items=get_config_value(cfg, "ingestion.scraping.max_items", 0),
+                db_hndlr=db_hndlr,
+                cfg=cfg
+            )
+        if get_config_value(cfg, "ingestion.queries.enabled", False):
+            fetch_query_articles(
+                urls=get_config_value(cfg, "ingestion.queries.urls", []),
+                max_items=get_config_value(cfg, "ingestion.queries.max_items", 0),
+                db_hndlr=db_hndlr,
+            )
+        if get_config_value(cfg, "ingestion.sns_list.enabled", False):
+            fetch_sns_articles(
+                users=get_config_value(cfg, "ingestion.sns_list.users", []),
+                max_items=get_config_value(cfg, "ingestion.sns_list.max_items", 0),
+                db_hndlr=db_hndlr,
+            )
 
     articles = db_hndlr.retrieve_items(Feed)
 

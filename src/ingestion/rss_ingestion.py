@@ -6,8 +6,10 @@ RSS ingestion module for Tech Radar.
 - Includes error handling and timeout management
 """
 
+import os
 from typing import List
 from datetime import datetime
+from dotenv import load_dotenv
 import feedparser
 import re
 import requests
@@ -75,6 +77,7 @@ def fetch_rss_articles(
                     continue
 
                 new_entries += 1
+                logger.info(f"Adding new article. Count: {new_entries} / {max_items}")
                 existing_urls.add(link)
                 max_id += 1
                 if hasattr(entry, "published_parsed") and entry.published_parsed:
@@ -118,3 +121,55 @@ def fetch_rss_articles(
             continue
 
     return new_articles
+
+def fetch_scraping_articles(urls: List[str], max_items: int = 50, db_hndlr: Database = None, cfg=None) -> List[Feed]:
+    # Functions to fetch articles via web scraping (e.g. using BeautifulSoup or Scrapy)
+    articles = []
+    
+    
+def fetch_query_articles(urls: List[str], max_items: int = 50, db_hndlr: Database = None, cfg=None) -> List[Feed]:
+    # Placeholder function for query-based ingestion
+    pass
+
+def fetch_sns_articles(users: List[str], max_items: int = 50, db_hndlr: Database = None, cfg=None) -> List[Feed]:
+
+    X_BEARER_TOKEN = os.getenv("X_BEARER_TOKEN")
+    if X_BEARER_TOKEN is None:
+        logger.error("X_BEARER_TOKEN not found in config. Cannot fetch SNS articles.")
+        return
+
+    def get_user_tweets(username: str) -> List[dict]:
+        headers = {
+            "Authorization": f"Bearer {X_BEARER_TOKEN}"
+        }
+
+        # 1. get user id
+        user = requests.get(
+        f"https://api.twitter.com/2/users/by/username/{username}",
+        headers=headers
+    ).json()
+
+        user_id = user["data"]["id"]
+
+        tweets = requests.get(
+            f"https://api.twitter.com/2/users/{user_id}/tweets",
+            headers=headers,
+            params={"max_results": 10}
+        ).json()
+        cleaned_tweets = []
+        for t in tweets.get("data", []):
+            if "text" in t and t["text"].strip():
+                cleaned_tweets.append(t["text"].strip())
+        return cleaned_tweets
+    
+    tweets = [t for username in users for t in get_user_tweets(username)]
+
+    articles = [
+        {
+            "title": t["text"][:80],
+            "summary": t["text"],
+            "source": "X",
+            "link": f"https://x.com/i/web/status/{t['id']}",
+        }
+        for t in tweets
+    ]

@@ -12,6 +12,7 @@ ingestion:
       - "https://arxiv.org/rss/cs.RO"
       - "https://arxiv.org/rss/eess.AS"      
       - "http://export.arxiv.org/rss/cs.AI"
+      - "http://export.arxiv.org/rss/cs.CV"
       - "http://export.arxiv.org/rss/cs.LG"
 
       # Industry
@@ -58,11 +59,105 @@ ingestion:
       - https://www.ycombinator.com/blog
       - https://www.techstars.com/newsroom
 
+  scraping:
+    enabled: false
+    max_items: 5
+    urls:
+      - https://www.nasa.gov/centers/jpl/news/
+      - https://www.csail.mit.edu/news
+      - https://www.therobotreport.com/robotics-news/
+      - https://www.nasa.gov/robotics-news/
+      - https://news.stanford.edu/research-and-scholarship
+      - https://www.azorobotics.com/news-index.aspx
+
+  sns_list:
+    enabled: false
+    max_items: 5
+    users:
+      # - nasa
+      # - SpaceX
+      - robohub
+      - IEEE_RAS
+      - roboticsnews
+      - techcrunch
+      - YCombinator
+      - Techstars
+      - Figure_robot
+      - BostonDynamics
+      - deepmind
+      # - OpenAI
+      - nvidia
+      - elonmusk
+      - satyanadella
+      - karpathy
+      - ianbremmer
+      - AndrewYNg
+
+  queries:
+    enabled: false
+    max_items: 5
+    sources:
+      - "robotics startup"
+      - "autonomous systems"
+      - "AI agents"
+      - "humanoid robot"
+      - "space robotics"
+
+  labs:
+      - name: mit_csail
+        base_url: https://www.csail.mit.edu/news
+        article_selector: "a.card__title"
+      - name: stanford_ai
+        base_url: https://ai.stanford.edu/blog/
+        article_selector: "h2 a"
+      - name: berkeley_bair
+        base_url: https://bair.berkeley.edu/blog/
+        article_selector: "h2.entry-title a"
+
 
 agents:
   filter:
     signal_threshold: 0.03
     noise_threshold: 0.02
+    # Define keyword categories for easy extension
+    KEYWORD_CATEGORIES :
+        - ai : ["AI","artificial intelligence","machine learning","LLM","neural network","deep learning"]
+        - robotics: ["robotics", "robot", "automation", "autonomous"]
+        - startup: ["startup","founder","venture","startup opportunity","investment"]
+        - trending: ["breakthrough","launch","raises","open source","new model","benchmark","research"]
+    
+
+    NOISE_KEYWORDS :
+        - "newsletter"
+        - "opinion"
+        - "roundup"
+        - "weekly recap"
+        - "sponsored"
+        - "press release"
+        - "earnings call"
+        - "stock price"
+        - "celebrity"
+        - "gossip"
+        - "lifestyle"
+        - "how to use chatgpt"
+        - "beginner guide"
+        - "top 10 tools"
+        - "click here"
+        - "subscription"
+        - "war"
+        - "politics"
+        - "celebrity"
+        - "iran"
+        - "russia"
+        - "ukraine"
+        - "trump"
+        - "biden"
+        - "exclusive"
+        - "apps"
+        - "ios"
+        - "android"
+        - "events"
+
   enrichment:
     model: "gpt-4.1-mini"
   opportunity:

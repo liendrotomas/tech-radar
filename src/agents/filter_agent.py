@@ -13,73 +13,18 @@ from src.database.database import Database, Feed
 from .base_agent import BaseAgent
 from src.utils.logger import get_logger
 
+from src.config.config import get_config_value, load_config
+
 logger = get_logger("filter_agent")
 
 
 class FilterAgent(BaseAgent):
     """Filter articles by relevant technology keywords."""
-
-    # Define keyword categories for easy extension
-    KEYWORD_CATEGORIES = {
-        "ai": [
-            "AI",
-            "artificial intelligence",
-            "machine learning",
-            "LLM",
-            "neural",
-            "deep learning",
-        ],
-        "robotics": ["robotics", "robot", "automation", "autonomous"],
-        "startup": [
-            "startup",
-            "founder",
-            "venture",
-            "startup opportunity",
-            "investment",
-        ],
-        "trending": [
-            "breakthrough",
-            "launch",
-            "raises",
-            "open source",
-            "new model",
-            "benchmark",
-            "research",
-        ],
-    }
-
-    NOISE_KEYWORDS = {
-        "newsletter",
-        "opinion",
-        "roundup",
-        "weekly recap",
-        "sponsored",
-        "press release",
-        "earnings call",
-        "stock price",
-        "celebrity",
-        "gossip",
-        "lifestyle",
-        "how to use chatgpt",
-        "beginner guide",
-        "top 10 tools",
-        "click here",
-        "subscription",
-        "war",
-        "politics",
-        "celebrity",
-        "iran",
-        "russia",
-        "ukraine",
-        "trump",
-        "biden",
-        "exclusive",
-        "apps",
-        "ios",
-        "android",
-        "events",
-    }
-
+    # import keyword categories from config
+    cfg = load_config()
+    KEYWORD_CATEGORIES: Dict[str, List[str]] = get_config_value(cfg, "agents.filter.KEYWORD_CATEGORIES", {})
+    NOISE_KEYWORDS: Set[str] = set(get_config_value(cfg, "agents.filter.NOISE_KEYWORDS", []))
+    
     def __init__(
         self,
         categories: List[str] = None,
