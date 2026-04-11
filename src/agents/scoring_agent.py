@@ -19,8 +19,15 @@ class ScoringAgent(BaseAgent):
 
     def process(self, founder_name: str, args=None) -> List[Dict[str, Any]]:
         """Score a list of opportunity proposals in one request."""
-        opportunities = self.db_hndlr.retrieve_items(Opportunity)
-        if not opportunities:
+        opportunities_source = self.db_hndlr.retrieve_items(Opportunity)
+        if getattr(args, "update_scores", False):
+            opportunities = [
+                opp for opp in opportunities_source if opp.final_score == 0.0
+            ]
+        else:
+            opportunities = opportunities_source
+
+        if not opportunities_source:
             return []
 
         founders = self.db_hndlr.retrieve_items(Founder)
@@ -30,6 +37,7 @@ class ScoringAgent(BaseAgent):
             model=self.model,
             input=prompt,
         )
+        logger.info("Scoring opportunities")
         content = response.output[0].content[0].text
         parsed_list = self._parse_batch_response(
             content, expected_len=len(opportunities)
@@ -54,6 +62,7 @@ class ScoringAgent(BaseAgent):
             setattr(opp, "final_score", self.compute_final_score(score_data))
             setattr(opp, "notes", score_data.get("notes", ""))
             self.db_hndlr.add_item(opp)
+            scored.append(opp)
 
         self._persist_scores(scored)
         return [self._serialize_opportunity(opportunity) for opportunity in scored]
@@ -94,7 +103,7 @@ class ScoringAgent(BaseAgent):
         - founder_fit_score
         - defensibility
 
-        Return ONLY valid JSON (list with same length as opportunities):
+        Return ONLY valid JSON (make sure the result list has the same length as opportunities: {len(opportunities)}) in this format:
         [
           {{
           "score": int, 
@@ -115,20 +124,9 @@ class ScoringAgent(BaseAgent):
             if isinstance(results, list) and len(results) == expected_len:
                 return results
         except Exception:
-            pass
-
-        return [
-            {
-                "score": 0,
-                "market_size": 0,
-                "technical_advantage": 0,
-                "timing": 0,
-                "founder_fit_score": 0,
-                "defensibility": 0,
-                "notes": "failed_to_parse",
-            }
-            for _ in range(expected_len)
-        ]
+            raise ValueError(
+                f"Invalid response format. Expected a JSON list of length {expected_len}."
+            )
 
     def _persist_scores(self, opportunities: List[Opportunity]) -> None:
         with Session(self.db_hndlr.get_engine()) as session:

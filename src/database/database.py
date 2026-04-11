@@ -6,10 +6,10 @@ from pydantic_core import PydanticUndefined
 
 
 class Database:
-    def __init__(self, output_db: str, recreate_on_schema_change: bool = True):
-        self.output_db = output_db
+    def __init__(self, filepath: str, recreate_on_schema_change: bool = True):
+        self.filepath = filepath
         self.recreate_on_schema_change = recreate_on_schema_change
-        self.engine = create_engine(f"sqlite:///{output_db}")
+        self.engine = create_engine(f"sqlite:///{filepath}")
         SQLModel.metadata.create_all(self.engine)
         self._apply_schema_migrations()
         self._normalize_legacy_data()

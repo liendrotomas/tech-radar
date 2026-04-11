@@ -27,6 +27,7 @@ class OpportunityAgent(BaseAgent):
         return [e.embedding for e in res.data]
 
     def process(self, founder_name: Optional[str], args=None) -> List[Dict[str, Any]]:
+        max_opps = getattr(args, "max_opps", None)
         items = self.db_hndlr.retrieve_items(Feed)
         filtered_articles = [item for item in items if not item.is_noise]
         if not filtered_articles:
@@ -36,8 +37,9 @@ class OpportunityAgent(BaseAgent):
         founder_profile = next((f for f in founders if f.name == founder_name), None)
 
         grouped_articles = self._group_similar_trends(filtered_articles)
-        prompt = self._build_prompt(grouped_articles, founder_profile)
+        prompt = self._build_prompt(grouped_articles, founder_profile, max_opps)
 
+        logger.info("Generating opportunities")
         response = self.client.responses.create(
             model=self.model,
             input=prompt,
@@ -64,7 +66,10 @@ class OpportunityAgent(BaseAgent):
         return persisted_opportunities
 
     def _build_prompt(
-        self, articles: List[Dict[str, Any]], founder: Optional[Founder]
+        self,
+        articles: List[Dict[str, Any]],
+        founder: Optional[Founder],
+        max_opps: Optional[int],
     ) -> str:
 
         simplified = [
@@ -90,7 +95,7 @@ class OpportunityAgent(BaseAgent):
 
         {json.dumps(getattr(founder, "profile", {}), indent=2)}
 
-        Identify two or more HIGH-CONVICTION startup opportunities.
+        Identify up to {max_opps}, or less, HIGH-CONVICTION startup opportunities.
 
         Rules:
         - Must be technically grounded
