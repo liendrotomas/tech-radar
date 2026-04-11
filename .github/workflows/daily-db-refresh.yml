@@ -1,6 +1,9 @@
 name: Daily Database Refresh
 
 on:
+  push:
+    branches: [ "cronometrar-ejecucion" ] # Only trigger on pushes to the specific branch
+
   schedule:
     - cron: "0 6 * * *" # Every day at 6:00 AM UTC
   # Allow manual triggering with custom inputs
