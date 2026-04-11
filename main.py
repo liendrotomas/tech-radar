@@ -103,6 +103,12 @@ def cli() -> None:
         "--max-opps", type=int, default=10, help="Max opportunities to generate"
     )
     parser.add_argument(
+        "--skip-score-opps",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Skip scoring opportunities using the scoring agent",
+    )
+    parser.add_argument(
         "--update-scores",
         action=argparse.BooleanOptionalAction,
         default=False,

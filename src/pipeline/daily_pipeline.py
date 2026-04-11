@@ -80,7 +80,8 @@ def run_daily_pipeline(
     articles = []
 
     if getattr(args, "update_db", False):
-        fetch_rss_articles(
+        logger.info("Fetching RSS articles and updating database. Max items: %s", max_items)
+        fetch_rss_articles(             
             urls=get_config_value(cfg, "ingestion.rss.urls", []),
             max_items=max_items,
             db_hndlr=db_hndlr,
@@ -114,17 +115,22 @@ def run_daily_pipeline(
                 "Skipping opportunity generation because no founder profile is available."
             )
         else:
+            logger.info("Generating opportunities for founder: %s", founder_name)
+            logger.info(f"{getattr(args, 'max_opps', 0)} opportunities will be generated.")
             opportunity_agent = OpportunityAgent(
                 model=get_config_value(cfg, "agents.opportunity.model"),
                 db_hndlr=db_hndlr,
             )
             opportunity_agent.process(founder_name=founder_name, args=args)
 
-            scoring_agent = ScoringAgent(
-                model=get_config_value(cfg, "agents.scoring.model"),
-                db_hndlr=db_hndlr,
-            )
-            scored_opportunities = scoring_agent.process(founder_name, args=args)
+    if not getattr(args, "skip_score_opps", False):
+        scoring_agent = ScoringAgent(
+            model=get_config_value(cfg, "agents.scoring.model"),
+            db_hndlr=db_hndlr,
+        )
+        scored_opportunities = scoring_agent.process(founder_name, args=args)
+    else:
+        scored_opportunities = []
 
     if is_mock and not getattr(args, "keep_temp", False) and os.path.exists(".tmp"):
         try:

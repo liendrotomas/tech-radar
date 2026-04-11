@@ -164,7 +164,7 @@ class FilterAgent(BaseAgent):
 
     def noise_score(self, article: dict) -> int:
         text = (
-            f"{getattr(article, 'title', '')} {getattr(article, 'summary', '')}".lower()
+            f"{getattr(article, 'title', '')} {getattr(article, 'summary', '')} {getattr(article, 'keywords', '')}".lower()
         )
 
         score = 0
@@ -172,5 +172,6 @@ class FilterAgent(BaseAgent):
         for kw in self.NOISE_KEYWORDS:
             if kw in text:
                 score += 1
-
+        if getattr(article, "keywords", []) == []:
+            score += 5  # Penalize articles with no keywords
         return score
