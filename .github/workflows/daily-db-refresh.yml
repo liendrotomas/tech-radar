@@ -71,11 +71,12 @@ jobs:
           FOUNDER_INPUT="${{ github.event.inputs.founder }}"
           UPDATE_DB_INPUT="${{ github.event.inputs.update_db }}"
           GENERATE_OPP_INPUT="${{ github.event.inputs.generate_opp }}"
+          MAX_OPPS_INPUT="${{ github.event.inputs.max_opps }}"
           SKIP_SCORE_OPPS_INPUT="${{ github.event.inputs.skip_score_opps }}"
 
           FOUNDER="${FOUNDER_INPUT:-$DEFAULT_FOUNDER}"
           UPDATE_DB="${UPDATE_DB_INPUT:-$DEFAULT_UPDATE_DB}"
-          MAX_OPPS="${{ github.event.inputs.max_opps:-$DEFAULT_MAX_OPPS }}"
+          MAX_OPPS="${MAX_OPPS_INPUT:-$DEFAULT_MAX_OPPS}"
 
           COMMAND=(uv run python main.py --founder "$FOUNDER" --update-db "$UPDATE_DB")
 
