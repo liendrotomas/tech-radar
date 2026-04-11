@@ -229,6 +229,31 @@ What it supports:
 
 This is useful for reviewing `feed`, `opportunity`, `founder`, and `feedback` without opening raw SQL manually.
 
+## Daily Automatic Refresh
+
+Yes, but not with Git alone. The practical way is GitHub Actions: a scheduled workflow can run the pipeline every day, update `outputs/tech_radar.db`, and commit the new database back to the repository.
+
+The workflow is defined in `.github/workflows/daily-db-refresh.yml` and runs daily at `06:00 UTC`. You can also trigger it manually from the Actions tab.
+
+Required setup:
+
+- add the repository secret `OPENAI_API_KEY`
+- allow Actions to have write access to repository contents
+
+Default behavior of the scheduled job:
+
+- fetch up to 30 RSS items
+- use founder profile `tom`
+- generate opportunities
+- score opportunities
+- commit `outputs/tech_radar.db` only if it changed
+
+Manual local equivalent:
+
+```bash
+uv run python main.py --founder tom --update-db 30 --generate-opp --no-skip-score-opps
+```
+
 ## Contributing
 
 1. Fork the repository

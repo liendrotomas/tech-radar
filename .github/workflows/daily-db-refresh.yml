@@ -1,0 +1,131 @@
+name: Daily Database Refresh
+
+on:
+  push:
+    branches: [ "cronometrar-ejecucion" ] # Only trigger on pushes to the specific branch
+
+  schedule:
+    - cron: "0 6 * * *" # Every day at 6:00 AM UTC
+  # Allow manual triggering with custom inputs
+  workflow_dispatch:
+    inputs:
+      founder:
+        description: Founder profile to use from src/config/profiles
+        required: false
+        default: tom
+      update_db:
+        description: Max RSS items to fetch before processing
+        required: false
+        default: "30"
+      generate_opp:
+        description: Generate opportunities
+        required: false
+        type: boolean
+        default: true
+      skip_score_opps:
+        description: Skip scoring opportunities
+        required: false
+        type: boolean
+        default: false
+      max_opps:
+        description: Max opportunities to generate
+        required: false
+        default: "10"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-database:
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      DEFAULT_FOUNDER: tom
+      DEFAULT_UPDATE_DB: "30"
+      DEFAULT_MAX_OPPS: "10"
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        run: python -m pip install --upgrade pip uv
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Validate secret configuration
+        shell: bash
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "OPENAI_API_KEY secret is required for the daily refresh workflow." >&2
+            exit 1
+          fi
+
+      - name: Refresh SQLite database
+        shell: bash
+        run: |
+          FOUNDER_INPUT="${{ github.event.inputs.founder }}"
+          UPDATE_DB_INPUT="${{ github.event.inputs.update_db }}"
+          GENERATE_OPP_INPUT="${{ github.event.inputs.generate_opp }}"
+          MAX_OPPS_INPUT="${{ github.event.inputs.max_opps }}"
+          SKIP_SCORE_OPPS_INPUT="${{ github.event.inputs.skip_score_opps }}"
+
+          FOUNDER="$FOUNDER_INPUT"
+          UPDATE_DB="$UPDATE_DB_INPUT"
+          MAX_OPPS="$MAX_OPPS_INPUT"
+
+          if [ -z "$FOUNDER" ]; then
+            FOUNDER="$DEFAULT_FOUNDER"
+          fi
+
+          if [ -z "$UPDATE_DB" ]; then
+            UPDATE_DB="$DEFAULT_UPDATE_DB"
+          fi
+
+          if [ -z "$MAX_OPPS" ]; then
+            MAX_OPPS="$DEFAULT_MAX_OPPS"
+          fi
+
+          COMMAND=(uv run python main.py --founder "$FOUNDER" --update-db "$UPDATE_DB")
+
+          if [ -z "$GENERATE_OPP_INPUT" ]; then
+            GENERATE_OPP_INPUT="true"
+          fi
+
+          if [ "$GENERATE_OPP_INPUT" = "true" ]; then
+            COMMAND+=(--generate-opp --max-opps "$MAX_OPPS")
+          fi
+
+          if [ -z "$SKIP_SCORE_OPPS_INPUT" ]; then
+            SKIP_SCORE_OPPS_INPUT="false"
+          fi
+
+          if [ "$SKIP_SCORE_OPPS_INPUT" = "true" ]; then
+            COMMAND+=(--skip-score-opps)
+          fi
+
+          printf 'Running command:'
+          printf ' %q' "${COMMAND[@]}"
+          printf '\n'
+          "${COMMAND[@]}"
+
+      - name: Commit database changes
+        shell: bash
+        run: |
+          if git diff --quiet -- outputs/tech_radar.db; then
+            echo "No database changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outputs/tech_radar.db
+          git commit -m "chore: refresh tech radar database"
+          git push origin HEAD:${{ github.ref_name }}
