@@ -45,10 +45,6 @@ ingestion:
       # Optional
       - "https://www.producthunt.com/feed"
 
-    max_items: 4
-
-  opportunity:
-    urls:
       - https://www.nasa.gov/rss/dyn/breaking_news.rss
       - https://www.nasa.gov/rss/dyn/technology.rss
       - https://www.nasa.gov/rss/dyn/artemis.rss
@@ -62,7 +58,6 @@ ingestion:
       - https://www.ycombinator.com/blog
       - https://www.techstars.com/newsroom
 
-    max_items: 5
 
 agents:
   filter:

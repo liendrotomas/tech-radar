@@ -77,9 +77,9 @@ def cli() -> None:
     )
     parser.add_argument(
         "--update-db",
-        action=argparse.BooleanOptionalAction,
-        default=False,
-        help="Refresh RSS items in the database",
+        default=0,
+        type=int,
+        help="Fetch RSS articles and update database before processing (provide max items to fetch)",
     )
     parser.add_argument(
         "--database-file",
@@ -105,7 +105,7 @@ def cli() -> None:
     parser.add_argument(
         "--skip-score-opps",
         action=argparse.BooleanOptionalAction,
-        default=True,
+        default=False,
         help="Skip scoring opportunities using the scoring agent",
     )
     parser.add_argument(
