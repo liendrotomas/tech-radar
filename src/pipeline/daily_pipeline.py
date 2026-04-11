@@ -106,7 +106,7 @@ def run_daily_pipeline(
     enrichment_agent.process()
 
     scored_opportunities = []
-    founder_name = founder.name if founder is not None else founder_profile.get("name")
+    founder_name = founder.name if founder is not None else "Unknown"
 
     if getattr(args, "generate_opp", False):
         if not founder_name:

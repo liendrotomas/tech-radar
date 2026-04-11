@@ -211,6 +211,24 @@ Run tests with:
 uv run pytest
 ```
 
+## SQLite Explorer UI
+
+If you want a simple local UI to inspect the SQLite database, filter rows, sort columns, and export the current view to CSV, run:
+
+```bash
+uv run streamlit run sqlite_explorer.py -- --db outputs/tech_radar.db
+```
+
+What it supports:
+
+- table picker
+- text, numeric, and boolean filters per column
+- quick search across text-like columns
+- server-side sort and pagination
+- schema preview and CSV export
+
+This is useful for reviewing `feed`, `opportunity`, `founder`, and `feedback` without opening raw SQL manually.
+
 ## Contributing
 
 1. Fork the repository
