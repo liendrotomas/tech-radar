@@ -163,9 +163,7 @@ class FilterAgent(BaseAgent):
         return filtered_items
 
     def noise_score(self, article: dict) -> int:
-        text = (
-            f"{getattr(article, 'title', '')} {getattr(article, 'summary', '')} {getattr(article, 'keywords', '')}".lower()
-        )
+        text = f"{getattr(article, 'title', '')} {getattr(article, 'summary', '')} {getattr(article, 'keywords', '')}".lower()
 
         score = 0
 

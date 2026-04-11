@@ -76,12 +76,14 @@ def run_daily_pipeline(
     )
     founder = _ensure_founder(db_hndlr, founder_profile)
 
-    max_items = 1 if is_mock else get_config_value(cfg, "ingestion.rss.max_items", 50)
+    max_items = 1 if is_mock else getattr(args, "update_db", 0)
     articles = []
 
-    if getattr(args, "update_db", False):
-        logger.info("Fetching RSS articles and updating database. Max items: %s", max_items)
-        fetch_rss_articles(             
+    if max_items > 0:
+        logger.info(
+            "Fetching RSS articles and updating database. Max items: %s", max_items
+        )
+        fetch_rss_articles(
             urls=get_config_value(cfg, "ingestion.rss.urls", []),
             max_items=max_items,
             db_hndlr=db_hndlr,
@@ -116,7 +118,9 @@ def run_daily_pipeline(
             )
         else:
             logger.info("Generating opportunities for founder: %s", founder_name)
-            logger.info(f"{getattr(args, 'max_opps', 0)} opportunities will be generated.")
+            logger.info(
+                f"{getattr(args, 'max_opps', 0)} opportunities will be generated."
+            )
             opportunity_agent = OpportunityAgent(
                 model=get_config_value(cfg, "agents.opportunity.model"),
                 db_hndlr=db_hndlr,
