@@ -4,6 +4,8 @@ import argparse
 import json
 import os
 
+from src.database.tools import import_from_csv
+
 from src.database.database import Database, Feed, Founder, Opportunity
 
 from src.pipeline.daily_pipeline import run_daily_pipeline
@@ -118,7 +120,7 @@ def cli() -> None:
         "--update-scores",
         action=argparse.BooleanOptionalAction,
         default=False,
-        help="Update opportunity scores",
+        help="Clear old and update opportunity scores",
     )
 
     # Create tags for clearing the database during development
@@ -148,6 +150,12 @@ def cli() -> None:
         default=None,
         help="Remove a founder and their opportunities from the database (provide founder name)",
     )
+    parser.add_argument(
+        "--feed-from-csv",
+        type=str,
+        default=None,  # "outputs/legacy/database_notion.csv",
+        help="Import feed data from a CSV file (provide file path)",
+    )
 
     args = parser.parse_args()
 
@@ -159,6 +167,9 @@ def cli() -> None:
     except Exception as exc:
         logger.warning("Could not parse founder profile, using empty profile: %s", exc)
     _clear_database(args)
+    if args.feed_from_csv:
+        import_from_csv(args.feed_from_csv, args)
+
     run_daily_pipeline(founder_profile=setup_profile, args=args)
     logger.info("Pipeline complete.")
 

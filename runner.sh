@@ -1,0 +1,1 @@
+uv run python main.py --founder tom --update-db 30 --generate-opp --max-opp 10
