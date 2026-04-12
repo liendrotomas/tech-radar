@@ -93,7 +93,6 @@ def run_daily_pipeline(
                 urls=get_config_value(cfg, "ingestion.scraping.urls", []),
                 max_items=get_config_value(cfg, "ingestion.scraping.max_items", 0),
                 db_hndlr=db_hndlr,
-                cfg=cfg
             )
         if get_config_value(cfg, "ingestion.queries.enabled", False):
             fetch_query_articles(

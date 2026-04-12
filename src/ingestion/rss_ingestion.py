@@ -123,38 +123,28 @@ def fetch_rss_articles(
     return new_articles
 
 def fetch_scraping_articles(urls: List[str], max_items: int = 50, db_hndlr: Database = None, cfg=None) -> List[Feed]:
-    # Functions to fetch articles via web scraping (e.g. using BeautifulSoup or Scrapy)
-    articles = []
+    pass
     
     
 def fetch_query_articles(urls: List[str], max_items: int = 50, db_hndlr: Database = None, cfg=None) -> List[Feed]:
     # Placeholder function for query-based ingestion
     pass
 
-def fetch_sns_articles(users: List[str], max_items: int = 50, db_hndlr: Database = None, cfg=None) -> List[Feed]:
+def fetch_sns_articles(users: List[str], max_items: int = 1, db_hndlr: Database = None, cfg=None) -> List[Feed]:
 
     X_BEARER_TOKEN = os.getenv("X_BEARER_TOKEN")
     if X_BEARER_TOKEN is None:
         logger.error("X_BEARER_TOKEN not found in config. Cannot fetch SNS articles.")
         return
 
-    def get_user_tweets(username: str) -> List[dict]:
+    def get_user_tweets(user_id: str, max_items: int) -> List[dict]:
         headers = {
             "Authorization": f"Bearer {X_BEARER_TOKEN}"
         }
-
-        # 1. get user id
-        user = requests.get(
-        f"https://api.twitter.com/2/users/by/username/{username}",
-        headers=headers
-    ).json()
-
-        user_id = user["data"]["id"]
-
         tweets = requests.get(
             f"https://api.twitter.com/2/users/{user_id}/tweets",
             headers=headers,
-            params={"max_results": 10}
+            params={"max_results": max_items}
         ).json()
         cleaned_tweets = []
         for t in tweets.get("data", []):
@@ -162,14 +152,27 @@ def fetch_sns_articles(users: List[str], max_items: int = 50, db_hndlr: Database
                 cleaned_tweets.append(t["text"].strip())
         return cleaned_tweets
     
-    tweets = [t for username in users for t in get_user_tweets(username)]
+    # Extract user_id from username from the yaml
+    user_ids = []
+    for user in users:
+        user_info = user.get(list(user.keys())[0], {})
+        user_id = user_info.get("user_id")
+        if user_id:
+            user_ids.append(user_id)
+        else:
+            logger.warning(f"No user_id found for {user} in config. Skipping.")
 
-    articles = [
-        {
-            "title": t["text"][:80],
-            "summary": t["text"],
-            "source": "X",
-            "link": f"https://x.com/i/web/status/{t['id']}",
-        }
-        for t in tweets
-    ]
+    tweets = [t for user_id in user_ids for t in get_user_tweets(user_id, max_items)]
+    max_id = max((article.id or 0 for article in db_hndlr.retrieve_items(Feed)), default=0)
+    for tweet in tweets:
+        max_id += 1
+        article = Feed(
+            id=max_id,
+            title=tweet[:50] + "..." if len(tweet) > 50 else tweet,
+            link="",
+            summary=tweet,
+            published_at=datetime.utcnow().isoformat(),
+            source="Twitter",
+            keywords=[],
+        )
+        db_hndlr.add_item(article)

@@ -75,23 +75,48 @@ ingestion:
     max_items: 5
     users:
       # - nasa
-      # - SpaceX
-      - robohub
-      - IEEE_RAS
-      - roboticsnews
-      - techcrunch
-      - YCombinator
-      - Techstars
-      - Figure_robot
-      - BostonDynamics
-      - deepmind
+        # platform: x
+        # user_id: 11348282
+      # - SpaceX:
+      #     platform: x
+      #     user_id: 34743251
+      - robohub : 
+          platform: x
+          user_id: 419727770
+      - RoboXiv:
+          platform: x
+          user_id: 1671391059744800771
+      - SpaceNews_Inc:
+          platform: x
+          user_id: 31098756
+      # - Techstars:
+      #     platform: x
+      #     user_id: 14277276
+      # - BostonDynamics:
+      #     platform: x
+      #     user_id: 517473207
+      # - deepmind:
+      #     platform: x
+      #     user_id: 
       # - OpenAI
-      - nvidia
-      - elonmusk
-      - satyanadella
-      - karpathy
-      - ianbremmer
-      - AndrewYNg
+      - nvidia:
+          platform: x
+          user_id: 61559439
+      # - elonmusk:
+      #     platform: x
+      #     user_id: 9012345678
+      - satyanadella:
+          platform: x
+          user_id: 20571756
+      - karpathy:
+          platform: x
+          user_id: 33836629
+      # - ianbremmer:
+      #     platform: x
+      #     user_id: 60783724
+      # - AndrewYNg:
+      #     platform: x
+      #     user_id: 216939636
 
   queries:
     enabled: false
@@ -121,10 +146,10 @@ agents:
     noise_threshold: 0.02
     # Define keyword categories for easy extension
     KEYWORD_CATEGORIES :
-        - ai : ["AI","artificial intelligence","machine learning","LLM","neural network","deep learning"]
-        - robotics: ["robotics", "robot", "automation", "autonomous"]
-        - startup: ["startup","founder","venture","startup opportunity","investment"]
-        - trending: ["breakthrough","launch","raises","open source","new model","benchmark","research"]
+        ai : ["AI","artificial intelligence","machine learning","LLM","neural network","deep learning"]
+        robotics: ["robotics", "robot", "automation", "autonomous"]
+        startup: ["startup","founder","venture","startup opportunity","investment"]
+        trending: ["breakthrough","launch","raises","open source","new model","benchmark","research"]
     
 
     NOISE_KEYWORDS :
@@ -157,6 +182,17 @@ agents:
         - "ios"
         - "android"
         - "events"
+        - "conference"
+        - "talk"
+        - "webinar"
+        - "workshop"
+        - "meetup"
+        - "summit"
+        - "expo"
+        - "interview"
+        - "podcast"
+        - "hackathon"
+        - "festival"
 
   enrichment:
     model: "gpt-4.1-mini"
