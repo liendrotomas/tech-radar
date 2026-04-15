@@ -254,6 +254,10 @@ Manual local equivalent:
 uv run python main.py --founder tom --update-db 30 --generate-opp --no-skip-score-opps
 ```
 
+## SQL Explorer
+
+To open the database explorer, open the following [link](https://tech-radar-app65imfqyxbjhunwphf2pf.streamlit.app/)
+
 ## Contributing
 
 1. Fork the repository
