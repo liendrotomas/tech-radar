@@ -1,51 +1,54 @@
-import numpy as np
-from openai import OpenAI
+from sklearn.linear_model import LogisticRegression
+import joblib
 
 
 class LearningEngine:
+    def __init__(self, embedder, fs, client):
+        self.embedder = embedder
+        self.fs = fs
+        self.client = client
 
-    def __init__(self, texts: list[str], feedback_service):
-        self.embed = self.embedder(texts)
-        self.fs = feedback_service
-        self.liked_centroid = None
-        self.rejected_centroid = None
-
-    # ---------- TRAIN (batch) ----------
     def retrain(self):
-        liked = self.fs.get_by_label("liked", limit=100)
-        rejected = self.fs.get_by_label("rejected", limit=100)
+        # Fetch all feedback and associated opportunities
+        feedbacks = self.fs.get_all_feedback_with_opportunities()
 
-        liked_texts = [f.notes for f in liked if f.notes]
-        rejected_texts = [f.notes for f in rejected if f.notes]
+        # Prepare training data
+        X = []
+        y = []
+        for fb in feedbacks:
+            opportunity = fb.get("opportunity", None)
+            if opportunity is None:
+                continue  # Skip if no associated opportunity
 
-        if liked_texts:
-            self.liked_centroid = self._centroid(self.embed(liked_texts))
+            # Create a combined text representation of the opportunity
+            text_representation = f"{opportunity.title} {opportunity.description}"
+            X.append(text_representation)
+            y.append(fb.get("feedback_label", None))
 
-        if rejected_texts:
-            self.rejected_centroid = self._centroid(self.embed(rejected_texts))
+        if not X:
+            print("No feedback data available for retraining.")
+            return
 
-    # ---------- SCORE ----------
-    def score(self, text, base_score=0):
-        emb = self.embed([text])[0]
+        # Generate embeddings for the training data
+        embeddings = self.embedder(self.client, X)
 
-        s = base_score
+        # Train a simple classifier (e.g., logistic regression)
+        clf = LogisticRegression()
+        clf.fit(embeddings, y)
 
-        if self.liked_centroid is not None:
-            s += self._sim(emb, self.liked_centroid) * 0.5
+        # Save the trained model (this is a placeholder, implement as needed)
+        joblib.dump(clf, "feedback_classifier.joblib")
 
-        if self.rejected_centroid is not None:
-            s -= self._sim(emb, self.rejected_centroid) * 0.7
+    def predict(self, opportunity):
+        text = f"{opportunity.title} {opportunity.description}"
+        embedding = self.embedder(self.client, [text])
+        try:
+            clf = joblib.load("feedback_classifier.joblib")
+        except FileNotFoundError:
+            print("Trained model not found. Please run retrain() first.")
+            return {"liked": 0.0, "rejected": 0.0, "explore": 0.0}
 
-        return s
+        probs = clf.predict_proba(embedding)[0]
+        classes = clf.classes_
 
-    # ---------- UTILS ----------
-    def _centroid(self, vectors):
-        return np.mean(vectors, axis=0)
-
-    def _sim(self, a, b):
-        return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
-
-    def embedder(texts: list[str]) -> list[list[float]]:
-        client = OpenAI()
-        res = client.embeddings.create(model="text-embedding-3-small", input=texts)
-        return [e.embedding for e in res.data]
+        return dict(zip(classes, probs))

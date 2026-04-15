@@ -7,6 +7,9 @@ from src.database.database import Database, Founder, Opportunity
 from openai import OpenAI
 from .base_agent import BaseAgent
 from src.utils.logger import get_logger
+from src.agents.learning_agent import LearningEngine
+from utils.ai_tools import embedder
+
 
 logger = get_logger("scoring_agent")
 
@@ -34,9 +37,9 @@ class ScoringAgent(BaseAgent):
         founders = self.db_hndlr.retrieve_items(Founder)
         founder_profile = next((f for f in founders if f.name == founder_name), None)
         # Process the opportunities in batches of 5 to avoid hitting token limits
-        batch_size = 5
+        batch_size = 10
         scored = []
-
+        le = LearningEngine(embedder, None, self.client)
         for i in range(0, len(opportunities), batch_size):
             logger.info(
                 "Scoring batch %s-%s of %s.",
@@ -75,7 +78,11 @@ class ScoringAgent(BaseAgent):
                 )
                 setattr(opp, "defensibility", score_data.get("defensibility", 0))
                 setattr(opp, "score", score_data.get("score", 0))
-                setattr(opp, "final_score", self.compute_final_score(score_data))
+                setattr(
+                    opp,
+                    "final_score",
+                    self.compute_final_score(score_data, opp, learning_agent=le),
+                )
                 setattr(opp, "notes", score_data.get("notes", ""))
                 self.db_hndlr.add_item(opp)
                 scored.append(opp)
@@ -83,14 +90,22 @@ class ScoringAgent(BaseAgent):
         return [self._serialize_opportunity(opportunity) for opportunity in scored]
 
     @staticmethod
-    def compute_final_score(score_data: Dict[str, Any]) -> float:
-        return (
+    def compute_final_score(
+        score_data: Dict[str, Any],
+        opp: Opportunity,
+        learning_agent: LearningEngine = None,
+    ) -> float:
+        heuristic_score = (
             score_data.get("market_size", 0) * 0.3
             + score_data.get("technical_advantage", 0) * 0.25
             + score_data.get("timing", 0) * 0.2
             + score_data.get("founder_fit_score", 0) * 0.15
             + score_data.get("defensibility", 0) * 0.1
         )
+        # Update final score for all opportunities based on new model
+        probs = learning_agent.predict(opp)
+        ml_score = probs.get("liked", 0) - probs.get("rejected", 0)
+        return 0.7 * heuristic_score + 0.3 * ml_score  # heurístico  # aprendido
 
     def _build_batch_prompt(
         self,

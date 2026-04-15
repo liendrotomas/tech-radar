@@ -175,6 +175,10 @@ class Database:
                 )
             )
 
+    def get_session(self):
+        with Session(self.engine) as session:
+            return session
+
     def get_engine(self):
         return self.engine
 
@@ -197,6 +201,11 @@ class Database:
         with Session(self.engine) as session:
             results = session.exec(select(item)).all()
             return results
+
+    def update_item(self, item):
+        with Session(self.engine) as session:
+            session.merge(item)
+            session.commit()
 
 
 class Founder(SQLModel, table=True):
@@ -246,40 +255,6 @@ class Opportunity(SQLModel, table=True):
 class Feedback(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     opportunity_id: int
-    label: str  # liked / rejected / explore
-    notes: Optional[str] = None
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-
-
-class FeedbackService:
-
-    def __init__(self, database_engine: Database):
-        self.database_engine = database_engine
-        self.session_factory = Session(self.database_engine.get_engine())
-
-    def add_feedback(self, opportunity_id, label, notes=None):
-        with self.session_factory as session:
-            fb = Feedback(opportunity_id=opportunity_id, label=label, notes=notes)
-            session.add(fb)
-            session.commit()
-
-    def get_by_label(self, label, limit=20):
-        with self.session_factory as session:
-            return (
-                session.query(Feedback)
-                .filter(Feedback.label == label)
-                .limit(limit)
-                .all()
-            )
-
-    def build_context(self):
-        liked = self.get_by_label("liked")
-        rejected = self.get_by_label("rejected")
-
-        return f"""
-        Liked ideas:
-        {[f.notes for f in liked if f.notes]}
-
-        Rejected ideas:
-        {[f.notes for f in rejected if f.notes]}
-        """
+    title: str = Field(default="")
+    label: str = Field(default=None)  # liked / rejected / explore
+    notes: Optional[str] = Field(default=None)
