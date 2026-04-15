@@ -39,7 +39,7 @@ class ScoringAgent(BaseAgent):
         # Process the opportunities in batches of 5 to avoid hitting token limits
         batch_size = 10
         scored = []
-        le = LearningEngine( embedder, None, self.client)
+        le = LearningEngine(embedder, None, self.client)
         for i in range(0, len(opportunities), batch_size):
             logger.info(
                 "Scoring batch %s-%s of %s.",
@@ -78,7 +78,11 @@ class ScoringAgent(BaseAgent):
                 )
                 setattr(opp, "defensibility", score_data.get("defensibility", 0))
                 setattr(opp, "score", score_data.get("score", 0))
-                setattr(opp, "final_score", self.compute_final_score(score_data, opp, learning_agent=le))
+                setattr(
+                    opp,
+                    "final_score",
+                    self.compute_final_score(score_data, opp, learning_agent=le),
+                )
                 setattr(opp, "notes", score_data.get("notes", ""))
                 self.db_hndlr.add_item(opp)
                 scored.append(opp)
@@ -86,7 +90,11 @@ class ScoringAgent(BaseAgent):
         return [self._serialize_opportunity(opportunity) for opportunity in scored]
 
     @staticmethod
-    def compute_final_score(score_data: Dict[str, Any], opp: Opportunity, learning_agent: LearningEngine=None) -> float:
+    def compute_final_score(
+        score_data: Dict[str, Any],
+        opp: Opportunity,
+        learning_agent: LearningEngine = None,
+    ) -> float:
         heuristic_score = (
             score_data.get("market_size", 0) * 0.3
             + score_data.get("technical_advantage", 0) * 0.25
@@ -97,10 +105,7 @@ class ScoringAgent(BaseAgent):
         # Update final score for all opportunities based on new model
         probs = learning_agent.predict(opp)
         ml_score = probs.get("liked", 0) - probs.get("rejected", 0)
-        return (
-            0.7 * heuristic_score +   # heurístico
-            0.3 * ml_score # aprendido
-        )
+        return 0.7 * heuristic_score + 0.3 * ml_score  # heurístico  # aprendido
 
     def _build_batch_prompt(
         self,

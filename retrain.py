@@ -10,6 +10,7 @@ from src.utils.logger import get_logger
 DEFAULT_DATABASE_FILE = os.path.join("outputs", "tech_radar.db")
 logger = get_logger("retrain")
 
+
 def main():
     # Initialize database and feedback service
     db = Database(DEFAULT_DATABASE_FILE)
@@ -21,7 +22,7 @@ def main():
     le = LearningEngine(embedder, fs, client=client)
     logger.info("Starting retraining process...")
     le.retrain()
-    
+
 
 print("🧠 retrained")
 

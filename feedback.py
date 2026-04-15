@@ -55,7 +55,9 @@ def main():
 
     sub.add_parser("review")
     remove_fb = sub.add_parser("remove-feedback")
-    remove_fb.add_argument("opportunity_id", type=int, help="ID of the opportunity to remove feedback for")
+    remove_fb.add_argument(
+        "opportunity_id", type=int, help="ID of the opportunity to remove feedback for"
+    )
 
     fb = sub.add_parser("feedback")
     fb.add_argument("opportunity_id", default=None, type=int, nargs="?")
@@ -79,7 +81,7 @@ def main():
         fs.add_feedback(args.opportunity_id, label_mapped, args.notes)
     elif args.command == "remove-feedback":
         fs.remove_feedback_for_opportunity(args.opportunity_id)
-    
+
     print("✅ feedback saved")
 
 

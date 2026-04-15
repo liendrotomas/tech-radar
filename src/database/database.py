@@ -207,6 +207,7 @@ class Database:
             session.merge(item)
             session.commit()
 
+
 class Founder(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     name: str

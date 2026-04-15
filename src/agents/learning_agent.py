@@ -1,6 +1,7 @@
 from sklearn.linear_model import LogisticRegression
 import joblib
 
+
 class LearningEngine:
     def __init__(self, embedder, fs, client):
         self.embedder = embedder
@@ -51,5 +52,3 @@ class LearningEngine:
         classes = clf.classes_
 
         return dict(zip(classes, probs))
-    
-    
