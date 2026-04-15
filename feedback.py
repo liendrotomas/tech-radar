@@ -16,7 +16,6 @@ def review(db_hndlr: Database, fs: FeedbackService):
             session.query(Opportunity)
             .outerjoin(Feedback, Opportunity.id == Feedback.opportunity_id)
             .filter(Feedback.id == None)
-            .limit(20)
             .all()
         )
     logger.info(f"Found {len(opps)} opportunities without feedback.")
