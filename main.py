@@ -6,7 +6,7 @@ import os
 
 from src.database.tools import import_from_csv
 
-from src.database.database import Database, Feed, Founder, Opportunity
+from src.database.database import Database, Feed, Feedback, Founder, Opportunity
 
 from src.pipeline.daily_pipeline import run_daily_pipeline
 from src.utils.logger import get_logger
@@ -29,6 +29,10 @@ def _clear_database(args):
         logger.warning("Clearing feeds table in database.")
         db_hndlr = Database(DEFAULT_DATABASE_FILE)
         db_hndlr.clear_items(Feed)
+    if getattr(args, "clear_feedback", False):
+        logger.warning("Clearing feedback table in database.")
+        db_hndlr = Database(DEFAULT_DATABASE_FILE)
+        db_hndlr.clear_items(Feedback)
     if getattr(args, "clear_opportunities", False):
         logger.warning("Clearing opportunities table in database.")
         db_hndlr = Database(DEFAULT_DATABASE_FILE)
@@ -75,7 +79,7 @@ def cli() -> None:
         help="Keep temporary files after dry run",
     )
     parser.add_argument(
-        "--founder", type=str, default=None, help="Founder profile JSON string"
+        "--founder", type=str, default="Unknown", help="Founder profile JSON string"
     )
     parser.add_argument(
         "--update-db",
@@ -129,6 +133,12 @@ def cli() -> None:
         action=argparse.BooleanOptionalAction,
         default=False,
         help="Clear feeds table in the database",
+    )
+    parser.add_argument(
+        "--clear-feedback",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="Clear feedback table in the database",
     )
     parser.add_argument(
         "--clear-opportunities",

@@ -7,6 +7,7 @@ from src.utils.logger import get_logger
 DEFAULT_DATABASE_FILE = os.path.join("outputs", "tech_radar.db")
 
 logger = get_logger("cli")
+label_map = {"l": "liked", "r": "rejected", "e": "explore"}
 
 
 def review(db_hndlr: Database, fs: FeedbackService):
@@ -33,8 +34,6 @@ def review(db_hndlr: Database, fs: FeedbackService):
         elif action == "s":
             continue
 
-        label_map = {"l": "liked", "r": "rejected", "e": "explore"}
-
         label = label_map.get(action)
 
         if label:
@@ -55,6 +54,8 @@ def main():
     sub = parser.add_subparsers(dest="command")
 
     sub.add_parser("review")
+    remove_fb = sub.add_parser("remove-feedback")
+    remove_fb.add_argument("opportunity_id", type=int, help="ID of the opportunity to remove feedback for")
 
     fb = sub.add_parser("feedback")
     fb.add_argument("opportunity_id", default=None, type=int, nargs="?")
@@ -62,7 +63,6 @@ def main():
         "label",
         default=None,
         type=str,
-        choices=["liked", "neutral", "rejected"],
         nargs="?",
     )
     fb.add_argument("notes", default=None, type=str, nargs="?")
@@ -75,7 +75,11 @@ def main():
     if args.command == "review":
         review(db, fs)
     elif args.command == "feedback":
-        fs.add_feedback(args.opportunity_id, args.label, args.notes)
+        label_mapped = label_map.get(args.label)
+        fs.add_feedback(args.opportunity_id, label_mapped, args.notes)
+    elif args.command == "remove-feedback":
+        fs.remove_feedback_for_opportunity(args.opportunity_id)
+    
     print("✅ feedback saved")
 
 

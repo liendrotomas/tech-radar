@@ -56,7 +56,9 @@ ingestion:
       - https://api.www.sbir.gov/public/api/solicitations
       - https://www.ycombinator.com/blog
       - https://www.techstars.com/newsroom
-
+      - https://jatan.space/rss
+      - https://payloadspace.com/feed/
+      - https://www.space.com/feeds.xml
 
 agents:
   filter:

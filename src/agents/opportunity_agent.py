@@ -1,11 +1,15 @@
 import json
+import math
 import re
 from typing import Any, Dict, List, Optional
+from collections import defaultdict
 
+from src.database.services import FeedbackService
 from openai import OpenAI
 from sklearn.cluster import KMeans
 
 from dotenv import load_dotenv
+from utils.ai_tools import embedder
 
 from src.database.database import Database, Feed, Founder, Opportunity
 from src.utils.logger import get_logger
@@ -22,10 +26,6 @@ class OpportunityAgent(BaseAgent):
         self.model = model
         self.db_hndlr = db_hndlr
 
-    def embedder(self, texts: List[str]) -> List[List[float]]:
-        res = self.client.embeddings.create(model="text-embedding-3-small", input=texts)
-        return [e.embedding for e in res.data]
-
     def process(self, founder_name: Optional[str], args=None) -> List[Dict[str, Any]]:
         max_opps = getattr(args, "max_opps", None)
         items = self.db_hndlr.retrieve_items(Feed)
@@ -33,11 +33,14 @@ class OpportunityAgent(BaseAgent):
         if not filtered_articles:
             return []
 
+
         founders = self.db_hndlr.retrieve_items(Founder)
         founder_profile = next((f for f in founders if f.name == founder_name), None)
-
+                
         grouped_articles = self._group_similar_trends(filtered_articles)
-        prompt = self._build_prompt(grouped_articles, founder_profile, max_opps)
+ 
+        feedback_service = FeedbackService(self.db_hndlr)
+        prompt = self._build_prompt(grouped_articles, founder_profile, max_opps, feedback_service)
 
         logger.info("Generating opportunities")
         response = self.client.responses.create(
@@ -70,8 +73,8 @@ class OpportunityAgent(BaseAgent):
         articles: List[Dict[str, Any]],
         founder: Optional[Founder],
         max_opps: Optional[int],
+        feedback_service: FeedbackService,
     ) -> str:
-
         simplified = [
             {
                 "title": a.get("title"),
@@ -80,9 +83,12 @@ class OpportunityAgent(BaseAgent):
             }
             for a in articles
         ]
+        context = feedback_service.build_context(self.client, query_text=simplified)
 
         return f"""
         You are a top-tier deeptech VC.
+        User preferences based on past decisions:
+        {context}
 
         Analyze the following tech signals where the signals are organized into groups of similar trends. 
         Each signal has a title, summary, and keywords and multiple titles and summaries are combined together if they are similar separating them with a "/". 
@@ -133,48 +139,85 @@ class OpportunityAgent(BaseAgent):
                     if isinstance(parsed, list):
                         return parsed
                 except Exception:
-                    pass
+                    raise ValueError(f"Failed to parse JSON from response: {content}")
 
             return [{"error": "failed_to_parse", "raw": content}]
 
-    def _group_similar_trends(self, articles: List[Feed]) -> List[Dict[str, Any]]:
+    def summarize_group(group):
+        rep = max(group, key=lambda a: getattr(a, "filter_score", 0))
+
+        return {
+            "title": rep.title,
+            "summary": rep.summary[:300],
+            "keywords": list(set(tag for a in group for tag in a.keywords)),
+            "n_articles": len(group)
+        }
+
+    def _group_similar_trends(self, articles: List[Feed], max_items=60, max_groups=10) -> List[Dict[str, Any]]:
         if not articles:
             return []
 
-        if len(articles) == 1:
-            article = articles[0]
-            return [
-                {
-                    "title": getattr(article, "title", ""),
-                    "summary": getattr(article, "summary", ""),
-                    "keywords": list(getattr(article, "keywords", [])),
-                }
-            ]
+        # ---------- 1. PRE-FILTER ----------
+        articles = sorted(
+            articles,
+            key=lambda a: getattr(a, "signal_score", 0) - getattr(a, "noise_score", 0),
+            reverse=True
+        )[:max_items]
 
+
+        if len(articles) == 1:
+            a = articles[0]
+            return [{
+                "title": getattr(a, "title", ""),
+                "summary": getattr(a, "summary", "")[:300],
+                "keywords": list(getattr(a, "keywords", [])),
+                "n_articles": 1
+            }]
+
+        # ---------- 2. EMBEDDINGS ----------
         texts = [
-            getattr(a, "title", "") + " " + getattr(a, "summary", "") for a in articles
+            f"{getattr(a, 'title', '')} {getattr(a, 'summary', '')}"
+            for a in articles
         ]
 
-        embeddings = self.embedder(texts)
+        embeddings = embedder(self.client, texts)
 
-        k = min(10, len(articles))
-        labels = KMeans(n_clusters=k, random_state=0).fit_predict(embeddings)
+        # ---------- 3. ADAPTIVE K ----------
+        k = max(2, min(max_groups, int(math.sqrt(len(articles)))))
 
-        clusters = {}
+        labels = KMeans(n_clusters=k, random_state=0, n_init="auto").fit_predict(embeddings)
+
+        # ---------- 4. BUILD CLUSTERS ----------
+        clusters = defaultdict(list)
         for a, l in zip(articles, labels):
-            clusters.setdefault(l, []).append(a)
+            clusters[l].append(a)
 
-        for l, group in clusters.items():
-            clusters[l] = {
-                "title": " / ".join(set(getattr(a, "title", "") for a in group)),
-                "summary": " / ".join(set(getattr(a, "summary", "") for a in group)),
-                "keywords": list(
-                    set(tag for a in group for tag in getattr(a, "keywords", []))
-                ),
+        # ---------- 5. FILTER SMALL CLUSTERS ----------
+        clusters = {
+            l: g for l, g in clusters.items()
+            if len(g) >= 2
+        }
+
+        # ---------- 6. SUMMARIZE ----------
+        def summarize_group(group):
+            rep = max(group, key=lambda a:  getattr(a, "signal_score", 0) - getattr(a, "noise_score", 0))
+
+            return {
+                "title": getattr(rep, "title", ""),
+                "summary": getattr(rep, "summary", "")[:300],
+                "keywords": list(set(
+                    tag for a in group for tag in getattr(a, "keywords", [])
+                )),
+                "n_articles": len(group),
             }
 
-        return list(clusters.values())
+        groups = [summarize_group(g) for g in clusters.values()]
 
+        # ---------- 7. SORT & LIMIT ----------
+        groups = sorted(groups, key=lambda g: g["n_articles"], reverse=True)[:max_groups]
+
+        return groups
+    
     def _serialize_opportunity(self, opportunity: Opportunity) -> Dict[str, Any]:
         data = opportunity.model_dump(mode="json")
         data["name"] = data.get("title", "")

@@ -202,6 +202,10 @@ class Database:
             results = session.exec(select(item)).all()
             return results
 
+    def update_item(self, item):
+        with Session(self.engine) as session:
+            session.merge(item)
+            session.commit()
 
 class Founder(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
@@ -250,5 +254,6 @@ class Opportunity(SQLModel, table=True):
 class Feedback(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     opportunity_id: int
-    label: str = Field(default=None)  # liked / rejected / neutral
+    title: str = Field(default="")
+    label: str = Field(default=None)  # liked / rejected / explore
     notes: Optional[str] = Field(default=None)

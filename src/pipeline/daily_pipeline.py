@@ -96,11 +96,12 @@ def run_daily_pipeline(
         )
         filter_agent.process(args=args)
 
-        enrichment_agent = EnrichmentAgent(
-            model=get_config_value(cfg, "agents.enrichment.model"),
-            db_hndlr=db_hndlr,
-        )
-        enrichment_agent.process()
+        # logger.info("Enriching articles in database.")
+        # enrichment_agent = EnrichmentAgent(
+        #     model=get_config_value(cfg, "agents.enrichment.model"),
+        #     db_hndlr=db_hndlr,
+        # )
+        # enrichment_agent.process()
 
     founder_name = founder.name if founder is not None else "Unknown"
 
