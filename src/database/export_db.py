@@ -13,9 +13,9 @@ BASE_DIR = os.path.dirname(SOURCE_DB)
 
 
 def dump_json(path, data):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    # Clear existing file and write new data
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, default=str)
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
 
 def export_db(base_path: str = BASE_DIR, source_db: str = SOURCE_DB):
