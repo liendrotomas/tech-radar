@@ -227,6 +227,7 @@ class Feed(SQLModel, table=True):
     is_noise: bool = False
     processing_metadata: dict = Field(default_factory=dict, sa_column=Column(JSON))
     enriched: dict = Field(default_factory=dict, sa_column=Column(JSON))
+    processed: bool = False
 
 
 class Opportunity(SQLModel, table=True):

@@ -79,7 +79,7 @@ def cli() -> None:
         help="Keep temporary files after dry run",
     )
     parser.add_argument(
-        "--founder", type=str, default="Unknown", help="Founder profile JSON string"
+        "--founder", type=str, default="tom", help="Founder profile JSON string"
     )
     parser.add_argument(
         "--update-db",
@@ -108,7 +108,7 @@ def cli() -> None:
     parser.add_argument(
         "--generate-opp",
         action=argparse.BooleanOptionalAction,
-        default=False,
+        default=True,
         help="Generate opportunities from enriched articles",
     )
     parser.add_argument(
