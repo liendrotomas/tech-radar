@@ -59,6 +59,28 @@ ingestion:
       - https://jatan.space/rss
       - https://payloadspace.com/feed/
       - https://www.space.com/feeds.xml
+      - https://www.livescience.com/feeds/all.xml
+      
+      - https://www.livescience.com/feeds/tag/space.xml
+      - https://www.livescience.com/feeds/article.xml
+      
+      - https://www.nasa.gov/rss-feeds/
+      - https://www.nasa.gov/rss/dyn/breaking_news.rss
+      - https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss
+      
+      - https://www.scientificamerican.com/platform/syndication/rss/
+      - http://rss.sciam.com/sciam/technology
+      - http://rss.sciam.com/sciam/space-physics
+      
+      - https://nationaltoday.com/feed/
+      
+      - https://www.mirror.co.uk/news/?service=rss
+      - https://www.mirror.co.uk/news/us-news/?service=rss
+      
+      - https://satnews.com/feed/
+      
+      - https://www.nationalgeographic.com/pages/rss/
+      - https://www.nationalgeographic.com/science/rss/
 
 agents:
   filter:
