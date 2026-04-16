@@ -17,4 +17,4 @@ wheels/
 bootstrap.py
 
 # Output files
-output/
+*.db

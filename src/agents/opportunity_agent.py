@@ -161,6 +161,7 @@ class OpportunityAgent(BaseAgent):
             return []
 
         # ---------- 1. PRE-FILTER ----------
+        articles = [a for a in articles if getattr(a, "processed") == False]
         articles = sorted(
             articles,
             key=lambda a: getattr(a, "signal_score", 0) - getattr(a, "noise_score", 0),
@@ -169,6 +170,8 @@ class OpportunityAgent(BaseAgent):
 
         if len(articles) == 1:
             a = articles[0]
+            # Set processed to True to avoid re-processing in enrichment and opportunity generation
+            setattr(a, "processed", True)
             return [
                 {
                     "title": getattr(a, "title", ""),
@@ -178,6 +181,21 @@ class OpportunityAgent(BaseAgent):
                 }
             ]
 
+        # ---------- 2. DEDUP ----------
+        def dedup(articles):
+            seen = set()
+            out = []
+
+            for a in articles:
+                key = (getattr(a, "title", "")[:80]).lower()
+                if key in seen:
+                    continue
+                seen.add(key)
+                out.append(a)
+
+            return out
+
+        articles = dedup(articles)
         # ---------- 2. EMBEDDINGS ----------
         texts = [
             f"{getattr(a, 'title', '')} {getattr(a, 'summary', '')}" for a in articles
@@ -218,11 +236,17 @@ class OpportunityAgent(BaseAgent):
             }
 
         groups = [summarize_group(g) for g in clusters.values()]
-
         # ---------- 7. SORT & LIMIT ----------
         groups = sorted(groups, key=lambda g: g["n_articles"], reverse=True)[
             :max_groups
         ]
+        # For the feeds used in opportunity generation, set processed to True to avoid re-processing in enrichment and opportunity generation
+        for g in groups:
+            for a in articles:
+                if getattr(a, "title", "") == g["title"]:
+                    setattr(a, "processed", True)
+                    self.db_hndlr.update_item(a)
+                    break
 
         return groups
 

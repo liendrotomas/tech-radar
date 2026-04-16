@@ -1,0 +1,124 @@
+{
+  "name": "Tomas Liendro",
+  "id": 1,
+  "profile": {
+    "archetype": "Space Systems Engineer transitioning to Founder",
+    "current_role": {
+      "title": "Space Systems Engineer",
+      "company": "ispace Japan",
+      "focus": "Lunar rover development and system-level engineering"
+    },
+    "previous_experience": [
+      {
+        "company": "Skyloom",
+        "domain": "Space-based optical communications",
+        "focus": "Satellite systems / communications infrastructure"
+      }
+    ],
+    "founder_activity": {
+      "company": "Spacebee Technologies",
+      "project": "Rover Tito",
+      "focus": "Early-stage space robotics",
+      "stage": "exploration / prototyping"
+    },
+    "technical_profile": {
+      "level": "intermediate_to_advanced",
+      "domains": [
+        "space systems engineering",
+        "robotics",
+        "mechatronics",
+        "embedded systems"
+      ],
+      "stack": [
+        "Python",
+        "embedded systems",
+        "hardware-software integration",
+        "APIs",
+        "automation tools"
+      ],
+      "strengths": [
+        "system-level thinking",
+        "working with real-world constraints (hardware + environment)",
+        "integration of multidisciplinary systems",
+        "rapid prototyping",
+        "ability to operate in high-complexity environments"
+      ],
+      "weaknesses": [
+        "not yet deep in a single technical niche (e.g., propulsion, comms, autonomy)",
+        "limited experience owning full system architecture end-to-end",
+        "AI systems knowledge mostly at application level"
+      ]
+    },
+    "builder_style": {
+      "approach": "build → test → iterate",
+      "preference": "hands-on experimentation",
+      "risk_tolerance": "high",
+      "speed_vs_quality": "speed-first for learning, then refinement",
+      "decision_style": "developing toward structured, trade-off-based decisions"
+    },
+    "interests": [
+      "space technology (lunar systems, infrastructure)",
+      "space robotics",
+      "satellite systems and data",
+      "AI as an enabler for physical systems",
+      "autonomous and decision-making systems",
+      "logistics and real-world signal extraction"
+    ],
+    "unfair_advantages": [
+      "direct experience inside space industry (Skyloom, ispace)",
+      "exposure to both communications and lunar systems",
+      "ability to understand real constraints of space hardware",
+      "system-level perspective across software and hardware",
+      "early founder initiative within the same domain"
+    ],
+    "constraints": [
+      "limited exposure to market dynamics (especially government / defense procurement)",
+      "limited direct experience with customers and revenue generation",
+      "still transitioning from contributor to full system owner",
+      "balancing full-time engineering role with founder exploration"
+    ],
+    "market_gaps": {
+      "knowledge": [
+        "government procurement processes (RFPs, contracts, funding flows)",
+        "how space companies sell to agencies and defense",
+        "budget structures and buying triggers in space industry"
+      ],
+      "experience": [
+        "direct interaction with customers",
+        "closing deals or participating in sales cycles",
+        "defining products based on market demand"
+      ]
+    },
+    "ideal_startups": {
+      "domain": "space / deep-tech",
+      "entry_strategy": "software or data-driven wedge into space ecosystem",
+      "characteristics": [
+        "leverages existing industry exposure",
+        "solves a specific operational or data problem",
+        "can start small (tooling, data, workflows)",
+        "potential to expand into deeper tech over time"
+      ]
+    },
+    "anti_patterns": [
+      "jumping directly into capital-intensive deep-tech without market validation",
+      "overengineering early-stage ideas",
+      "building without clear customer or buyer",
+      "pure software ideas disconnected from real-world impact"
+    ],
+    "current_focus": [
+      "lunar rover project at ispace",
+      "developing Spacebee Technologies",
+      "exploring intersections of space systems and software",
+      "improving decision-making sharpness",
+      "understanding space market dynamics"
+    ],
+    "next_steps": [
+      "gain exposure to business development and customer side within space industry",
+      "study real contracts and procurement processes (NASA, JAXA, ESA)",
+      "validate at least one idea with a real potential customer",
+      "take ownership of a larger system or problem internally",
+      "develop structured decision-making (sharpness)"
+    ],
+    "long_term_goal": "found or lead a space technology company with real-world deployment, combining strong technical systems with clear market demand"
+  }
+}
