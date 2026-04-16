@@ -161,7 +161,7 @@ class OpportunityAgent(BaseAgent):
             return []
 
         # ---------- 1. PRE-FILTER ----------
-        articles = [a for a in articles if getattr(a, "processed")==False]
+        articles = [a for a in articles if getattr(a, "processed") == False]
         articles = sorted(
             articles,
             key=lambda a: getattr(a, "signal_score", 0) - getattr(a, "noise_score", 0),
@@ -181,7 +181,7 @@ class OpportunityAgent(BaseAgent):
                 }
             ]
 
-         # ---------- 2. DEDUP ----------
+        # ---------- 2. DEDUP ----------
         def dedup(articles):
             seen = set()
             out = []
@@ -247,7 +247,7 @@ class OpportunityAgent(BaseAgent):
                     setattr(a, "processed", True)
                     self.db_hndlr.update_item(a)
                     break
-        
+
         return groups
 
     def _serialize_opportunity(self, opportunity: Opportunity) -> Dict[str, Any]:

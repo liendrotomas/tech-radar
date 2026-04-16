@@ -7,6 +7,8 @@ import os
 from src.database.tools import import_from_csv
 
 from src.database.database import Database, Feed, Feedback, Founder, Opportunity
+from src.database.import_db import import_db
+from src.database.export_db import export_db
 
 from src.pipeline.daily_pipeline import run_daily_pipeline
 from src.utils.logger import get_logger
@@ -79,7 +81,7 @@ def cli() -> None:
         help="Keep temporary files after dry run",
     )
     parser.add_argument(
-        "--founder", type=str, default="tom", help="Founder profile JSON string"
+        "--founder", type=str, default=None, help="Founder profile JSON string"
     )
     parser.add_argument(
         "--update-db",
@@ -102,13 +104,13 @@ def cli() -> None:
     parser.add_argument(
         "--recreate-on-schema-change",
         action=argparse.BooleanOptionalAction,
-        default=False,
+        default=True,
         help="Rebuild drifted tables during development; this can delete table data",
     )
     parser.add_argument(
         "--generate-opp",
         action=argparse.BooleanOptionalAction,
-        default=True,
+        default=False,
         help="Generate opportunities from enriched articles",
     )
     parser.add_argument(
@@ -168,20 +170,37 @@ def cli() -> None:
     )
 
     args = parser.parse_args()
+    BASE_DIR = os.path.dirname(getattr(args, "database_file", DEFAULT_DATABASE_FILE))
 
     logger.info("Starting Tech Radar daily pipeline")
-    setup_profile = {}
-    try:
-        if args.founder:
-            setup_profile = _load_founder_profile(args.founder)
-    except Exception as exc:
-        logger.warning("Could not parse founder profile, using empty profile: %s", exc)
     _clear_database(args)
     if args.feed_from_csv:
         import_from_csv(args.feed_from_csv, args)
 
+    setup_profile = {}
+    if args.founder:
+        setup_profile = _load_founder_profile(args.founder)
+    else:
+        raise Exception(
+            "Failed to load founder profile. Please check the provided founder profile."
+        )
+
+    # Import existing data from database to be enriched and processed in the pipeline
+    logger.info(
+        f"Importing existing database entries for processing {getattr(args, 'database_file', '')}"
+    )
+    import_db(
+        base_path=BASE_DIR,
+        source_db=args.database_file,
+        founder_name=[setup_profile.get("name", "")],
+    )
     run_daily_pipeline(founder_profile=setup_profile, args=args)
     logger.info("Pipeline complete.")
+    # Export the updated database after processing
+    logger.info(
+        f"Exporting updated database entries to {getattr(args, 'database_file', '')}"
+    )
+    export_db(base_path=BASE_DIR, source_db=args.database_file)
 
 
 if __name__ == "__main__":
