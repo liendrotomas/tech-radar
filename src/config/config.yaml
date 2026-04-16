@@ -4,46 +4,46 @@
 ingestion:
   rss:
     urls:
-      - "https://techcrunch.com/feed/"
-      - "https://thenextweb.com/feed/"
-      - "http://export.arxiv.org/rss/cs.AI"
+      # - "https://techcrunch.com/feed/"
+      # - "https://thenextweb.com/feed/"
+      # - "http://export.arxiv.org/rss/cs.AI"
 
-      # Papers
-      - "https://arxiv.org/rss/cs.RO"
-      - "https://arxiv.org/rss/eess.AS"      
-      - "http://export.arxiv.org/rss/cs.AI"
-      - "http://export.arxiv.org/rss/cs.LG"
+      # # Papers
+      # - "https://arxiv.org/rss/cs.RO"
+      # - "https://arxiv.org/rss/eess.AS"      
+      # - "http://export.arxiv.org/rss/cs.AI"
+      # - "http://export.arxiv.org/rss/cs.LG"
 
-      # Industry
-      - "https://techcrunch.com/tag/robotics/feed/"
-      - "https://techcrunch.com/tag/space/feed/"
-      - "https://spacenews.com/feed/"
+      # # Industry
+      # - "https://techcrunch.com/tag/robotics/feed/"
+      # - "https://techcrunch.com/tag/space/feed/"
+      # - "https://spacenews.com/feed/"
 
-      # Research engineering
-      - "https://spectrum.ieee.org/rss/robotics/fulltext"
-      - "https://www.technologyreview.com/feed/"
-      - "https://technology.nasa.gov/rss.xml"
+      # # Research engineering
+      # - "https://spectrum.ieee.org/rss/robotics/fulltext"
+      # - "https://www.technologyreview.com/feed/"
+      # - "https://technology.nasa.gov/rss.xml"
 
-      # Defense
-      - "https://www.darpa.mil/rss"
+      # # Defense
+      # - "https://www.darpa.mil/rss"
 
-      # Hardware
-      - "https://hackaday.com/blog/feed/"
+      # # Hardware
+      # - "https://hackaday.com/blog/feed/"
 
-      # Startups
-      - "https://news.crunchbase.com/feed/"
+      # # Startups
+      # - "https://news.crunchbase.com/feed/"
 
-      # Patents
-      - "https://patents.google.com/rss/search?q=robotics"
+      # # Patents
+      # - "https://patents.google.com/rss/search?q=robotics"
 
-      # Tech general
-      - "https://techcrunch.com/feed/"
+      # # Tech general
+      # - "https://techcrunch.com/feed/"
 
-      # Startups / VC
-      - "https://www.ycombinator.com/blog/feed"
+      # # Startups / VC
+      # - "https://www.ycombinator.com/blog/feed"
 
-      # Optional
-      - "https://www.producthunt.com/feed"
+      # # Optional
+      # - "https://www.producthunt.com/feed"
 
       - https://www.nasa.gov/rss/dyn/breaking_news.rss
       - https://www.nasa.gov/rss/dyn/technology.rss
