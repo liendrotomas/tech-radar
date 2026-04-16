@@ -82,15 +82,6 @@ uv run python main.py
 
 By default, the CLI loads the `tom` founder profile from `src/config/profiles/tom.json`.
 
-#### Dry Run
-
-To run a dry run without persisting data:
-```bash
-uv run python main.py --dry-run
-```
-
-This will execute the full pipeline (ingestion → filtering → enrichment → opportunity generation) and print the results to stdout.
-
 #### Update the Database
 
 To persist new opportunities into the feeds database:
@@ -114,8 +105,6 @@ uv run python main.py --founder tom.json
 
 ### CLI Options
 
-- `--dry-run`: Run without persistence
-- `--keep-temp`: Keep temporary files after a dry run
 - `--founder`: Founder profile name or JSON filename from `src/config/profiles/` (default: `tom`)
 - `--update-db`: Update `outputs/feeds.json` with new opportunities
 - `--database-file`: Override the feeds database path

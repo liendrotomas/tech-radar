@@ -27,18 +27,22 @@ def _remove_opportunities_for_founder(db_hndlr: Database, founder_name: str) -> 
 
 
 def _clear_database(args):
+    ret = 0
     if getattr(args, "clear_feeds", False):
         logger.warning("Clearing feeds table in database.")
         db_hndlr = Database(DEFAULT_DATABASE_FILE)
         db_hndlr.clear_items(Feed)
+        ret = 1
     if getattr(args, "clear_feedback", False):
         logger.warning("Clearing feedback table in database.")
         db_hndlr = Database(DEFAULT_DATABASE_FILE)
         db_hndlr.clear_items(Feedback)
+        ret = 1
     if getattr(args, "clear_opportunities", False):
         logger.warning("Clearing opportunities table in database.")
         db_hndlr = Database(DEFAULT_DATABASE_FILE)
         db_hndlr.clear_items(Opportunity)
+        ret = 1
     if getattr(args, "clear_founder_opps", None):
         founder_name = args.clear_founder_opps
         logger.warning(
@@ -46,17 +50,19 @@ def _clear_database(args):
         )
         db_hndlr = Database(DEFAULT_DATABASE_FILE)
         _remove_opportunities_for_founder(db_hndlr, founder_name)
+        ret = 1
     if getattr(args, "remove_founder", None):
         founder_name = args.remove_founder
-        logger.warning(
-            f"Removing founder {founder_name} and their opportunities from database."
-        )
+        logger.warning(f"Removing founder {founder_name}.")
         db_hndlr = Database(DEFAULT_DATABASE_FILE)
         retreived_founders = db_hndlr.retrieve_items(Founder)
         for founder in retreived_founders:
             if founder.name == founder_name:
                 db_hndlr.remove_item(founder)
-        _remove_opportunities_for_founder(db_hndlr, founder_name)
+        # _remove_opportunities_for_founder(db_hndlr, founder_name)
+        ret = 1
+
+    return ret
 
 
 def _load_founder_profile(founder_arg: str) -> dict:
@@ -72,16 +78,7 @@ def _load_founder_profile(founder_arg: str) -> dict:
 def cli() -> None:
     parser = argparse.ArgumentParser(description="Tech Radar AI pipeline runner")
     parser.add_argument(
-        "--dry-run", action="store_true", default=False, help="Run without persistence"
-    )
-    parser.add_argument(
-        "--keep-temp",
-        action="store_true",
-        default=False,
-        help="Keep temporary files after dry run",
-    )
-    parser.add_argument(
-        "--founder", type=str, default=None, help="Founder profile JSON string"
+        "--founder", type=str, default="tom", help="Founder profile JSON string"
     )
     parser.add_argument(
         "--update-db",
@@ -119,7 +116,7 @@ def cli() -> None:
     parser.add_argument(
         "--skip-score-opps",
         action=argparse.BooleanOptionalAction,
-        default=False,
+        default=True,  # False,
         help="Skip scoring opportunities using the scoring agent",
     )
     parser.add_argument(
@@ -173,34 +170,35 @@ def cli() -> None:
     BASE_DIR = os.path.dirname(getattr(args, "database_file", DEFAULT_DATABASE_FILE))
 
     logger.info("Starting Tech Radar daily pipeline")
-    _clear_database(args)
-    if args.feed_from_csv:
-        import_from_csv(args.feed_from_csv, args)
+    ret = _clear_database(args)
+    if not ret:
+        if args.feed_from_csv:
+            import_from_csv(args.feed_from_csv, args)
 
-    setup_profile = {}
-    if args.founder:
-        setup_profile = _load_founder_profile(args.founder)
-    else:
-        raise Exception(
-            "Failed to load founder profile. Please check the provided founder profile."
+        setup_profile = {}
+        if args.founder:
+            setup_profile = _load_founder_profile(args.founder)
+        else:
+            raise Exception(
+                "Failed to load founder profile. Please check the provided founder profile."
+            )
+
+        # Import existing data from database to be enriched and processed in the pipeline
+        logger.info(
+            f"Importing existing database entries for processing {getattr(args, 'database_file', '')}"
         )
-
-    # Import existing data from database to be enriched and processed in the pipeline
-    logger.info(
-        f"Importing existing database entries for processing {getattr(args, 'database_file', '')}"
-    )
-    import_db(
-        base_path=BASE_DIR,
-        source_db=args.database_file,
-        founder_name=[setup_profile.get("name", "")],
-    )
-    run_daily_pipeline(founder_profile=setup_profile, args=args)
-    logger.info("Pipeline complete.")
-    # Export the updated database after processing
-    logger.info(
-        f"Exporting updated database entries to {getattr(args, 'database_file', '')}"
-    )
-    export_db(base_path=BASE_DIR, source_db=args.database_file)
+        import_db(
+            base_path=BASE_DIR,
+            source_db=args.database_file,
+            founder_name=[setup_profile.get("name", "")],
+        )
+        run_daily_pipeline(founder_profile=setup_profile, args=args)
+        logger.info("Pipeline complete.")
+        # Export the updated database after processing
+        logger.info(
+            f"Exporting updated database entries to {getattr(args, 'database_file', '')}"
+        )
+        export_db(base_path=BASE_DIR, source_db=args.database_file)
 
 
 if __name__ == "__main__":

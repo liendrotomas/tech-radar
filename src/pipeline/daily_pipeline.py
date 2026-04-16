@@ -62,12 +62,7 @@ def run_daily_pipeline(
     founder_profile = founder_profile or {}
 
     cfg = load_config()
-    is_mock = getattr(args, "dry_run", False)
-    database_file = (
-        os.path.join(".tmp", getattr(args, "database_file"))
-        if is_mock
-        else getattr(args, "database_file")
-    )
+    database_file = getattr(args, "database_file")
 
     _ensure_parent_dir(database_file)
     db_hndlr = Database(
@@ -76,7 +71,7 @@ def run_daily_pipeline(
     )
     founder = _ensure_founder(db_hndlr, founder_profile)
 
-    max_items = 1 if is_mock else getattr(args, "update_db", 0)
+    max_items = getattr(args, "update_db", 0)
 
     if max_items > 0:
         logger.info(
@@ -127,9 +122,3 @@ def run_daily_pipeline(
             db_hndlr=db_hndlr,
         )
         scoring_agent.process(founder_name, args=args)
-
-    if is_mock and not getattr(args, "keep_temp", False) and os.path.exists(".tmp"):
-        try:
-            os.rmdir(".tmp")
-        except OSError:
-            pass
