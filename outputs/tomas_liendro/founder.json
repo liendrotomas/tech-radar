@@ -1,6 +1,4 @@
 {
-  "name": "Tomas Liendro",
-  "id": 1,
   "profile": {
     "archetype": "Space Systems Engineer transitioning to Founder",
     "current_role": {
@@ -120,5 +118,7 @@
       "develop structured decision-making (sharpness)"
     ],
     "long_term_goal": "found or lead a space technology company with real-world deployment, combining strong technical systems with clear market demand"
-  }
+  },
+  "id": 1,
+  "name": "Tomas Liendro"
 }
