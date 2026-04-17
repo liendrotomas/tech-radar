@@ -122,7 +122,12 @@ def import_db(
         if isinstance(founder_name, str):
             founder_names = [founder_name]
         else:
-            founder_names = founder_name or ["tomas_liendro"]
+            # founder names are derived from subdirectories in the base path
+            founder_names = [
+                d
+                for d in os.listdir(base_path)
+                if os.path.isdir(os.path.join(base_path, d))
+            ]
         normalized_founder_names = {
             normalize_founder_name(name) for name in founder_names
         }

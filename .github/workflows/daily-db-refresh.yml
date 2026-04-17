@@ -11,12 +11,12 @@ on:
     inputs:
       founder:
         description: Founder profile to use from src/config/profiles
-        required: false
+        required: true
         default: tom
       update_db:
         description: Max RSS items to fetch before processing
         required: false
-        default: "30"
+        default: "100"
       generate_opp:
         description: Generate opportunities
         required: false
@@ -41,7 +41,7 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       DEFAULT_FOUNDER: tom
-      DEFAULT_UPDATE_DB: "30"
+      DEFAULT_UPDATE_DB: "100"
       DEFAULT_MAX_OPPS: "10"
     steps:
       - name: Checkout repo
@@ -121,14 +121,15 @@ jobs:
 
       - name: Commit database changes
         shell: bash
+        # Check changes in the outputs/  and commit if there are changes
         run: |
-          if git diff --quiet -- outputs/tech_radar.db; then
+          if git diff --quiet -- outputs/; then
             echo "No database changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add outputs/tech_radar.db
-          git commit -m "chore: refresh tech radar database"
+          git add outputs/*
+          git commit -m "chore: refresh outputs with latest data"
           git push origin HEAD:${{ github.ref_name }}

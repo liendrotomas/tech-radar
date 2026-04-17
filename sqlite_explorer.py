@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
 
+from src.database.database import Database
+from src.database.import_db import import_db
 from src.database.explorer import (
     TEXT_CATEGORIES,
     build_table_query,
@@ -21,7 +24,7 @@ DEFAULT_DB_PATH = "outputs/tech_radar.db"
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(add_help=False)
     parser.add_argument("--db", default=DEFAULT_DB_PATH)
-    parser.add_argument("--page-size", type=int, default=50)
+    parser.add_argument("--page-size", type=int, default=250)
     known_args, _ = parser.parse_known_args()
     return known_args
 
@@ -95,6 +98,14 @@ def main() -> None:
     st.caption("UI simple para explorar, filtrar y ordenar tu base de datos SQLite.")
 
     database_path = st.sidebar.text_input("Ruta de la base", value=args.db)
+    # Create databse from json files if it doesn't exist
+    BASE_DIR = os.path.dirname(getattr(args, "database_file", DEFAULT_DB_PATH))
+
+    import_db(
+        base_path=BASE_DIR,
+        source_db=database_path,
+        founder_name=[getattr(args, "founder", "")],
+    )
     database_file = Path(database_path)
     if not database_file.exists():
         st.error(f"No existe la base: {database_file}")
