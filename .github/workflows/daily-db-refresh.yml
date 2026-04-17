@@ -130,6 +130,6 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add outputs/*
+          git add . -- ":!*.db"
           git commit -m "chore: refresh outputs with latest data"
           git push origin HEAD:${{ github.ref_name }}
