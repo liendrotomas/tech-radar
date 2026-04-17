@@ -15,6 +15,22 @@ import requests
 from src.database.database import Database, Feed
 from src.utils.logger import get_logger
 from src.utils.formatting import html_clean_summary
+from bs4 import BeautifulSoup
+
+
+def fetch_feed(url):
+    r = requests.get(url, timeout=10)
+
+    content = r.content  # ignorás el content-type
+
+    feed = feedparser.parse(content)
+
+    return feed
+
+
+def clean_html(html):
+    return BeautifulSoup(html, "html.parser").get_text()
+
 
 logger = get_logger("ingestion.rss")
 
@@ -57,7 +73,7 @@ def fetch_rss_articles(
     }
     max_id = max((article.id or 0 for article in existing_articles), default=0)
     new_articles: List[Feed] = []
-
+    total_fetched = 0
     for feed_url in urls:
         try:
             logger.info(f"Fetching RSS from {feed_url}")
@@ -75,6 +91,7 @@ def fetch_rss_articles(
                     continue
 
                 new_entries += 1
+                total_fetched += 1
                 existing_urls.add(link)
                 max_id += 1
                 if hasattr(entry, "published_parsed") and entry.published_parsed:
@@ -111,10 +128,10 @@ def fetch_rss_articles(
 
                 if new_entries >= max_items:
                     logger.info(f"Reached max_items limit: {max_items}")
-                    return new_articles
+                    break
 
         except Exception as exc:
             logger.error(f"Error fetching {feed_url}: {exc}")
             continue
 
-    return new_articles
+    logger.info(f"Total new articles fetched: {total_fetched}")
