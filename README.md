@@ -245,7 +245,7 @@ uv run python main.py --founder tom --update-db 30 --generate-opp --no-skip-scor
 
 ## SQL Explorer
 
-To open the database explorer, open the following [link](https://tech-radar-app65imfqyxbjhunwphf2pf.streamlit.app/)
+To open the database explorer, open the following [https://tech-radar-app65imfqyxbjhunwphf2pf.streamlit.app/](https://tech-radar-app65imfqyxbjhunwphf2pf.streamlit.app/)
 
 ## Contributing
 
