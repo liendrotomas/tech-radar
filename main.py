@@ -116,7 +116,7 @@ def cli() -> None:
     parser.add_argument(
         "--skip-score-opps",
         action=argparse.BooleanOptionalAction,
-        default=True,  # False,
+        default=False,  # False,
         help="Skip scoring opportunities using the scoring agent",
     )
     parser.add_argument(
@@ -198,6 +198,7 @@ def cli() -> None:
         logger.info(
             f"Exporting updated database entries to {getattr(args, 'database_file', '')}"
         )
+
         export_db(base_path=BASE_DIR, source_db=args.database_file)
 
 

@@ -1,156 +1,156 @@
 [
   {
+    "label": "explore",
     "title": "Zero-Trust Autonomous Systems Governance Platform",
     "opportunity_id": 1,
     "id": 1,
-    "label": "explore",
     "notes": "integrates systems and raising demand in cybersecurity is expected"
   },
   {
+    "label": "liked",
     "title": "AI-Enabled Space Robotics Operations Platform",
     "opportunity_id": 2,
     "id": 2,
-    "label": "liked",
     "notes": "AI for decision making"
   },
   {
+    "label": "rejected",
     "title": "Space Systems Market Intelligence and Procurement Support SaaS",
     "opportunity_id": 3,
     "id": 3,
-    "label": "rejected",
     "notes": "contracts, SaaS"
   },
   {
+    "label": "explore",
     "title": "Microlauncher Systems for Responsive Small Payload Deployment",
     "opportunity_id": 4,
     "id": 4,
-    "label": "explore",
     "notes": "not bad, but no disrupting"
   },
   {
+    "label": "liked",
     "title": "Autonomous Environmental Monitoring Robotics for Maritime and Space",
     "opportunity_id": 5,
     "id": 5,
-    "label": "liked",
     "notes": "robot internet connected to fuse data"
   },
   {
+    "label": "explore",
     "title": "Zero-Trust Autonomous Systems Governance Platform",
     "opportunity_id": 6,
     "id": 6,
-    "label": "explore",
     "notes": "cybersecurity"
   },
   {
+    "label": "liked",
     "title": "Physical AI Robotics for Space Infrastructure Maintenance",
     "opportunity_id": 7,
     "id": 7,
-    "label": "liked",
     "notes": "interesting for on orbit assembly system breakthrough"
   },
   {
+    "label": "explore",
     "title": "AI-Powered Space Robotics Decision-Making Tools",
     "opportunity_id": 8,
     "id": 8,
-    "label": "explore",
     "notes": "decision making is ok for next generation of AI"
   },
   {
+    "label": "liked",
     "title": "Space-Based Signal Extraction and Data Analytics Platform",
     "opportunity_id": 9,
     "id": 9,
-    "label": "liked",
     "notes": "interesting for data analysis and futures trading"
   },
   {
+    "label": "rejected",
     "title": "Small-Scale Orbital Launch Testing Infrastructure Startup",
     "opportunity_id": 10,
     "id": 10,
-    "label": "rejected",
     "notes": "not my niche"
   },
   {
+    "label": "rejected",
     "title": "Autonomous Lunar Rover Software Platform",
     "opportunity_id": 11,
     "id": 11,
-    "label": "rejected",
     "notes": "API as product is a bit boring"
   },
   {
+    "label": "liked",
     "title": "AI-Enabled Autonomous Banking Platform for Space Infrastructure Ventures",
     "opportunity_id": 12,
     "id": 12,
-    "label": "liked",
     "notes": "Felt this pain! interesting option"
   },
   {
+    "label": "rejected",
     "title": "Space Launch Safety and Anomaly Detection AI Tools",
     "opportunity_id": 13,
     "id": 13,
-    "label": "rejected",
     "notes": "launch phase is not my topic"
   },
   {
+    "label": "explore",
     "title": "Space Industry Procurement and Government Contracting Enablement Platform",
     "opportunity_id": 14,
     "id": 14,
-    "label": "explore",
     "notes": "contracts is a bit boring but there may be an opportunity there"
   },
   {
+    "label": "liked",
     "title": "Space Data Fusion and Multi-Sensor Integration Middleware",
     "opportunity_id": 15,
     "id": 15,
-    "label": "liked",
     "notes": "robot internet idea for decision making"
   },
   {
+    "label": "rejected",
     "title": "Shared Testbeds for Space Robotics and Autonomous Systems",
     "opportunity_id": 16,
     "id": 16,
-    "label": "rejected",
     "notes": "useful but not my passion"
   },
   {
+    "label": "explore",
     "title": "Software Platform for Orbital Debris Mitigation Task Planning",
     "opportunity_id": 17,
     "id": 17,
-    "label": "explore",
     "notes": "not bad, but debris is not my interest"
   },
   {
+    "label": "rejected",
     "title": "Next-Gen Embedded Systems for Space Missions with Integrated AI",
     "opportunity_id": 18,
     "id": 18,
-    "label": "rejected",
     "notes": "too much specific hardware. i'm interested in broader systems"
   },
   {
+    "label": "liked",
     "title": "Space Mission Telemetry and Anomaly Analytics SaaS",
     "opportunity_id": 19,
     "id": 19,
-    "label": "liked",
     "notes": "looks interesting, but not clear "
   },
   {
+    "label": "liked",
     "title": "Space Robotics Tools for Lunar Exploration",
     "opportunity_id": 20,
     "id": 20,
-    "label": "liked",
     "notes": ""
   },
   {
+    "label": "rejected",
     "title": "Zero-Trust Autonomous Systems Governance for Space Missions",
     "opportunity_id": 21,
     "id": 21,
-    "label": "rejected",
     "notes": ""
   },
   {
+    "label": "liked",
     "title": "AI-driven Space Systems Testing and Simulation Platform",
     "opportunity_id": 22,
     "id": 22,
-    "label": "liked",
     "notes": "like it for general robot applications"
   }
 ]
