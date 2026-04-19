@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import argparse
 import os
+import subprocess
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
 
 from src.database.database import Database
+from src.database.export_db import export_db
 from src.database.import_db import import_db
 from src.database.explorer import (
     TEXT_CATEGORIES,
@@ -35,6 +37,204 @@ def read_dataframe(connection, query_spec):
         query_spec.count_sql, query_spec.count_params
     ).fetchone()[0]
     return dataframe, total_rows
+
+
+def _normalize_feedback_label(value: object) -> str | None:
+    if value is None:
+        return None
+    normalized = str(value).strip().lower()
+    if normalized in {"liked", "rejected", "explore"}:
+        return normalized
+    return None
+
+
+def _normalize_feedback_notes(value: object) -> str | None:
+    if value is None:
+        return None
+    text_value = str(value).strip()
+    return text_value or None
+
+
+def load_feedback_editor_dataframe(connection, founder_name: str | None = None) -> pd.DataFrame:
+    query = """
+        SELECT
+            o.id AS opportunity_id,
+            o.founder_name,
+            o.title AS opportunity_title,
+            f.id AS feedback_id,
+            f.label AS feedback_label,
+            f.notes AS feedback_notes
+        FROM opportunity o
+        LEFT JOIN feedback f ON f.opportunity_id = o.id
+    """
+    params = []
+    if founder_name:
+        query += " WHERE o.founder_name = ?"
+        params.append(founder_name)
+    query += " ORDER BY o.created_at DESC, o.id DESC"
+
+    dataframe = pd.read_sql_query(query, connection, params=params)
+    if "feedback_label" in dataframe.columns:
+        dataframe["feedback_label"] = dataframe["feedback_label"].fillna("")
+    if "feedback_notes" in dataframe.columns:
+        dataframe["feedback_notes"] = dataframe["feedback_notes"].fillna("")
+    return dataframe
+
+
+def save_feedback_rows(connection, edited_rows: pd.DataFrame) -> tuple[int, int, int]:
+    created = 0
+    updated = 0
+    deleted = 0
+    for row in edited_rows.to_dict(orient="records"):
+        opportunity_id = int(row["opportunity_id"])
+        feedback_id = row.get("feedback_id")
+        label = _normalize_feedback_label(row.get("feedback_label"))
+        notes = _normalize_feedback_notes(row.get("feedback_notes"))
+        title = str(row.get("opportunity_title", "") or "")
+
+        if feedback_id and (label is None and notes is None):
+            connection.execute("DELETE FROM feedback WHERE id = ?", [int(feedback_id)])
+            deleted += 1
+            continue
+
+        if label is None and notes is None:
+            continue
+
+        if feedback_id:
+            connection.execute(
+                """
+                UPDATE feedback
+                SET label = ?, notes = ?, title = ?
+                WHERE id = ?
+                """,
+                [label, notes, title, int(feedback_id)],
+            )
+            updated += 1
+        else:
+            connection.execute(
+                """
+                INSERT INTO feedback (opportunity_id, title, label, notes)
+                VALUES (?, ?, ?, ?)
+                """,
+                [opportunity_id, title, label, notes],
+            )
+            created += 1
+
+    connection.commit()
+    return created, updated, deleted
+
+
+def run_git_commit(database_path: str, commit_message: str, push: bool) -> tuple[bool, str]:
+    repo_root = Path(__file__).resolve().parent
+    outputs_root = Path(database_path).resolve().parent
+    if not (repo_root / ".git").exists():
+        return False, "No se encontro un repositorio git en la raiz del proyecto."
+
+    try:
+        subprocess.run(
+            ["git", "add", str(outputs_root)],
+            cwd=repo_root,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        status_result = subprocess.run(
+            ["git", "status", "--short"],
+            cwd=repo_root,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        if not status_result.stdout.strip():
+            return False, "No hay cambios para commitear despues de exportar."
+
+        subprocess.run(
+            ["git", "commit", "-m", commit_message],
+            cwd=repo_root,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        if push:
+            subprocess.run(
+                ["git", "push"],
+                cwd=repo_root,
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+        return True, "Commit completado correctamente."
+    except subprocess.CalledProcessError as exc:
+        stderr = (exc.stderr or "").strip()
+        stdout = (exc.stdout or "").strip()
+        details = stderr or stdout or str(exc)
+        return False, f"Fallo git: {details}"
+
+
+def render_feedback_editor(connection, database_path: str) -> None:
+    table_names = list_tables(connection)
+    if "opportunity" not in table_names:
+        st.info("No existe tabla opportunity, no se puede editar feedback.")
+        return
+
+    st.subheader("Feedback desde la tabla de oportunidades")
+    founder_rows = connection.execute(
+        "SELECT DISTINCT founder_name FROM opportunity ORDER BY founder_name"
+    ).fetchall()
+    founder_options = ["Todos"] + [row[0] for row in founder_rows if row[0]]
+    selected_founder = st.selectbox("Filtrar por founder", founder_options)
+
+    feedback_df = load_feedback_editor_dataframe(
+        connection,
+        founder_name=None if selected_founder == "Todos" else selected_founder,
+    )
+    if feedback_df.empty:
+        st.info("No hay oportunidades para registrar feedback.")
+        return
+
+    edited_df = st.data_editor(
+        feedback_df,
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "opportunity_id": st.column_config.NumberColumn(disabled=True),
+            "founder_name": st.column_config.TextColumn(disabled=True),
+            "opportunity_title": st.column_config.TextColumn(disabled=True),
+            "feedback_id": st.column_config.NumberColumn(disabled=True),
+            "feedback_label": st.column_config.SelectboxColumn(
+                "feedback_label",
+                options=["", "liked", "rejected", "explore"],
+            ),
+            "feedback_notes": st.column_config.TextColumn("feedback_notes"),
+        },
+    )
+
+    action_cols = st.columns(3)
+    if action_cols[0].button("Guardar feedback en DB", type="primary"):
+        created, updated, deleted = save_feedback_rows(connection, edited_df)
+        st.success(
+            f"Feedback guardado. Creados: {created}, actualizados: {updated}, eliminados: {deleted}."
+        )
+
+    if action_cols[1].button("Exportar DB -> JSON"):
+        export_db(base_path=str(Path(database_path).resolve().parent), source_db=database_path)
+        st.success("JSON actualizado desde la base de datos.")
+
+    commit_message = action_cols[2].text_input(
+        "Mensaje git",
+        value="Update feedback from sqlite explorer",
+    )
+    push_changes = st.checkbox("Hacer git push despues del commit", value=False)
+    if st.button("Commit de cambios exportados"):
+        ok, message = run_git_commit(
+            database_path=database_path,
+            commit_message=commit_message,
+            push=push_changes,
+        )
+        if ok:
+            st.success(message)
+        else:
+            st.warning(message)
 
 
 def render_filter_inputs(schema: list[dict]) -> dict[str, dict]:
@@ -205,6 +405,9 @@ def main() -> None:
 
     with st.expander("Esquema de la tabla", expanded=False):
         st.dataframe(pd.DataFrame(schema), use_container_width=True, hide_index=True)
+
+    with st.expander("Editor de feedback", expanded=True):
+        render_feedback_editor(connection, database_path)
 
 
 if __name__ == "__main__":

@@ -235,6 +235,8 @@ What it supports:
 - quick search across text-like columns
 - server-side sort and pagination
 - schema preview and CSV export
+- feedback editor linked to `opportunity` with inline `liked/rejected/explore` labels
+- save feedback directly to SQLite, export DB -> JSON, and optional git commit/push from UI
 
 This is useful for reviewing `feed`, `opportunity`, `founder`, and `feedback` without opening raw SQL manually.
 
