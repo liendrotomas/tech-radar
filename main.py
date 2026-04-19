@@ -78,7 +78,7 @@ def _load_founder_profile(founder_arg: str) -> dict:
 def cli() -> None:
     parser = argparse.ArgumentParser(description="Tech Radar AI pipeline runner")
     parser.add_argument(
-        "--founder", type=str, default="tom", help="Founder profile JSON string"
+        "--founder", type=str, default=None, help="Founder profile JSON string"
     )
     parser.add_argument(
         "--update-db",
