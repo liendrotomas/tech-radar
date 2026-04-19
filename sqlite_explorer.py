@@ -61,7 +61,8 @@ def load_feedback_editor_dataframe(connection, founder_name: str | None = None) 
             o.id AS opportunity_id,
             o.founder_name,
             o.title AS opportunity_title,
-            f.id AS feedback_id,
+            o.description AS opportunity_summary,
+            o.final_score AS opportunity_final_score,
             f.label AS feedback_label,
             f.notes AS feedback_notes
         FROM opportunity o
@@ -91,6 +92,8 @@ def save_feedback_rows(connection, edited_rows: pd.DataFrame) -> tuple[int, int,
         label = _normalize_feedback_label(row.get("feedback_label"))
         notes = _normalize_feedback_notes(row.get("feedback_notes"))
         title = str(row.get("opportunity_title", "") or "")
+        summary = str(row.get("opportunity_summary", "") or "")
+        final_score = row.get("opportunity_final_score")
 
         if feedback_id and (label is None and notes is None):
             connection.execute("DELETE FROM feedback WHERE id = ?", [int(feedback_id)])
@@ -104,10 +107,10 @@ def save_feedback_rows(connection, edited_rows: pd.DataFrame) -> tuple[int, int,
             connection.execute(
                 """
                 UPDATE feedback
-                SET label = ?, notes = ?, title = ?
+                SET label = ?, notes = ?, title = ?, summary = ?, final_score = ?
                 WHERE id = ?
                 """,
-                [label, notes, title, int(feedback_id)],
+                [label, notes, title, summary, final_score, int(feedback_id)],
             )
             updated += 1
         else:
@@ -198,14 +201,14 @@ def render_feedback_editor(connection, database_path: str) -> None:
         hide_index=True,
         column_config={
             "opportunity_id": st.column_config.NumberColumn(disabled=True),
-            "founder_name": st.column_config.TextColumn(disabled=True),
             "opportunity_title": st.column_config.TextColumn(disabled=True),
-            "feedback_id": st.column_config.NumberColumn(disabled=True),
+            "opportunity_summary": st.column_config.TextColumn(disabled=True),
             "feedback_label": st.column_config.SelectboxColumn(
                 "feedback_label",
                 options=["", "liked", "rejected", "explore"],
             ),
             "feedback_notes": st.column_config.TextColumn("feedback_notes"),
+            "founder_name": st.column_config.TextColumn(disabled=True),
         },
     )
 
