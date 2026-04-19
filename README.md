@@ -56,7 +56,7 @@ An AI-powered system for detecting emerging technology trends and startup opport
 Run the application from the repository root:
 
 ```bash
-uv run python main.py
+uv run python main.py --founder [username]
 ```
 
 This executes the CLI defined in `main.py` using the environment managed by `uv`.
@@ -74,19 +74,19 @@ The main entrypoint is `main.py`. Use these commands from the project root after
 
 #### Default Run
 
-To run the pipeline with the default founder profile:
+To run the pipeline, pass a founder profile from `src/config/profiles/`:
 
 ```bash
-uv run python main.py
+uv run python main.py --founder tom
 ```
 
-By default, the CLI loads the `tom` founder profile from `src/config/profiles/tom.json`.
+The CLI loads `src/config/profiles/tom.json` in this example.
 
 #### Update the Database
 
-To persist new opportunities into the feeds database:
+To fetch RSS items and update the database before processing, pass `--update-db` with a max item count:
 ```bash
-uv run python main.py --update-db
+uv run python main.py --founder tom --update-db 30
 ```
 
 #### Founder Profile Selection
@@ -105,11 +105,31 @@ uv run python main.py --founder tom.json
 
 ### CLI Options
 
-- `--founder`: Founder profile name or JSON filename from `src/config/profiles/` (default: `tom`)
-- `--update-db`: Update `outputs/feeds.json` with new opportunities
-- `--database-file`: Override the feeds database path
-- `--output-file`: Override the output path
+- `--founder`: Founder profile name or JSON filename from `src/config/profiles/` (required)
+- `--update-db <int>`: Fetch up to N RSS items and update database before processing
+- `--refilter`: Re-filter existing articles in the database
 - `--generate-opp`: Generate opportunities from enriched articles
+- `--max-opps <int>`: Max opportunities to generate (default: `10`)
+- `--skip-score-opps`: Skip scoring opportunities
+- `--update-scores`: Clear and recompute opportunity scores
+- `--database-file <path>`: Override the SQLite DB path
+- `--recreate-on-schema-change`: Rebuild drifted tables (dev option; can delete table data)
+
+### Database JSON Sync
+
+The project keeps SQLite and JSON exports in sync through two scripts used by `main.py`:
+
+- `src/database/import_db.py`: syncs JSON -> DB using upsert and delete-missing semantics (JSON is source of truth for the synced scope)
+- `src/database/export_db.py`: syncs DB -> JSON and deduplicates exported records
+
+Run them directly if needed:
+
+```bash
+uv run python src/database/import_db.py
+uv run python src/database/export_db.py
+```
+
+`main.py` already runs import before processing and export after processing.
 
 ## Project Structure
 
