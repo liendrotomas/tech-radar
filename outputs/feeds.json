@@ -753,7 +753,7 @@
       "threshold_signal": 0.03,
       "threshold_noise": 0.02
     },
-    "processed": false
+    "processed": true
   },
   {
     "title": "AI can screen 15 million molecules in a day. It still can’t cure Alzheimer’s.",
@@ -927,7 +927,7 @@
       "threshold_signal": 0.03,
       "threshold_noise": 0.02
     },
-    "processed": false
+    "processed": true
   },
   {
     "title": "CoreWeave signs multi-year Anthropic deal as nine of ten top AI model providers join its platform",
@@ -1189,7 +1189,7 @@
       "threshold_signal": 0.03,
       "threshold_noise": 0.02
     },
-    "processed": false
+    "processed": true
   },
   {
     "title": "Upside Robotics is reducing fertilizer use and waste in corn crops",
@@ -1986,7 +1986,7 @@
       "threshold_signal": 0.03,
       "threshold_noise": 0.02
     },
-    "processed": false
+    "processed": true
   },
   {
     "title": "Jeff Bezos’ Blue Origin enters the space data center game",
@@ -2350,7 +2350,7 @@
       "threshold_signal": 0.03,
       "threshold_noise": 0.02
     },
-    "processed": false
+    "processed": true
   },
   {
     "title": "Gravitics to develop ‘tactically responsive’ orbital platforms for the Space Force",
@@ -2562,7 +2562,7 @@
       "threshold_signal": 0.03,
       "threshold_noise": 0.02
     },
-    "processed": false
+    "processed": true
   },
   {
     "title": "India spurs space sector investment with raised limits on foreign funding",
@@ -3761,7 +3761,7 @@
       "threshold_signal": 0.03,
       "threshold_noise": 0.02
     },
-    "processed": false
+    "processed": true
   },
   {
     "title": "Meet YC's Newest Visiting Partners",
@@ -28303,6 +28303,1920 @@
     "is_noise": false,
     "enriched": {},
     "published_at": "2026-04-20T07:29:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "The Download: murderous ‘mirror’ bacteria, and Chinese workers fighting AI doubles",
+    "link": "https://www.technologyreview.com/2026/04/20/1136154/the-download-murderous-mirror-bacteria-chinese-workers-fight-ai-agents/",
+    "id": 1420,
+    "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. No one’s sure if synthetic mirror life will kill us all In February 2019, a group of scientists proposed a high-risk, cutting-edge, irresistibly exciting idea that the National Science Foundation should…",
+    "source": "MIT Technology Review",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T12:10:00",
+    "keywords": [
+      "The Download"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Colossal Biosciences said it cloned red wolves. Is it for real?",
+    "link": "https://www.technologyreview.com/2026/04/20/1135222/red-wolves-colossal-biosciences-clones/",
+    "id": 1421,
+    "summary": "If you want to capture something wolflike, it’s best to embark before dawn. So on a morning this January, with the eastern horizon still pink-hued, I drove with two young scientists into a blanket of fog. Forty miles to the west, the industrial sprawl of Houston spawned a golden glow. Tanner Broussard’s old Toyota Tacoma…",
+    "source": "MIT Technology Review",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T10:00:00",
+    "keywords": [
+      "Biotechnology and health",
+      "App",
+      "Features and Investigations"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Chinese tech workers are starting to train their AI doubles–and pushing back",
+    "link": "https://www.technologyreview.com/2026/04/20/1136149/chinese-tech-workers-ai-colleagues/",
+    "id": 1422,
+    "summary": "Tech workers in China are being instructed by their bosses to train AI agents to replace them—and it’s prompting a wave of soul-searching among otherwise enthusiastic early adopters.  Earlier this month a GitHub project called Colleague Skill, which claimed workers could use it to “distill” their colleagues’ skills and personality traits and replicate them with…",
+    "source": "MIT Technology Review",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T09:00:00",
+    "keywords": [
+      "Artificial intelligence",
+      "App"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Cyberdeck Build Gets Closer To Regular Laptop Than Most",
+    "link": "https://hackaday.com/2026/04/20/cyberdeck-build-gets-closer-to-regular-laptop-than-most/",
+    "id": 1423,
+    "summary": "Cyberdecks are typically reminiscent of weird computers in futuristic sci-fi films, moreso than the computers of today. The cool thing about cyberdecks, though, is you get to build them however  …read more",
+    "source": "Blog – Hackaday",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T05:00:35",
+    "keywords": [
+      "Cyberdecks",
+      "cyberdeck",
+      "laptop",
+      "lenovo"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Growing Aluminium-Copper Alloy Crystals Using Hydrogen",
+    "link": "https://hackaday.com/2026/04/20/growing-aluminium-copper-alloy-crystals-using-hydrogen/",
+    "id": 1424,
+    "summary": "Having molten aluminium interact with atmospheric water forms a source of hydrogen which can be rather problematic if you’re trying to cast aluminium parts. As the molten metal cools down,  …read more",
+    "source": "Blog – Hackaday",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T02:00:34",
+    "keywords": [
+      "Science",
+      "aluminium",
+      "crystallization",
+      "crystals",
+      "geode"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Making the Most Pick-Proof Lock Yet",
+    "link": "https://hackaday.com/2026/04/20/making-the-most-pick-proof-lock-yet/",
+    "id": 1425,
+    "summary": "Throughout the centuries the art of lock-making and lock-picking have been trapped in a constant struggle, with basic lock designs being replaced by ever more complex ones that seek to  …read more",
+    "source": "Blog – Hackaday",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T23:00:06",
+    "keywords": [
+      "lockpicking hacks",
+      "lock picking",
+      "unpickable"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Vintage Chyron TV Hardware? Of course It Runs NetBSD",
+    "link": "https://hackaday.com/2026/04/20/vintage-chyron-tv-hardware-of-course-it-runs-netbsd/",
+    "id": 1426,
+    "summary": "Perhaps at this point, getting NetBSD running on an obscure piece of hardware is a dog-bites-man story, and not worth reporting– their motto, after all, is “Of course it runs  …read more",
+    "source": "Blog – Hackaday",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T20:00:06",
+    "keywords": [
+      "Retrocomputing",
+      "Chyron",
+      "Motorola 68000",
+      "retrocomputer",
+      "VME"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "2026 Green Power Challenge: NFC Powers Command Write and Wake of MCU",
+    "link": "https://hackaday.com/2026/04/20/2026-green-power-challenge-nfc-powers-command-write-and-wake-of-mcu/",
+    "id": 1427,
+    "summary": "One of the more interesting categories of our ongoing Green Power Challenge is “anything but PV” — and since the radiated power of Near Field Communication is decidedly not photovoltaic,  …read more",
+    "source": "Blog – Hackaday",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T17:35:18",
+    "keywords": [
+      "contests",
+      "green hacks",
+      "2026 Green-Powered Challenge",
+      "e-ink display",
+      "NFC",
+      "ultra low power"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "DIY Weather Stations Report In From Chernobyl",
+    "link": "https://hackaday.com/2026/04/20/diy-weather-stations-report-in-from-chernobyl/",
+    "id": 1428,
+    "summary": "You’re probably not going to hang out around Chernobyl any time soon. Still, knowing the conditions there can both satisfy your curiosity and provide scientific value. To that end, [Yury  …read more",
+    "source": "Blog – Hackaday",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T15:30:22",
+    "keywords": [
+      "Science",
+      "Chernobyl",
+      "geiger counter",
+      "radiation monitor",
+      "weather station"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Flash Joule Heating Recovers The Good Stuff",
+    "link": "https://hackaday.com/2026/04/20/flash-joule-heating-recovers-the-good-stuff/",
+    "id": 1429,
+    "summary": "Rare earth materials are a hot button topic these days. They’re important for everything from electric vehicles to defence hardware, they’re valuable, and everyone wishes they had some to dig  …read more",
+    "source": "Blog – Hackaday",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T14:00:59",
+    "keywords": [
+      "Featured",
+      "Science",
+      "flash joule heating",
+      "lithium",
+      "lithium batteries",
+      "Lithium-Ion Batteries",
+      "rare earth materials",
+      "rare earths",
+      "rare-earth"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Who is John Ternus, the incoming Apple CEO?",
+    "link": "https://techcrunch.com/2026/04/20/who-is-john-ternus-the-incoming-apple-ceo/",
+    "id": 1430,
+    "summary": "Starting on September 1, Ternus will lead one of the world's most valuable companies, but if you're not a dedicated Apple enthusiast, you've probably never heard of this man, who has largely remained out of the spotlight until now.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T01:02:04",
+    "keywords": [
+      "Hardware",
+      "Apple",
+      "ceo",
+      "John Ternus",
+      "Tim Cook"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Anthropic takes $5B from Amazon and pledges $100B in cloud spending in return",
+    "link": "https://techcrunch.com/2026/04/20/anthropic-takes-5b-from-amazon-and-pledges-100b-in-cloud-spending-in-return/",
+    "id": 1431,
+    "summary": "Amazon has made another circular AI deal: It's investing another $5 billion in Anthropic. Anthropic has agreed to spend $100 billion on AWS in return.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T23:10:27",
+    "keywords": [
+      "AI",
+      "Amazon",
+      "Anthropic",
+      "AWS",
+      "data center",
+      "In Brief"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Google rolls out Gemini in Chrome in 7 new countries",
+    "link": "https://techcrunch.com/2026/04/20/google-rolls-out-gemini-in-chrome-in-seven-new-countries/",
+    "id": 1432,
+    "summary": "Google is rolling out Gemini in Chrome in Australia, Indonesia, Japan, the Philippines, Singapore, South Korea, and Vietnam. The company is rolling this feature out to both desktop and iOS in all of these countries except Japan.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T22:00:00",
+    "keywords": [
+      "AI",
+      "Apps",
+      "Chrome",
+      "Google",
+      "gemini",
+      "In Brief"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Tim Cook stepping down as Apple CEO, John Ternus taking over",
+    "link": "https://techcrunch.com/2026/04/20/tim-cook-stepping-down-as-apple-ceo-john-ternus-taking-over/",
+    "id": 1433,
+    "summary": "The transition has been expected for some time and ends one of the longer and more impactful runs a CEO has had at any company. Cook had inherited a company that many industry watchers and enthusiasts struggled to separate from its famed founder. What he leaves behind is a $4 trillion business with annual revenue that has more than quadrupled on his watch.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T20:42:01",
+    "keywords": [
+      "Apps",
+      "Hardware",
+      "Apple",
+      "John Ternus",
+      "Tim Cook"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Google Photos adds new touch-up tools for ‘quick’ fixes",
+    "link": "https://techcrunch.com/2026/04/20/google-photos-adds-new-touch-up-tools-for-quick-fixes/",
+    "id": 1434,
+    "summary": "You can use the new tools to remove blemishes, refine skin texture, brighten eyes, or whiten teeth in photos.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T20:20:29",
+    "keywords": [
+      "Apps",
+      "Google",
+      "Google Photos",
+      "In Brief",
+      "photo editing"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "It’s not just one thing — it’s another thing",
+    "link": "https://techcrunch.com/2026/04/20/ai-writing-its-not-just-this-its-that-barrons/",
+    "id": 1435,
+    "summary": "This sentence construction (\"It's not just this — it's that\") has become so common in AI-generated writing that it's no longer just a clue that a piece of writing may be synthetic — it's almost a guarantee.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T19:37:07",
+    "keywords": [
+      "AI",
+      "Social",
+      "Generative AI",
+      "social media"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "North Korean hackers blamed for $290M crypto theft",
+    "link": "https://techcrunch.com/2026/04/20/north-korea-hackers-blamed-for-290m-crypto-theft/",
+    "id": 1436,
+    "summary": "The hack against Kelp DAO is the largest crypto heist of the year so far.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T17:04:05",
+    "keywords": [
+      "Crypto",
+      "Security",
+      "cryptocurrency",
+      "cybersecurity",
+      "DPRK",
+      "hackers",
+      "hacking",
+      "In Brief",
+      "Lazarus Group",
+      "North Korea"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Mastodon says its flagship server was hit by a DDoS attack",
+    "link": "https://techcrunch.com/2026/04/20/mastodon-says-its-flagship-server-was-hit-by-a-ddos-attack/",
+    "id": 1437,
+    "summary": "The DDoS attack against Mastodon's flagship server comes less than a week after Bluesky was targeted with junk web traffic.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T16:58:33",
+    "keywords": [
+      "Security",
+      "Bluesky",
+      "cyberattack",
+      "ddos",
+      "Mastodon",
+      "social media"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "FAA orders investigation into Blue Origin’s New Glenn mishap",
+    "link": "https://techcrunch.com/2026/04/20/faa-orders-investigation-into-blue-origins-new-glenn-mishap/",
+    "id": 1438,
+    "summary": "The New Glenn rocket will have to stay grounded while the company investigates what caused the apparent failure of its upper stage.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T16:11:41",
+    "keywords": [
+      "Space",
+      "Blue Origin",
+      "FAA",
+      "new glenn"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "NSA spies are reportedly using Anthropic’s Mythos, despite Pentagon feud",
+    "link": "https://techcrunch.com/2026/04/20/nsa-spies-are-reportedly-using-anthropics-mythos-despite-pentagon-feud/",
+    "id": 1439,
+    "summary": "NSA is said to be using Anthropic's restricted Mythos AI model.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T16:06:21",
+    "keywords": [
+      "AI",
+      "Government & Policy",
+      "cybersecurity",
+      "NSA",
+      "dod",
+      "Anthropic",
+      "In Brief",
+      "Mythos"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "WhatsApp is testing a premium subscription, but it is mainly cosmetic",
+    "link": "https://techcrunch.com/2026/04/20/whatsapp-is-testing-a-premium-subscription-put-it-is-mainly-cosmetic/",
+    "id": 1440,
+    "summary": "WhatsApp is testing a subscription after Meta debuted a similar subscription for Instagram earlier this year.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T15:59:26",
+    "keywords": [
+      "Apps",
+      "WhatsApp"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "CEO and CFO suddenly depart AI nuclear power upstart Fermi",
+    "link": "https://techcrunch.com/2026/04/20/fermi-ceo-and-cfo-depart-texas-nuclear-power-ai/",
+    "id": 1441,
+    "summary": "The startup, co-founded by former U.S. Energy Secretary Rick Perry, has faced headwinds with its AI campus in Texas.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T15:30:19",
+    "keywords": [
+      "AI",
+      "Climate",
+      "fermi",
+      "In Brief",
+      "nuclear"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Deezer says 44% of songs uploaded to its platform daily are AI-generated",
+    "link": "https://techcrunch.com/2026/04/20/deezer-says-44-of-songs-uploaded-to-its-platform-daily-are-ai-generated/",
+    "id": 1442,
+    "summary": "Deezer says consumption of AI-generated music on the platform is still very low, between 1% and 3% of the total streams, and 85% of these streams are detected as fraudulent and are demonetized.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T14:57:05",
+    "keywords": [
+      "Apps",
+      "Media & Entertainment",
+      "Deezer",
+      "music streaming"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "App host Vercel says it was hacked and customer data stolen",
+    "link": "https://techcrunch.com/2026/04/20/app-host-vercel-confirms-security-incident-says-customer-data-was-stolen-via-breach-at-context-ai/",
+    "id": 1443,
+    "summary": "Vercel blamed its breach on an earlier hack at Context AI, which allowed hackers to hijack a Vercel employee's account to steal customer data.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T14:45:56",
+    "keywords": [
+      "Security",
+      "cybersecurity",
+      "data breach",
+      "cyberattack",
+      "OpenAI",
+      "Vercel",
+      "shinyhunters",
+      "context ai"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Rivian’s factory hit by tornado ahead of R2 launch",
+    "link": "https://techcrunch.com/2026/04/20/rivians-factory-hit-by-tornado-ahead-of-r2-launch/",
+    "id": 1444,
+    "summary": "The tornado hit a newer part of the factory, primarily used for R2 logistics such as deliveries of parts. Rivian has paused operations in the building and expects to start back up sometime this week.",
+    "source": "TechCrunch",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T13:47:51",
+    "keywords": [
+      "Transportation",
+      "electric vehicles",
+      "EVs",
+      "r2",
+      "r2 suv",
+      "Rivian"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "A School of Mud Volcano Islands in Azerbaijan",
+    "link": "https://science.nasa.gov/earth/earth-observatory/a-school-of-mud-volcano-islands-in-azerbaijan/",
+    "id": 1445,
+    "summary": "The tadpole-shaped islands along the Absheron Peninsula were born by explosive mud volcano eruptions and reshaped by erosion.",
+    "source": "NASA",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T04:00:00",
+    "keywords": [
+      "Earth Observatory",
+      "Landsat 8 / LDCM (Landsat Data Continuity Mission)",
+      "Volcanoes"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "NASA on Track for Future Missions with Initial Artemis II Assessments",
+    "link": "https://www.nasa.gov/missions/nasa-on-track-for-future-missions-with-initial-artemis-ii-assessments/",
+    "id": 1446,
+    "summary": "Following NASA’s Artemis II mission successfully splashing down on Earth, engineers started diving into detailed analysis of data to assess how key systems and subsystems on the Orion spacecraft, SLS (Space Launch System) rocket, and systems at the launch pad at the agency’s Kennedy Space Center in Florida performed. The Artemis II test flight successfully […]",
+    "source": "NASA",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T22:10:38",
+    "keywords": [
+      "Missions",
+      "Artemis",
+      "Artemis 2",
+      "Exploration Ground Systems",
+      "Orion Multi-Purpose Crew Vehicle",
+      "Space Launch System (SLS)"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "NASA Rolls Out Artemis III Moon Rocket Core Stage",
+    "link": "https://www.nasa.gov/news-release/nasa-rolls-out-artemis-iii-moon-rocket-core-stage/",
+    "id": 1447,
+    "summary": "Following the recent successful test flight of NASA’s Artemis II mission around the Moon, NASA rolled out the core stage, or the largest section, of the agency’s SLS (Space Launch System) rocket that will launch the crewed Artemis III mission in 2027. The stage departed from the agency’s Michoud Assembly Facility in New Orleans on […]",
+    "source": "NASA",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T20:31:57",
+    "keywords": [
+      "Missions",
+      "Artemis 3",
+      "Space Launch System (SLS)"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "NASA Invites Media to SpaceX’s 34th Resupply Launch to Space Station",
+    "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-spacexs-34th-resupply-launch-to-space-station/",
+    "id": 1448,
+    "summary": "Media accreditation is open for the next U.S. launch to deliver NASA science investigations, supplies, and equipment to the International Space Station. This launch is the 34th SpaceX Commercial Resupply Services mission to the orbital laboratory for NASA and will lift off on the company’s Falcon 9 rocket. NASA and SpaceX are targeting no earlier […]",
+    "source": "NASA",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T18:02:28",
+    "keywords": [
+      "SpaceX Commercial Resupply",
+      "Commercial Resupply",
+      "Humans in Space",
+      "International Space Station (ISS)",
+      "Johnson Space Center",
+      "Kennedy Space Center",
+      "NASA Headquarters"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "NASA Welcomes Latvia as Newest Artemis Accords Signatory",
+    "link": "https://www.nasa.gov/news-release/nasa-welcomes-latvia-as-newest-artemis-accords-signatory/",
+    "id": 1449,
+    "summary": "The Republic of Latvia signed the Artemis Accords Monday during a ceremony hosted by NASA at the agency’s headquarters in Washington, becoming the 62nd nation to commit to responsible space exploration for all humanity.  “We are proud to welcome Latvia to the Artemis Accords,” said NASA Administrator Jared Isaacman. “Each new signatory strengthens a coalition committed to the transparent and peaceful exploration of space. The accords are the […]",
+    "source": "NASA",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T16:01:07",
+    "keywords": [
+      "Office of International and Interagency Relations (OIIR)",
+      "Artemis",
+      "Artemis Accords",
+      "Missions"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Wheels Up for X-59",
+    "link": "https://www.nasa.gov/image-article/wheels-up-for-x-59/",
+    "id": 1450,
+    "summary": "NASA’s X-59 quiet supersonic research aircraft flies over the Mojave Desert in California in this April 14, 2026, image. The transition to flying with wheels up is a key milestone and an important step in the experimental aircraft’s test campaign. The X-59 has made its highest and fastest flights so far, expanding its operational range […]",
+    "source": "NASA",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T15:57:54",
+    "keywords": [
+      "Aeronautics",
+      "Quesst (X-59)"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Widely Attended Gatherings (WAGs) Determinations",
+    "link": "https://www.nasa.gov/organizations/nasa-ethics-advice-for-widely-attended-gatherings-wags/",
+    "id": 1451,
+    "summary": "2026 Space Policy Institute 4.29.26.pdf Planetary Society APLU and AAU 4.21.26.pdf 41st Space Symposium-suppl 04.13-16.26 Space Symposium 2026 Events 4.13-16.26 2026 NSCFL Space Heroes and Legends Award Banquet 4.18.26 Newport News State of the City Event 4.13.26 Space Policy Institute Event 4.6.26 SpaceX Networking Reception 3.24.26 Maryland Space Business Roundtable (MSBR) 3.26.26 SIA_27th Annual Leadership […]",
+    "source": "NASA",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T14:35:11",
+    "keywords": [
+      "Organizations",
+      "Office of the General Counsel (OGC)"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "NASA’s Hubble Dazzles With Young Stars in Trifid Nebula",
+    "link": "https://science.nasa.gov/missions/hubble/nasas-hubble-dazzles-with-young-stars-in-trifid-nebula/",
+    "id": 1452,
+    "summary": "This shimmering region of star-formation, a close-up of the Trifid Nebula about 5,000 light-years from Earth, was captured in intricate detail by NASA’s Hubble Space Telescope. The colors in Hubble’s visible light image, which marks the 36th anniversary of the mission’s launch on April 24, are reminiscent of an underwater scene filled with fine-grained sediments fluttering through the ocean’s depths.",
+    "source": "NASA",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T14:01:01",
+    "keywords": [
+      "Astrophysics",
+      "Astrophysics Division",
+      "Emission Nebulae",
+      "Goddard Space Flight Center",
+      "Hubble Space Telescope",
+      "Nebulae",
+      "Stars",
+      "The Universe"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Thailand’s Krabi Coast",
+    "link": "https://science.nasa.gov/earth/earth-observatory/thailands-krabi-coast/",
+    "id": 1453,
+    "summary": "The coastal province features striking tropical karst landscapes and sandy beaches alongside a mix of natural land cover and developed areas.",
+    "source": "NASA",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T04:00:00",
+    "keywords": [
+      "Earth Observatory",
+      "Land Cover",
+      "Land Use",
+      "Landsat 8 / LDCM (Landsat Data Continuity Mission)",
+      "Topography"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Did NASA’s Artemis II mission really do lunar science or go to the Moon for all humanity?",
+    "link": "https://jatan.space/moon-monday-issue-271/",
+    "id": 1454,
+    "summary": "An unfortunate breakdown of too many giant leaps of imagination. | Moon Monday #271",
+    "source": "jatan.space 🌙",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T15:09:41",
+    "keywords": [
+      "Moon Monday"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "NASA shuts down Voyager 1 instrument to keep probe exploring interstellar space",
+    "link": "https://www.space.com/space-exploration/nasa-shuts-down-voyager-1-instrument-to-keep-probe-exploring-interstellar-space",
+    "id": 1455,
+    "summary": "NASA engineers have shut down another instrument on Voyager 1  to preserve the power of the most distant spacecraft ever sent into space.",
+    "source": "Latest from Space.com",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T21:31:11",
+    "keywords": [
+      "Space Exploration"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "600 rocket landings! SpaceX notches another milestone during Sunday Starlink launch (video)",
+    "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starlink-17-22-b1097-vsfb-ofisly-600th-falcon-landing",
+    "id": 1456,
+    "summary": "A SpaceX Falcon 9 rocket carrying 25 Starlink satellites lifted off from Vandenberg Space Force Station in California on April 19. The mission featured the 600th landing of a Falcon first stage.",
+    "source": "Latest from Space.com",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T19:00:00",
+    "keywords": [
+      "Launches &amp; Spacecraft",
+      "Space Exploration"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Scientists found a 'bathtub ring' on Mars. Could it be evidence of an ancient Red Planet ocean?",
+    "link": "https://www.space.com/astronomy/mars/scientists-found-a-bathtub-ring-on-mars-could-it-be-evidence-of-an-ancient-red-planet-ocean",
+    "id": 1457,
+    "summary": "A huge geological structure on Mars resembling a bathtub ring may be evidence of an ocean that once covered a third of the Red Planet.",
+    "source": "Latest from Space.com",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T18:03:23",
+    "keywords": [
+      "Mars",
+      "Astronomy",
+      "Solar System"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Astronauts face grip strength challenge in space and on Earth, scientists find",
+    "link": "https://www.space.com/space-exploration/human-spaceflight/astronauts-lose-their-grip-going-to-space-scientists-say",
+    "id": 1458,
+    "summary": "It turns out that living in space can have a lasting impact on how your brain works, researchers have found.",
+    "source": "Latest from Space.com",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T17:01:00",
+    "keywords": [
+      "Human Spaceflight",
+      "Space Exploration"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Watch the Lyrid meteor shower 2026 online today with these free livestreams",
+    "link": "https://www.space.com/stargazing/meteor-showers/watch-the-lyrid-meteor-shower-2026-online-with-these-free-livestreams",
+    "id": 1459,
+    "summary": "These global night sky cams let you hunt for Lyrids from the comfort of your own home.",
+    "source": "Latest from Space.com",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T15:00:00",
+    "keywords": [
+      "Meteors &amp; Meteor Showers",
+      "Stargazing"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "A peek at the far side of the moon | Space photo of the day for April 20, 2026",
+    "link": "https://www.space.com/astronomy/moon/a-peek-at-the-far-side-of-the-moon-space-photo-of-the-day-for-april-20-2026",
+    "id": 1460,
+    "summary": "The Artemis 2 astronauts captured a unique image of the moon's \"dark side\" during their historic April 2026 flyby.",
+    "source": "Latest from Space.com",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T14:12:47",
+    "keywords": [
+      "The moon",
+      "Astronomy",
+      "Solar System"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "'80s sci-fi cult classic 'The Last Starfighter' finally scores a sequel, but it's a comic book! (exclusive)",
+    "link": "https://www.space.com/entertainment/80s-sci-fi-cult-classic-the-last-starfighter-finally-scores-a-sequel-but-its-a-comic-book-exclusive",
+    "id": 1461,
+    "summary": "'I'm honored to be a part of the team continuing this adventure for a new generation of Starfighters, both young and old.'",
+    "source": "Latest from Space.com",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T13:00:00",
+    "keywords": [
+      "Entertainment"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "What's the best time to see Lyrid meteors in 2026?",
+    "link": "https://www.space.com/stargazing/meteor-showers/whats-the-best-time-to-see-lyrid-meteors-in-2026",
+    "id": 1462,
+    "summary": "The Lyrid meteor shower peak is almost here, and we may be in store for spectacular fireballs and shooting stars.",
+    "source": "Latest from Space.com",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T12:00:00",
+    "keywords": [
+      "Meteors &amp; Meteor Showers",
+      "Stargazing"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "'Dark subhaloes' may explain why galaxies seem to form pre-determined shapes",
+    "link": "https://www.space.com/astronomy/galaxies/dark-subhaloes-may-explain-why-galaxies-seem-to-form-pre-determined-shapes",
+    "id": 1463,
+    "summary": "Our universe is full of mysteries, but few are as perplexing as the dark, tiny galaxies that hover around larger ones like the Milky Way.",
+    "source": "Latest from Space.com",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T10:00:00",
+    "keywords": [
+      "Galaxies",
+      "Astronomy"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Only 12 people on Earth saw this 'ring-of-fire' eclipse. Here's how one improvised to capture a once-in-a-lifetime photo from Antarctica",
+    "link": "https://www.space.com/stargazing/solar-eclipses/only-12-people-on-earth-saw-this-ring-of-fire-eclipse-heres-how-one-improvised-to-capture-a-once-in-a-lifetime-photo-from-antarctica",
+    "id": 1464,
+    "summary": "A remote Antarctic research team became the only people on Earth to witness a rare annular solar eclipse — and one scientist had to improvise to capture it.",
+    "source": "Latest from Space.com",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T09:00:13",
+    "keywords": [
+      "Solar Eclipses",
+      "Stargazing",
+      "Eclipses"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Glowing ring of plankton surrounding New Zealand islands linked to deadly underwater plateau — Earth from space",
+    "link": "https://www.livescience.com/planet-earth/rivers-oceans/glowing-ring-of-plankton-surrounding-new-zealand-islands-linked-to-deadly-underwater-plateau-earth-from-space",
+    "id": 1465,
+    "summary": "A recent satellite photo captured a gleaming halo of phytoplankton encircling the remote Chatham Islands. The stunning sight is the result of a hidden underwater structure, which has also helped kill hundreds of cetaceans.",
+    "source": "Latest from Live Science",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T07:00:00",
+    "keywords": [
+      "Rivers &amp; Oceans",
+      "Planet Earth"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "A giant 'shadow' has been creeping across Mars for 50 years — and scientists aren't sure why",
+    "link": "https://www.livescience.com/space/mars/a-giant-shadow-has-been-creeping-across-mars-for-50-years-and-scientists-arent-sure-why",
+    "id": 1466,
+    "summary": "A dark patch in Mars' Utopia Planitia region has grown significantly since it was first photographed in 1976. Scientists have a loose understanding of what it is, but they can't properly explain its gradual growth.",
+    "source": "Latest from Live Science",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T16:23:46",
+    "keywords": [
+      "Mars",
+      "Space",
+      "Astronomy",
+      "Planets"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Bruce the parrot is missing his upper beak —‬ but that hasn't stopped him from becoming an undefeated jousting champion",
+    "link": "https://www.livescience.com/animals/birds/parrot-missing-half-his-beak-wins-jousting-with-special-technique",
+    "id": 1467,
+    "summary": "A kea parrot in New Zealand who lost the top part of his beak when young has developed a new way to fight other males that has made him unbeatable.",
+    "source": "Latest from Live Science",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T15:00:00",
+    "keywords": [
+      "Birds",
+      "Animals"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Scientists identify main cause of extreme nausea and vomiting in pregnancy",
+    "link": "https://www.livescience.com/health/reproductive-health/scientists-identify-main-cause-of-extreme-nausea-and-vomiting-in-pregnancy",
+    "id": 1468,
+    "summary": "A key gene tied to hyperemesis gravidarum, an extreme form of vomiting in pregnancy, is also linked to a heightened risk of type 2 diabetes, scientists report.",
+    "source": "Latest from Live Science",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T14:20:30",
+    "keywords": [
+      "Reproductive Health",
+      "Health"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Altar to Sol: A rare 1,900-year-old monument dedicated to the Roman god of light and used in a secret underground ritual",
+    "link": "https://www.livescience.com/archaeology/romans/altar-to-sol-a-rare-1-900-year-old-monument-dedicated-to-the-roman-god-of-light-and-used-in-a-secret-underground-ritual",
+    "id": 1469,
+    "summary": "This unique carved altar represents the triumph of light over darkness in ancient Roman religion.",
+    "source": "Latest from Live Science",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T10:00:00",
+    "keywords": [
+      "Romans",
+      "Archaeology"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Trump’s order on psychedelics could have far-reaching science consequences",
+    "link": "https://www.scientificamerican.com/article/trumps-order-on-psychedelics-could-have-far-reaching-science-consequences/",
+    "id": 1470,
+    "summary": "A new executive order could make it easier for researchers studying how psychedelic drugs such as psilocybin, LSD and ibogaine may be useful in medicine",
+    "source": "Scientific American",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T20:15:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "NASA’s 2028 moon landing may be delayed because of lack of space suits, watchdog report warns",
+    "link": "https://www.scientificamerican.com/article/nasas-2028-moon-landing-may-be-delayed-due-to-lack-of-spacesuits-watchdog-report-warns/",
+    "id": 1471,
+    "summary": "NASA needs new space suits to land astronauts on the moon by 2028, but development is behind and in danger of slipping further, according to a report from the agency’s Office of Inspector General",
+    "source": "Scientific American",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T19:22:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Astronauts’ brains don’t fully adapt to life in microgravity, new study finds",
+    "link": "https://www.scientificamerican.com/article/astronauts-brains-dont-fully-adapt-to-life-in-microgravity/",
+    "id": 1472,
+    "summary": "New research shows astronauts tend to grip objects in microgravity as if they felt as heavy as or heavier than they would on Earth, a finding that could help future space exploration",
+    "source": "Scientific American",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T17:40:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Risk of ‘megaquake’ in Japan higher after powerful earthquake strikes",
+    "link": "https://www.scientificamerican.com/article/risk-of-megaquake-in-japan-higher-after-powerful-earthquake-strikes/",
+    "id": 1473,
+    "summary": "After a magnitude 7.7 earthquake struck of the coast of Japan and set off tsunami warnings, there’s an elevated risk of a “megaquake” following in its wake",
+    "source": "Scientific American",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T16:21:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "NASA’s Voyager 1 spacecraft down to just two working science instruments",
+    "link": "https://www.scientificamerican.com/article/nasas-voyager-1-spacecraft-down-to-just-two-working-science-instruments/",
+    "id": 1474,
+    "summary": "This iconic spacecraft launched nearly 49 years ago and is running perilously low on power",
+    "source": "Scientific American",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T15:48:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "The strange way cocaine water pollution is changing salmon",
+    "link": "https://www.scientificamerican.com/article/the-strange-way-cocaine-water-pollution-is-changing-salmon/",
+    "id": 1475,
+    "summary": "It turns out that salmon exposed to cocaine through water pollution do  a lot  of swimming—which may not be a good thing",
+    "source": "Scientific American",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T15:00:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "See Bruce the parrot wield his broken beak like a deadly weapon",
+    "link": "https://www.scientificamerican.com/article/see-bruce-the-parrot-wield-his-broken-beak-like-a-deadly-weapon/",
+    "id": 1476,
+    "summary": "Bruce the Kea parrot is missing the upper half of his beak, but he has turned this disability into a weapon to keep subordinates in line",
+    "source": "Scientific American",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T15:00:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Magnetic muon measurements and gene-therapy advances win $3 million Breakthrough prizes",
+    "link": "https://www.scientificamerican.com/article/magnetic-muon-measurements-and-gene-therapy-advances-win-usd3-million-breakthrough-prizes/",
+    "id": 1477,
+    "summary": "This year’s winners include hundreds of physicists across more than 30 institutions",
+    "source": "Scientific American",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T14:22:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Ancient Roman ‘machine-gun’ damage discovered on Pompeii walls",
+    "link": "https://www.scientificamerican.com/article/ancient-roman-machine-gun-damage-discovered-on-pompeii-walls/",
+    "id": 1478,
+    "summary": "Recently uncovered damage to walls in Pompeii displays patterns that may have been made by an ancient “machine gun” called a  polybolos",
+    "source": "Scientific American",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T11:00:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "‘Cocaine hippos’ raise tough questions, and scientists uncover insights on faster aging and heart risks",
+    "link": "https://www.scientificamerican.com/podcast/episode/cocaine-hippos-raise-tough-questions-and-scientists-uncover-insights-on-faster-aging-and-heart-risks/",
+    "id": 1479,
+    "summary": "“Cocaine hippos,” underground bees, and fresh insights into aging and heart health",
+    "source": "Scientific American",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T10:00:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "See the spectacular Lyrid meteor shower at its peak",
+    "link": "https://www.scientificamerican.com/article/see-the-spectacular-lyrid-meteor-shower-at-its-peak/",
+    "id": 1480,
+    "summary": "The Lyrid meteor shower hits its peak from April 21 to April 22. Here’s everything you need to know about this annual celestial light show",
+    "source": "Scientific American",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T10:00:00",
+    "keywords": [],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "'My wife died in our dream home - she hid her illness'",
+    "link": "https://www.mirror.co.uk/news/health/my-wife-died-dream-home-37045915",
+    "id": 1481,
+    "summary": "Jon Kortmansky's wife Lori privately battled for years",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T07:08:50",
+    "keywords": [
+      "News",
+      "Indiana University",
+      "Hospitals",
+      "Starting a family",
+      "Health insurance",
+      "Skiing",
+      "Fertility"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "JENNIE BOND: 'I knew Queen behind closed doors - I'll never forget private moments'",
+    "link": "https://www.mirror.co.uk/news/royals/queen-private-moments-jennie-bond-37027409",
+    "id": 1482,
+    "summary": "To mark 100 years since the birth of Queen Elizabeth II, former BBC royal correspondent Jennie Bond, who covered the Firm for 14 years, mainly during the turbulent 1990s, recalls her memories of the former monarch",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T07:05:25",
+    "keywords": [
+      "News",
+      "Jennie Bond",
+      "The Queen",
+      "Royal Family"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Man caught watching child sex abuse footage on train by horrified London commuter",
+    "link": "https://www.mirror.co.uk/news/uk-news/man-jailed-child-abuse-train-37045750",
+    "id": 1483,
+    "summary": "David Johnson, 35, watched videos involving a young child on the train before a horrified commuter notified police and he was arrested when the carriage pulled into London",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:50:46",
+    "keywords": [
+      "News",
+      "Railways",
+      "Court case",
+      "Crown court",
+      "Prison sentence",
+      "Crime",
+      "British Transport Police"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "World's oldest marathon runner revealed the one food he ate daily to survive until 114th birthday",
+    "link": "https://www.mirror.co.uk/sport/other-sports/athletics/london-marathon-oldest-fauja-singh-37045734",
+    "id": 1484,
+    "summary": "An inspirational marathon runner revealed the secrets to his longevity after hanging up his running shoes",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:50:43",
+    "keywords": [
+      "News",
+      "British Heart Foundation",
+      "London Marathon",
+      "Prescriptions",
+      "London Marathon race",
+      "Superfoods"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Lechlade shooting: Armed cops storm Cotswolds town as man 'gunned down in car'",
+    "link": "https://www.mirror.co.uk/news/uk-news/lechlade-shooting-attempted-murder-police-37045791",
+    "id": 1485,
+    "summary": "A man has been arrested on suspicion of attempted murder after another man was reportedly shot in a vehicle in Lechlade, a town in the Cotswolds",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:38:47",
+    "keywords": [
+      "News",
+      "Gun crime",
+      "Breaking News",
+      "Murder",
+      "Police"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Popular products pulled from shelves over 'serious risk of injury or death'",
+    "link": "https://www.mirror.co.uk/news/us-news/product-recall-death-injured-explosion-37045738",
+    "id": 1486,
+    "summary": "Consumers are being urged to stop using any affected products immediately and check official recall notices",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:37:07",
+    "keywords": [
+      "News",
+      "Product recalls"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "UK unemployment DOWN to lowest level in three months in major boost for Keir Starmer",
+    "link": "https://www.mirror.co.uk/money/uk-unemployment-down-keir-starmer-37045744",
+    "id": 1487,
+    "summary": "Data for the Office for National Statistics has revealed a mixed picture on the UK's jobs market, with warnings that an economic shock from the Middle East conflict may have made matters worse",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:34:15",
+    "keywords": [
+      "News",
+      "Middle East",
+      "Office for National Statistics",
+      "Unemployment",
+      "Periods"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Peter Mandelson scandal LIVE: Sacked Olly Robbins set for grilling on crucial day for Starmer",
+    "link": "https://www.mirror.co.uk/news/politics/starmer-mandelson-robbins-scandal-live-37045715",
+    "id": 1488,
+    "summary": "Sir Olly Robbins, who Keir Starmer sacked as the department’s permanent secretary last week, will be given the chance to present his side of the story to the Foreign Affairs Committee",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:28:12",
+    "keywords": [
+      "News",
+      "Politics",
+      "Peter Mandelson",
+      "Foreign Office"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Tube strikes 2026 live: Which London Underground lines are down today?",
+    "link": "https://www.mirror.co.uk/news/uk-news/tube-strikes-london-live-underground-37045728",
+    "id": 1489,
+    "summary": "Tube strikes will take place from today as drivers take industrial action over Transport for London's plans for a four-day week - and it is going to cause major travel disruption",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:20:38",
+    "keywords": [
+      "News",
+      "RMT union",
+      "Transport for London",
+      "London Underground",
+      "Public services",
+      "Heathrow Airport",
+      "Trains",
+      "London Buses Ltd.",
+      "London"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "UK weather maps turn bright yellow for 21C scorcher on Saturday in 3-day heat blast",
+    "link": "https://www.mirror.co.uk/news/uk-news/uk-weather-maps-21c-saturday-37045671",
+    "id": 1490,
+    "summary": "A three day mini heat blast is forecast across the nation and areas in both the north and south are expected to see warm temperatures and clear skies over the weekend",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:17:14",
+    "keywords": [
+      "News",
+      "Metdesk",
+      "Weather"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Motability new 10,000-mile cap update as MPs prompt DWP response",
+    "link": "https://www.mirror.co.uk/money/motability-new-10000-mile-update-37043210",
+    "id": 1491,
+    "summary": "MPs have raised multiple concerns over the decision to slash the Motability scheme mileage allowance from 20,000 to 10,000 miles",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:12:53",
+    "keywords": [
+      "News",
+      "Stephen Timms",
+      "Department for Work and Pensions",
+      "Apps",
+      "Dangerous driving",
+      "Disability",
+      "Politics"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Pilot's wife advises all tourists to stop wearing 1 item of clothing on planes",
+    "link": "https://www.mirror.co.uk/travel/news/pilots-wife-advises-tourists-stop-36960468",
+    "id": 1492,
+    "summary": "A pilot's wife has advised tourists to stop wearing a common item of clothing when travelling on planes. It turns out, it can cause more problems than you realise",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:09:00",
+    "keywords": [
+      "News",
+      "Travel Tips",
+      "Air travel"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "'My wife was healthy but died at 46 after just one symptom'",
+    "link": "https://www.mirror.co.uk/news/health/my-wife-healthy-died-46-37045720",
+    "id": 1493,
+    "summary": "Matt Miles said it was 'dramatically unfair'",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:07:13",
+    "keywords": [
+      "News",
+      "London Marathon",
+      "Charities",
+      "Ovarian cancer",
+      "Fitness",
+      "Skiing",
+      "London Marathon race",
+      "Health",
+      "NHS"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Prince Harry 'more unhappy than he's ever been' as 'reason' for sad outbursts explained",
+    "link": "https://www.mirror.co.uk/news/royals/prince-harry-more-unhappy-hes-37033773",
+    "id": 1494,
+    "summary": "Prince Harry shared the pain of his past - including the death of his mum, Princess Diana - in a moving speech in Australia, as experts give the Mirror their analyses",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:00:00",
+    "keywords": [
+      "News",
+      "Prince Harry",
+      "Meghan Markle",
+      "Princess Diana",
+      "King Charles III",
+      "Royal Family",
+      "Declan Donnelly",
+      "Prince William",
+      "Masterchef",
+      "Pregnancy",
+      "Car crashes",
+      "Periods"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Queen Elizabeth ate simple two-ingredient lunch that kept her looking youthful",
+    "link": "https://www.mirror.co.uk/news/royals/queen-elizabeth-ate-simple-two-37043456",
+    "id": 1495,
+    "summary": "As the Royal Family honours what would have been Queen Elizabeth II's 100th birthday today, her former chef reveals her favourite two-ingredient lunch of Dover sole and spinach that she enjoyed well into her 90s.",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T06:00:00",
+    "keywords": [
+      "News",
+      "Commonwealth",
+      "BBC",
+      "Kensington Palace",
+      "Buckingham Palace",
+      "Cornell University",
+      "The Pennsylvania State University",
+      "British Museum",
+      "King's College London",
+      "Anne",
+      "Princess Royal",
+      "Norman Foster",
+      "Prince Philip",
+      "Duke of Edinburgh",
+      "Pope Francis I",
+      "The Queen",
+      "Martha Stewart",
+      "Apps",
+      "Frozen",
+      "Food",
+      "Royal Family",
+      "Blood pressure",
+      "Vitamins",
+      "Museums"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Former CIA spy boss Peter Sichel tells of 'lonely' job that 'leads to alcoholism'",
+    "link": "https://www.mirror.co.uk/news/uk-news/the-last-spy-peter-sichel-37045271",
+    "id": 1496,
+    "summary": "New film The Last Spy tells the incredible tale of Peter Sichel who changed the world not once but twice, escaping from the Nazis to become a wine merchant and master spy",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T05:30:00",
+    "keywords": [
+      "News",
+      "Central Intelligence Agency",
+      "Cold War",
+      "World War 2",
+      "Soldiers",
+      "Armed forces"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Alert update as cakes and biscuits 'unsafe to eat' after 'rodent contamination'",
+    "link": "https://www.mirror.co.uk/money/alert-update-cakes-biscuits-unsafe-37045670",
+    "id": 1497,
+    "summary": "The Food Standards Agency has updated its recall notice for a range of cakes and biscuits deemed 'unsafe to eat' due to potential rodent contamination – here's the full product list",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T05:16:01",
+    "keywords": [
+      "News",
+      "Product recalls",
+      "Food and drink"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Schoolgirl left to go window-shopping but never returned – then police made chilling find",
+    "link": "https://www.mirror.co.uk/news/uk-news/schoolgirl-left-go-window-shopping-36955794",
+    "id": 1498,
+    "summary": "It is 25 years today since Hannah Williams left her home in Deptford, south east London, before vanishing without a trace, until her badly decomposed body was found almost a year later",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T05:00:00",
+    "keywords": [
+      "News",
+      "Murder",
+      "Missing persons"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "'You can't gain a pound' - The Pitt's Noah Wyle tells of hit show's 'intense' filming rules",
+    "link": "https://www.mirror.co.uk/3am/celebrity-news/the-pitt-noah-wyle-filming-37045206",
+    "id": 1499,
+    "summary": "The Pitt has been a huge success for the former ER actor and focuses on the minute-by-minute progression of medical cases, meaning complete continuity for all cast members",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T05:00:00",
+    "keywords": [
+      "News",
+      "BBC World Service",
+      "Noah Wyle",
+      "George Clooney",
+      "ER",
+      "Hospitals"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "'The PM needs to show he is firmly in control - no more drift, no more distractions'",
+    "link": "https://www.mirror.co.uk/opinion/the-pm-needs-show-firmly-37045253",
+    "id": 1500,
+    "summary": "'Keir Starmer's strength is his seriousness - he understands change is about determined action and the country needs that kind of leadership now more than ever'",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T05:00:00",
+    "keywords": [
+      "News"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "'Channel 4 survival show changed my life - I quit my job and live in a caravan'",
+    "link": "https://www.mirror.co.uk/news/real-life-stories/channel-4-survival-show-changed-37043652",
+    "id": 1501,
+    "summary": "Eva Outram, 28, was a project manager with the NHS - but her TV experience changed her life forever",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T04:15:00",
+    "keywords": [
+      "News",
+      "NHS",
+      "Channel 4",
+      "Road trips",
+      "Energy",
+      "Art"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Doctor Amir Khan urges Brits to do 1 thing before bed to aid sleep each night",
+    "link": "https://www.mirror.co.uk/news/health/doctor-amir-khan-urges-brits-36933923",
+    "id": 1502,
+    "summary": "Doctor Amir Khan is known for sharing all sorts of health tips with his followers, but he recently urged Brits to complete a simple task before bed to aid sleep",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T04:04:00",
+    "keywords": [
+      "News",
+      "Health",
+      "Sleep",
+      "Expert Advice"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Iranian cargo ship transits Strait of Hormuz defying US blockade",
+    "link": "https://www.mirror.co.uk/news/world-news/iranian-cargo-ship-transits-strait-37045644",
+    "id": 1503,
+    "summary": "The Shoja 2 cargo ship departed from the Shahid Rajaee Port near Bandar Abbas and is continuing its route towards the Port of Kandla in India, as the US blockade of Iranian ports in the Strait of Hormuz intensifies tensions",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T04:02:36",
+    "keywords": [
+      "News",
+      "Oil prices",
+      "Iran",
+      "Middle East war"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "UK weather maps show Brits to bask in mini-heatwave — see five hottest areas",
+    "link": "https://www.mirror.co.uk/news/uk-news/uk-weather-maps-show-brits-37045570",
+    "id": 1504,
+    "summary": "The Met Office believes the UK is set for a warm spell as temperatures are likely to rise to 21C, with Greater London, Berkshire and the West Midlands expected to be among the warmest places",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T04:00:00",
+    "keywords": [
+      "News",
+      "Heatwave",
+      "Weather",
+      "Met Office"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Soaring petrol prices to have 'huge consequences for teachers and schools'",
+    "link": "https://www.mirror.co.uk/news/uk-news/petrol-prices-teachers-strikes-warning-37045654",
+    "id": 1505,
+    "summary": "The closing of the Strait of Hormuz — through which approximately 25% of the world's oil travels — by Iran in response to the ongoing war with the US and Israel has led to a rise in fuel costs",
+    "source": "Mirror - News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T03:51:22",
+    "keywords": [
+      "News",
+      "Petrol prices",
+      "Schools",
+      "Middle East war",
+      "Education"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Terrified girl, 16, saved from kidnapper after mouthing one word to shop worker",
+    "link": "https://www.mirror.co.uk/news/us-news/michigan-kidnapping-girl-petrol-station-37045583",
+    "id": 1506,
+    "summary": "The teenager was grabbed from a bus stop and sped away in a van before making a desperate plea to a shop worker at a petrol station which led to the arrest of her kidnapper",
+    "source": "Mirror - US News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T00:19:46",
+    "keywords": [
+      "US News",
+      "Life sentence",
+      "Crime",
+      "Teenagers"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Sister of tragic influencer speaks out after she died in horror accident at 38",
+    "link": "https://www.mirror.co.uk/news/us-news/mara-flavia-dead-triathalon-texas-37045541",
+    "id": 1507,
+    "summary": "Mara Flávia Araújo, who had more than 60,000 followers on Instagram and was known for sharing fitness content, drowned while competing in a triathlon competition",
+    "source": "Mirror - US News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T22:52:50",
+    "keywords": [
+      "US News",
+      "Drownings",
+      "Accidents",
+      "Ironman",
+      "United States",
+      "Grieving"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Trump 'blocked from accessing nuclear codes' by head of US military",
+    "link": "https://www.mirror.co.uk/news/us-news/trump-blocked-accessing-nuclear-codes-37045513",
+    "id": 1508,
+    "summary": "US President Donald Trump is alleged to have received push-back from a senior military person in a meeting at the White House during an attempt to access his country's nuclear codes",
+    "source": "Mirror - US News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T22:04:54",
+    "keywords": [
+      "US News",
+      "Donald Trump",
+      "Middle East",
+      "Iran"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Trump 'out cold' during Fox News broadcast as viewers worried about President",
+    "link": "https://www.mirror.co.uk/news/us-news/trump-out-cold-during-fox-37045396",
+    "id": 1509,
+    "summary": "US President Donald Trump was seen with his eyes closed during a Tax Day roundtable in Las Vegas, with viewers speculating the commander-in-chief had dozed off as Treasury Secretary Scott Bessent delivered remarks",
+    "source": "Mirror - US News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T21:27:34",
+    "keywords": [
+      "US News",
+      "Fox News",
+      "Donald Trump",
+      "Tax",
+      "Breaking News"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Apple CEO Tim Cook to step down as tech giant announces new boss",
+    "link": "https://www.mirror.co.uk/news/us-news/apple-ceo-tim-cook-step-37043538",
+    "id": 1510,
+    "summary": "Tim Cook will be stepping down as the chief executive of Apple with the technology giant naming John Ternus as his replacement",
+    "source": "Mirror - US News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T21:06:55",
+    "keywords": [
+      "US News",
+      "Breaking News",
+      "Apple"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Winston-Salem mass shooting horror as two dead after 'planned fight' near schools",
+    "link": "https://www.mirror.co.uk/news/us-news/winston-salem-mass-shooting-horror-37043550",
+    "id": 1511,
+    "summary": "Several young people are said to have been involved in a brawl which escalated into a mass shooting and saw two people killed in the North Carolina town of Winston-Salem",
+    "source": "Mirror - US News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T16:29:33",
+    "keywords": [
+      "US News",
+      "Breaking News"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Meghan Markle releases £47 candles inspired by Archie and Lilibet and their red hair",
+    "link": "https://www.mirror.co.uk/news/royals/meghan-markle-archie-lilibet-candles-37042783",
+    "id": 1512,
+    "summary": "The Duchess of Sussex has launched two new products for Mother’s Day in honour of her young children, with a nod to their royal titles and red hair",
+    "source": "Mirror - US News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T12:52:26",
+    "keywords": [
+      "US News",
+      "Meghan Markle",
+      "Prince Harry",
+      "Royal Family",
+      "Prince Archie",
+      "Princess Lilibet"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "US FedEx driver sang Christmas song to Athena Strand before murdering her",
+    "link": "https://www.mirror.co.uk/news/us-news/fedex-driver-sang-christmas-song-37040967",
+    "id": 1513,
+    "summary": "WARNING: DISTRESSING CONTENT A courtroom heard what a killer FedEx did before he murdered a girl, 7, after kidnapping the terrified little child from her home",
+    "source": "Mirror - US News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T09:50:27",
+    "keywords": [
+      "US News",
+      "Murder",
+      "FedEx Corporation"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Louisiana shooting suspect made chilling comments about 'demons' before killing 8 kids",
+    "link": "https://www.mirror.co.uk/news/us-news/shamar-elkins-shreveport-louisiana-shooting-37041336",
+    "id": 1514,
+    "summary": "Shamar Elkins was killed in a shootout with police in Louisiana on Sunday after he gunned down eight children in one of the worst US mass shootings in recent memory",
+    "source": "Mirror - US News",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-20T09:48:26",
+    "keywords": [
+      "US News",
+      "Armed forces",
+      "Mental health",
+      "Mass shootings",
+      "Suicide",
+      "Gun crime",
+      "US shootings"
+    ],
+    "signal_score": 0.0,
+    "processing_metadata": {},
+    "processed": false
+  },
+  {
+    "title": "Tiger Gold Drills 282 m @ 0.6 g/t Au, including 32 m @ 1.3 g/t Au and 21 m @ 1.6 g/t Au, at Dos Quebradas in Initial Drill Program | TGRGF Stock News",
+    "link": "https://www.stocktitan.net/news/TGRGF/tiger-gold-drills-282-m-0-6-g-t-au-including-32-m-1-3-g-t-au-and-21-uekb5z5xu7ee.html",
+    "id": 1515,
+    "summary": "",
+    "source": "Latest News | Stock Titan",
+    "noise_score": 0.0,
+    "is_noise": false,
+    "enriched": {},
+    "published_at": "2026-04-21T07:05:00",
     "keywords": [],
     "signal_score": 0.0,
     "processing_metadata": {},
