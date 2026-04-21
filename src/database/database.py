@@ -222,6 +222,11 @@ class Feed(SQLModel, table=True):
     published_at: str
     source: str
     keywords: list = Field(default_factory=list, sa_column=Column(JSON))
+
+
+class FounderFeed(SQLModel, table=True):
+    feed_id: int = Field(foreign_key="feed.id", primary_key=True)
+    founder_name: str = Field(primary_key=True)
     signal_score: float = 0
     noise_score: float = 0
     is_noise: bool = False

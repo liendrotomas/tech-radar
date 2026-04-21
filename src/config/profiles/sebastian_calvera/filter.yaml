@@ -4,7 +4,7 @@
 ingestion:
   rss:
     urls:
-    # Computer science
+    # # Computer science
     #   - "https://rss.arxiv.org/rss/cs.AI"
     #   - "https://rss.arxiv.org/rss/cs.AR"
     #   - "https://rss.arxiv.org/rss/cs.CC"

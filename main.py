@@ -65,11 +65,8 @@ def _clear_database(args):
     return ret
 
 
-def _load_founder_profile(founder_arg: str) -> dict:
-    founder_filename = (
-        founder_arg if founder_arg.endswith(".json") else f"{founder_arg}.json"
-    )
-    founder_path = os.path.join("src", "config", "profiles", founder_filename)
+def _load_founder_profile(founder: str) -> dict:
+    founder_path = os.path.join("src", "config", "profiles", founder, "profile.json")
 
     with open(founder_path, "r", encoding="utf-8") as founder_file:
         return json.load(founder_file)
@@ -78,7 +75,10 @@ def _load_founder_profile(founder_arg: str) -> dict:
 def cli() -> None:
     parser = argparse.ArgumentParser(description="Tech Radar AI pipeline runner")
     parser.add_argument(
-        "--founder", type=str, default="seba", help="Founder profile JSON string"
+        "--founder",
+        type=str,
+        default="sebastian_calvera",
+        help="Founder profile JSON string",
     )
     parser.add_argument(
         "--update-db",

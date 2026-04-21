@@ -1,10 +1,18 @@
 [
-    {
-        "title": "TRIC Robotics",
-        "id": 23,
-        "opportunity_id": 117,
-        "label": "liked",
-        "notes": "",
-        "founder_name": "Sebastian Calvera"
-    }
+  {
+    "notes": "",
+    "id": 23,
+    "title": "TRIC Robotics",
+    "opportunity_id": 117,
+    "label": "liked",
+    "founder_name": "Sebastian Calvera"
+  },
+  {
+    "notes": "humanoid robots looks like hype now",
+    "id": 24,
+    "title": "Neura Robotics / Qualcomm Partnership",
+    "opportunity_id": 118,
+    "label": "rejected",
+    "founder_name": "Sebastian Calvera"
+  }
 ]

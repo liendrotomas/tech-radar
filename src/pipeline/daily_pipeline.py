@@ -13,6 +13,10 @@ from src.utils.logger import get_logger
 logger = get_logger("daily_pipeline")
 
 
+def normalize_founder_name(name: str) -> str:
+    return (name or "").replace(" ", "_").lower()
+
+
 def _ensure_parent_dir(file_path: str) -> None:
     parent_dir = os.path.dirname(file_path)
     if parent_dir:
@@ -61,7 +65,9 @@ def run_daily_pipeline(
 
     founder_profile = founder_profile or {}
 
-    cfg = load_config()
+    cfg = load_config(
+        config_path=f"src/config/profiles/{normalize_founder_name(founder_profile.get('name'))}/filter.yaml"
+    )
     database_file = getattr(args, "database_file")
 
     _ensure_parent_dir(database_file)

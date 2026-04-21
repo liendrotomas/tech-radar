@@ -1,0 +1,250 @@
+# Tech Radar configuration (YAML)
+# Supports source-specific credentials and thresholds.
+
+ingestion:
+  rss:
+    urls:
+    # # Computer science
+    #   - "https://rss.arxiv.org/rss/cs.AI"
+    #   - "https://rss.arxiv.org/rss/cs.AR"
+    #   - "https://rss.arxiv.org/rss/cs.CC"
+    #   - "https://rss.arxiv.org/rss/cs.CE"
+    #   - "https://rss.arxiv.org/rss/cs.CG"
+    #   - "https://rss.arxiv.org/rss/cs.CL"
+    #   - "https://rss.arxiv.org/rss/cs.CR"
+    #   - "https://rss.arxiv.org/rss/cs.CV"
+    #   - "https://rss.arxiv.org/rss/cs.CY"
+    #   - "https://rss.arxiv.org/rss/cs.DB"
+    #   - "https://rss.arxiv.org/rss/cs.DC"
+    #   - "https://rss.arxiv.org/rss/cs.DL"
+    #   - "https://rss.arxiv.org/rss/cs.DM"
+    #   - "https://rss.arxiv.org/rss/cs.DS"
+    #   - "https://rss.arxiv.org/rss/cs.ET"
+    #   - "https://rss.arxiv.org/rss/cs.FL"
+    #   - "https://rss.arxiv.org/rss/cs.GL"
+    #   - "https://rss.arxiv.org/rss/cs.GR"
+    #   - "https://rss.arxiv.org/rss/cs.GT"
+    #   - "https://rss.arxiv.org/rss/cs.HC"
+    #   - "https://rss.arxiv.org/rss/cs.IR"
+    #   - "https://rss.arxiv.org/rss/cs.IT"
+    #   - "https://rss.arxiv.org/rss/cs.LG"
+    #   - "https://rss.arxiv.org/rss/cs.LO"
+    #   - "https://rss.arxiv.org/rss/cs.MA"
+    #   - "https://rss.arxiv.org/rss/cs.MM"
+    #   - "https://rss.arxiv.org/rss/cs.MS"
+    #   - "https://rss.arxiv.org/rss/cs.NA"
+    #   - "https://rss.arxiv.org/rss/cs.NE"
+    #   - "https://rss.arxiv.org/rss/cs.NI"
+    #   - "https://rss.arxiv.org/rss/cs.OH"
+    #   - "https://rss.arxiv.org/rss/cs.OS"
+    #   - "https://rss.arxiv.org/rss/cs.PF"
+    #   - "https://rss.arxiv.org/rss/cs.PL"
+    #   - "https://rss.arxiv.org/rss/cs.RO"
+    #   - "https://rss.arxiv.org/rss/cs.SC"
+    #   - "https://rss.arxiv.org/rss/cs.SD"
+    #   - "https://rss.arxiv.org/rss/cs.SE"
+    #   - "https://rss.arxiv.org/rss/cs.SI"
+    #   - "https://rss.arxiv.org/rss/cs.SY"
+
+    # # Math:
+    #   - "https://rss.arxiv.org/rss/math.AC"
+    #   - "https://rss.arxiv.org/rss/math.AG"
+    #   - "https://rss.arxiv.org/rss/math.AP"
+    #   - "https://rss.arxiv.org/rss/math.AT"
+    #   - "https://rss.arxiv.org/rss/math.CA"
+    #   - "https://rss.arxiv.org/rss/math.CO"
+    #   - "https://rss.arxiv.org/rss/math.CT"
+    #   - "https://rss.arxiv.org/rss/math.CV"
+    #   - "https://rss.arxiv.org/rss/math.DG"
+    #   - "https://rss.arxiv.org/rss/math.DS"
+    #   - "https://rss.arxiv.org/rss/math.FA"
+    #   - "https://rss.arxiv.org/rss/math.GM"
+    #   - "https://rss.arxiv.org/rss/math.GN"
+    #   - "https://rss.arxiv.org/rss/math.GR"
+    #   - "https://rss.arxiv.org/rss/math.GT"
+    #   - "https://rss.arxiv.org/rss/math.HO"
+    #   - "https://rss.arxiv.org/rss/math.IT"
+    #   - "https://rss.arxiv.org/rss/math.KT"
+    #   - "https://rss.arxiv.org/rss/math.LO"
+    #   - "https://rss.arxiv.org/rss/math.MG"
+    #   - "https://rss.arxiv.org/rss/math.MP"
+    #   - "https://rss.arxiv.org/rss/math.NA"
+    #   - "https://rss.arxiv.org/rss/math.NT"
+    #   - "https://rss.arxiv.org/rss/math.OA"
+    #   - "https://rss.arxiv.org/rss/math.OC"
+    #   - "https://rss.arxiv.org/rss/math.PR"
+    #   - "https://rss.arxiv.org/rss/math.QA"
+    #   - "https://rss.arxiv.org/rss/math.RA"
+    #   - "https://rss.arxiv.org/rss/math.RT"
+    #   - "https://rss.arxiv.org/rss/math.SG"
+    #   - "https://rss.arxiv.org/rss/math.SP"
+    #   - "https://rss.arxiv.org/rss/math.ST"
+
+    # # Phisics
+    #   - "https://rss.arxiv.org/rss/physics.acc-ph"
+    #   - "https://rss.arxiv.org/rss/physics.ao-ph"
+    #   - "https://rss.arxiv.org/rss/physics.app-ph"
+    #   - "https://rss.arxiv.org/rss/physics.atm-clus"
+    #   - "https://rss.arxiv.org/rss/physics.atom-ph"
+    #   - "https://rss.arxiv.org/rss/physics.bio-ph"
+    #   - "https://rss.arxiv.org/rss/physics.chem-ph"
+    #   - "https://rss.arxiv.org/rss/physics.class-ph"
+    #   - "https://rss.arxiv.org/rss/physics.comp-ph"
+    #   - "https://rss.arxiv.org/rss/physics.data-an"
+    #   - "https://rss.arxiv.org/rss/physics.ed-ph"
+    #   - "https://rss.arxiv.org/rss/physics.flu-dyn"
+    #   - "https://rss.arxiv.org/rss/physics.gen-ph"
+    #   - "https://rss.arxiv.org/rss/physics.geo-ph"
+    #   - "https://rss.arxiv.org/rss/physics.hist-ph"
+    #   - "https://rss.arxiv.org/rss/physics.ins-det"
+    #   - "https://rss.arxiv.org/rss/physics.med-ph"
+    #   - "https://rss.arxiv.org/rss/physics.optics"
+    #   # - "https://rss.arxiv.org/rss/physics.plasm-ph"
+    #   - "https://rss.arxiv.org/rss/physics.pop-ph"
+    #   - "https://rss.arxiv.org/rss/physics.soc-ph"
+    #   - "https://rss.arxiv.org/rss/physics.space-ph"
+
+    #   # Astrophysics
+    #   - "https://rss.arxiv.org/rss/astro-ph.CO"
+    #   - "https://rss.arxiv.org/rss/astro-ph.EP"
+    #   - "https://rss.arxiv.org/rss/astro-ph.GA"
+    #   - "https://rss.arxiv.org/rss/astro-ph.HE"
+    #   - "https://rss.arxiv.org/rss/astro-ph.IM"
+    #   - "https://rss.arxiv.org/rss/astro-ph.SR"
+
+    #   # Nuclear physics
+    #   - "https://rss.arxiv.org/rss/nucl-ex"
+    #   - "https://rss.arxiv.org/rss/nucl-th"
+
+    #   # Non-linear sciences
+    #   - "https://rss.arxiv.org/rss/nlin.AO"
+    #   - "https://rss.arxiv.org/rss/nlin.CD"
+    #   - "https://rss.arxiv.org/rss/nlin.CG"
+    #   - "https://rss.arxiv.org/rss/nlin.PS"
+    #   - "https://rss.arxiv.org/rss/nlin.SI"
+      
+    #   # Quantitative biology
+    #   - "https://rss.arxiv.org/rss/q-bio.BM"
+    #   - "https://rss.arxiv.org/rss/q-bio.CB"
+    #   - "https://rss.arxiv.org/rss/q-bio.GN"
+    #   - "https://rss.arxiv.org/rss/q-bio.MN"
+    #   - "https://rss.arxiv.org/rss/q-bio.NC"
+    #   - "https://rss.arxiv.org/rss/q-bio.OT"
+    #   - "https://rss.arxiv.org/rss/q-bio.PE"
+    #   - "https://rss.arxiv.org/rss/q-bio.QM"
+    #   - "https://rss.arxiv.org/rss/q-bio.SC"
+    #   - "https://rss.arxiv.org/rss/q-bio.TO"
+
+    #   # Quantitative Finance
+    #   - "https://rss.arxiv.org/rss/q-fin.CP"
+    #   - "https://rss.arxiv.org/rss/q-fin.EC"
+    #   - "https://rss.arxiv.org/rss/q-fin.GN"
+    #   - "https://rss.arxiv.org/rss/q-fin.MF"
+    #   - "https://rss.arxiv.org/rss/q-fin.PM"
+    #   - "https://rss.arxiv.org/rss/q-fin.PR"
+    #   - "https://rss.arxiv.org/rss/q-fin.RM"
+    #   - "https://rss.arxiv.org/rss/q-fin.ST"
+    #   - "https://rss.arxiv.org/rss/q-fin.TR"
+
+    #   # Statistics
+    #   - "https://rss.arxiv.org/rss/stat.AP"
+    #   - "https://rss.arxiv.org/rss/stat.CO"
+    #   - "https://rss.arxiv.org/rss/stat.ME"
+    #   - "https://rss.arxiv.org/rss/stat.ML"
+    #   - "https://rss.arxiv.org/rss/stat.OT"
+    #   - "https://rss.arxiv.org/rss/stat.TH"
+
+    #   # Electrical Engineering & Systems
+    #   - "https://rss.arxiv.org/rss/eess.AS"
+    #   - "https://rss.arxiv.org/rss/eess.IV"
+    #   - "https://rss.arxiv.org/rss/eess.SP"
+    #   - "https://rss.arxiv.org/rss/eess.SY"
+
+    #   # Economics
+    #   - "https://rss.arxiv.org/rss/econ.EM"
+    #   - "https://rss.arxiv.org/rss/econ.GN"
+    #   - "https://rss.arxiv.org/rss/econ.TH"
+
+    #   # General science
+    #   - "https://rss.arxiv.org/rss/math-ph"
+    #   - "https://rss.arxiv.org/rss/quant-ph"
+    #   - "https://rss.arxiv.org/rss/gr-qc"
+
+    #   - "https://techcrunch.com/feed/"
+    #   - "https://thenextweb.com/feed/"
+
+    #   # Industry
+    #   - "https://techcrunch.com/tag/robotics/feed/"
+    #   - "https://techcrunch.com/tag/space/feed/"
+      - "https://spacenews.com/feed/"
+
+      # Research engineering
+      - "https://spectrum.ieee.org/rss/robotics/fulltext"
+      - "https://www.technologyreview.com/feed/"
+      - "https://technology.nasa.gov/rss.xml"
+
+      # Defense
+      - "https://www.darpa.mil/rss"
+
+      # Hardware
+      - "https://hackaday.com/blog/feed/"
+
+      # Startups
+      - "https://news.crunchbase.com/feed/"
+
+      # Tech general
+      - "https://techcrunch.com/feed/"
+
+      # Startups / VC
+      - "https://www.ycombinator.com/blog/feed"
+
+      # Optional
+      - "https://www.producthunt.com/feed"
+
+      - https://www.nasa.gov/rss/dyn/breaking_news.rss
+      - https://www.nasa.gov/rss-feeds/
+      - https://www.nasa.gov/technology/feed/
+      - https://www.nasa.gov/aeronautics/feed/
+      - https://www.nasa.gov/missions/artemis/feed/
+      - https://www.nasa.gov/missions/station/feed/
+      - https://api.www.sbir.gov/public/api/solicitations
+      - https://www.darpa.mil/news-events
+
+      - http://sci.esa.int/newssyndication/rss/sciweb.xml
+      - https://www.nsf.gov/rss/rss_www_funding_pgm_annc_inf.xml
+      - https://www.nsf.gov/rss/rss_www_funding-upcoming/rss.xml
+      - https://www.nsf.gov/rss/rss_www_news.xml
+      - https://ncses.nsf.gov/rss
+
+      - https://www.ycombinator.com/blog
+      - https://www.techstars.com/newsroom
+      - https://jatan.space/rss
+      - https://payloadspace.com/feed/
+      - https://www.space.com/feeds.xml
+
+      - https://www.livescience.com/feeds.xml
+      
+      - https://www.scientificamerican.com/platform/syndication/rss/
+      - http://rss.sciam.com/sciam/technology
+      
+      - https://nationaltoday.com/feed/
+      
+      - https://www.mirror.co.uk/news/?service=rss
+      - https://www.mirror.co.uk/news/us-news/?service=rss
+      
+      - https://satnews.com/feed/
+      
+      - https://www.stocktitan.net/rss
+      - https://www.nasdaq.com/feed/rssoutbound?category=IPOs
+      - 
+
+agents:
+  filter:
+    signal_threshold: 0.03
+    noise_threshold: 0.02
+  enrichment:
+    model: "gpt-4.1-mini"
+  opportunity:
+    model: "gpt-4.1-mini"
+  scoring:
+    model: "gpt-4.1-mini"

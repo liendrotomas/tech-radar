@@ -1,178 +1,178 @@
 [
   {
-    "title": "Zero-Trust Autonomous Systems Governance Platform",
+    "notes": "integrates systems and raising demand in cybersecurity is expected",
     "id": 1,
+    "title": "Zero-Trust Autonomous Systems Governance Platform",
     "opportunity_id": 1,
     "label": "explore",
-    "notes": "integrates systems and raising demand in cybersecurity is expected",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "AI-Enabled Space Robotics Operations Platform",
+    "notes": "AI for decision making",
     "id": 2,
+    "title": "AI-Enabled Space Robotics Operations Platform",
     "opportunity_id": 2,
     "label": "liked",
-    "notes": "AI for decision making",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Space Systems Market Intelligence and Procurement Support SaaS",
+    "notes": "contracts, SaaS",
     "id": 3,
+    "title": "Space Systems Market Intelligence and Procurement Support SaaS",
     "opportunity_id": 3,
     "label": "rejected",
-    "notes": "contracts, SaaS",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Microlauncher Systems for Responsive Small Payload Deployment",
+    "notes": "not bad, but no disrupting",
     "id": 4,
+    "title": "Microlauncher Systems for Responsive Small Payload Deployment",
     "opportunity_id": 4,
     "label": "explore",
-    "notes": "not bad, but no disrupting",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Autonomous Environmental Monitoring Robotics for Maritime and Space",
+    "notes": "robot internet connected to fuse data",
     "id": 5,
+    "title": "Autonomous Environmental Monitoring Robotics for Maritime and Space",
     "opportunity_id": 5,
     "label": "liked",
-    "notes": "robot internet connected to fuse data",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Zero-Trust Autonomous Systems Governance Platform",
+    "notes": "cybersecurity",
     "id": 6,
+    "title": "Zero-Trust Autonomous Systems Governance Platform",
     "opportunity_id": 6,
     "label": "explore",
-    "notes": "cybersecurity",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Physical AI Robotics for Space Infrastructure Maintenance",
+    "notes": "interesting for on orbit assembly system breakthrough",
     "id": 7,
+    "title": "Physical AI Robotics for Space Infrastructure Maintenance",
     "opportunity_id": 7,
     "label": "liked",
-    "notes": "interesting for on orbit assembly system breakthrough",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "AI-Powered Space Robotics Decision-Making Tools",
+    "notes": "decision making is ok for next generation of AI",
     "id": 8,
+    "title": "AI-Powered Space Robotics Decision-Making Tools",
     "opportunity_id": 8,
     "label": "explore",
-    "notes": "decision making is ok for next generation of AI",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Space-Based Signal Extraction and Data Analytics Platform",
+    "notes": "interesting for data analysis and futures trading",
     "id": 9,
+    "title": "Space-Based Signal Extraction and Data Analytics Platform",
     "opportunity_id": 9,
     "label": "liked",
-    "notes": "interesting for data analysis and futures trading",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Small-Scale Orbital Launch Testing Infrastructure Startup",
+    "notes": "not my niche",
     "id": 10,
+    "title": "Small-Scale Orbital Launch Testing Infrastructure Startup",
     "opportunity_id": 10,
     "label": "rejected",
-    "notes": "not my niche",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Autonomous Lunar Rover Software Platform",
+    "notes": "API as product is a bit boring",
     "id": 11,
+    "title": "Autonomous Lunar Rover Software Platform",
     "opportunity_id": 11,
     "label": "rejected",
-    "notes": "API as product is a bit boring",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "AI-Enabled Autonomous Banking Platform for Space Infrastructure Ventures",
+    "notes": "Felt this pain! interesting option",
     "id": 12,
+    "title": "AI-Enabled Autonomous Banking Platform for Space Infrastructure Ventures",
     "opportunity_id": 12,
     "label": "liked",
-    "notes": "Felt this pain! interesting option",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Space Launch Safety and Anomaly Detection AI Tools",
+    "notes": "launch phase is not my topic",
     "id": 13,
+    "title": "Space Launch Safety and Anomaly Detection AI Tools",
     "opportunity_id": 13,
     "label": "rejected",
-    "notes": "launch phase is not my topic",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Space Industry Procurement and Government Contracting Enablement Platform",
+    "notes": "contracts is a bit boring but there may be an opportunity there",
     "id": 14,
+    "title": "Space Industry Procurement and Government Contracting Enablement Platform",
     "opportunity_id": 14,
     "label": "explore",
-    "notes": "contracts is a bit boring but there may be an opportunity there",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Space Data Fusion and Multi-Sensor Integration Middleware",
+    "notes": "robot internet idea for decision making",
     "id": 15,
+    "title": "Space Data Fusion and Multi-Sensor Integration Middleware",
     "opportunity_id": 15,
     "label": "liked",
-    "notes": "robot internet idea for decision making",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Shared Testbeds for Space Robotics and Autonomous Systems",
+    "notes": "useful but not my passion",
     "id": 16,
+    "title": "Shared Testbeds for Space Robotics and Autonomous Systems",
     "opportunity_id": 16,
     "label": "rejected",
-    "notes": "useful but not my passion",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Software Platform for Orbital Debris Mitigation Task Planning",
+    "notes": "not bad, but debris is not my interest",
     "id": 17,
+    "title": "Software Platform for Orbital Debris Mitigation Task Planning",
     "opportunity_id": 17,
     "label": "explore",
-    "notes": "not bad, but debris is not my interest",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Next-Gen Embedded Systems for Space Missions with Integrated AI",
+    "notes": "too much specific hardware. i'm interested in broader systems",
     "id": 18,
+    "title": "Next-Gen Embedded Systems for Space Missions with Integrated AI",
     "opportunity_id": 18,
     "label": "rejected",
-    "notes": "too much specific hardware. i'm interested in broader systems",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Space Mission Telemetry and Anomaly Analytics SaaS",
+    "notes": "looks interesting, but not clear ",
     "id": 19,
+    "title": "Space Mission Telemetry and Anomaly Analytics SaaS",
     "opportunity_id": 19,
     "label": "liked",
-    "notes": "looks interesting, but not clear ",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Space Robotics Tools for Lunar Exploration",
+    "notes": "",
     "id": 20,
+    "title": "Space Robotics Tools for Lunar Exploration",
     "opportunity_id": 20,
     "label": "liked",
-    "notes": "",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "Zero-Trust Autonomous Systems Governance for Space Missions",
+    "notes": "",
     "id": 21,
+    "title": "Zero-Trust Autonomous Systems Governance for Space Missions",
     "opportunity_id": 21,
     "label": "rejected",
-    "notes": "",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   },
   {
-    "title": "AI-driven Space Systems Testing and Simulation Platform",
+    "notes": "like it for general robot applications",
     "id": 22,
+    "title": "AI-driven Space Systems Testing and Simulation Platform",
     "opportunity_id": 22,
     "label": "liked",
-    "notes": "like it for general robot applications",
-    "founder_name": null
+    "founder_name": "Tomas Liendro"
   }
 ]

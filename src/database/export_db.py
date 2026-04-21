@@ -73,7 +73,12 @@ def export_db(base_path: str = BASE_DIR, source_db: str = SOURCE_DB):
 
             # feedback
             opp_ids = [o.get("id") for o in opps if o.get("id") is not None]
-            feedbacks = [f.model_dump() for f in session.exec(select(Feedback)).all()]
+            feedbacks = [
+                f.model_dump()
+                for f in session.exec(
+                    select(Feedback).where(Feedback.founder_name == fname)
+                ).all()
+            ]
             feedbacks = [f for f in feedbacks if f.get("opportunity_id") in opp_ids]
             if feedbacks and all(f.get("id") is not None for f in feedbacks):
                 feedbacks = dedupe_by_keys(feedbacks, ["id"])
