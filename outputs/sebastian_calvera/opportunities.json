@@ -1,0 +1,23 @@
+[
+  {
+    "why_now": "Increasing regulatory and consumer pressure to reduce chemical pesticides, advances in robotics and UV disinfection, and rising AgTech investment create a clear market opportunity for automation in sustainable farming.",
+    "market_size": 6,
+    "founder_fit": "A founder profile with deep technical expertise in robotics, control systems, and system reliability for precision farming applications fits strongly. The analytical, physics-driven mindset is well aligned to deliver well-validated hardware in agri-robotics.",
+    "technical_advantage": 7,
+    "title": "TRIC Robotics",
+    "description": "TRIC Robotics builds tractor-sized robots that use UV light technology to reduce pesticide use on strawberries by eliminating bacteria and pests, enabling precision agriculture with measurable real-world impact.",
+    "founder_fit_score": 8,
+    "timing": 7,
+    "wedge": "Differentiation through complex robotics hardware integrating domain-specific UV treatment for sustainable agriculture; moderate competition with rising AgTech interest but still early-stage robotic field deployments.",
+    "defensibility": 6,
+    "founder_name": "Sebastian Calvera",
+    "wedge_score": 7.0,
+    "notes": "Market size moderate due to niche AgTech but growth potential supported by sustainability trends. Strong technical advantage with complex robotics and UV disinfection integration. Timing favorable given regulatory shifts and rising AgTech investment. Founder fit is strong with deep technical expertise in robotics, systems reliability, and physics-driven engineering, though some gaps in market and product experience may slow commercialization. Defensibility decent based on unique hardware and multi-physics approach, with moderate competition still early in robotic field deployment.",
+    "score": 6.0,
+    "risk": "Medium risk—technical complexity in robust field robotics and market adoption challenges, but significant tailwinds from sustainability and AgTech funding mitigate risk.",
+    "id": 117,
+    "required_insight": "Deep understanding of agricultural pest biology, multi-physics modeling of UV disinfection efficacy in field conditions, and reliability engineering to validate long-term robot performance under variable environmental stresses.",
+    "created_at": "2026-04-20 12:16:58.349617",
+    "final_score": 4.725
+  }
+]

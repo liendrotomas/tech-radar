@@ -259,3 +259,4 @@ class Feedback(SQLModel, table=True):
     title: str = Field(default="")
     label: str = Field(default=None)  # liked / rejected / explore
     notes: Optional[str] = Field(default=None)
+    founder_name: Optional[str] = Field(default=None)

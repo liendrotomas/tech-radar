@@ -1,0 +1,99 @@
+{
+    "name": "Sebastian Calvera",
+    "archetype": "Deep-Tech Analytical Engineer / Future Technical Leader",
+    "mission": "Develop high-impact engineering systems across space, energy, and health domains",
+    "superpowers": [
+        "Strong analytical rigor in complex systems",
+        "Deep understanding of error propagation and system reliability",
+        "Ability to model, simulate, and validate real-world engineering systems",
+        "Cross-domain engineering knowledge (space, nuclear, mechanical)",
+        "Operates effectively in high-precision, high-stakes environments"
+    ],
+    "technical_profile": {
+        "level": "advanced",
+        "orientation": "analysis-heavy, physics-driven engineering",
+        "strengths": [
+            "system error budgeting and reliability engineering",
+            "control, dynamics, and kinematics of complex systems",
+            "mechanical design under real-world constraints",
+            "simulation and modeling (multi-physics)",
+            "validation and verification of deployed systems"
+        ],
+        "weaknesses": [
+            "limited exposure to product definition and market-driven development",
+            "less experience with rapid prototyping or iterative MVP-style building",
+            "focus tends toward optimization over exploration"
+        ]
+    },
+    "builder_style": {
+        "approach": "analyze → model → validate → deploy",
+        "preference": "well-defined problems with clear physical constraints",
+        "risk_tolerance": "moderate (controlled, calculated)",
+        "speed_vs_quality": "quality and rigor first",
+        "decision_style": "data-driven, model-backed"
+    },
+    "interests": [
+        "space systems (optical communications, satellite tech)",
+        "robotics and control systems",
+        "energy and nuclear applications",
+        "high-reliability engineering systems",
+        "technology with measurable real-world impact"
+    ],
+    "unfair_advantages": [
+        "elite engineering education (Balseiro Institute)",
+        "experience in both space and nuclear sectors",
+        "rare combination of theory + hands-on validation",
+        "ability to operate at subsystem level with deep understanding",
+        "early leadership in technically complex environments"
+    ],
+    "constraints": [
+        "limited exposure to commercial and customer-facing aspects",
+        "career focused on technical depth over breadth",
+        "not yet positioned as full system owner or product driver"
+    ],
+    "ideal_roles": {
+        "type": [
+            "principal engineer",
+            "systems architect",
+            "technical lead in deep-tech"
+        ],
+        "characteristics": [
+            "complex systems with high reliability requirements",
+            "physics-heavy domains",
+            "long development cycles",
+            "deep technical challenges over fast iteration"
+        ]
+    },
+    "anti_patterns": [
+        "low-rigor environments with weak engineering standards",
+        "purely hype-driven or shallow tech projects",
+        "rapid iteration without proper validation",
+        "products disconnected from real physical constraints"
+    ],
+    "current_trajectory": {
+        "direction": "toward high-level technical leadership",
+        "likely_path": "lead engineer → principal/architect → CTO-type role",
+        "alternative_path": "deep-tech specialist in high-impact domains"
+    },
+    "gaps_to_close": [
+        "understanding of market dynamics and product strategy",
+        "exposure to customer needs and business context",
+        "experience defining problems (not just solving them)",
+        "ownership of systems end-to-end (beyond analysis scope)"
+    ],
+    "taste": {
+        "likes": [
+            "technically elegant and precise solutions",
+            "systems with measurable performance and reliability",
+            "deep understanding over superficial progress",
+            "challenging engineering problems"
+        ],
+        "dislikes": [
+            "hand-wavy ideas without technical grounding",
+            "poorly validated systems",
+            "shortcuts that compromise reliability",
+            "low technical standards"
+        ]
+    },
+    "long_term_potential": "Technical leader in deep-tech industries (space, energy, robotics), with potential to evolve into CTO-level roles if market and product exposure are developed"
+}

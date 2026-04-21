@@ -38,7 +38,7 @@ class OpportunityAgent(BaseAgent):
 
         grouped_articles = self._group_similar_trends(filtered_articles)
 
-        feedback_service = FeedbackService(self.db_hndlr)
+        feedback_service = FeedbackService(self.db_hndlr, founder_name)
         prompt = self._build_prompt(
             grouped_articles, founder_profile, max_opps, feedback_service
         )

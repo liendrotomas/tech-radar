@@ -78,7 +78,7 @@ def _load_founder_profile(founder_arg: str) -> dict:
 def cli() -> None:
     parser = argparse.ArgumentParser(description="Tech Radar AI pipeline runner")
     parser.add_argument(
-        "--founder", type=str, default=None, help="Founder profile JSON string"
+        "--founder", type=str, default="seba", help="Founder profile JSON string"
     )
     parser.add_argument(
         "--update-db",
@@ -107,11 +107,11 @@ def cli() -> None:
     parser.add_argument(
         "--generate-opp",
         action=argparse.BooleanOptionalAction,
-        default=False,
+        default=True,
         help="Generate opportunities from enriched articles",
     )
     parser.add_argument(
-        "--max-opps", type=int, default=10, help="Max opportunities to generate"
+        "--max-opps", type=int, default=1, help="Max opportunities to generate"
     )
     parser.add_argument(
         "--skip-score-opps",
