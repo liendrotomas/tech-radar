@@ -3,7 +3,7 @@
 import json
 from typing import Any, Dict
 
-from src.database.database import Database, Feed
+from src.database.database import Database, Feed, FounderFeed
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -58,7 +58,7 @@ class EnrichmentAgent(BaseAgent):
             logger.warning("Failed to parse enrichment response as JSON.")
             return {"raw": text}
 
-    def _default_enrichment(self, article: Feed) -> Dict[str, Any]:
+    def _default_enrichment(self, article: FounderFeed) -> Dict[str, Any]:
         return {
             "what": "Filtered as noise",
             "why": "Article did not meet signal/noise thresholds",
@@ -66,8 +66,8 @@ class EnrichmentAgent(BaseAgent):
             "tags": list(getattr(article, "keywords", [])),
         }
 
-    def process(self, args=None) -> list[Feed]:
-        items = self.db_hndlr.retrieve_items(Feed)
+    def process(self, args=None) -> None:
+        items = self.db_hndlr.retrieve_items(FounderFeed)
         for item in items:
             if getattr(item, "is_noise", False):
                 setattr(item, "enriched", self._default_enrichment(item))
@@ -76,5 +76,3 @@ class EnrichmentAgent(BaseAgent):
                 setattr(item, "enriched", enriched)
 
             self.db_hndlr.add_item(item)
-
-        return items

@@ -77,7 +77,7 @@ def cli() -> None:
     parser.add_argument(
         "--founder",
         type=str,
-        default="sebastian_calvera",
+        default="tomas_liendro",
         help="Founder profile JSON string",
     )
     parser.add_argument(
@@ -87,10 +87,10 @@ def cli() -> None:
         help="Fetch RSS articles and update database before processing (provide max items to fetch)",
     )
     parser.add_argument(
-        "--refilter",
+        "--enrich",
         action=argparse.BooleanOptionalAction,
         default=False,
-        help="Re-filter articles in the database",
+        help="Enrich articles in the database",
     )
     parser.add_argument(
         "--database-file",
@@ -111,12 +111,12 @@ def cli() -> None:
         help="Generate opportunities from enriched articles",
     )
     parser.add_argument(
-        "--max-opps", type=int, default=1, help="Max opportunities to generate"
+        "--max-opps", type=int, default=3, help="Max opportunities to generate"
     )
     parser.add_argument(
         "--skip-score-opps",
         action=argparse.BooleanOptionalAction,
-        default=False,  # False,
+        default=False,
         help="Skip scoring opportunities using the scoring agent",
     )
     parser.add_argument(

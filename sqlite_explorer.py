@@ -21,10 +21,19 @@ from src.database.explorer import (
 DEFAULT_DB_PATH = "outputs/tech_radar.db"
 
 
+def parse_founder_names(raw_value: str) -> list[str]:
+    return [name.strip() for name in (raw_value or "").split(",") if name.strip()]
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(add_help=False)
     parser.add_argument("--db", default=DEFAULT_DB_PATH)
     parser.add_argument("--page-size", type=int, default=250)
+    parser.add_argument(
+        "--founders",
+        default="",
+        help="Comma-separated founder folder names to sync from outputs (optional)",
+    )
     known_args, _ = parser.parse_known_args()
     return known_args
 
@@ -35,6 +44,37 @@ def read_dataframe(connection, query_spec):
         query_spec.count_sql, query_spec.count_params
     ).fetchone()[0]
     return dataframe, total_rows
+
+
+def quote_identifier(identifier: str) -> str:
+    return '"' + identifier.replace('"', '""') + '"'
+
+
+def list_founder_options(connection, tables: list[str]) -> list[str]:
+    founders = set()
+
+    for table_name in tables:
+        schema_rows = connection.execute(
+            f"PRAGMA table_info({quote_identifier(table_name)})"
+        ).fetchall()
+        table_columns = {row[1] for row in schema_rows}
+
+        if table_name == "founder" and "name" in table_columns:
+            rows = connection.execute(
+                f"SELECT DISTINCT {quote_identifier('name')} FROM {quote_identifier(table_name)} "
+                f"WHERE {quote_identifier('name')} IS NOT NULL AND TRIM({quote_identifier('name')}) != ''"
+            ).fetchall()
+            founders.update(row[0] for row in rows)
+
+        if "founder_name" in table_columns:
+            rows = connection.execute(
+                f"SELECT DISTINCT {quote_identifier('founder_name')} FROM {quote_identifier(table_name)} "
+                f"WHERE {quote_identifier('founder_name')} IS NOT NULL "
+                f"AND TRIM({quote_identifier('founder_name')}) != ''"
+            ).fetchall()
+            founders.update(row[0] for row in rows)
+
+    return sorted(founder for founder in founders if founder)
 
 
 def render_filter_inputs(schema: list[dict]) -> dict[str, dict]:
@@ -98,14 +138,30 @@ def main() -> None:
     st.caption("UI simple para explorar, filtrar y ordenar tu base de datos SQLite.")
 
     database_path = st.sidebar.text_input("Ruta de la base", value=args.db)
-    # Create databse from json files if it doesn't exist
-    BASE_DIR = os.path.dirname(getattr(args, "database_file", DEFAULT_DB_PATH))
+    base_dir = os.path.dirname(database_path) or "."
+    default_founders = parse_founder_names(args.founders)
 
-    import_db(
-        base_path=BASE_DIR,
-        source_db=database_path,
-        founder_name=[getattr(args, "founder", "")],
+    st.sidebar.markdown("### Sync JSON -> DB")
+    sync_before_open = st.sidebar.checkbox(
+        "Importar JSON antes de abrir",
+        value=False,
+        help="Ejecuta import_db para sincronizar feeds/founders/opportunities/feedback/founderfeed.",
     )
+    founders_input = st.sidebar.text_input(
+        "Founders (csv opcional)",
+        value=", ".join(default_founders),
+        help="Ejemplo: tomas_liendro, sebastian_calvera. Vacio = todos los subdirectorios.",
+    )
+
+    if sync_before_open:
+        founder_names = parse_founder_names(founders_input)
+        import_db(
+            base_path=base_dir,
+            source_db=database_path,
+            founder_name=founder_names or None,
+        )
+        st.sidebar.success("Sincronizacion completada.")
+
     database_file = Path(database_path)
     if not database_file.exists():
         st.error(f"No existe la base: {database_file}")
@@ -117,10 +173,37 @@ def main() -> None:
         st.warning("La base no tiene tablas de usuario.")
         st.stop()
 
+    founder_options = list_founder_options(connection, tables)
+    quick_founder = st.sidebar.selectbox(
+        "Founder rapido",
+        ["Todos", *founder_options],
+        help="Filtro global por founder para tablas con founder_name o founder.name",
+    )
+
     table_name = st.sidebar.selectbox("Tabla", tables)
     schema = get_table_schema(connection, table_name)
     all_columns = [column["name"] for column in schema]
     default_columns = all_columns[: min(len(all_columns), 8)] or all_columns
+
+    if table_name == "founderfeed":
+        preferred = [
+            "founder_name",
+            "feed_id",
+            "title",
+            "signal_score",
+            "noise_score",
+            "is_noise",
+            "processed",
+            "source",
+        ]
+        default_columns = [column for column in preferred if column in all_columns]
+        if not default_columns:
+            default_columns = all_columns
+
+        st.info(
+            "founderfeed usa clave compuesta (feed_id, founder_name). "
+            "Es esperable que feed_id se repita entre founders distintos."
+        )
 
     selected_columns = st.sidebar.multiselect(
         "Columnas visibles",
@@ -130,7 +213,15 @@ def main() -> None:
     if not selected_columns:
         selected_columns = all_columns
 
-    sort_column = st.sidebar.selectbox("Ordenar por", all_columns)
+    default_sort_index = 0
+    if table_name == "founderfeed" and "feed_id" in all_columns:
+        default_sort_index = all_columns.index("feed_id")
+
+    sort_column = st.sidebar.selectbox(
+        "Ordenar por",
+        all_columns,
+        index=default_sort_index,
+    )
     sort_direction = st.sidebar.radio("Dirección", ["asc", "desc"], horizontal=True)
     page_size = st.sidebar.selectbox(
         "Filas por página",
@@ -147,6 +238,12 @@ def main() -> None:
         placeholder="Busca texto en columnas tipo texto/json/datetime",
     )
     filters = render_filter_inputs(schema)
+
+    if quick_founder != "Todos":
+        if "founder_name" in all_columns:
+            filters["founder_name"] = {"mode": "equals", "value": quick_founder}
+        elif table_name == "founder" and "name" in all_columns:
+            filters["name"] = {"mode": "equals", "value": quick_founder}
 
     query_preview_placeholder = st.empty()
 
