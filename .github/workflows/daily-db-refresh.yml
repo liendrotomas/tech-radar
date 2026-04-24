@@ -12,11 +12,11 @@ on:
       founder:
         description: Founder profile to use from src/config/profiles
         required: true
-        default: tom
+        default: tomas_liendro
       update_db:
         description: Max RSS items to fetch before processing
         required: false
-        default: "100"
+        default: "10"
       generate_opp:
         description: Generate opportunities
         required: false
@@ -40,8 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      DEFAULT_FOUNDER: tom
-      DEFAULT_UPDATE_DB: "100"
+      DEFAULT_FOUNDER: tomas_liendro
+      DEFAULT_UPDATE_DB: "10"
       DEFAULT_MAX_OPPS: "10"
     steps:
       - name: Checkout repo
