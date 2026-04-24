@@ -138,7 +138,7 @@ class OpportunityAgent(BaseAgent):
         Founder profile:
 
         {json.dumps(getattr(founder, "profile", {}), indent=2)}
-
+                
         Existing opportunities already generated for this founder (avoid rephrasing these):
         {json.dumps(existing_titles[:30], indent=2)}
 

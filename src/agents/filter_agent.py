@@ -19,67 +19,6 @@ logger = get_logger("filter_agent")
 class FilterAgent(BaseAgent):
     """Filter articles by relevant technology keywords."""
 
-    # Define keyword categories for easy extension
-    KEYWORD_CATEGORIES = {
-        "ai": [
-            "AI",
-            "artificial intelligence",
-            "machine learning",
-            "LLM",
-            "neural",
-            "deep learning",
-        ],
-        "robotics": ["robotics", "robot", "automation", "autonomous", "space"],
-        "startup": [
-            "startup",
-            "founder",
-            "venture",
-            "startup opportunity",
-            "investment",
-        ],
-        "trending": [
-            "breakthrough",
-            "launch",
-            "raises",
-            "open source",
-            "new model",
-            "benchmark",
-            "research",
-        ],
-    }
-
-    NOISE_KEYWORDS = {
-        "newsletter",
-        "opinion",
-        "roundup",
-        "weekly recap",
-        "sponsored",
-        "press release",
-        "earnings call",
-        "stock price",
-        "celebrity",
-        "gossip",
-        "lifestyle",
-        "how to use chatgpt",
-        "beginner guide",
-        "top 10 tools",
-        "click here",
-        "subscription",
-        "war",
-        "politics",
-        "celebrity",
-        "iran",
-        "russia",
-        "ukraine",
-        "trump",
-        "biden",
-        "exclusive",
-        "apps",
-        "ios",
-        "android",
-        "events",
-    }
-
     def __init__(
         self,
         categories: List[str] = None,
@@ -94,6 +33,12 @@ class FilterAgent(BaseAgent):
             filter_config: Dictionary containing filter configuration
             db_hndlr: Database handler instance
         """
+        self.KEYWORD_CATEGORIES = (
+            filter_config.get("KEYWORD_CATEGORIES", {}) if filter_config else {}
+        )
+        self.NOISE_KEYWORDS = (
+            filter_config.get("NOISE_KEYWORDS", {}) if filter_config else {}
+        )
         self.categories = categories or list(self.KEYWORD_CATEGORIES.keys())
         self.signal_threshold = (
             filter_config.get("signal_threshold", 0.0) if filter_config else 0.0
@@ -120,7 +65,8 @@ class FilterAgent(BaseAgent):
         """Calculate how well article matches keywords (0.0 to 1.0)."""
         title = getattr(article, "title", "").lower()
         summary = getattr(article, "summary", "").lower()
-        text = f"{title} {summary}"
+        keywords = getattr(article, "keywords", [])
+        text = f"{title} {summary} {' '.join(keywords).lower()}"
 
         matches = sum(1 for keyword in self.keywords if keyword in text)
         return min(matches / max(len(self.keywords), 1), 1.0)
@@ -184,13 +130,15 @@ class FilterAgent(BaseAgent):
         )
 
     def noise_score(self, article: dict) -> int:
-        text = f"{getattr(article, 'title', '')} {getattr(article, 'summary', '')} {getattr(article, 'keywords', '')}".lower()
+        title = getattr(article, "title", "").lower()
+        summary = getattr(article, "summary", "").lower()
+        keywords = getattr(article, "keywords", [])
+        text = f"{title} {summary} {' '.join(keywords).lower()}"
 
         score = 0
 
         for kw in self.NOISE_KEYWORDS:
             if kw in text:
                 score += 1
-        if getattr(article, "keywords", []) == []:
-            score += 5  # Penalize articles with no keywords
+
         return score
