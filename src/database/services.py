@@ -9,9 +9,10 @@ logger = get_logger("FeedbackService")
 
 class FeedbackService:
 
-    def __init__(self, database_engine: Database):
+    def __init__(self, database_engine: Database, founder_name: str):
         self.database_engine = database_engine
         self.session_factory = Session(self.database_engine.get_engine())
+        self.founder_name = founder_name
 
     def add_feedback(self, opportunity_id, label, notes=None):
         with self.session_factory as session:
@@ -50,10 +51,18 @@ class FeedbackService:
                     session.commit()
 
                     fb = Feedback(
-                        opportunity_id=opportunity_id, label=label, notes=notes
+                        opportunity_id=opportunity_id,
+                        label=label,
+                        notes=notes,
+                        founder_name=self.founder_name,
                     )
             else:
-                fb = Feedback(opportunity_id=opportunity_id, label=label, notes=notes)
+                fb = Feedback(
+                    opportunity_id=opportunity_id,
+                    label=label,
+                    notes=notes,
+                    founder_name=self.founder_name,
+                )
 
             fb.title = opp.title
             session.add(fb)
@@ -115,7 +124,11 @@ class FeedbackService:
 
     def get_all_feedback_with_opportunities(self):
         with self.session_factory as session:
-            feedbacks = session.query(Feedback).all()
+            feedbacks = (
+                session.query(Feedback)
+                .where(Feedback.founder_name == self.founder_name)
+                .all()
+            )
             results = []
             for fb in feedbacks:
                 opp = (

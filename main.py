@@ -65,11 +65,8 @@ def _clear_database(args):
     return ret
 
 
-def _load_founder_profile(founder_arg: str) -> dict:
-    founder_filename = (
-        founder_arg if founder_arg.endswith(".json") else f"{founder_arg}.json"
-    )
-    founder_path = os.path.join("src", "config", "profiles", founder_filename)
+def _load_founder_profile(founder: str) -> dict:
+    founder_path = os.path.join("src", "config", "profiles", founder, "profile.json")
 
     with open(founder_path, "r", encoding="utf-8") as founder_file:
         return json.load(founder_file)
@@ -78,7 +75,10 @@ def _load_founder_profile(founder_arg: str) -> dict:
 def cli() -> None:
     parser = argparse.ArgumentParser(description="Tech Radar AI pipeline runner")
     parser.add_argument(
-        "--founder", type=str, default=None, help="Founder profile JSON string"
+        "--founder",
+        type=str,
+        default="tomas_liendro",
+        help="Founder profile JSON string",
     )
     parser.add_argument(
         "--update-db",
@@ -87,10 +87,10 @@ def cli() -> None:
         help="Fetch RSS articles and update database before processing (provide max items to fetch)",
     )
     parser.add_argument(
-        "--refilter",
+        "--enrich",
         action=argparse.BooleanOptionalAction,
         default=False,
-        help="Re-filter articles in the database",
+        help="Enrich articles in the database",
     )
     parser.add_argument(
         "--database-file",
@@ -107,16 +107,16 @@ def cli() -> None:
     parser.add_argument(
         "--generate-opp",
         action=argparse.BooleanOptionalAction,
-        default=False,
+        default=True,
         help="Generate opportunities from enriched articles",
     )
     parser.add_argument(
-        "--max-opps", type=int, default=10, help="Max opportunities to generate"
+        "--max-opps", type=int, default=3, help="Max opportunities to generate"
     )
     parser.add_argument(
         "--skip-score-opps",
         action=argparse.BooleanOptionalAction,
-        default=False,  # False,
+        default=False,
         help="Skip scoring opportunities using the scoring agent",
     )
     parser.add_argument(

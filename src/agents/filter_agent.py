@@ -9,7 +9,7 @@ Filter agent for Tech Radar.
 from datetime import datetime
 from typing import List, Dict, Set
 
-from src.database.database import Database, Feed
+from src.database.database import Database, Feed, FounderFeed, Founder
 from .base_agent import BaseAgent
 from src.utils.logger import get_logger
 
@@ -29,7 +29,7 @@ class FilterAgent(BaseAgent):
             "neural",
             "deep learning",
         ],
-        "robotics": ["robotics", "robot", "automation", "autonomous"],
+        "robotics": ["robotics", "robot", "automation", "autonomous", "space"],
         "startup": [
             "startup",
             "founder",
@@ -125,42 +125,63 @@ class FilterAgent(BaseAgent):
         matches = sum(1 for keyword in self.keywords if keyword in text)
         return min(matches / max(len(self.keywords), 1), 1.0)
 
-    def process(self, args=None) -> List[Feed]:
+    def process(self, args=None) -> None:
         """Filter and score articles."""
         items = self.db_hndlr.retrieve_items(Feed)
-        filtered_items: List[Feed] = []
+        founders = self.db_hndlr.retrieve_items(Founder)
+        founder_name = next(
+            (
+                founder.name
+                for founder in founders
+                if founder.name.replace(" ", "_").lower()
+                == getattr(args, "founder", "")
+            ),
+            None,
+        )
+
+        filtered_items = []
         for item in items:
             signal_score = self._calculate_match_score(item)
             noise_score = self.noise_score(item)
             logger.info(
                 f"Article: {getattr(item, 'title', '')[:30]}... | Signal Score: {signal_score:.2f} | Noise Score: {noise_score:.2f}"
             )
-            setattr(item, "signal_score", signal_score)
-            setattr(item, "noise_score", noise_score)
+            ff = FounderFeed(
+                feed_id=getattr(item, "id"),
+                title=getattr(item, "title", ""),
+                link=getattr(item, "link", ""),
+                summary=getattr(item, "summary", ""),
+                published_at=getattr(item, "published_at", ""),
+                source=getattr(item, "source", ""),
+                keywords=getattr(item, "keywords", []),
+                founder_name=founder_name,
+                signal_score=signal_score,
+                noise_score=noise_score,
+                processing_metadata=getattr(
+                    item,
+                    "processing_metadata",
+                    {
+                        "last_processed": datetime.now().isoformat(),
+                        "threshold_signal": self.signal_threshold,
+                        "threshold_noise": self.noise_threshold,
+                    },
+                ),
+            )
+
             if (
                 signal_score >= self.signal_threshold
                 and noise_score < self.noise_threshold
             ):
-                setattr(item, "is_noise", False)
-                filtered_items.append(item)
+                setattr(ff, "is_noise", False)
+                filtered_items.append(ff)
             else:
-                setattr(item, "is_noise", True)
+                setattr(ff, "is_noise", True)
 
-            setattr(
-                item,
-                "processing_metadata",
-                {
-                    "last_processed": datetime.now().isoformat(),
-                    "threshold_signal": self.signal_threshold,
-                    "threshold_noise": self.noise_threshold,
-                },
-            )
-            self.db_hndlr.add_item(item)
+            self.db_hndlr.add_item(ff)
 
         logger.info(
             f"Filtered {len(filtered_items)} out of {len(items)} articles with thresholds: signal={self.signal_threshold}, noise={self.noise_threshold}"
         )
-        return filtered_items
 
     def noise_score(self, article: dict) -> int:
         text = f"{getattr(article, 'title', '')} {getattr(article, 'summary', '')} {getattr(article, 'keywords', '')}".lower()

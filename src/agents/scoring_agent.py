@@ -9,6 +9,7 @@ from .base_agent import BaseAgent
 from src.utils.logger import get_logger
 from src.agents.learning_agent import LearningEngine
 from utils.ai_tools import embedder
+from sqlmodel import Session, select
 
 
 logger = get_logger("scoring_agent")
@@ -22,7 +23,11 @@ class ScoringAgent(BaseAgent):
 
     def process(self, founder_name: str, args=None) -> List[Dict[str, Any]]:
         """Score a list of opportunity proposals in one request."""
-        opportunities_source = self.db_hndlr.retrieve_items(Opportunity)
+        with Session(self.db_hndlr.get_engine()) as session:
+            opportunities_source = session.exec(
+                select(Opportunity).where(Opportunity.founder_name == founder_name)
+            ).all()
+            # opportunities_source = self.db_hndlr.retrieve_items(Opportunity).filter(Opportunity.founder_name == founder_name)
         if getattr(args, "update_scores", False):
             opportunities = opportunities_source
         else:
@@ -103,9 +108,12 @@ class ScoringAgent(BaseAgent):
             + score_data.get("defensibility", 0) * 0.1
         )
         # Update final score for all opportunities based on new model
-        probs = learning_agent.predict(opp)
-        ml_score = probs.get("liked", 0) - probs.get("rejected", 0)
-        return 0.7 * heuristic_score + 0.3 * ml_score  # heurístico  # aprendido
+        probs = learning_agent.predict(opp, founder_name=opp.founder_name)
+        if probs:
+            ml_score = probs.get("liked", 0) - probs.get("rejected", 0)
+            return 0.7 * heuristic_score + 0.3 * ml_score  # heurístico  # aprendido
+        else:
+            return heuristic_score
 
     def _build_batch_prompt(
         self,

@@ -13,6 +13,10 @@ from src.utils.logger import get_logger
 logger = get_logger("daily_pipeline")
 
 
+def normalize_founder_name(name: str) -> str:
+    return (name or "").replace(" ", "_").lower()
+
+
 def _ensure_parent_dir(file_path: str) -> None:
     parent_dir = os.path.dirname(file_path)
     if parent_dir:
@@ -61,13 +65,15 @@ def run_daily_pipeline(
 
     founder_profile = founder_profile or {}
 
-    cfg = load_config()
+    cfg = load_config(
+        config_path=f"src/config/profiles/{normalize_founder_name(founder_profile.get('name'))}/filter.yaml"
+    )
     database_file = getattr(args, "database_file")
 
     _ensure_parent_dir(database_file)
     db_hndlr = Database(
         database_file,
-        recreate_on_schema_change=getattr(args, "recreate_on_schema_change", False),
+        recreate_on_schema_change=getattr(args, "recreate_on_schema_change"),
     )
     founder = _ensure_founder(db_hndlr, founder_profile)
 
@@ -83,20 +89,20 @@ def run_daily_pipeline(
             db_hndlr=db_hndlr,
         )
 
-    if getattr(args, "refilter", False):
-        logger.info("Re-filtering articles in database.")
-        filter_agent = FilterAgent(
-            filter_config=get_config_value(cfg, "agents.filter"),
+    logger.info("Filtering articles in database.")
+    filter_agent = FilterAgent(
+        filter_config=get_config_value(cfg, "agents.filter"),
+        db_hndlr=db_hndlr,
+    )
+    filter_agent.process(args=args)
+
+    if getattr(args, "enrich", False):
+        logger.info("Enriching articles in database.")
+        enrichment_agent = EnrichmentAgent(
+            model=get_config_value(cfg, "agents.enrichment.model"),
             db_hndlr=db_hndlr,
         )
-        filter_agent.process(args=args)
-
-        # logger.info("Enriching articles in database.")
-        # enrichment_agent = EnrichmentAgent(
-        #     model=get_config_value(cfg, "agents.enrichment.model"),
-        #     db_hndlr=db_hndlr,
-        # )
-        # enrichment_agent.process()
+        enrichment_agent.process(args=args)
 
     founder_name = founder.name if founder is not None else "Unknown"
 

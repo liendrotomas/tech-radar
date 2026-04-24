@@ -63,10 +63,9 @@ This executes the CLI defined in `main.py` using the environment managed by `uv`
 
 ### Configuration
 
-Edit `src/config/config.yaml` to configure:
-- RSS feed URLs
-- Agent parameters (thresholds, models)
-- Database settings
+Edit profile-specific files under `src/config/profiles/<founder_slug>/`:
+- `profile.json` for founder context
+- `filter.yaml` for RSS sources, thresholds, and model selection
 
 ### Running the Pipeline
 
@@ -77,43 +76,41 @@ The main entrypoint is `main.py`. Use these commands from the project root after
 To run the pipeline, pass a founder profile from `src/config/profiles/`:
 
 ```bash
-uv run python main.py --founder tom
+uv run python main.py --founder tomas_liendro
 ```
 
-The CLI loads `src/config/profiles/tom.json` in this example.
+The CLI loads `src/config/profiles/tomas_liendro/profile.json` in this example.
 
 #### Update the Database
 
 To fetch RSS items and update the database before processing, pass `--update-db` with a max item count:
 ```bash
-uv run python main.py --founder tom --update-db 30
+uv run python main.py --founder tomas_liendro --update-db 30
 ```
 
 #### Founder Profile Selection
 
-Pass the founder profile name or a JSON filename from `src/config/profiles/`:
+Pass the founder profile slug from `src/config/profiles/`:
 
 ```bash
-uv run python main.py --founder tom
-```
-
-or:
-
-```bash
-uv run python main.py --founder tom.json
+uv run python main.py --founder tomas_liendro
 ```
 
 ### CLI Options
 
-- `--founder`: Founder profile name or JSON filename from `src/config/profiles/` (required)
+- `--founder`: Founder profile slug from `src/config/profiles/` (default: `tomas_liendro`)
 - `--update-db <int>`: Fetch up to N RSS items and update database before processing
-- `--refilter`: Re-filter existing articles in the database
+- `--enrich` / `--no-enrich`: Enable or skip enrichment
 - `--generate-opp`: Generate opportunities from enriched articles
-- `--max-opps <int>`: Max opportunities to generate (default: `10`)
+- `--max-opps <int>`: Max opportunities to generate (default: `3`)
 - `--skip-score-opps`: Skip scoring opportunities
 - `--update-scores`: Clear and recompute opportunity scores
 - `--database-file <path>`: Override the SQLite DB path
 - `--recreate-on-schema-change`: Rebuild drifted tables (dev option; can delete table data)
+- `--clear-feeds`, `--clear-feedback`, `--clear-opportunities`: Clear table data
+- `--clear-founder-opps <name>`: Clear opportunities for one founder name
+- `--remove-founder <name>`: Remove founder from DB
+- `--feed-from-csv <path>`: Import feeds from CSV
 
 ### Database JSON Sync
 
@@ -121,6 +118,12 @@ The project keeps SQLite and JSON exports in sync through two scripts used by `m
 
 - `src/database/import_db.py`: syncs JSON -> DB using upsert and delete-missing semantics (JSON is source of truth for the synced scope)
 - `src/database/export_db.py`: syncs DB -> JSON and deduplicates exported records
+
+Important schema note for `founderfeed`:
+
+- Primary key is composite: `(feed_id, founder_name)`.
+- Repeated `feed_id` values across different founders are expected.
+- Only repeated `(feed_id, founder_name)` pairs are invalid duplicates.
 
 Run them directly if needed:
 
@@ -238,6 +241,14 @@ What it supports:
 
 This is useful for reviewing `feed`, `opportunity`, `founder`, and `feedback` without opening raw SQL manually.
 
+It is also useful for reviewing `founderfeed`, where each row is founder-specific and keyed by `(feed_id, founder_name)`.
+
+`sqlite_explorer.py` now includes optional JSON -> DB sync controls in the sidebar. You can pass a founder list at launch:
+
+```bash
+uv run streamlit run sqlite_explorer.py -- --db outputs/tech_radar.db --founders tomas_liendro,sebastian_calvera
+```
+
 ## Daily Automatic Refresh
 
 Yes, but not with Git alone. The practical way is GitHub Actions: a scheduled workflow can run the pipeline every day, update `outputs/tech_radar.db`, and commit the new database back to the repository.
@@ -252,7 +263,7 @@ Required setup:
 Default behavior of the scheduled job:
 
 - fetch up to 30 RSS items
-- use founder profile `tom`
+- use founder profile `tomas_liendro`
 - generate opportunities
 - score opportunities
 - commit `outputs/tech_radar.db` only if it changed
@@ -260,7 +271,7 @@ Default behavior of the scheduled job:
 Manual local equivalent:
 
 ```bash
-uv run python main.py --founder tom --update-db 30 --generate-opp --no-skip-score-opps
+uv run python main.py --founder tomas_liendro --update-db 30 --generate-opp --no-skip-score-opps
 ```
 
 ## SQL Explorer

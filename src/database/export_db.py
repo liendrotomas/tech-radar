@@ -6,7 +6,14 @@ from sqlmodel import Session, select
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
-from src.database.database import Database, Feed, Founder, Opportunity, Feedback
+from src.database.database import (
+    Database,
+    Feed,
+    Founder,
+    FounderFeed,
+    Opportunity,
+    Feedback,
+)
 
 SOURCE_DB = os.path.join("outputs", "tech_radar.db")
 BASE_DIR = os.path.dirname(SOURCE_DB)
@@ -73,7 +80,12 @@ def export_db(base_path: str = BASE_DIR, source_db: str = SOURCE_DB):
 
             # feedback
             opp_ids = [o.get("id") for o in opps if o.get("id") is not None]
-            feedbacks = [f.model_dump() for f in session.exec(select(Feedback)).all()]
+            feedbacks = [
+                f.model_dump()
+                for f in session.exec(
+                    select(Feedback).where(Feedback.founder_name == fname)
+                ).all()
+            ]
             feedbacks = [f for f in feedbacks if f.get("opportunity_id") in opp_ids]
             if feedbacks and all(f.get("id") is not None for f in feedbacks):
                 feedbacks = dedupe_by_keys(feedbacks, ["id"])
@@ -85,6 +97,19 @@ def export_db(base_path: str = BASE_DIR, source_db: str = SOURCE_DB):
             dump_json(
                 os.path.join(fpath, "feedback.json"),
                 feedbacks,
+            )
+
+            # founder feed
+            founder_feeds = [
+                f.model_dump()
+                for f in session.exec(
+                    select(FounderFeed).where(FounderFeed.founder_name == fname)
+                ).all()
+            ]
+
+            dump_json(
+                os.path.join(fpath, "founder_feed.json"),
+                founder_feeds,
             )
 
 

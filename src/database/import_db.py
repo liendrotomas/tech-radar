@@ -8,7 +8,14 @@ from datetime import datetime
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
-from src.database.database import Database, Feed, Founder, Opportunity, Feedback
+from src.database.database import (
+    Database,
+    Feed,
+    Founder,
+    FounderFeed,
+    Opportunity,
+    Feedback,
+)
 
 SOURCE_DB = os.path.join("outputs", "tech_radar.db")
 BASE_DIR = os.path.dirname(SOURCE_DB)
@@ -106,7 +113,7 @@ def import_db(
     source_db=SOURCE_DB,
     founder_name: Optional[List[str]] = None,
 ):
-    db_hndlr = Database(source_db, True)
+    db_hndlr = Database(source_db)
     with Session(db_hndlr.get_engine()) as session:
 
         # ---- FEEDS (GLOBAL) ----
@@ -135,6 +142,7 @@ def import_db(
         founders_payload = []
         opportunities_payload = []
         feedback_payload = []
+        founder_feed_payload = []
 
         for name in founder_names:
             founders_dir = os.path.join(base_path, normalize_founder_name(name))
@@ -153,6 +161,12 @@ def import_db(
                     # feedback.json
                     feedbacks = load_json(os.path.join(founders_dir, "feedback.json"))
                     feedback_payload.extend(feedbacks)
+
+                    # founder_feed.json
+                    founder_feed = load_json(
+                        os.path.join(founders_dir, "founder_feed.json")
+                    )
+                    founder_feed_payload.extend(founder_feed)
 
         sync_model_records(
             session=session,
@@ -200,6 +214,17 @@ def import_db(
             ),
             scope_filter=lambda row: getattr(row, "opportunity_id", None)
             in scoped_opportunity_ids,
+        )
+
+        sync_model_records(
+            session=session,
+            model=FounderFeed,
+            items=founder_feed_payload,
+            match_fields=["feed_id", "founder_name"],
+            scope_filter=lambda row: normalize_founder_name(
+                getattr(row, "founder_name", "")
+            )
+            in normalized_founder_names,
         )
 
         session.commit()
