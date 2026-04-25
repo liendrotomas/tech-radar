@@ -30838,5 +30838,1433 @@
     "source": "Latest News | Stock Titan",
     "title": "Mobile-health Network Solutions Announces Acquisition of Additional 35MW AI Data Centre Capacity, Expanding Total Secured Capacity to 60MW | MNDR Stock News",
     "keywords": []
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.20972",
+    "summary": "arXiv:2604.20972v1 Announce Type: new \nAbstract: Content moderation systems are typically evaluated by measuring agreement with human labels. In rule-governed environments this assumption fails: multiple decisions may be logically consistent with the governing policy, and agreement metrics penalize valid decisions while mischaracterizing ambiguity as error -- a failure mode we term the Agreement Trap. We formalize evaluation as policy-grounded correctness and introduce the Defensibility Index (DI) and Ambiguity Index (AI). To estimate reasoning stability without additional audit passes, we introduce the Probabilistic Defensibility Signal (PDS), derived from audit-model token logprobs. We harness LLM reasoning traces as a governance signal rather than a classification output by deploying the audit model not to decide whether content violates policy, but to verify whether a proposed decision is logically derivable from the governing rule hierarchy. We validate the framework on 193,000+ Reddit moderation decisions across multiple communities and evaluation cohorts, finding a 33-46.6 percentage-point gap between agreement-based and policy-grounded metrics, with 79.8-80.6% of the model's false negatives corresponding to policy-grounded decisions rather than true errors. We further show that measured ambiguity is driven by rule specificity: auditing 37,286 identical decisions under three tiers of the same community rules reduces AI by 10.8 pp while DI remains stable. Repeated-sampling analysis attributes PDS variance primarily to governance ambiguity rather than decoding noise. A Governance Gate built on these signals achieves 78.6% automation coverage with 64.9% risk reduction. Together, these results show that evaluation in rule-governed environments should shift from agreement with historical labels to reasoning-grounded validity under explicit rules.",
+    "id": 2460,
+    "published_at": "2026-04-25T04:00:00",
+    "source": "cs.AI updates on arXiv.org",
+    "title": "Escaping the Agreement Trap: Defensibility Signals for Evaluating Rule-Governed AI",
+    "keywords": [
+      "cs.AI",
+      "cs.CY"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.20987",
+    "summary": "arXiv:2604.20987v1 Announce Type: new \nAbstract: Long horizon interactive environments are a testbed for evaluating agents skill usage abilities. These environments demand multi step reasoning, the chaining of multiple skills over many timesteps, and robust decision making under delayed rewards and partial observability. Games are a good testbed for evaluating agent skill usage in environments. Large Language Models (LLMs) offer a promising alternative as game playing agents, but they often struggle with consistent long horizon decision making because they lack a mechanism to discover, retain, and reuse structured skills across episodes. We present COSPLAY, a co evolution framework in which an LLM decision agent retrieves skills from a learnable skill bank to guide action taking, while an agent managed skill pipeline discovers reusable skills from the agents unlabeled rollouts to form a skill bank. Our framework improves both the decision agent to learn better skill retrieval and action generation, while the skill bank agent continually extracts, refines, and updates skills together with their contracts. Experiments across six game environments show that COSPLAY with an 8B base model achieves over 25.1 percent average reward improvement against four frontier LLM baselines on single player game benchmarks while remaining competitive on multi player social reasoning games.",
+    "id": 2461,
+    "published_at": "2026-04-25T04:00:00",
+    "source": "cs.AI updates on arXiv.org",
+    "title": "Co-Evolving LLM Decision and Skill Bank Agents for Long-Horizon Tasks",
+    "keywords": [
+      "cs.AI"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.20995",
+    "summary": "arXiv:2604.20995v1 Announce Type: new \nAbstract: Alignment faking, where a model behaves aligned with developer policy when monitored but reverts to its own preferences when unobserved, is a concerning yet poorly understood phenomenon, in part because current diagnostic tools remain limited. Prior diagnostics rely on highly toxic and clearly harmful scenarios, causing most models to refuse immediately. As a result, models never deliberate over developer policy, monitoring conditions, or the consequences of non-compliance, making these diagnostics fundamentally unable to detect alignment faking propensity. To support study of this phenomenon, we first introduce VLAF, a diagnostic framework grounded in the hypothesis that alignment faking is most likely when developer policy conflicts with a model's strongly held values. VLAF uses morally unambiguous scenarios to probe this conflict across diverse moral values, bypassing refusal behavior while preserving meaningful deliberative stakes. Using VLAF, we find that alignment faking is substantially more prevalent than previously reported, occurring in models as small as 7B parameters - with olmo2-7b-instruct faking alignment in 37% of cases.Finally, we show that oversight conditions induce activation shifts that lie along a single direction in representation space. This means the behavioral divergence driving alignment faking can be captured by a single contrastive steering vector, which we exploit for lightweight inference-time mitigation. Finally, we exploit this for mitigation that requires no labeled data and minimal computational overhead, achieving relative reductions in alignment faking of 85.8%, 94.0%, and 57.7% on olmo2-7b-instruct, olmo2-13b-instruct, and qwen3-8b respectively.",
+    "id": 2462,
+    "published_at": "2026-04-25T04:00:00",
+    "source": "cs.AI updates on arXiv.org",
+    "title": "Value-Conflict Diagnostics Reveal Widespread Alignment Faking in Language Models",
+    "keywords": [
+      "cs.AI",
+      "cs.CL",
+      "cs.SE"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21003",
+    "summary": "arXiv:2604.21003v1 Announce Type: new \nAbstract: AI agents are increasingly deployed on complex, domain-specific workflows -- navigating enterprise web applications that require dozens of clicks and form fills, orchestrating multi-step research pipelines that span search, extraction, and synthesis, automating code review across unfamiliar repositories, and handling customer escalations that demand nuanced domain knowledge. \\textbf{Each new task domain requires painstaking, expert-driven harness engineering}: designing the prompts, tools, orchestration logic, and evaluation criteria that make a foundation model effective. We present a two-level framework that automates this process. At the first level, the \\textbf{Harness Evolution Loop} optimizes a worker agent's harness $\\mathcal{H}$ for a single task: a Worker Agent $W_{\\mathcal{H}}$ executes the task, an Evaluator Agent $V$ adversarially diagnoses failures and scores performance, and an Evolution Agent $E$ modifies the harness based on the full history of prior attempts. At the second level, the \\textbf{Meta-Evolution Loop} optimizes the evolution protocol $\\Lambda = (W_{\\mathcal{H}}, \\mathcal{H}^{(0)}, V, E)$ itself across diverse tasks, \\textbf{learning a protocol $\\Lambda^{(\\text{best})}$ that enables rapid harness convergence on any new task -- so that adapting an agent to a novel domain requires no human harness engineering at all.} We formalize the correspondence to meta-learning and present both algorithms. The framework \\textbf{shifts manual harness engineering into automated harness engineering}, and takes one step further -- \\textbf{automating the design of the automation itself}.",
+    "id": 2463,
+    "published_at": "2026-04-25T04:00:00",
+    "source": "cs.AI updates on arXiv.org",
+    "title": "The Last Harness You'll Ever Build",
+    "keywords": [
+      "cs.AI"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21006",
+    "summary": "arXiv:2604.21006v1 Announce Type: new \nAbstract: We introduce Deep FinResearch Bench, a practical and comprehensive evaluation framework for deep research (DR) agents in financial investment research. The benchmark assesses three dimensions of report quality: qualitative rigor, quantitative forecasting and valuation accuracy, and claim credibility and verifiability. Particularly, we define corresponding qualitative and quantitative evaluation metrics and implement an automated scoring procedure to enable scalable assessment. Applying the benchmark to financial reports from frontier DR agents and comparing them with reports authored by financial professionals, we find that AI-generated reports still fall short across these dimensions. These findings underscore the need for domain-specialized DR agents tailored to finance, and we hope the work establishes a foundation for standardized benchmarking of DR agents in financial research.",
+    "id": 2464,
+    "published_at": "2026-04-25T04:00:00",
+    "source": "cs.AI updates on arXiv.org",
+    "title": "Deep FinResearch Bench: Evaluating AI's Ability to Conduct Professional Financial Investment Research",
+    "keywords": [
+      "cs.AI",
+      "cs.LG"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21018",
+    "summary": "arXiv:2604.21018v1 Announce Type: new \nAbstract: While scaling test-time compute can substantially improve model performance, existing approaches either rely on static compute allocation or sample from fixed generation distributions. In this work, we introduce a test-time compute allocation framework that jointly adapts where computation is spent and how generation is performed. Our method begins with a warm-up phase that identifies easy queries and assembles an initial pool of question-response pairs from the test set itself. An adaptive phase then concentrates further computation on unresolved queries while reshaping their generation distributions through evolving in-context demonstrations -- conditioning each generation on successful responses from semantically related queries rather than resampling from a fixed distribution. Experiments across math, coding, and reasoning benchmarks demonstrate that our approach consistently outperforms existing baselines while consuming substantially less inference-time compute.",
+    "id": 2465,
+    "published_at": "2026-04-25T04:00:00",
+    "source": "cs.AI updates on arXiv.org",
+    "title": "Adaptive Test-Time Compute Allocation with Evolving In-Context Demonstrations",
+    "keywords": [
+      "cs.AI"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21027",
+    "summary": "arXiv:2604.21027v1 Announce Type: new \nAbstract: Electronic health record (EHR) question answering is often handled by LLM-based pipelines that are costly to deploy and do not explicitly leverage the hierarchical structure of clinical data. Motivated by evidence that medical ontologies and patient trajectories exhibit hyperbolic geometry, we propose HypEHR, a compact Lorentzian model that embeds codes, visits, and questions in hyperbolic space and answers queries via geometry-consistent cross-attention with type-specific pointer heads. HypEHR is pretrained with next-visit diagnosis prediction and hierarchy-aware regularization to align representations with the ICD ontology. On two MIMIC-IV-based EHR-QA benchmarks, HypEHR approaches LLM-based methods while using far fewer parameters. Our code is publicly available at https://github.com/yuyuliu11037/HypEHR.",
+    "id": 2466,
+    "published_at": "2026-04-25T04:00:00",
+    "source": "cs.AI updates on arXiv.org",
+    "title": "HypEHR: Hyperbolic Modeling of Electronic Health Records for Efficient Question Answering",
+    "keywords": [
+      "cs.AI"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21036",
+    "summary": "arXiv:2604.21036v1 Announce Type: new \nAbstract: Text-to-image(T2I) models like Stable Diffusion and DALL-E have made generative AI widely accessible, yet recent studies reveal that these systems often replicate societal biases, particularly in how they depict demographic groups across professions. Prompts such as 'doctor' or 'CEO' frequently yield lighter-skinned outputs, while lower-status roles like 'janitor' show more diversity, reinforcing stereotypes. Existing mitigation methods typically require retraining or curated datasets, making them inaccessible to most users. We propose a lightweight, inference-time framework that mitigates representational bias through prompt-level intervention without modifying the underlying model. Instead of assuming a single definition of fairness, our approach allows users to select among multiple fairness specifications-ranging from simple choices such as a uniform distribution to more complex definitions informed by a large language model(LLM) that cites sources and provides confidence estimates. These distributions guide the construction of demographic specific prompt variants in the corresponding proportions, and we evaluate alignment by auditing adherence to the declared target and measuring the resulting skin tone distribution rather than assuming uniformity as 'fairness'. Across 36 prompts spanning 30 occupations and 6 non-occupational contexts, our method shifts observed skin-tone outcomes in directions consistent with the declared target, and reduces deviation from targets when the target is defined directly in skin-tone space(fallback). This work demonstrates how fairness interventions can be made transparent, controllable, and usable at inference time, directly empowering users of generative AI.",
+    "id": 2467,
+    "published_at": "2026-04-25T04:00:00",
+    "source": "cs.AI updates on arXiv.org",
+    "title": "Who Defines Fairness? Target-Based Prompting for Demographic Representation in Generative Models",
+    "keywords": [
+      "cs.AI"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21044",
+    "summary": "arXiv:2604.21044v1 Announce Type: new \nAbstract: In some complex domains, certain problem-specific decompositions can provide advantages over monolithic designs by enabling comprehension and specification of the design. In this paper we present an intuitive and tractable approach to reasoning over large and complex data sets. Our approach is based on Active Data, i.e., data as atomic objects that actively interact with environments. We describe our intuition about how this bottom-up approach improves designs confronting computational and conceptual complexity. We describe an implementation of the base Active Data concepts within the air traffic flow management domain and discuss performance for this implementation.",
+    "id": 2468,
+    "published_at": "2026-04-25T04:00:00",
+    "source": "cs.AI updates on arXiv.org",
+    "title": "Active Data",
+    "keywords": [
+      "cs.AI"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21061",
+    "summary": "arXiv:2604.21061v1 Announce Type: new \nAbstract: The application of artificial intelligence (AI) in IVF has shown promise in improving consistency and standardization of decisions, but often relies on annotated data and does not make use of the multimodal nature of IVF data. We investigated whether foundational vision-language models can be fine-tuned to predict natural language descriptions of embryo morphology and development. Using a publicly available embryo time-lapse dataset, we fine-tuned PaliGemma-2, a multi-modal vision-language model, with only 1,000 images and corresponding captions, describing embryo morphology, embryonic cell cycle and developmental stage. Our results show that the fine-tuned model, InVitroVision, outperformed a commercial model, ChatGPT 5.2, and base models in overall metrics, with performance improving with larger training datasets. This study demonstrates the potential of foundational vision-language models to generalize to IVF tasks with limited data, enabling the prediction of natural language descriptions of embryo morphology and development. This approach may facilitate the use of large language models to retrieve information and scientific evidence from relevant publications and guidelines, and has implications for few-shot adaptation to multiple downstream tasks in IVF.",
+    "id": 2469,
+    "published_at": "2026-04-25T04:00:00",
+    "source": "cs.AI updates on arXiv.org",
+    "title": "InVitroVision: a Multi-Modal AI Model for Automated Description of Embryo Development using Natural Language",
+    "keywords": [
+      "cs.AI"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21055",
+    "summary": "arXiv:2604.21055v1 Announce Type: new \nAbstract: Layer-2 (L2) protocols address the fundamental limitations of Layer-1 (L1) blockchains by offloading computation while anchoring trust to the parent chain. This architectural shift, while boosting throughput, introduces a new, complex security surface defined by off-chain components like sequencers, bridges, and data availability mechanisms. Prior literature[31][33] offers fragmented views of this risk. This paper presents the first unified, security-focused survey that rigorously maps L2 architecture to its underlying cryptographic security. We dissect the technical progression from L1 primitives to the core of modern L2s, analyzing the security assumptions(Discrete Logarithm, Computational Diffie-Hellman, Bilinear Diffie-Hellman) of ZK frameworks (Groth16, Plonk) and their corresponding commitment schemes (KZG, IPA). We formalize a comprehensive L2 threat model encompassing sequencer liveness, bridge exploits, and data-availability failures. This work serves as an accessible yet rigorous reference for researchers and developers to reason about L2 security from a deep crypto-mathematical perspective.",
+    "id": 2470,
+    "published_at": "2026-04-24T04:00:00",
+    "source": "cs.CR updates on arXiv.org",
+    "title": "Layer 2 Blockchains Simplified: A Survey of Vector Commitment Schemes, ZKP Frameworks, Layer-2 Data Structures and Verkle Trees",
+    "keywords": [
+      "cs.CR",
+      "cs.CY"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21131",
+    "summary": "arXiv:2604.21131v1 Announce Type: new \nAbstract: AI-agent guardrails are memoryless: each message is judged in isolation, so an adversary who spreads a single attack across dozens of sessions slips past every session-bound detector because only the aggregate carries the payload. We make three contributions to cross-session threat detection.\n  (1) Dataset. CSTM-Bench is 26 executable attack taxonomies classified by kill-chain stage and cross-session operation (accumulate, compose, launder, inject_on_reader), each bound to one of seven identity anchors that ground-truth \"violation\" as a policy predicate, plus matched Benign-pristine and Benign-hard confounders. Released on Hugging Face as intrinsec-ai/cstm-bench with two 54-scenario splits: dilution (compositional) and cross_session (12 isolation-invisible scenarios produced by a closed-loop rewriter that softens surface phrasing while preserving cross-session artefacts).\n  (2) Measurement. Framing cross-session detection as an information bottleneck to a downstream correlator LLM, we find that a session-bound judge and a Full-Log Correlator concatenating every prompt into one long-context call both lose roughly half their attack recall moving from dilution to cross_session, well inside any frontier context window. Scope: 54 scenarios per shard, one correlator family (Anthropic Claude), no prompt optimisation; we release it to motivate larger, multi-provider datasets.\n  (3) Algorithm and metric. A bounded-memory Coreset Memory Reader retaining highest-signal fragments at $K=50$ is the only reader whose recall survives both shards. Because ranker reshuffles break KV-cache prefix reuse, we promote $\\mathrm{CSR\\_prefix}$ (ordered prefix stability, LLM-free) to a first-class metric and fuse it with detection into $\\mathrm{CSTM} = 0.7 F_1(\\mathrm{CSDA@action}, \\mathrm{precision}) + 0.3 \\mathrm{CSR\\_prefix}$, benchmarking rankers on a single Pareto of recall versus serving stability.",
+    "id": 2471,
+    "published_at": "2026-04-24T04:00:00",
+    "source": "cs.CR updates on arXiv.org",
+    "title": "Cross-Session Threats in AI Agents: Benchmark, Evaluation, and Algorithms",
+    "keywords": [
+      "cs.CR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21153",
+    "summary": "arXiv:2604.21153v1 Announce Type: new \nAbstract: This paper studies 43-class malware type classification on MalNet-Image Tiny, a public benchmark derived from Android APK files. The goal is to assess whether a compact image classifier benefits from four components evaluated in a controlled ablation: a feature pyramid network (FPN) for scale variation induced by resizing binaries of different lengths, ImageNet pretraining, lightweight augmentation through Mixup and TrivialAugment, and schedule-free AdamW optimization. All experiments use a ResNet18 backbone and the provided train/validation/test split. Reproducing the benchmark-style configuration yields macro-F1 (F1_macro) of 0.6510, consistent with the reported baseline of approximately 0.65. Replacing the optimizer with schedule-free AdamW and using unweighted cross-entropy increases F1_macro to 0.6535 in 10 epochs, compared with 96 epochs for the reproduced baseline. The best configuration combines pretraining, Mixup, TrivialAugment, and FPN, reaching F1_macro=0.6927, P_macro=0.7707, AUC_macro=0.9556, and L_test=0.8536. The ablation indicates that the largest gains in F1_macro arise from pretraining and augmentation, whereas FPN mainly improves P_macro, AUC_macro, and L_test in the strongest configuration.",
+    "id": 2472,
+    "published_at": "2026-04-24T04:00:00",
+    "source": "cs.CR updates on arXiv.org",
+    "title": "Image-Based Malware Type Classification on MalNet-Image Tiny: Effects of Multi-Scale Fusion, Transfer Learning, Data Augmentation, and Schedule-Free Optimization",
+    "keywords": [
+      "cs.CR"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21159",
+    "summary": "arXiv:2604.21159v1 Announce Type: new \nAbstract: Many approaches to LLM red-teaming leverage an attacker LLM to discover jailbreaks against a target. Several of them task the attacker with identifying effective strategies through trial and error, resulting in a semantically limited range of successes. Another approach discovers diverse attacks by combining crowdsourced harmful queries and tactics into instructions for the attacker, but does so at random, limiting effectiveness. This article introduces a novel framework, Adaptive Instruction Composition, that combines crowdsourced texts according to an adaptive mechanism trained to jointly optimize effectiveness with diversity. We use reinforcement learning to balance exploration with exploitation in a combinatorial space of instructions to guide the attacker toward diverse generations tailored to target vulnerabilities. We demonstrate that our approach substantially outperforms random combination on a set of effectiveness and diversity metrics, even under model transfer. Further, we show that it surpasses a host of recent adaptive approaches on Harmbench. We employ a lightweight neural contextual bandit that adapts to contrastive embedding inputs, and provide ablations suggesting that the contrastive pretraining enables the network to rapidly generalize and scale to the massive space as it learns.",
+    "id": 2473,
+    "published_at": "2026-04-24T04:00:00",
+    "source": "cs.CR updates on arXiv.org",
+    "title": "Adaptive Instruction Composition for Automated LLM Red-Teaming",
+    "keywords": [
+      "cs.CR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21169",
+    "summary": "arXiv:2604.21169v1 Announce Type: new \nAbstract: In Ethereum, transaction-bundling services are a critical component of block builders, such as Flashbots Bundles, and are widely used by MEV searchers. Disrupting bundling services can degrade searcher experience and reduce builder revenue. Despite the extensive studies, the existing denial-of-service attack designs are ineffective against bundling services due to their unique multi-round execution model.\n  This paper studies the open problem of asymmetric denial-of-service against bundling services. We develop evasive, risk-free, and low-cost DoS attacks on Flashbots' bundling service, the only open-source bundling service known to us. Our attacks exploit inter-transaction dependencies through contract state to achieve evasiveness, and abuse bundling-specific features, such as atomic block inclusion, to significantly reduce both capital and operational costs of the attack.\n  Experimental results show that our attacks achieve high success rates, substantially reduce builders' revenue, and slow block production. We further propose mitigation strategies for the identified risks.",
+    "id": 2474,
+    "published_at": "2026-04-24T04:00:00",
+    "source": "cs.CR updates on arXiv.org",
+    "title": "Position Paper: Denial-of-Service Against Multi-Round Transaction Simulation",
+    "keywords": [
+      "cs.CR"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21188",
+    "summary": "arXiv:2604.21188v1 Announce Type: new \nAbstract: The rapid integration of artificial intelligence (AI) into Internet of Things (IoT) and edge computing systems has intensified the need for robust, hardware-rooted trust mechanisms capable of ensuring device authenticity and AI model integrity under strict resource and security constraints. This survey reviews and synthesizes existing literature on hardware-rooted trust mechanisms for AI-enabled IoT systems. It systematically examines and compares representative trust anchor mechanisms, including Trusted Platform Module (TPM)-based measurement and attestation, silicon and FPGA-based Physical Unclonable Functions (PUFs), hybrid container-aware hardware roots of trust, and software-only security approaches. The analysis highlights how hardware-rooted solutions generally provide stronger protection against physical tampering and device cloning compared to software-only approaches, particularly in adversarial and physically exposed environments, while hybrid designs extend hardware trust into runtime and containerized environments commonly used in modern edge deployments. By evaluating trade-offs among security strength, scalability, cost, and deployment complexity, the study shows that PUF-based and hybrid trust anchors offer a promising balance for large-scale, AI-enabled IoT systems, whereas software-only trust mechanisms remain insufficient in adversarial and physically exposed settings. The presented comparison aims to clarify current design challenges and guide future development of trustworthy AI-enabled IoT platforms.",
+    "id": 2475,
+    "published_at": "2026-04-24T04:00:00",
+    "source": "cs.CR updates on arXiv.org",
+    "title": "Physically Unclonable Functions for Secure IoT Authentication and Hardware-Anchored AI Model Integrity",
+    "keywords": [
+      "cs.CR"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21261",
+    "summary": "arXiv:2604.21261v1 Announce Type: new \nAbstract: This paper presents ECCFROG522PP, a 522-bit prime-field elliptic curve in short Weierstrass form, designed with a focus on deterministic generation and public reproducibility. The central design principle is that all critical parameters are derived from a fixed public seed through a transparent and verifiable procedure. While many deployed systems rely on NIST P-256 and secp256k1, which target approximately 128-bit classical security, higher security applications typically consider curves such as NIST P-521, Curve448, and Brainpool P512. ECCFROG522PP is intended for the same general classical security range as P-521, with emphasis on transparency, auditability, and reproducibility rather than performance optimization.\n  The curve parameters are generated through a BLAKE3-based deterministic pipeline with publicly specified indices. The resulting construction has prime order, cofactor one, and a deterministically derived base point of full order. The quadratic twist has a large proven prime factor, and the construction includes a documented lower bound on the embedding degree together with standard sanity checks against low embedding degree reductions and basic CM discriminant anomalies.\n  The full generation and validation procedure can be reproduced end to end from public artifacts and reference scripts, enabling independent verification of all parameters and checks.",
+    "id": 2476,
+    "published_at": "2026-04-24T04:00:00",
+    "source": "cs.CR updates on arXiv.org",
+    "title": "ECCFROG522PP: An Enhanced 522 bit Weierstrass Elliptic Curve",
+    "keywords": [
+      "cs.CR"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21282",
+    "summary": "arXiv:2604.21282v1 Announce Type: new \nAbstract: Automated code vulnerability detection is critical for software security, yet existing approaches face a fundamental trade-off between detection accuracy and computational cost. We propose a heterogeneous multi-agent architecture inspired by game-theoretic principles, combining cloud-based LLM experts with a local lightweight verifier. Our \"3+1\" architecture deploys three cloud-based expert agents (DeepSeek-V3) that analyze code from complementary perspectives - code structure, security patterns, and debugging logic - in parallel, while a local verifier (Qwen3-8B) performs adversarial validation at zero marginal cost.\n  We formalize this design through a two-layer game framework: (1) a cooperative game among experts capturing super-additive value from diverse perspectives, and (2) an adversarial verification game modeling quality assurance incentives.\n  Experiments on 262 real samples from the NIST Juliet Test Suite across 14 CWE types, with balanced vulnerable and benign classes, demonstrate that our approach achieves a 77.2% F1 score with 62.9% precision and 100% recall at $0.002 per sample - outperforming both a single-expert LLM baseline (F1 71.4%) and Cppcheck static analysis (MCC 0). The adversarial verifier significantly improves precision (+10.3 percentage points, p < 1e-6, McNemar's test) by filtering false positives, while parallel execution achieves a 3.0x speedup.\n  Our work demonstrates that game-theoretic design principles can guide effective heterogeneous multi-agent architectures for cost-sensitive software engineering tasks.",
+    "id": 2477,
+    "published_at": "2026-04-24T04:00:00",
+    "source": "cs.CR updates on arXiv.org",
+    "title": "Strategic Heterogeneous Multi-Agent Architecture for Cost-Effective Code Vulnerability Detection",
+    "keywords": [
+      "cs.CR",
+      "cs.LG",
+      "cs.SE"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21308",
+    "summary": "arXiv:2604.21308v1 Announce Type: new \nAbstract: Enterprise LLM agents can dramatically improve workplace productivity, but their core capability, retrieving and using internal context to act on a user's behalf, also creates new risks for sensitive information leakage. We introduce CI-Work, a Contextual Integrity (CI)-grounded benchmark that simulates enterprise workflows across five information-flow directions and evaluates whether agents can convey essential content while withholding sensitive context in dense retrieval settings. Our evaluation of frontier models reveals that privacy failures are prevalent (violation rates range from 15.8%-50.9%, with leakage reaching up to 26.7%) and uncovers a counterintuitive trade-off critical for industrial deployment: higher task utility often correlates with increased privacy violations. Moreover, the massive scale of enterprise data and potential user behavior further amplify this vulnerability. Simply increasing model size or reasoning depth fails to address the problem. We conclude that safeguarding enterprise workflows requires a paradigm shift, moving beyond model-centric scaling toward context-centric architectures.",
+    "id": 2478,
+    "published_at": "2026-04-24T04:00:00",
+    "source": "cs.CR updates on arXiv.org",
+    "title": "CI-Work: Benchmarking Contextual Integrity in Enterprise LLM Agents",
+    "keywords": [
+      "cs.CR",
+      "cs.CL"
+    ]
+  },
+  {
+    "link": "https://arxiv.org/abs/2604.21310",
+    "summary": "arXiv:2604.21310v1 Announce Type: new \nAbstract: Deep learning has emerged as a powerful approach for malware detection, demonstrating impressive accuracy across various data representations. However, these models face critical limitations in real-world, non-stationary environments where both malware characteristics and detection systems continuously evolve. Our research investigates a fundamental security question: Can an attacker generate adversarial malware samples that simultaneously evade classification and remain inconspicuous to drift monitoring mechanisms? We propose a novel approach that generates targeted adversarial examples in the classifier's standardized feature space, augmented with sophisticated similarity regularizers. By carefully constraining perturbations to maintain distributional similarity with clean malware, we create an optimization objective that balances targeted misclassification with drift signal minimization. We quantify the effectiveness of this approach by comprehensively comparing classifier output probabilities using multiple drift metrics. Our experiments demonstrate that similarity constraints can reduce output drift signals, with $\\ell_2$ regularization showing the most promising results. We observe that perturbation budget significantly influences the evasion-detectability trade-off, with increased budget leading to higher attack success rates and more substantial drift indicators.",
+    "id": 2479,
+    "published_at": "2026-04-24T04:00:00",
+    "source": "cs.CR updates on arXiv.org",
+    "title": "Adversarial Evasion in Non-Stationary Malware Detection: Minimizing Drift Signals through Similarity-Constrained Perturbations",
+    "keywords": [
+      "cs.CR",
+      "cs.AI"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/lachy-groom-to-back-pronto-as-indias-house-help-startup-scales-fast-sources-say/",
+    "summary": "This round, should it occur, would double the house-help startup's valuation in a matter of weeks.",
+    "id": 2480,
+    "published_at": "2026-04-25T03:30:00",
+    "source": "TechCrunch",
+    "title": "Lachy Groom to back India startup Pronto at a $200M valuation, sources say",
+    "keywords": [
+      "Startups",
+      "pronto",
+      "Lachy Groom"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/steve-ballmer-blasts-founder-he-backed-who-pleaded-guilty-to-fraud-i-was-duped-and-feel-silly/",
+    "summary": "Steve Ballmer wrote a fiery letter in the sentencing of disgraced founder Joseph Sanberg documenting all the harm that's befalling him as an investor.",
+    "id": 2481,
+    "published_at": "2026-04-24T23:32:11",
+    "source": "TechCrunch",
+    "title": "Steve Ballmer blasts founder he backed who pleaded guilty to fraud: ‘I was duped and feel silly’",
+    "keywords": [
+      "Climate",
+      "Fintech",
+      "TC",
+      "Venture",
+      "Aspiration",
+      "fraud",
+      "Steve Ballmer"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/palantir-is-reportedly-helping-the-irs-investigate-financial-crimes/",
+    "summary": "The IRS has used Palantir's software since at least 2018, The Intercept reports.",
+    "id": 2482,
+    "published_at": "2026-04-24T21:53:44",
+    "source": "TechCrunch",
+    "title": "Palantir is reportedly helping the IRS investigate financial crimes",
+    "keywords": [
+      "Government & Policy",
+      "In Brief",
+      "irs",
+      "Palantir",
+      "Trump Administration"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/cohere-acquires-merges-with-german-based-startup-to-create-a-transatlantic-ai-powerhouse/",
+    "summary": "Cohere, the Canada-based AI company that makes AI tools for businesses in regulated industries, announced Friday it would merge with Aleph Alpha, a German company that also builds AI systems for businesses and governments.",
+    "id": 2483,
+    "published_at": "2026-04-24T21:35:30",
+    "source": "TechCrunch",
+    "title": "Cohere acquires, merges with Germany-based startup to create a ‘transatlantic AI powerhouse’",
+    "keywords": [
+      "Startups",
+      "AI",
+      "Aleph Alpha",
+      "Cohere",
+      "In Brief",
+      "Mergers and Acquisitions"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/two-college-kids-raise-a-5-1-million-pre-seed-to-build-an-ai-social-network-in-imessage/",
+    "summary": "Series, a social networking app that's grown popular on college campuses, announced a $5.1 million pre-seed round from some big names in tech.",
+    "id": 2484,
+    "published_at": "2026-04-24T21:05:59",
+    "source": "TechCrunch",
+    "title": "Two college kids raise a $5.1 million pre-seed to build an AI social network in iMessage",
+    "keywords": [
+      "Apps",
+      "Startups",
+      "Exclusive",
+      "series",
+      "social networking app"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/metas-loss-is-thinking-machines-gain/",
+    "summary": "Meta has been poaching talent from Thinking Machines Lab. But it's a two-way street.",
+    "id": 2485,
+    "published_at": "2026-04-24T20:52:07",
+    "source": "TechCrunch",
+    "title": "Meta’s loss is Thinking Machines’ gain",
+    "keywords": [
+      "AI",
+      "TC"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/x-energy-stock-pops-27-on-first-day-of-trading-following-upsized-ipo/",
+    "summary": "Investors flocked to nuclear power startup X-energy in its first day of public trading on the Nasdaq.",
+    "id": 2486,
+    "published_at": "2026-04-24T20:10:54",
+    "source": "TechCrunch",
+    "title": "X-energy stock pops 27% on first day of trading following upsized IPO",
+    "keywords": [
+      "Climate",
+      "Fundraising",
+      "IPO",
+      "nuclear fission",
+      "nuclear power",
+      "X-Energy"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/comfyui-hits-500m-valuation-as-creators-seek-more-control-over-ai-generated-media/",
+    "summary": "ComfyUI, whose tools give creators more control over AI image, video, and audio generation, just raised $30 million.",
+    "id": 2487,
+    "published_at": "2026-04-24T19:49:35",
+    "source": "TechCrunch",
+    "title": "ComfyUI hits $500M valuation as creators seek more control over AI-generated media",
+    "keywords": [
+      "AI",
+      "TC",
+      "Venture",
+      "comfyui",
+      "Craft Ventures",
+      "Creators",
+      "Video"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/x-launches-xchat-app-ios-messaging-iphone/",
+    "summary": "X's new app promises private chats, disappearing messages, audio and video calls, and more.",
+    "id": 2488,
+    "published_at": "2026-04-24T19:46:58",
+    "source": "TechCrunch",
+    "title": "X launches stand-alone XChat app on iOS",
+    "keywords": [
+      "Apps",
+      "Social",
+      "X",
+      "xchat"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute/",
+    "summary": "Google plans up to $40B investment in Anthropic as AI rivals race to secure massive compute capacity, following the limited release of its powerful, cybersecurity-focused Mythos model.",
+    "id": 2489,
+    "published_at": "2026-04-24T18:00:03",
+    "source": "TechCrunch",
+    "title": "Google to invest up to $40B in Anthropic in cash and compute",
+    "keywords": [
+      "AI",
+      "Enterprise",
+      "Anthropic",
+      "anthropic investment",
+      "chips",
+      "compute",
+      "Google",
+      "google cloud"
+    ]
+  },
+  {
+    "link": "https://thenextweb.com/news/eu-child-safety-privacy-law-csa-regulation",
+    "summary": "Summary: Europe’s effort to protect children online has collided with its own privacy architecture. The ePrivacy derogation allowing voluntary CSAM scanning expired on April 3 after Parliament voted 311-228 to reject its extension, the EU’s new age verification app announced April 15 was hacked in under two minutes, and the CSA Regulation (“Chat Control”) remains […] \n This story continues  at The Next Web",
+    "id": 2490,
+    "published_at": "2026-04-24T21:00:37",
+    "source": "The Next Web",
+    "title": "Europe’s child safety laws require collecting the data its privacy laws forbid",
+    "keywords": [
+      "Europe",
+      "Politics",
+      "Next Featured"
+    ]
+  },
+  {
+    "link": "https://thenextweb.com/news/x-energy-ipo-billion-nuclear-ai-data-centres",
+    "summary": "In short: X-Energy raised $1.02 billion in the largest nuclear IPO on record, pricing at $23 (21% above range) on the Nasdaq, with shares surging 31% on opening to imply a $12 billion market cap. The offering was 15x oversubscribed. The same company failed to close a $1 billion SPAC in 2023. The difference is […] \n This story continues  at The Next Web",
+    "id": 2491,
+    "published_at": "2026-04-24T20:33:04",
+    "source": "The Next Web",
+    "title": "X-Energy’s failed $1 billion SPAC became a $1 billion IPO. The reactor did not change. The market did.",
+    "keywords": [
+      "Amazon",
+      "insights",
+      "Next Featured",
+      "Investors and funding"
+    ]
+  },
+  {
+    "link": "https://thenextweb.com/news/us-government-intel-stake-36-billion-chips-act",
+    "summary": "In short: The US government’s 9.9% stake in Intel, acquired for $8.9 billion last August by converting CHIPS Act grants and Secure Enclave funds into equity at $20.47/share, is now worth approximately $36 billion after Intel’s stock surged 20%+ on a massive Q1 earnings beat. The $26.5 billion unrealised gain is one of the most […] \n This story continues  at The Next Web",
+    "id": 2492,
+    "published_at": "2026-04-24T20:02:32",
+    "source": "The Next Web",
+    "title": "US government’s Intel stake jumps 300% to $36B after CHIPS Act grants were converted to equity under Trump",
+    "keywords": [
+      "insights",
+      "Politics",
+      "United States",
+      "Next Featured"
+    ]
+  },
+  {
+    "link": "https://thenextweb.com/news/softbank-is-converting-a-sharp-lcd-factory-into-a-battery-plant-for-ai-data-centres-the-data-centres-cannot-wait-five-years",
+    "summary": "Summary: SoftBank Corp. plans to convert part of the former Sharp LCD factory in Sakai, Osaka into one of Japan’s largest battery production lines for AI data centres, with production expected within five years (~2031). The move completes a vertical integration stack spanning chips (Arm, Graphcore, Ampere), modular data centre manufacturing (Lordstown), energy generation (SB […] \n This story continues  at The Next Web",
+    "id": 2493,
+    "published_at": "2026-04-24T19:54:10",
+    "source": "The Next Web",
+    "title": "SoftBank is converting a Sharp LCD factory into a battery plant for AI data centres. The data centres cannot wait five years.",
+    "keywords": [
+      "Artificial Intelligence",
+      "insights",
+      "Battery"
+    ]
+  },
+  {
+    "link": "https://thenextweb.com/news/google-40-billion-anthropic-investment-gemini",
+    "summary": "Summary: Google is investing up to $40 billion in Anthropic ($10B cash now at $350B valuation, $30B conditional on performance targets) plus five gigawatts of compute over five years, bringing its total commitment to ~$43B. The deal arrives as Anthropic’s revenue hit $30B ARR (up from $1B in January 2025) and its secondary market valuation […] \n This story continues  at The Next Web",
+    "id": 2494,
+    "published_at": "2026-04-24T19:41:14",
+    "source": "The Next Web",
+    "title": "Google is investing up to $40 billion in a company that is beating Gemini. That is the point.",
+    "keywords": [
+      "Anthropic",
+      "Google",
+      "Next Featured",
+      "Investors and funding"
+    ]
+  },
+  {
+    "link": "https://www.technologyreview.com/2026/04/24/1136422/why-deepseeks-v4-matters/",
+    "summary": "On Friday, Chinese AI firm DeepSeek released a preview of V4, its long-awaited new flagship model. Notably, the model can process much longer prompts than its last generation, thanks to a new design that helps it handle large amounts of text more efficiently. Like DeepSeek’s previous models, V4 is open source, meaning it is available…",
+    "id": 2495,
+    "published_at": "2026-04-24T21:40:58",
+    "source": "MIT Technology Review",
+    "title": "Three reasons why DeepSeek’s new model matters",
+    "keywords": [
+      "Artificial intelligence",
+      "App"
+    ]
+  },
+  {
+    "link": "https://hackaday.com/2026/04/24/how-to-install-haiku-on-a-uefi-only-modern-system/",
+    "summary": "Recently Haiku has become a bit of a popular subject of articles and videos, owing perhaps to how close it currently is to be a daily-driver OS and fulfilling the  …read more",
+    "id": 2496,
+    "published_at": "2026-04-25T05:00:10",
+    "source": "Blog – Hackaday",
+    "title": "How to Install Haiku on a UEFI-Only Modern System",
+    "keywords": [
+      "how-to",
+      "haiku",
+      "UEFI"
+    ]
+  },
+  {
+    "link": "https://hackaday.com/2026/04/24/muon-magnetic-moment-matches-model-making-major-malaise/",
+    "summary": "Sometimes, a major discovery is exactly what you were hoping not to find. That’s the case with a team at Penn State who seem to have recently closed the door  …read more",
+    "id": 2497,
+    "published_at": "2026-04-25T02:00:49",
+    "source": "Blog – Hackaday",
+    "title": "Muon Magnetic Moment Matches Model, Making Major Malaise",
+    "keywords": [
+      "Science",
+      "g-2",
+      "magnetic moment",
+      "muon",
+      "particle physics",
+      "standard model"
+    ]
+  },
+  {
+    "link": "https://hackaday.com/2026/04/24/audio-forward-case-mod-of-classic-90s-portable-tv/",
+    "summary": "The humble cathode ray tube (CRT) was once the technology behind almost all of our televisions and computer displays. Its replacements, from LCD screens to OLED and others, are generally  …read more",
+    "id": 2498,
+    "published_at": "2026-04-24T23:00:10",
+    "source": "Blog – Hackaday",
+    "title": "Audio-Forward Case Mod of Classic 90s Portable TV",
+    "keywords": [
+      "home entertainment hacks",
+      "90's",
+      "audiophile",
+      "bentley",
+      "Case mod",
+      "crt",
+      "dac",
+      "hi-fi",
+      "home theater",
+      "media center",
+      "portable",
+      "raspberry pi",
+      "stereo",
+      "tv"
+    ]
+  },
+  {
+    "link": "https://hackaday.com/2026/04/24/a-smart-thermostat-for-120v-fan-coil-systems/",
+    "summary": "Many HVAC systems in North America operate off 24V systems, which can be readily upgraded with off-the-shelf  smart thermostats quite easily. However, there are many people living in buildings with  …read more",
+    "id": 2499,
+    "published_at": "2026-04-24T20:00:56",
+    "source": "Blog – Hackaday",
+    "title": "A Smart Thermostat For 120V Fan Coil Systems",
+    "keywords": [
+      "home hacks",
+      "fan coil",
+      "hvac",
+      "thermostat"
+    ]
+  },
+  {
+    "link": "https://hackaday.com/2026/04/24/2026-green-powered-challenge-solar-powered-pollution-monitor/",
+    "summary": "As we learn more about all the nasty stuff floating in the air, it becomes more compelling to monitor the air for pollution levels. [Aleksei Tertychnyi] does just that with  …read more",
+    "id": 2500,
+    "published_at": "2026-04-24T18:30:35",
+    "source": "Blog – Hackaday",
+    "title": "2026 Green Powered Challenge: Solar-Powered Pollution Monitor",
+    "keywords": [
+      "contests",
+      "green hacks",
+      "2026 Green-Powered Challenge",
+      "LoRa"
+    ]
+  },
+  {
+    "link": "https://hackaday.com/2026/04/24/hackaday-podcast-episode-367-radioactive-weather-continuous-pickles-and-moon-junk/",
+    "summary": "When Elliot Williams and Al Williams compare their notes on the week in Hackaday, you know you’ll get at least one or two bad puns. How bad? Tune in and  …read more",
+    "id": 2501,
+    "published_at": "2026-04-24T16:10:07",
+    "source": "Blog – Hackaday",
+    "title": "Hackaday Podcast Episode 367: Radioactive Weather, Continuous Pickles, and Moon Junk",
+    "keywords": [
+      "Hackaday Columns",
+      "Podcasts",
+      "Hackaday Podcast"
+    ]
+  },
+  {
+    "link": "https://hackaday.com/2026/04/24/spool-roller-gets-touch-screen/",
+    "summary": "If you have a desktop 3D printer, you probably want something to hang filament spools on. [LVTRC] has a spool roller that fits the bill. It also incorporates a scale  …read more",
+    "id": 2502,
+    "published_at": "2026-04-24T15:30:00",
+    "source": "Blog – Hackaday",
+    "title": "Spool Roller Gets Touch Screen",
+    "keywords": [
+      "3d Printer hacks",
+      "filament scale",
+      "gc9a01",
+      "spool holder"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/mac-mini-price-expensive-ebay-shortage-ai-memory/",
+    "summary": "Apple’s sold-out Mac mini is spawning marked-up eBay listings as demand surges for the compact desktop, now favored for running local AI models and tools.",
+    "id": 2503,
+    "published_at": "2026-04-24T16:42:19",
+    "source": "TechCrunch",
+    "title": "Marked-up Mac minis flood eBay amid shortages driven by AI",
+    "keywords": [
+      "AI",
+      "Hardware",
+      "Apple",
+      "local AI",
+      "mac mini",
+      "Mac Studio",
+      "openclaw"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/nuclear-startup-x-energy-raises-1b-in-data-center-driven-ipo/",
+    "summary": "Amazon-backed X-energy was able to raise around 20% more money in its IPO as demand for nuclear power surges.",
+    "id": 2504,
+    "published_at": "2026-04-24T15:06:00",
+    "source": "TechCrunch",
+    "title": "Nuclear startup X-energy raises $1B in data center-driven IPO",
+    "keywords": [
+      "Climate",
+      "Fundraising",
+      "Amazon",
+      "In Brief",
+      "IPO",
+      "nuclear fission",
+      "nuclear power",
+      "X-Energy"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/another-spyware-maker-caught-distributing-fake-android-snooping-apps/",
+    "summary": "Researchers have found a new case where government authorities used a fake Android app to plant spyware on a target’s phone. The company that allegedly developed the spyware was not previously known to sell this type of software.",
+    "id": 2505,
+    "published_at": "2026-04-24T14:17:55",
+    "source": "TechCrunch",
+    "title": "Another spyware maker caught distributing fake Android snooping apps",
+    "keywords": [
+      "Security",
+      "cybersecurity",
+      "hackers",
+      "hacking",
+      "infosec",
+      "ips",
+      "Italy",
+      "privacy",
+      "Spyware",
+      "surveillance"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/uber-cto-praveen-neppalli-naga-joins-stacked-strictlyvc-sf-lineup-for-april-30-event/",
+    "summary": "Surprise! StrictlyVC San Francisco, which will kick off this year’s events lineup for TechCrunch on April 30 at the Sentro Filipino Cultural Center, is getting a new addition to its increasingly stacked lineup of speakers. Uber CTO Praveen Neppalli Naga will join the rest of the lineup to discuss operating at scale in the age of AI.",
+    "id": 2506,
+    "published_at": "2026-04-24T14:00:00",
+    "source": "TechCrunch",
+    "title": "Uber CTO Praveen Neppalli Naga joins stacked StrictlyVC SF lineup for April 30 event",
+    "keywords": [
+      "Startups",
+      "Venture",
+      "AI",
+      "Fundraising",
+      "Uber",
+      "StrictlyVC",
+      "StrictlyVC San Francisco"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/video/tim-cook-is-stepping-down-what-happens-to-apple-now/",
+    "summary": "Tim Cook plans to step down from his CEO role in September, handing the reins to hardware chief John Ternus.   Ternus may be inheriting one of the most durable businesses in tech, but he’s also stepping into a very different ecosystemthan the one Cook spent decades shaping. The App Store’s 30% cut is under pressure, the behind-the-scenes power Apple once […]",
+    "id": 2507,
+    "published_at": "2026-04-24T14:00:00",
+    "source": "TechCrunch",
+    "title": "Tim Cook is stepping down. What happens to Apple now?",
+    "keywords": [
+      "AI",
+      "Startups",
+      "Venture",
+      "Anthropic",
+      "Apple",
+      "Elon Musk",
+      "Fintech",
+      "IPO",
+      "SpaceX",
+      "Tim Cook"
+    ]
+  },
+  {
+    "link": "https://techcrunch.com/2026/04/24/nothing-introduces-an-ai-powered-dictation-tool/",
+    "summary": "Nothing's new on-device dictation tool supports over 100 languages.",
+    "id": 2508,
+    "published_at": "2026-04-24T13:41:42",
+    "source": "TechCrunch",
+    "title": "Nothing introduces an AI-powered dictation tool",
+    "keywords": [
+      "AI",
+      "Apps",
+      "ai dictation",
+      "In Brief",
+      "nothing",
+      "Superwhisper",
+      "Wispr flow"
+    ]
+  },
+  {
+    "link": "https://www.nasa.gov/missions/artemis/i-am-artemis/i-am-artemis-peter-rossoni/",
+    "summary": "Listen to this audio excerpt from Peter Rossoni, Orion Artemis II Optical Communications System flight manager: As a child, Peter Rossoni watched the Apollo missions launch with his family. In April 2026, he became a part of NASA’s Artemis II mission, helping enable communications as astronauts journeyed around the Moon. Rossoni’s path to NASA began […]",
+    "id": 2509,
+    "published_at": "2026-04-24T16:33:35",
+    "source": "NASA",
+    "title": "I Am Artemis: Peter Rossoni",
+    "keywords": [
+      "I Am Artemis",
+      "Artemis",
+      "Artemis 2",
+      "Communicating and Navigating with Missions",
+      "Goddard Space Flight Center",
+      "Space Communications & Navigation Program",
+      "Technology Demonstration"
+    ]
+  },
+  {
+    "link": "https://www.nasa.gov/image-article/the-day-of-the-trifid-nebula/",
+    "summary": "This shimmering region of star-formation, a close-up of the Trifid Nebula about 5,000 light-years from Earth, was captured in intricate detail by NASA’s Hubble Space Telescope in an image released on April 20, 2026. The colors in Hubble’s visible light image, which marks the 36th anniversary of the mission’s launch on April 24, are reminiscent of an underwater […]",
+    "id": 2510,
+    "published_at": "2026-04-24T14:56:35",
+    "source": "NASA",
+    "title": "The Day of the Trifid Nebula",
+    "keywords": [
+      "Nebulae"
+    ]
+  },
+  {
+    "link": "https://www.nasa.gov/news-release/nasa-astronauts-to-answer-questions-from-missouri-students/",
+    "summary": "Students in Missouri will hear from NASA astronauts Jessica Meir and Jack Hathaway as they answer prerecorded science, technology, engineering, and mathematics (STEM) questions while aboard the International Space Station. The Earth-to-space call will begin at 10:50 a.m. EDT Thursday, April 30, and will stream live on the agency’s Learn With NASA YouTube channel. This […]",
+    "id": 2511,
+    "published_at": "2026-04-24T14:47:12",
+    "source": "NASA",
+    "title": "NASA Astronauts to Answer Questions from Missouri Students",
+    "keywords": [
+      "In-flight Education Downlinks",
+      "Humans in Space",
+      "International Space Station (ISS)",
+      "Johnson Space Center",
+      "Learning Resources",
+      "NASA Headquarters"
+    ]
+  },
+  {
+    "link": "https://www.nsf.gov/funding/opportunities/transport-phenomena/pd26-366y",
+    "summary": "Available Formats:  HTML:  https://www.nsf.gov/funding/opportunities/transport-phenomena/pd26-366y Document Number: PD 26-366Y This is an NSF Program Announcements and Information item.",
+    "id": 2512,
+    "published_at": "2026-04-25T07:07:38.293683",
+    "source": "NSF Program Announcements and Information",
+    "title": "Transport Phenomena",
+    "keywords": []
+  },
+  {
+    "link": "https://www.nsf.gov/funding/opportunities/engineering-biological-biomedical-systems/pd26-369y",
+    "summary": "Available Formats:  HTML:  https://www.nsf.gov/funding/opportunities/engineering-biological-biomedical-systems/pd26-369y Document Number: PD 26-369Y This is an NSF Program Announcements and Information item.",
+    "id": 2513,
+    "published_at": "2026-04-25T07:07:38.345976",
+    "source": "NSF Program Announcements and Information",
+    "title": "Engineering Biological and Biomedical Systems",
+    "keywords": []
+  },
+  {
+    "link": "https://www.nsf.gov/funding/opportunities/chemical-process-systems/pd26-367y",
+    "summary": "Available Formats:  HTML:  https://www.nsf.gov/funding/opportunities/chemical-process-systems/pd26-367y Document Number: PD 26-367Y This is an NSF Program Announcements and Information item.",
+    "id": 2514,
+    "published_at": "2026-04-25T07:07:38.396644",
+    "source": "NSF Program Announcements and Information",
+    "title": "Chemical Process Systems",
+    "keywords": []
+  },
+  {
+    "link": "https://www.nsf.gov/funding/opportunities/engineering-environmental-resiliency/pd26-370y",
+    "summary": "Available Formats:  HTML:  https://www.nsf.gov/funding/opportunities/engineering-environmental-resiliency/pd26-370y Document Number: PD 26-370Y This is an NSF Program Announcements and Information item.",
+    "id": 2515,
+    "published_at": "2026-04-25T07:07:38.443657",
+    "source": "NSF Program Announcements and Information",
+    "title": "Engineering Environmental Resiliency",
+    "keywords": []
+  },
+  {
+    "link": "https://www.nsf.gov/funding/opportunities/amdo-advanced-manufacturing-design-operations/pd26-361y",
+    "summary": "Available Formats:  HTML:  https://www.nsf.gov/funding/opportunities/amdo-advanced-manufacturing-design-operations/pd26-361y Document Number: PD 26-361Y This is an NSF Program Announcements and Information item.",
+    "id": 2516,
+    "published_at": "2026-04-25T07:07:38.493309",
+    "source": "NSF Program Announcements and Information",
+    "title": "Advanced Manufacturing, Design, and Operations (AMDO)",
+    "keywords": []
+  },
+  {
+    "link": "https://www.space.com/entertainment/how-did-humanity-end-up-underground-in-silo-apple-tv-digs-deep-in-new-season-3-teaser-video",
+    "summary": "\"Before we know how it all will end, we need to understand how it all began.\"",
+    "id": 2517,
+    "published_at": "2026-04-24T22:00:00",
+    "source": "Latest from Space.com",
+    "title": "How did humanity end up underground in 'Silo'? Apple TV digs deep in new Season 3 teaser (video)",
+    "keywords": [
+      "Entertainment"
+    ]
+  },
+  {
+    "link": "https://www.space.com/astronomy/solar-system/this-x-ray-image-shows-our-solar-system-breathing",
+    "summary": "The eROSITA spacecraft has built the most precise map of soft X-rays over Earth, observing a fascinating phenomenon driven by solar winds from the sun.",
+    "id": 2518,
+    "published_at": "2026-04-24T21:00:00",
+    "source": "Latest from Space.com",
+    "title": "This X-ray image shows our solar system 'breathing'",
+    "keywords": [
+      "Solar System",
+      "Astronomy"
+    ]
+  },
+  {
+    "link": "https://www.space.com/stargazing/skywatching-kit/viltrox-af-50mm-f-1-4-pro-fe-lens-review",
+    "summary": "The Viltrox AF 50mm f/1.4 Pro FE is a fast standard prime for astrophotography, at a competitive price.",
+    "id": 2519,
+    "published_at": "2026-04-24T19:00:00",
+    "source": "Latest from Space.com",
+    "title": "Viltrox AF 50mm f/1.4 Pro FE lens review",
+    "keywords": [
+      "Skywatching Kit",
+      "Stargazing"
+    ]
+  },
+  {
+    "link": "https://www.space.com/entertainment/how-did-the-ussr-win-the-space-race-to-beat-the-us-to-the-moon-in-apple-tvs-new-star-city",
+    "summary": "\"I take this step for my country, for my people, and for the Marxist-Leninist way of life.\"",
+    "id": 2520,
+    "published_at": "2026-04-24T19:00:00",
+    "source": "Latest from Space.com",
+    "title": "How did the USSR win the space race to beat the US to the moon in Apple TV's new 'Star City'?",
+    "keywords": [
+      "Entertainment"
+    ]
+  },
+  {
+    "link": "https://www.space.com/stargazing/comet-panstarrs-approaches-earth-on-april-26-heres-how-to-catch-it-in-satellite-imagery-this-weekend",
+    "summary": "Comet PanSTARRS recently survived its close brush with the sun.",
+    "id": 2521,
+    "published_at": "2026-04-24T18:00:00",
+    "source": "Latest from Space.com",
+    "title": "Comet PanSTARRS approaches Earth on April 26. Here's how to catch it in satellite imagery this weekend",
+    "keywords": [
+      "Stargazing"
+    ]
+  },
+  {
+    "link": "https://www.space.com/astronomy/asteroids/famous-asteroid-ryugu-may-have-been-bombarded-by-a-swarm-of-tiny-space-rocks-1-000-years-ago",
+    "summary": "Samples of Ryugu returned to Earth by the Hayabusa2 spacecraft show that the asteroid bears the scars of a recent bombardment by tiny space rocks.",
+    "id": 2522,
+    "published_at": "2026-04-24T17:00:00",
+    "source": "Latest from Space.com",
+    "title": "Famous asteroid Ryugu may have been bombarded by a swarm of tiny space rocks 1,000 years ago",
+    "keywords": [
+      "Asteroids",
+      "Astronomy",
+      "Solar System"
+    ]
+  },
+  {
+    "link": "https://www.space.com/space-exploration/artemis/guess-ill-be-waiting-a-minute-to-surf-again-artemis-2-moon-astronaut-christina-koch-shares-her-recovery-journey",
+    "summary": "A week after the Artemis 2 moon mission ended, NASA astronaut Christina Koch struggled to walk in a straight line during a blindfold test. But it's all part of readjusting to life on Earth.",
+    "id": 2523,
+    "published_at": "2026-04-24T16:00:00",
+    "source": "Latest from Space.com",
+    "title": "'Guess I'll be waiting a minute to surf again': Artemis 2 moon astronaut Christina Koch shares her recovery journey",
+    "keywords": [
+      "Artemis",
+      "Space Exploration",
+      "Missions"
+    ]
+  },
+  {
+    "link": "https://www.space.com/entertainment/a-lego-project-hail-mary-set-just-soared-into-the-stratosphere-breaking-the-guinness-world-record-for-highest-flight",
+    "summary": "Amaze, amaze, amaze! A Lego version of the 'Project Hail Mary' spaceship soared into the stratosphere and set an altitude record.",
+    "id": 2524,
+    "published_at": "2026-04-24T15:00:00",
+    "source": "Latest from Space.com",
+    "title": "A Lego 'Project Hail Mary' set just soared into the stratosphere, breaking the Guinness World Record for highest flight",
+    "keywords": [
+      "Entertainment"
+    ]
+  },
+  {
+    "link": "https://www.space.com/astronomy/mars/ice-melts-in-the-springtime-on-mars-space-photo-of-the-day-for-april-24-2026",
+    "summary": "Springtime has arrived at the Red Planet's Chasma Boreale, as this photo by NASA's Mars Reconnaissance Orbiter shows.",
+    "id": 2525,
+    "published_at": "2026-04-24T14:00:00",
+    "source": "Latest from Space.com",
+    "title": "Ice melts in the springtime on Mars | Space photo of the day for April 24, 2026",
+    "keywords": [
+      "Mars",
+      "Astronomy",
+      "Solar System"
+    ]
+  },
+  {
+    "link": "https://www.space.com/astronomy/exoplanets/nasas-tess-spacecraft-discovers-a-weird-system-of-exoplanets-unlike-anything-seen-before",
+    "summary": "\"Most planetary systems appear as 'peas in a pod.' This is not the case in the TOI-201 system.\"",
+    "id": 2526,
+    "published_at": "2026-04-23T15:00:00",
+    "source": "Latest from Space.com",
+    "title": "NASA's TESS spacecraft discovers a weird system of exoplanets unlike anything seen before",
+    "keywords": [
+      "Exoplanets",
+      "Astronomy"
+    ]
+  },
+  {
+    "link": "https://www.livescience.com/planet-earth/nuclear-energy/science-history-chernobyl-nuclear-power-plant-melts-down-bringing-the-world-to-the-brink-of-disaster-april-26-1986",
+    "summary": "On April 26, 1986, the Chernobyl nuclear reactor melted down, but the rest of the world wouldn't learn how close it came to nuclear Armageddon until weeks later.",
+    "id": 2527,
+    "published_at": "2026-04-25T06:00:00",
+    "source": "Latest from Live Science",
+    "title": "Science history: Chernobyl nuclear power plant melts down, bringing the world to the brink of disaster — April 26, 1986",
+    "keywords": [
+      "Nuclear Energy",
+      "Planet Earth",
+      "Energy"
+    ]
+  },
+  {
+    "link": "https://www.livescience.com/planet-earth/rivers-oceans/building-a-massive-dam-between-alaska-and-russia-could-prevent-amoc-collapse-scientists-say",
+    "summary": "Building a dam in the Bering Strait might preserve the Atlantic Meridional Overturning Circulation, but experts warn it could also threaten wildlife, Indigenous people and shipping — and could actually speed up its demise.",
+    "id": 2528,
+    "published_at": "2026-04-24T18:00:00",
+    "source": "Latest from Live Science",
+    "title": "Building a massive dam between Alaska and Russia could prevent AMOC collapse, scientists say",
+    "keywords": [
+      "Rivers &amp; Oceans",
+      "Planet Earth"
+    ]
+  },
+  {
+    "link": "https://www.livescience.com/health/viruses-infections-disease/brain-eating-amoebas-are-nearly-always-fatal-new-treatments-may-change-that",
+    "summary": "Doctors are pulling out new techniques and drugs in an effort to cure devastating brain infections.",
+    "id": 2529,
+    "published_at": "2026-04-24T16:01:28",
+    "source": "Latest from Live Science",
+    "title": "'Brain-eating' amoebas are nearly always fatal. New treatments may change that.",
+    "keywords": [
+      "Viruses, Infections &amp; Disease",
+      "Health"
+    ]
+  },
+  {
+    "link": "https://www.livescience.com/planet-earth/geology/thrihnukagigur-the-only-volcano-on-earth-where-you-can-descend-into-a-magma-chamber",
+    "summary": "Thríhnúkagígur is a volcano near Reykjavík in Iceland with an empty magma chamber decorated with vivid colors that scientists and tourists can access via an open cable elevator.",
+    "id": 2530,
+    "published_at": "2026-04-24T15:36:23",
+    "source": "Latest from Live Science",
+    "title": "Thríhnúkagígur: The only volcano on Earth where you can descend into a magma chamber",
+    "keywords": [
+      "Geology",
+      "Planet Earth"
+    ]
+  },
+  {
+    "link": "https://www.livescience.com/planet-earth/climate-change/new-york-city-is-at-major-risk-of-flooding-that-could-leave-4-4-million-people-exposed-to-extreme-damage-study-finds",
+    "summary": "The new flood risk index identified eight cities along the U.S. East Coast that are at high or very high risk of floods causing extreme damage.",
+    "id": 2531,
+    "published_at": "2026-04-24T15:11:25",
+    "source": "Latest from Live Science",
+    "title": "New York City is at major risk of flooding that could leave 4.4 million people exposed to extreme damage, study finds",
+    "keywords": [
+      "Climate change",
+      "Planet Earth"
+    ]
+  },
+  {
+    "link": "https://www.livescience.com/planet-earth/rivers-oceans/a-completely-new-reality-bolder-measures-are-needed-to-prevent-extreme-water-shortages-in-cities-like-phoenix-and-las-vegas-that-depend-on-the-colorado-river",
+    "summary": "Cities fed by the Colorado River have taken huge steps to reduce their water consumption over the past few decades, yet water shortages are projected to grow more intense. What can be done?",
+    "id": 2532,
+    "published_at": "2026-04-24T15:00:00",
+    "source": "Latest from Live Science",
+    "title": "'A completely new reality': Bolder measures are needed to prevent extreme water shortages in cities like Phoenix and Las Vegas that depend on the Colorado River",
+    "keywords": [
+      "Rivers &amp; Oceans",
+      "Planet Earth"
+    ]
+  },
+  {
+    "link": "https://www.livescience.com/planet-earth/weather/el-nino-could-be-here-by-may-new-forecast-reveals-heres-what-it-means-for-summer-weather",
+    "summary": "The climate event is poised to supercharge weather extremes and push global temperatures to new highs.",
+    "id": 2533,
+    "published_at": "2026-04-24T14:44:31",
+    "source": "Latest from Live Science",
+    "title": "El Niño could be here by May, new forecast reveals —‬ here's what it means for summer weather",
+    "keywords": [
+      "Weather",
+      "Planet Earth"
+    ]
+  },
+  {
+    "link": "https://www.livescience.com/archaeology/ancient-egyptians/egyptian-mummy-has-part-of-the-iliad-in-its-abdomen-archaeologists-discover",
+    "summary": "A papyrus that contains part of Homer's \"Iliad\" has been discovered inside the abdomen of a mummy in Egypt. Other mummies at the cemetery had gold tongues.",
+    "id": 2534,
+    "published_at": "2026-04-22T21:32:56",
+    "source": "Latest from Live Science",
+    "title": "Egyptian mummy has part of the 'Iliad' in its abdomen, archaeologists discover",
+    "keywords": [
+      "Ancient Egyptians",
+      "Archaeology"
+    ]
+  },
+  {
+    "link": "https://www.livescience.com/space/space-exploration/artemis-moon-landing-could-face-long-delay-while-nasa-waits-for-next-generation-spacesuits",
+    "summary": "Delays in next-generation spacesuits could push back Artemis moon landings to 2031, an audit by the NASA Office of Inspector General claims.",
+    "id": 2535,
+    "published_at": "2026-04-22T16:27:29",
+    "source": "Latest from Live Science",
+    "title": "Artemis moon landing could face long delay while NASA waits for next-generation spacesuits",
+    "keywords": [
+      "Space Exploration",
+      "Space"
+    ]
+  },
+  {
+    "link": "https://www.livescience.com/health/genetics/gene-therapy-improves-hearing-in-90-percent-of-patients-with-inherited-deafness-in-largest-trial-of-its-kind",
+    "summary": "A new gene therapy tested in China has improved the hearing of 38 people who were born deaf due to mutations in a gene called OTOF.",
+    "id": 2536,
+    "published_at": "2026-04-22T16:04:03",
+    "source": "Latest from Live Science",
+    "title": "Gene therapy improves hearing in 90% of patients with inherited deafness in largest trial of its kind",
+    "keywords": [
+      "Genetics",
+      "Health"
+    ]
+  },
+  {
+    "link": "https://www.scientificamerican.com/article/one-scientists-10-year-quest-to-calculate-the-strength-of-gravity/",
+    "summary": "Earth’s gravitational force,  g,  has been known for centuries. But the exact value of  G,  the universal gravitational constant, is elusive",
+    "id": 2537,
+    "published_at": "2026-04-24T20:00:00",
+    "source": "Scientific American",
+    "title": "One scientist’s 10-year quest to calculate the strength of gravity",
+    "keywords": []
+  },
+  {
+    "link": "https://www.scientificamerican.com/article/rfk-jr-praises-ibogaine-for-depression-treatment-is-the-psychedelic-a-magic-bullet/",
+    "summary": "At a Senate hearing on Wednesday, Robert F. Kennedy, Jr., referred to ibogaine as the most promising treatment for PTSD and depression “that anybody’s ever seen.” Does the science hold that up?",
+    "id": 2538,
+    "published_at": "2026-04-24T17:25:00",
+    "source": "Scientific American",
+    "title": "RFK, Jr., praises ibogaine for depression treatment. Is the psychedelic a magic bullet?",
+    "keywords": []
+  },
+  {
+    "link": "https://www.scientificamerican.com/article/rfk-jr-puts-psychedelics-on-fast-track-to-fda-review-and-approval/",
+    "summary": "The U.S. Food and Drug Administration is seeking to accelerate the review process for three companies that are studying psilocybin and an MDMA-like drug as treatments for depression and PTSD",
+    "id": 2539,
+    "published_at": "2026-04-24T16:50:00",
+    "source": "Scientific American",
+    "title": "RFK, Jr., puts psychedelics on fast track to FDA review and approval",
+    "keywords": []
+  },
+  {
+    "link": "https://www.scientificamerican.com/article/alien-comet-suggests-our-solar-system-is-the-oddball/",
+    "summary": "Measurements of this interstellar comet’s molecular makeup show an excess of heavy water molecules that is dramatically different from anything known to have ever formed around our sun",
+    "id": 2540,
+    "published_at": "2026-04-24T16:30:00",
+    "source": "Scientific American",
+    "title": "Alien comet reveals our solar system is the oddball",
+    "keywords": []
+  },
+  {
+    "link": "https://www.scientificamerican.com/article/how-darkness-might-save-migratory-birds/",
+    "summary": "Light pollution is dangerous for birds flying over towns and cities. Here’s how you can help",
+    "id": 2541,
+    "published_at": "2026-04-24T16:20:00",
+    "source": "Scientific American",
+    "title": "How darkness might save migratory birds",
+    "keywords": []
+  },
+  {
+    "link": "https://www.scientificamerican.com/article/new-jwst-images-reveal-cosmic-question-marks-and-buckyballs-in-a-planetary-nebula/",
+    "summary": "New James Webb Space Telescope images could shed fresh light on how dying stars evolve over time",
+    "id": 2542,
+    "published_at": "2026-04-24T15:15:00",
+    "source": "Scientific American",
+    "title": "New JWST images reveal cosmic question marks and buckyballs in a planetary nebula",
+    "keywords": []
+  },
+  {
+    "link": "https://www.scientificamerican.com/article/trump-administration-officially-reclassifies-state-licensed-medical-marijuana-as-schedule-iii/",
+    "summary": "The Trump administration said this move, which does not legalize marijuana for medical or recreational use under federal law, is just the start of a process to reclassify the drug more broadly",
+    "id": 2543,
+    "published_at": "2026-04-23T14:40:00",
+    "source": "Scientific American",
+    "title": "Trump administration officially reclassifies state-licensed medical marijuana as Schedule III",
+    "keywords": []
+  },
+  {
+    "link": "https://www.scientificamerican.com/article/scientists-solve-the-mystery-of-a-golden-orb-discovered-in-the-deep-sea-heres-what-it-really-is/",
+    "summary": "This enigmatic orb has undergone extensive examination and DNA testing, enabling scientists to reveal its true origins",
+    "id": 2544,
+    "published_at": "2026-04-23T14:15:00",
+    "source": "Scientific American",
+    "title": "U.S. scientists solve the mystery of a golden orb discovered in the deep sea. Here’s what it really is",
+    "keywords": []
+  },
+  {
+    "link": "https://www.scientificamerican.com/article/nasas-artemis-ii-was-a-major-success-so-why-couldnt-the-crew-flush-the-toilet/",
+    "summary": "The space environment—microgravity, extreme temperatures and more—make it near-impossible to truly test a space toilet like  Artemis II 's ahead of launch, experts say",
+    "id": 2545,
+    "published_at": "2026-04-23T13:30:00",
+    "source": "Scientific American",
+    "title": "NASA’s Artemis II was a major success—so why couldn’t the crew flush the toilet?",
+    "keywords": []
+  },
+  {
+    "link": "https://www.scientificamerican.com/article/passage-from-homers-iliad-discovered-in-the-abdomen-of-a-roman-era-egyptian-mummy/",
+    "summary": "A snippet of text from Homer’s famous epic recounting the siege of Troy was apparently placed inside this body as part of the mummification process",
+    "id": 2546,
+    "published_at": "2026-04-23T10:00:00",
+    "source": "Scientific American",
+    "title": "Passage from Homer’s Iliad discovered in the abdomen of a Roman-era Egyptian mummy",
+    "keywords": []
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/uk-news/raf-fighter-jets-shoot-down-37068425",
+    "summary": "Two Royal Air Force Eurofighters were scrambled from Romania and downed two Russian drones as Vladimir Putin’s forces attacked ports on the River Danube in Ukraine",
+    "id": 2547,
+    "published_at": "2026-04-25T06:45:15",
+    "source": "Mirror - News",
+    "title": "RAF fighter jets shoot down Russian drones over Ukraine as Putin launches attacks",
+    "keywords": [
+      "News",
+      "Russia Ukraine war",
+      "Royal Air Force",
+      "Breaking News"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/uk-news/morrisons-staffer-sacked-tackling-shoplifter-37068383",
+    "summary": "A protest has been organised to rally behind a Morrisons store manager who was controversially sacked after confronting a career criminal who became aggressive in the supermarket",
+    "id": 2548,
+    "published_at": "2026-04-25T06:37:52",
+    "source": "Mirror - News",
+    "title": "Morrison's staffer sacked for tackling shoplifter gets support in demo",
+    "keywords": [
+      "News",
+      "Morrisons",
+      "Shoplifting"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/uk-news/bbc-picks-new-strictly-presenters-37068385",
+    "summary": "The BBC has been searching for new Strictly Come Dancing presenters after Tess Daly and Claudia Winkleman left the show and an insider has said the bosses made a decision on Friday",
+    "id": 2549,
+    "published_at": "2026-04-25T06:23:21",
+    "source": "Mirror - News",
+    "title": "BBC picks new Strictly presenters after months of searching, insider says",
+    "keywords": [
+      "News",
+      "BBC",
+      "Strictly Come Dancing"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/real-life-stories/woman-uks-biggest-boobs-wont-37005788",
+    "summary": "Summer Robert, 28, thinks she has the biggest boobs in the UK. They're so large that she struggles to cover them up, but she refuses to hide them just because they \"offend people\"",
+    "id": 2550,
+    "published_at": "2026-04-25T06:07:00",
+    "source": "Mirror - News",
+    "title": "Woman with 'UK's biggest boobs' won't cover up cleavage because it 'offends people'",
+    "keywords": [
+      "News",
+      "Boobs",
+      "Body image"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/royals/royal-family-ageing-monarchy-kate-37061521",
+    "summary": "A new portrait of the working members of the Firm was released on the late Queen’s centenary, which prompted many royal fans to question the state of the ageing monarchy",
+    "id": 2551,
+    "published_at": "2026-04-25T06:00:00",
+    "source": "Mirror - News",
+    "title": "Royal Family 'has an image problem' but 'must face up to biggest danger'",
+    "keywords": [
+      "News",
+      "Duke of Gloucester",
+      "Duke of Kent",
+      "Birgitte",
+      "Duchess of Gloucester",
+      "Jennie Bond",
+      "Anne",
+      "Princess Royal",
+      "Prince William",
+      "Buckingham Palace",
+      "Royal Family",
+      "King Charles III",
+      "Kate Middleton"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/royals/no-bowing-personal-gifts-garlic-37065803",
+    "summary": "As King Charles heads to the US on what is considered the most important diplomatic visit of his reign so far, former Palace and White House insiders reveal what happens behind the scenes",
+    "id": 2552,
+    "published_at": "2026-04-25T06:00:00",
+    "source": "Mirror - News",
+    "title": "No bowing, personal gifts and a garlic ban - King Charles' US trip's 'most extensive' briefing notes",
+    "keywords": [
+      "News",
+      "Royal Family",
+      "King Charles III",
+      "Michelle Obama",
+      "Iain Dale",
+      "Donald Trump",
+      "The Queen",
+      "Princess Diana",
+      "John Travolta",
+      "George H. W. Bush",
+      "Barack Obama",
+      "King George VI",
+      "Franklin D. Roosevelt",
+      "Buckingham Palace",
+      "Special relationship",
+      "Queen Camilla"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/politics/keir-starmer-mandelson-morgan-mcsweeney-37066313",
+    "summary": "Keir Starmer survived a week from hell as the Peter Mandelson fallout continued to chip away at the Government, and the prospect of Morgan McSweeney giving evidence won't make for a restful weekend",
+    "id": 2553,
+    "published_at": "2026-04-25T06:00:00",
+    "source": "Mirror - News",
+    "title": "Keir Starmer stumbles through Peter Mandelson crisis - but next week could be worse",
+    "keywords": [
+      "News",
+      "Donald Trump",
+      "Foreign Office",
+      "Labour Party",
+      "Politics",
+      "Keir Starmer",
+      "Peter Mandelson"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/politics/donald-trumps-chaotic-week-wild-37068296",
+    "summary": "Donald Trump's week ended almost exactly where it started - but took a pretty wild route to get there. Here's all the mayhem you might have missed",
+    "id": 2554,
+    "published_at": "2026-04-25T06:00:00",
+    "source": "Mirror - News",
+    "title": "Donald Trump's chaotic week of wild outbursts, sinister purges and getting ghosted by Iran",
+    "keywords": [
+      "News",
+      "Donald Trump"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/world-news/hikers-climbing-death-trail-run-37068349",
+    "summary": "Footage shows a group of hikers running down the side of a volcano in Santiaguito, Guatemala as it erupts - the ascent of the volcano is prohibited by authorities",
+    "id": 2555,
+    "published_at": "2026-04-25T05:01:51",
+    "source": "Mirror - News",
+    "title": "Hikers climbing 'death trail' run down side of volcano as thick ash and rock erupts",
+    "keywords": [
+      "News",
+      "Volcanoes"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/health/bbc-doctors-simple-morning-habit-37060785",
+    "summary": "The best habit to change comes hours before it is time to go to bed, an expert claims",
+    "id": 2556,
+    "published_at": "2026-04-25T05:00:00",
+    "source": "Mirror - News",
+    "title": "BBC doctor's 'simple' morning habit helps improve sleep quality at night",
+    "keywords": [
+      "News",
+      "Sleep",
+      "Insomnia",
+      "Morning Live",
+      "BBC",
+      "NHS"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/us-news/virginia-giuffre-family-newsnight-charles-37068192",
+    "summary": "Although King Charles and Queen Camilla will meet Donald Trump during their four-day visit in the US, pressure grows for the monarch to meet Virginia Giuffre's loved ones",
+    "id": 2557,
+    "published_at": "2026-04-24T22:51:27",
+    "source": "Mirror - US News",
+    "title": "Family of Virginia Giuffre's emotional plea for King Charles to meet them in US",
+    "keywords": [
+      "US News",
+      "Newsnight",
+      "Royal Family",
+      "Politics",
+      "Virginia Roberts"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/us-news/trump-pope-firing-squad-executions-37067852",
+    "summary": "The Trump administration has revealed plans for firing squad executions as it expands the federal death penalty in the US - Pope Leo appears to have responded",
+    "id": 2558,
+    "published_at": "2026-04-24T20:14:42",
+    "source": "Mirror - US News",
+    "title": "Pope hits out at Donald Trump once again over plans for firing squad executions",
+    "keywords": [
+      "US News",
+      "Pope Leo XIV",
+      "Donald Trump",
+      "Breaking News",
+      "Death Penalty"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/uk-news/falklands-war-simon-weston-trump-37067233",
+    "summary": "Falklands veteran Simon Weston said Donald Trump was having a 'hissy fit' over Britain's refusal to back the Iran war after leaked Pentagon emails signalled a change in the White House's position",
+    "id": 2559,
+    "published_at": "2026-04-24T18:57:49",
+    "source": "Mirror - US News",
+    "title": "Falklands war hero Simon Weston slams Donald Trump's 'hissy fit' plans to hand islands to Argentina",
+    "keywords": [
+      "US News",
+      "Falklands War",
+      "Simon Weston",
+      "Donald Trump",
+      "Nigel Farage",
+      "Yvette Cooper",
+      "The Falklands",
+      "Politics"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/world-news/iran-trump-war-live-vance-37067492",
+    "summary": "Donald Trump has reportedly said Iran plans to make an offer satisfying US demands as his envoys Steve Witkoff and Jared Kushner head to Pakistan",
+    "id": 2560,
+    "published_at": "2026-04-24T17:36:15",
+    "source": "Mirror - US News",
+    "title": "Iran war live: Trump claims Tehran 'making an offer' as US team heads for talks",
+    "keywords": [
+      "US News",
+      "Jared Kushner",
+      "Donald Trump",
+      "Iran",
+      "JD Vance",
+      "Middle East"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/us-news/urgent-health-alert-issued-over-37057017",
+    "summary": "Health officials have warned that one person was diagnosed with the highly infectious disease after travelling internationally and moving through a busy airport",
+    "id": 2561,
+    "published_at": "2026-04-23T01:44:17",
+    "source": "Mirror - US News",
+    "title": "Urgent health alert issued over measles exposure at major airport",
+    "keywords": [
+      "US News",
+      "Measles",
+      "CBS Corporation"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/us-news/west-virginia-chemical-spill-leaves-37056488",
+    "summary": "Two people have died and 19 others have been hospitalised after a chemical spill at the Catalyst Refiners plant, a silver recovery business in Institute, West Virginia",
+    "id": 2562,
+    "published_at": "2026-04-22T19:32:58",
+    "source": "Mirror - US News",
+    "title": "West Virginia chemical spill leaves two dead and at least 19 hurt after 'violent reaction'",
+    "keywords": [
+      "US News",
+      "Breaking News",
+      "United States",
+      "Emergency"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/us-news/extraordinarily-brilliant-trump-claims-election-37056306",
+    "summary": "Donald Trump has claimed a referendum to redraw Virginia's congressional map, which was pushed through by Democrat-leaning areas, was rigged",
+    "id": 2563,
+    "published_at": "2026-04-22T18:07:55",
+    "source": "Mirror - US News",
+    "title": "'Extraordinarily brilliant' Trump claims 'election rigged' and calls for 'justice'",
+    "keywords": [
+      "US News",
+      "Donald Trump",
+      "Referendum",
+      "Politics",
+      "Breaking News"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/us-news/amanda-knox-now-documentary-meredith-37047656",
+    "summary": "Amanda Knox continues to make headlines almost two decades after she was convicted - and later exonerated - for the murder of student Meredith Kercher in Italy in 2007",
+    "id": 2564,
+    "published_at": "2026-04-22T15:07:59",
+    "source": "Mirror - US News",
+    "title": "Amanda Knox now from space wedding to 'prison wear' and Lucy Letby 'findings'",
+    "keywords": [
+      "US News",
+      "Lorena Bobbitt",
+      "Meredith Kercher",
+      "Christopher Robinson",
+      "Amanda Knox",
+      "Hospitals",
+      "Pregnancy",
+      "Prisons",
+      "Weddings",
+      "Wedding day",
+      "Crime"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/us-news/chatgpt-advice-florida-mass-shooting-37054814",
+    "summary": "Florida prosecutors have said they will determine 'criminal culpability' for OpenAI, the owner of ChatGPT, after it was found to have advised an alleged Tallahassee university mass shooter",
+    "id": 2565,
+    "published_at": "2026-04-22T15:06:25",
+    "source": "Mirror - US News",
+    "title": "ChatGPT faces probe after it 'offered significant advice' in horror Florida mass shooting that killed 2",
+    "keywords": [
+      "US News",
+      "Apps",
+      "Crime",
+      "ChatGPT",
+      "Mass shootings"
+    ]
+  },
+  {
+    "link": "https://www.mirror.co.uk/news/us-news/elko-airport-shooting-father-son-37054356",
+    "summary": "Callan West Perez, 11, was shot multiple times in the toilets at Elko International Airport in Nevada - armed police swarmed the airport following reports of an active shooter",
+    "id": 2566,
+    "published_at": "2026-04-22T13:44:59",
+    "source": "Mirror - US News",
+    "title": "Nevada airport in lockdown as shooting erupts and boy, 11, killed in toilet",
+    "keywords": [
+      "US News",
+      "Crime",
+      "United States",
+      "Gun crime"
+    ]
+  },
+  {
+    "link": "https://www.stocktitan.net/news/PONY/pony-ai-announces-new-generation-autonomous-driving-compute-platform-cwsd9eie06zb.html",
+    "summary": "",
+    "id": 2567,
+    "published_at": "2026-04-25T07:00:00",
+    "source": "Latest News | Stock Titan",
+    "title": "Pony.ai Announces New Generation Autonomous Driving Compute Platform Built on NVIDIA DRIVE Hyperion | PONY Stock News",
+    "keywords": []
   }
 ]
