@@ -234,8 +234,8 @@ ingestion:
       
       - https://satnews.com/feed/
       
-      - https://www.stocktitan.net/rss
-      - https://www.nasdaq.com/feed/rssoutbound?category=IPOs
+      # - https://www.stocktitan.net/rss
+      # - https://www.nasdaq.com/feed/rssoutbound?category=IPOs
       - 
 
 agents:
