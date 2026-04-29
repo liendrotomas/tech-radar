@@ -233,6 +233,7 @@ ingestion:
       - https://www.mirror.co.uk/news/us-news/?service=rss
       
       - https://satnews.com/feed/
+      - https://stanfordreview.org/latest/rss/
       
       # - https://www.stocktitan.net/rss
       # - https://www.nasdaq.com/feed/rssoutbound?category=IPOs
