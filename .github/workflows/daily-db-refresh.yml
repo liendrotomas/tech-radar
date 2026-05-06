@@ -71,6 +71,12 @@ jobs:
             exit 1
           fi
 
+      - name: Remove noise from database
+        shell: bash
+        run: |
+          echo "Removing noise from the database..."
+          uv run python src/utils/remove_noise.py --founder-name "Tomas Liendro"
+
       - name: Refresh SQLite database
         shell: bash
         run: |
