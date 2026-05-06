@@ -1,6 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "Sebastian Calvera",
   "id": 2,
+=======
+>>>>>>> f5aeec7fa12136a5766d8a2cb18c5d743e721f0c
   "profile": {
     "archetype": "Deep-Tech Analytical Engineer / Future Technical Leader",
     "mission": "Develop high-impact engineering systems across space, energy, and health domains",
@@ -98,5 +101,11 @@
       ]
     },
     "long_term_potential": "Technical leader in deep-tech industries (space, energy, robotics), with potential to evolve into CTO-level roles if market and product exposure are developed"
+<<<<<<< HEAD
   }
+=======
+  },
+  "name": "Sebastian Calvera",
+  "id": 2
+>>>>>>> f5aeec7fa12136a5766d8a2cb18c5d743e721f0c
 }
