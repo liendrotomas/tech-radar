@@ -21,16 +21,16 @@ on:
         description: Generate opportunities
         required: false
         type: boolean
-        default: true
+        default: false
       skip_score_opps:
         description: Skip scoring opportunities
         required: false
         type: boolean
-        default: false
+        default: true
       max_opps:
         description: Max opportunities to generate
         required: false
-        default: "10"
+        default: "0"
 
 permissions:
   contents: write
