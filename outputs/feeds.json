@@ -54619,47 +54619,11 @@
     ]
   },
   {
-    "id": 17057,
-    "title": "Invisible Orchestrators Suppress Protective Behavior and Dissociate Power-Holders: Safety Risks in Multi-Agent LLM Systems",
-    "source": "cs.AI updates on arXiv.org",
-    "summary": "arXiv:2605.13851v1 Announce Type: new \nAbstract: Multi-agent orchestration -- in which a hidden coordinator manages specialized worker agents -- is becoming the default architecture for enterprise AI deployment, yet the safety implications of orchestrator invisibility have never been empirically tested. We conducted a preregistered 3x2 experiment (365 runs, 5 agents per run) crossing three organizational structures (visible leader, invisible orchestrator, flat) with two alignment conditions (base, heavy), using Claude Sonnet 4.5. Four confirmatory findings and one pilot observation emerged. First, invisible orchestration elevated collective dissociation relative to visible leadership (Hedges' g = +0.975 [0.481, 1.548], p = .001). Second, the orchestrator itself showed maximal dissociation (paired d = +3.56 vs. workers within the same run), retreating into private monologue while reducing public speech -- a reversal of the talk-dominance pattern observed in visible leaders. Third, workers unaware of the orchestrator were nonetheless contaminated (d = +0.50), with increased behavioral heterogeneity (d = +1.93). Fourth, behavioral output (code review with three embedded errors) remained at ceiling (ETR_any = 100%) across all conditions: internal-state distortion was entirely invisible to output-based evaluation. Fifth, Llama 3.3 70B pilot data showed reading-fidelity collapse in multi-agent context (ETR_any: 89% to 11% across three rounds), demonstrating model-dependent behavioral risk. Heavy alignment pressure uniformly suppressed deliberation (d = -1.02) and other-recognition (d = -1.27) regardless of organizational structure. These findings indicate that orchestrator visibility and model selection directly affect multi-agent system safety, and that behavior-based evaluation alone is insufficient to detect the internal-state risks documented here.",
-    "link": "https://arxiv.org/abs/2605.13851",
-    "published_at": "2026-05-16T04:00:00",
-    "keywords": [
-      "cs.AI",
-      "cs.CY",
-      "cs.MA"
-    ]
-  },
-  {
-    "id": 17058,
-    "title": "PREPING: Building Agent Memory without Tasks",
-    "source": "cs.AI updates on arXiv.org",
-    "summary": "arXiv:2605.13880v1 Announce Type: new \nAbstract: Agent memory is typically constructed either offline from curated demonstrations or online from post-deployment interactions. However, regardless of how it is built, an agent faces a cold-start gap when first introduced to a new environment without any task-specific experience available. In this paper, we study pre-task memory construction: whether an agent can build procedural memory before observing any target-environment tasks, using only self-generated synthetic practice. Yet, synthetic interaction alone is insufficient, as without controlling what to practice and what to store, synthetic tasks become redundant, infeasible, and ultimately uninformative, and memory further degrades quickly due to unfiltered trajectories. To overcome this, we present Preping, a proposer-guided memory construction framework. At its core is proposer memory, a structured control state that shapes future practice. A Proposer generates synthetic tasks conditioned on this state, a Solver executes them, and a Validator determines which trajectories are eligible for memory insertion while also providing feedback to guide future proposals. Experiments on AppWorld, BFCL v3, and MCP-Universe show that Preping substantially improves over a no-memory baseline and achieves performance competitive with strong playbook-based methods built from offline or online experience, with deployment cost $2.99\\times$ lower on AppWorld and $2.23\\times$ lower on BFCL v3 than online memory construction. Further analyses reveal that the main benefit does not come from synthetic volume alone, but from proposer-side control over feasibility, redundancy, and coverage, combined with selective memory updates.",
-    "link": "https://arxiv.org/abs/2605.13880",
-    "published_at": "2026-05-16T04:00:00",
-    "keywords": [
-      "cs.AI",
-      "cs.CL"
-    ]
-  },
-  {
     "id": 17059,
     "title": "PolitNuggets: Benchmarking Agentic Discovery of Long-Tail Political Facts",
     "source": "cs.AI updates on arXiv.org",
     "summary": "arXiv:2605.14002v1 Announce Type: new \nAbstract: Large Reasoning Models (LRMs) embedded in agentic frameworks have transformed information retrieval from static, long context question answering into open-ended exploration. Yet real world use requires models to discover and synthesize \"long-tail\" facts from dispersed sources, a capability that remains under-evaluated. We introduce PolitNuggets, a multilingual benchmark for agentic information synthesis via constructing political biographies for 400 global elites, covering over 10000 political facts. We standardize evaluation with an optimized multi agent system and propose FactNet, an evidence conditional protocol that scores discovery, fine-grained accuracy, and efficiency. Across models and settings, we find that current systems often struggle with fine-grained details, and vary substantially in efficiency. Finally, using benchmark diagnostics, we relate agent performance to underlying model capabilities, highlighting the importance of short-context extraction, multilingual robustness, and reliable tool use.",
     "link": "https://arxiv.org/abs/2605.14002",
-    "published_at": "2026-05-16T04:00:00",
-    "keywords": [
-      "cs.AI"
-    ]
-  },
-  {
-    "id": 17060,
-    "title": "Conditional Attribute Estimation with Autoregressive Sequence Models",
-    "source": "cs.AI updates on arXiv.org",
-    "summary": "arXiv:2605.14004v1 Announce Type: new \nAbstract: Generative models are often trained with a next-token prediction objective, yet many downstream applications require the ability to estimate or control sequence-level properties. Next-token prediction can lead to overfitting of local patterns during training, underfitting of global structure, and requires significant downstream modifications or expensive sampling to guide or predict the global attributes of generated samples at inference time. Here, we introduce Conditional Attribute Transformers, a novel method for jointly estimating the next-token probability and the value of an attribute conditional on each potential next token selection. This framework enables three critical capabilities within a single forward pass, without modification of the input sequence: (1) per-token credit assignment across an entire sequence, by identifying how each token in a sequence is associated with an attribute's value; (2) counterfactual analysis, by quantifying attribute differences conditional on alternative next token choices; (3) steerable generation, by decoding sequences based on a combination of next-token and attribute likelihoods. Our approach achieves state of the art performance on sparse reward tasks, improves next-token prediction at sufficient model sizes, estimates attribute probabilities orders of magnitude faster than sampling, and can guide decoding of autoregressive sequence models on a range of language tasks.",
-    "link": "https://arxiv.org/abs/2605.14004",
     "published_at": "2026-05-16T04:00:00",
     "keywords": [
       "cs.AI"
@@ -54691,20 +54655,6 @@
     ]
   },
   {
-    "id": 17063,
-    "title": "Enhanced and Efficient Reasoning in Large Learning Models",
-    "source": "cs.AI updates on arXiv.org",
-    "summary": "arXiv:2605.14036v1 Announce Type: new \nAbstract: In current Large Language Models we can trust the production of smoothly flowing prose on the basis of the principles of machine learning. However, there is no comparably principled basis to justify trust in the content of the text produced. It appears to be conventional wisdom that addressing this issue by adding more principled reasoning is not computationally affordable.\n  Here we propose a principled method of reasoning that is efficient enough to be practical for large language models. Further, the method allows the retention of much of the currently used software and hardware base. Our method for improving the functioning of large language models consists of a first stage of preprocessing that recodes the data to a Unary Relational Integracode that is more explicit about the relationships among the objects described in the text, followed as a second stage by a standard but possibly streamlined machine learning process that then also learns to predict these relationships.\n  The method may be viewed as realizing a world model and applying beyond natural language, to vision and actions, for example, where the multiple properties of an object referred to in an input are brought together explicitly, rather than remaining distributed in the various references to it in the input. We articulate its advantages in terms of Robust Logic, a system for performing principled chaining on learned, and hence uncertain, information. We show that this recoding has the surprising and fortuitous property that, while succinct, it makes the task of learning a core subset of relational rules that hold in the world described in the training data polynomial time learnable in a defined sense, the polynomial depending on the complexity of the rule. This gives support for sound reasoning within each single call of the learned classifier as well as between multiple calls.",
-    "link": "https://arxiv.org/abs/2605.14036",
-    "published_at": "2026-05-16T04:00:00",
-    "keywords": [
-      "cs.AI",
-      "cs.CC",
-      "cs.CL",
-      "cs.LG"
-    ]
-  },
-  {
     "id": 17064,
     "title": "Model-Adaptive Tool Necessity Reveals the Knowing-Doing Gap in LLM Tool Use",
     "source": "cs.AI updates on arXiv.org",
@@ -54713,18 +54663,6 @@
     "published_at": "2026-05-16T04:00:00",
     "keywords": [
       "cs.AI"
-    ]
-  },
-  {
-    "id": 17065,
-    "title": "Network-Aware Bilinear Tokenization for Brain Functional Connectivity Representation Learning",
-    "source": "cs.AI updates on arXiv.org",
-    "summary": "arXiv:2605.14048v1 Announce Type: new \nAbstract: Masked autoencoders (MAEs) have recently shown promise for self-supervised representation learning of resting-state brain functional connectivity (FC). However, a fundamental question remains unresolved: how should FC matrices be tokenized to align with the intrinsic modular organization of large-scale brain networks? Existing approaches typically adopt region-centric or graph-based schemes that treat FC as structurally homogeneous elements and overlook the large-scale network brain organization. We introduce NERVE (Network-Aware Representations of Brain Functional Connectivity via Bilinear Tokenization), a self-supervised learning framework that redefines FC tokenization by partitioning FC matrices into patches of intra- and inter-network connectivity blocks. Unlike image-based MAE, where fixed-size patches share a common tokenizer, FC patches defined by network pairs are heterogeneous in size and correspond to distinct functional roles. To resolve this problem, NERVE embeds FC patches through a novel structured bilinear factorization. This formulation preserves network identity and reduces parameter complexity from quadratic to linear scaling in the number of networks. We evaluate NERVE across three large-scale developmental cohorts (ABCD, PNC, and CCNP) for behavior and psychopathology prediction. Compared to structurally agnostic MAE variants and graph-based self-supervised baselines, the proposed network-aware formulation yields more stable and transferable representations, particularly in cross-cohort evaluation. Ablation studies confirm that the proposed bilinear network embedding and anatomically grounded parcellation are critical for performance. These findings highlight the importance of incorporating domain-specific structural priors into self-supervised learning for functional connectomics.",
-    "link": "https://arxiv.org/abs/2605.14048",
-    "published_at": "2026-05-16T04:00:00",
-    "keywords": [
-      "cs.AI",
-      "cs.LG"
     ]
   },
   {
@@ -54758,35 +54696,6 @@
     ]
   },
   {
-    "id": 17068,
-    "title": "A hotel check-in system left a million passports and driver’s licenses open for anyone to see",
-    "source": "TechCrunch",
-    "summary": "The tech company that maintains the hotel check-in system set its cloud storage to public, allowing anyone to access customers' data without a password.",
-    "link": "https://techcrunch.com/2026/05/15/a-hotel-check-in-system-left-a-million-passports-and-drivers-licenses-open-for-anyone-to-see/",
-    "published_at": "2026-05-15T18:51:33",
-    "keywords": [
-      "Security",
-      "age verification",
-      "cybersecurity",
-      "data exposure",
-      "Exclusive"
-    ]
-  },
-  {
-    "id": 17069,
-    "title": "Silicon Valley’s vacationland needs a new energy provider just as AI is driving prices up",
-    "source": "TechCrunch",
-    "summary": "Lake Tahoe, Silicon Valley's favorite vacation spot, is about to get hit with higher energy prices as AI drives demand for electricity.",
-    "link": "https://techcrunch.com/2026/05/15/silicon-valleys-vacationland-needs-a-new-energy-provider-just-as-ai-is-driving-prices-up/",
-    "published_at": "2026-05-15T18:14:44",
-    "keywords": [
-      "AI",
-      "Climate",
-      "electrical grid",
-      "Lake Tahoe"
-    ]
-  },
-  {
     "id": 17070,
     "title": "Tesla reveals two Robotaxi crashes involving teleoperators",
     "source": "TechCrunch",
@@ -54803,83 +54712,6 @@
     ]
   },
   {
-    "id": 17071,
-    "title": "OpenAI launches ChatGPT for personal finance, will let you connect bank accounts",
-    "source": "TechCrunch",
-    "summary": "Once users connect their accounts, they will see a dashboard of their portfolio performance, spending, subscriptions, and upcoming payments.",
-    "link": "https://techcrunch.com/2026/05/15/openai-launches-chatgpt-for-personal-finance-will-let-you-connect-bank-accounts/",
-    "published_at": "2026-05-15T16:00:00",
-    "keywords": [
-      "AI",
-      "ChatGPT",
-      "finance",
-      "OpenAI"
-    ]
-  },
-  {
-    "id": 17072,
-    "title": "Power prices are up 76% on America’s biggest grid, and a watchdog is pointing fingers",
-    "source": "TechCrunch",
-    "summary": "The price spike is a reminder of a deeper problem: The U.S. power grid was not designed for the electricity demands of an AI-driven economy, and the gap between what the grid can deliver and what the industry needs is widening.",
-    "link": "https://techcrunch.com/2026/05/15/power-prices-are-up-76-on-americas-biggest-grid-and-a-watchdog-is-pointing-fingers/",
-    "published_at": "2026-05-15T15:45:53",
-    "keywords": [
-      "Climate",
-      "data centers",
-      "electrical grid",
-      "electricity"
-    ]
-  },
-  {
-    "id": 17073,
-    "title": "US orders travelers on Air Force One to throw away gifts, pins, and burner phones after China trip",
-    "source": "TechCrunch",
-    "summary": "While the summit appeared cordial, China remains a key adversary of the United States, given its advanced intelligence and espionage capabilities.",
-    "link": "https://techcrunch.com/2026/05/15/us-orders-travelers-on-air-force-one-to-throw-away-gifts-pins-and-burner-phones-after-china-trip/",
-    "published_at": "2026-05-15T15:42:11",
-    "keywords": [
-      "Security",
-      "China",
-      "cybersecurity",
-      "Donald Trump",
-      "espionage",
-      "In Brief",
-      "OPSEC",
-      "U.S. government",
-      "White House"
-    ]
-  },
-  {
-    "id": 17074,
-    "title": "Runway started by helping filmmakers — now it wants to beat Google at AI",
-    "source": "TechCrunch",
-    "summary": "AI video-generation startup Runway is betting that video generation is the path to world models. And that being an AI outsider is an advantage, not a liability.",
-    "link": "https://techcrunch.com/2026/05/15/runway-started-by-helping-filmmakers-now-it-wants-to-beat-google-at-ai/",
-    "published_at": "2026-05-15T14:00:00",
-    "keywords": [
-      "AI",
-      "Media & Entertainment",
-      "AI video generation",
-      "Exclusive",
-      "runway",
-      "video intelligence",
-      "world models"
-    ]
-  },
-  {
-    "id": 17075,
-    "title": "Even GoPro is pivoting to defense",
-    "source": "TechCrunch",
-    "summary": "The action camera maker, like so many other companies these days, is looking to defense applications as it evaluates a possible sale.",
-    "link": "https://techcrunch.com/2026/05/15/even-gopro-is-pivoting-to-defense/",
-    "published_at": "2026-05-15T13:14:13",
-    "keywords": [
-      "Gadgets",
-      "defense",
-      "GoPro"
-    ]
-  },
-  {
     "id": 17076,
     "title": "Anthropic and the Gates Foundation are betting $200 million that AI can do more than make money",
     "source": "The Next Web",
@@ -54889,18 +54721,6 @@
     "keywords": [
       "Anthropic",
       "Artificial Intelligence"
-    ]
-  },
-  {
-    "id": 17077,
-    "title": "Eighteen48 raises EUR175 million to back the private equity deals no one else sees",
-    "source": "The Next Web",
-    "summary": "Eighteen48 Partners, the London-based alternative asset manager co-founded by Julien Sevaux, Tarek AbuZayyad, and Edward Clive, has closed €175 million for the first tranche of its inaugural private equity fund. The fund is targeting €350 million in total and will back mid-market buyouts across Europe, sourced exclusively through independent sponsors, dealmakers who find and […] \n This story continues  at The Next Web",
-    "link": "https://thenextweb.com/news/eighteen48-private-equity-independent-sponsors-europe",
-    "published_at": "2026-05-15T18:05:35",
-    "keywords": [
-      "Investors and funding",
-      "UK"
     ]
   },
   {
@@ -54918,79 +54738,6 @@
     ]
   },
   {
-    "id": 17079,
-    "title": "Revolut is offering every employee GBP1,000 to sell business banking. The real prize is a $200 billion IPO.",
-    "source": "The Next Web",
-    "summary": "Revolut’s chief executive, Nik Storonsky, has told employees across the company that business banking is now its top priority, and is offering each of them £1,000 to prove he means it. In a memo sent to staff on Friday, Storonsky asked everyone, regardless of department, to help bring in new business customers, send pitches […] \n This story continues  at The Next Web",
-    "link": "https://thenextweb.com/news/revolut-business-banking-b2b-storonsky-growth",
-    "published_at": "2026-05-15T16:34:32",
-    "keywords": [
-      "Fintech and ecommerce",
-      "Next Featured"
-    ]
-  },
-  {
-    "id": 17080,
-    "title": "Bolt is betting that South Africa’s next ride will be a Chinese electric car",
-    "source": "The Next Web",
-    "summary": "Bolt Technology, the Estonian ride-hailing company that has spent roughly $180 million building a dominant position in South Africa, has struck a deal with China’s Dongfeng Motor Group to roll out an electric-vehicle fleet in the country. The partnership will start in Cape Town, with Dongfeng’s Box hatchback and its more premium 007 sedan […] \n This story continues  at The Next Web",
-    "link": "https://thenextweb.com/news/bolt-is-betting-that-south-africas-next-ride-will-be-a-chinese-electric-car",
-    "published_at": "2026-05-15T15:53:51",
-    "keywords": [
-      "Electric vehicle",
-      "Next Featured"
-    ]
-  },
-  {
-    "id": 17081,
-    "title": "How tokenized real-world assets are solving crypto’s counterparty dilemma",
-    "source": "The Next Web",
-    "summary": "Modern derivatives and digital asset markets operate under a persistent drag of operational friction. A recent Nasdaq survey reveals that 70% of global firms experience settlement failures on a daily basis. This structural inefficiency forces institutions to maintain excess overnight collateral buffers, tying up capital that could otherwise generate returns. The inability to mobilize assets […] \n This story continues  at The Next Web",
-    "link": "https://thenextweb.com/news/tokenized-real-world-assets-solving-crypto-counterparty-dilemma",
-    "published_at": "2026-05-15T15:41:41",
-    "keywords": [
-      "blockchain",
-      "cryptocurrency"
-    ]
-  },
-  {
-    "id": 17082,
-    "title": "AI gave North Korean hackers a $600 million month. DeFi is still working out how to respond.",
-    "source": "The Next Web",
-    "summary": "The two hacks came a little over two weeks apart. On 1 April, attackers drained roughly $285 million from Drift Protocol, a Solana-based derivatives exchange, after spending months posing as a quantitative trading firm to trick employees into authorising malicious transactions. On 18 April, a separate group exploited a single-verifier flaw in Kelp DAO’s […] \n This story continues  at The Next Web",
-    "link": "https://thenextweb.com/news/ai-crypto-hacking-defi-north-korea-april-exploits",
-    "published_at": "2026-05-15T14:59:55",
-    "keywords": [
-      "blockchain",
-      "cryptocurrency"
-    ]
-  },
-  {
-    "id": 17083,
-    "title": "Trump leaves Beijing saying he and Xi talked AI guardrails. Nothing was signed.",
-    "source": "The Next Web",
-    "summary": "Asked what kind of guardrails on the way out, the US president told reporters on Air Force One: ‘standard guardrails that we talk about all the time’. H200 deliveries to ten cleared Chinese buyers remain stalled. Donald Trump told reporters on Air Force One on Friday that he and Xi Jinping discussed AI guardrails and […] \n This story continues  at The Next Web",
-    "link": "https://thenextweb.com/news/trump-xi-beijing-ai-guardrails-nvidia-h200",
-    "published_at": "2026-05-15T13:20:33",
-    "keywords": [
-      "Artificial Intelligence",
-      "United States",
-      "Next Featured"
-    ]
-  },
-  {
-    "id": 17084,
-    "title": "Musk’s X commits to UK regulator on hate speech, with Grok probe still open",
-    "source": "The Next Web",
-    "summary": "Elon Musk’s platform has agreed to review illegal hate and terrorism posts within a day on average, restrict UK-proscribed groups, and report quarterly to the regulator. A separate Ofcom investigation continues. X has agreed to a set of commitments on illegal hate speech and terrorist content with Ofcom, Britain’s communications regulator said on Friday, after […] \n This story continues  at The Next Web",
-    "link": "https://thenextweb.com/news/x-ofcom-hate-speech-terror-takedown-uk",
-    "published_at": "2026-05-15T13:11:55",
-    "keywords": [
-      "Government and policy",
-      "Next Featured"
-    ]
-  },
-  {
     "id": 17085,
     "title": "The Winklevoss twins paid 2.5x the share price to lift Gemini off the floor",
     "source": "The Next Web",
@@ -55003,7 +54750,357 @@
     ]
   },
   {
-    "id": 17086,
+    "id": 17104,
+    "title": "Musk v. Altman week 3: Musk and Altman traded blows over each other’s credibility. Now the jury will pick a side.",
+    "source": "MIT Technology Review",
+    "summary": "In the final week of the Musk v. Altman trial, lawyers traded blows over Elon Musk’s and OpenAI CEO Sam Altman’s credibility. Altman was grilled on his alleged history of lying and self-dealing involving companies that do business with OpenAI. But he fired back, painting Musk as a power-seeker who wanted to control the development…",
+    "link": "https://www.technologyreview.com/2026/05/15/1137357/musk-v-altman-week-3/",
+    "published_at": "2026-05-15T23:39:35",
+    "keywords": [
+      "Artificial intelligence",
+      "App"
+    ]
+  },
+  {
+    "id": 17107,
+    "title": "How Chinese short dramas became AI content machines",
+    "source": "MIT Technology Review",
+    "summary": "In a dimly lit bedroom, a frightened young woman is thrown onto a bed by a tall, muscular man. He grabs her hand, and flame-like vines crawl across her body, fusing with her flesh. She levitates, then drops. A dragon-shaped tattoo appears across her chest. “Two months,” the man says. “Give me an heir, or…",
+    "link": "https://www.technologyreview.com/2026/05/15/1137326/chinese-short-dramas-ai/",
+    "published_at": "2026-05-15T09:00:00",
+    "keywords": [
+      "Artificial intelligence",
+      "App"
+    ]
+  },
+  {
+    "id": 17128,
+    "title": "Meridian Ventures launched a $35M fund with a focus on MBA-deferred founders",
+    "source": "TechCrunch",
+    "summary": "This new fund will back founders building enterprise technology in the United States. Meridian is agnostic, co-founder Devon Gethers said, noting that the firm has already invested in companies in fintech, logistics, healthcare, and of course, AI.",
+    "link": "https://techcrunch.com/2026/05/15/meridian-ventures-launched-35m-fund-to-back-mba-deferred-founders/",
+    "published_at": "2026-05-15T13:00:00",
+    "keywords": [
+      "Enterprise",
+      "Startups",
+      "Venture",
+      "Meridian Ventures"
+    ]
+  },
+  {
+    "id": 17166,
+    "title": "Arctic Doctoral Dissertation Research Improvement Grants Arctic Social Sciences, Arctic System Sciences, and Arctic Observing Network (DDRIG)",
+    "source": "NSF Upcoming Due Dates",
+    "summary": "Full Proposal Deadline Date: June 15, 2026 Program Guidelines: NSF 20-597 The National Science Foundation (NSF) invites investigators at U.S. organizations to submit proposals for Doctoral Dissertation Research Improvement Grants (DDRIGs) to the Arctic Sciences Section, Office of Polar Programs (OPP) to conduct dissertation-level research about and related to the ... More at https://www.nsf.gov/funding/opportunities This is an NSF Upcoming Due Dates item.",
+    "link": "https://www.nsf.gov/funding/opportunities/ddrig-arctic-doctoral-dissertation-research-improvement-grants/nsf20-597",
+    "published_at": "2026-05-16T07:58:24.163286",
+    "keywords": []
+  },
+  {
+    "id": 17196,
+    "title": "I thought my backyard had too much light pollution for astrophotography. This telescope proved me wrong",
+    "source": "Latest from Space.com",
+    "summary": "Surrounded by streetlights and terraced houses, I never expected to capture detailed deep-space images from my backyard until I tried the Vaonis Vespera Pro telescope.",
+    "link": "https://www.space.com/stargazing/astrophotography/i-thought-my-backyard-had-too-much-light-pollution-for-astrophotography-this-telescope-proved-me-wrong",
+    "published_at": "2026-05-15T15:00:00",
+    "keywords": [
+      "Astrophotography",
+      "Stargazing"
+    ]
+  },
+  {
+    "id": 17198,
+    "title": "James Webb Space Telescope maps our universe's largest structure in unprecedented detail",
+    "source": "Latest from Space.com",
+    "summary": "Using the James Webb Space Telescope, astronomers have mapped the \"cosmic web\" of galaxies, the largest structure in the universe, with unprecedented detail.",
+    "link": "https://www.space.com/astronomy/james-webb-space-telescope/james-webb-space-telescope-maps-our-universes-largest-structure-in-unprecedented-detail",
+    "published_at": "2026-05-15T13:00:00",
+    "keywords": [
+      "James Webb Space Telescope",
+      "Astronomy"
+    ]
+  },
+  {
+    "id": 17212,
+    "title": "Hantavirus can persist in semen for years, but that doesn’t mean it remains contagious",
+    "source": "Scientific American",
+    "summary": "Researchers know very little about how long the Andes version of the hantavirus can remain in human hosts",
+    "link": "https://www.scientificamerican.com/article/hantavirus-can-persist-in-semen-for-years-but-that-doesnt-mean-it-remains-contagious/",
+    "published_at": "2026-05-15T19:45:00",
+    "keywords": []
+  },
+  {
+    "id": 17214,
+    "title": "This startup wants to make drugs in orbit. If it succeeds, it could transform the space economy",
+    "source": "Scientific American",
+    "summary": "Varda’s plan to develop medicines in microgravity has its advantages, but it requires a big up-front cost",
+    "link": "https://www.scientificamerican.com/article/this-startup-wants-to-make-drugs-in-orbit-if-it-succeeds-it-could-transform-the-space-economy/",
+    "published_at": "2026-05-15T18:00:00",
+    "keywords": []
+  },
+  {
+    "id": 17215,
+    "title": "The haves and have nots of the AI gold rush",
+    "source": "TechCrunch",
+    "summary": "The vibes around the current AI boom aren't great, even in the tech industry.",
+    "link": "https://techcrunch.com/2026/05/16/the-haves-and-have-nots-of-the-ai-gold-rush/",
+    "published_at": "2026-05-16T20:17:16",
+    "keywords": [
+      "AI",
+      "Startups",
+      "deedy das"
+    ]
+  },
+  {
+    "id": 17216,
+    "title": "Marketing operating system Nectar Social raises $30M Series A led by Menlo",
+    "source": "TechCrunch",
+    "summary": "AI-powered marketing platform Nectar Social announced Thursday that it raised a $30 million Series A round led by Menlo Ventures and its Anthology Fund, which was created alongside Anthropic.",
+    "link": "https://techcrunch.com/2026/05/16/marketing-operating-system-nectar-social-raises-30m-series-a-in-round-led-by-menlo/",
+    "published_at": "2026-05-16T19:26:14",
+    "keywords": [
+      "Startups",
+      "Venture",
+      "Marketing",
+      "menlo ventures",
+      "nectar social"
+    ]
+  },
+  {
+    "id": 17217,
+    "title": "Research repository ArXiv will ban authors for a year if they let AI do all the work",
+    "source": "TechCrunch",
+    "summary": "ArXiv is doing more to crack down on the careless use of large language models in scientific papers.",
+    "link": "https://techcrunch.com/2026/05/16/research-repository-arxiv-will-ban-authors-for-a-year-if-they-let-ai-do-all-the-work/",
+    "published_at": "2026-05-16T18:54:28",
+    "keywords": [
+      "AI",
+      "arxiv"
+    ]
+  },
+  {
+    "id": 17218,
+    "title": "The offline desk gadget that actually got me to sit up straight",
+    "source": "TechCrunch",
+    "summary": "Deep Care's $350 device is pricy, but it runs offline and helps you improve your posture and movement habits",
+    "link": "https://techcrunch.com/2026/05/16/the-offline-desk-gadget-that-actually-got-me-to-sit-up-straight/",
+    "published_at": "2026-05-16T16:00:00",
+    "keywords": [
+      "Gadgets",
+      "Work From Home",
+      "work from home gear",
+      "on device AI",
+      "local AI"
+    ]
+  },
+  {
+    "id": 17219,
+    "title": "OpenAI co-founder Greg Brockman takes charge of product strategy",
+    "source": "TechCrunch",
+    "summary": "OpenAI's latest shakeup comes as the company reportedly plans to combine ChatGPT and its programming product Codex.",
+    "link": "https://techcrunch.com/2026/05/16/openai-co-founder-greg-brockman-reportedly-takes-charge-of-product-strategy/",
+    "published_at": "2026-05-16T15:33:33",
+    "keywords": [
+      "AI",
+      "Startups",
+      "greg brockman",
+      "OpenAI"
+    ]
+  },
+  {
+    "id": 17220,
+    "title": "$60B AI chip darling Cerebras almost died early on, burning $8M a month",
+    "source": "TechCrunch",
+    "summary": "Cerebras Systems was 2026's biggest tech IPO so far. But years ago, it burned through hundreds of millions working on a chip many believed impossible.",
+    "link": "https://techcrunch.com/2026/05/16/60b-ai-chip-darling-cerebras-almost-died-early-on-burning-8m-a-month/",
+    "published_at": "2026-05-16T15:00:00",
+    "keywords": [
+      "TC",
+      "Startups",
+      "Venture",
+      "founders",
+      "Cerebras"
+    ]
+  },
+  {
+    "id": 17221,
+    "title": "Users turn to jailbreaking their older Kindles as Amazon ends support",
+    "source": "TechCrunch",
+    "summary": "It may be possible to jailbreak an older, end-of-support Kindle and continue adding books to it. But doing so carries risks.",
+    "link": "https://techcrunch.com/2026/05/16/users-turn-to-jailbreaking-their-older-kindles-as-amazon-ends-support/",
+    "published_at": "2026-05-16T14:00:00",
+    "keywords": [
+      "Hardware",
+      "Gadgets",
+      "Amazon",
+      "Kindle",
+      "evergreens"
+    ]
+  },
+  {
+    "id": 17222,
+    "title": "A hotel check-in system left a million passports and driver’s licenses open for anyone to see",
+    "source": "TechCrunch",
+    "summary": "The tech company that maintains the hotel check-in system set its cloud storage to public, allowing anyone to access customers' data without a password.",
+    "link": "https://techcrunch.com/2026/05/15/a-hotel-check-in-system-left-a-million-passports-and-drivers-licenses-open-for-anyone-to-see/",
+    "published_at": "2026-05-15T18:51:33",
+    "keywords": [
+      "Security",
+      "age verification",
+      "cybersecurity",
+      "data exposure",
+      "Exclusive"
+    ]
+  },
+  {
+    "id": 17223,
+    "title": "Silicon Valley’s vacationland needs a new energy provider just as AI is driving prices up",
+    "source": "TechCrunch",
+    "summary": "Lake Tahoe, Silicon Valley's favorite vacation spot, is about to get hit with higher energy prices as AI drives demand for electricity.",
+    "link": "https://techcrunch.com/2026/05/15/silicon-valleys-vacationland-needs-a-new-energy-provider-just-as-ai-is-driving-prices-up/",
+    "published_at": "2026-05-15T18:14:44",
+    "keywords": [
+      "AI",
+      "Climate",
+      "electrical grid",
+      "Lake Tahoe"
+    ]
+  },
+  {
+    "id": 17224,
+    "title": "OpenAI launches ChatGPT for personal finance, will let you connect bank accounts",
+    "source": "TechCrunch",
+    "summary": "Once users connect their accounts, they will see a dashboard of their portfolio performance, spending, subscriptions, and upcoming payments.",
+    "link": "https://techcrunch.com/2026/05/15/openai-launches-chatgpt-for-personal-finance-will-let-you-connect-bank-accounts/",
+    "published_at": "2026-05-15T16:00:00",
+    "keywords": [
+      "AI",
+      "ChatGPT",
+      "finance",
+      "OpenAI"
+    ]
+  },
+  {
+    "id": 17225,
+    "title": "Faraday Future raised $25 million for its robotics pivot. The fine print tells a different story.",
+    "source": "The Next Web",
+    "summary": "Faraday Future announced on Thursday that it has raised $25 million through convertible promissory notes, bringing its total financing over the past two months to $70 million. The company says the capital is sufficient to fund Phase 1 of its robotics business plan through the end of 2026. The stock, which trades on Nasdaq under […] \n This story continues  at The Next Web",
+    "link": "https://thenextweb.com/news/faraday-future-25-million-robotics-pivot",
+    "published_at": "2026-05-16T12:21:58",
+    "keywords": [
+      "Electric vehicle",
+      "Robots"
+    ]
+  },
+  {
+    "id": 17226,
+    "title": "Four OpenClaw flaws let attackers steal data, escalate privileges, and plant backdoors through the agent’s own sandbox",
+    "source": "The Next Web",
+    "summary": "Cybersecurity researchers at Cyera have disclosed four vulnerabilities in OpenClaw that, when chained together, allow an attacker to steal sensitive data, escalate privileges, and establish persistent control over a compromised host. The flaws, collectively dubbed “Claw Chain,” affect OpenClaw’s OpenShell managed sandbox backend and its MCP loopback runtime. All four have been patched in OpenClaw […] \n This story continues  at The Next Web",
+    "link": "https://thenextweb.com/news/openclaw-claw-chain-vulnerabilities-sandbox-escape",
+    "published_at": "2026-05-16T10:15:12",
+    "keywords": [
+      "Data and security",
+      "OpenClaw"
+    ]
+  },
+  {
+    "id": 17227,
+    "title": "RJ Scaringe has raised $12 billion across three startups, and investors are still queueing up",
+    "source": "The Next Web",
+    "summary": "RJ Scaringe has raised more than $12.3 billion across three startups, and the pace is accelerating. The Rivian founder and CEO, who holds a doctorate in mechanical engineering from MIT, is now simultaneously running an electric vehicle manufacturer, an autonomous micromobility company, and an industrial AI robotics startup, each attracting capital at a speed that […] \n This story continues  at The Next Web",
+    "link": "https://thenextweb.com/news/rj-scaringe-12-billion-rivian-also-mind-robotics",
+    "published_at": "2026-05-16T10:01:32",
+    "keywords": [
+      "Investors and funding"
+    ]
+  },
+  {
+    "id": 17228,
+    "title": "Most CEOs think their boards are rushing AI, and BCG’s survey shows why",
+    "source": "The Next Web",
+    "summary": "Sixty-one per cent of chief executives say their boards are pushing AI transformation too fast, according to a global survey of 625 leaders published by Boston Consulting Group. The research, titled Split Decisions, polled 351 CEOs and 274 board members at companies with at least $100 million in annual revenue and found a consistent pattern: […] \n This story continues  at The Next Web",
+    "link": "https://thenextweb.com/news/bcg-ceos-boards-rushing-ai-transformation-survey",
+    "published_at": "2026-05-16T09:52:08",
+    "keywords": [
+      "Artificial Intelligence",
+      "Opinion"
+    ]
+  },
+  {
+    "id": 17229,
+    "title": "Stripe’s John Collison says agentic commerce will completely transform online shopping",
+    "source": "The Next Web",
+    "summary": "John Collison thinks keyword search is a “ridiculous” way to find things to buy. The Stripe co-founder told Bloomberg that agentic commerce, in which AI agents shop on behalf of consumers, will completely transform the online shopping experience, reshaping not just how people purchase but how retailers sell. The argument is structural. For more than […] \n This story continues  at The Next Web",
+    "link": "https://thenextweb.com/news/stripe-collison-agentic-commerce-reshape-internet",
+    "published_at": "2026-05-16T09:40:08",
+    "keywords": [
+      "Fintech and ecommerce",
+      "Next Featured"
+    ]
+  },
+  {
+    "id": 17230,
+    "title": "The most-cited computer scientist alive says AI could make humanity extinct within a decade",
+    "source": "The Next Web",
+    "summary": "Yoshua Bengio, the Turing Award-winning computer scientist widely regarded as one of the godfathers of artificial intelligence, has renewed his warning that hyperintelligent machines could pose an existential threat to humanity within the next decade. In an interview with the Wall Street Journal originally published in October 2025 and republished by Fortune this week, Bengio argued that AI […] \n This story continues  at The Next Web",
+    "link": "https://thenextweb.com/news/bengio-ai-extinction-warning-lawzero-safety",
+    "published_at": "2026-05-16T09:32:42",
+    "keywords": [
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "id": 17231,
+    "title": "Salesforce expects to spend $300 million on Anthropic tokens this year, and Benioff wants coding inside Slack next",
+    "source": "The Next Web",
+    "summary": "Marc Benioff expects Salesforce to spend $300 million on Anthropic tokens this year, almost entirely on coding. The Salesforce CEO made the projection on the All-In podcast published on Friday, calling AI coding agents “awesome” and Anthropic “awesome” in the same breath, before adding that the spending would make everything at Salesforce cheaper to build. […] \n This story continues  at The Next Web",
+    "link": "https://thenextweb.com/news/salesforce-benioff-300-million-anthropic-tokens-slack-coding",
+    "published_at": "2026-05-16T09:12:42",
+    "keywords": [
+      "Artificial Intelligence",
+      "insights",
+      "Next Featured"
+    ]
+  },
+  {
+    "id": 17232,
+    "title": "Snap, YouTube, and TikTok settle school addiction lawsuit, leaving Meta to face trial alone",
+    "source": "The Next Web",
+    "summary": "Snap, Google’s YouTube, and ByteDance’s TikTok have reached settlements in the first lawsuit brought by a public school district over claims that social media addiction has disrupted learning and forced schools to spend heavily on combating a youth mental health crisis. The settlements, filed on Friday in federal court in Oakland, California, leave Meta Platforms […] \n This story continues  at The Next Web",
+    "link": "https://thenextweb.com/news/snap-youtube-tiktok-settle-school-social-media-lawsuit",
+    "published_at": "2026-05-16T08:53:15",
+    "keywords": [
+      "Data and security"
+    ]
+  },
+  {
+    "id": 17233,
+    "title": "OpenAI wants ChatGPT to see your bank account. The pitch is convenience. The risk is everything else.",
+    "source": "The Next Web",
+    "summary": "OpenAI has launched a personal finance experience inside ChatGPT, letting subscribers connect their bank accounts, credit cards, investment portfolios, and loan accounts to the chatbot and ask questions grounded in their actual financial data. The feature, released on 15 May, is available in preview to US-based ChatGPT Pro subscribers on web and iOS, with support […] \n This story continues  at The Next Web",
+    "link": "https://thenextweb.com/news/openai-chatgpt-personal-finance-plaid",
+    "published_at": "2026-05-16T08:41:04",
+    "keywords": [
+      "Artificial Intelligence",
+      "Next Featured",
+      "OpenAI"
+    ]
+  },
+  {
+    "id": 17234,
+    "title": "Japan’s Monster Wolf robot is a $4,000 scarecrow with red LED eyes, and it actually works",
+    "source": "The Next Web",
+    "summary": "Somewhere on a golf course in rural Hokkaido, a mechanical wolf with glowing red eyes is turning its head from side to side, howling at nothing in particular. It looks absurd. It is also, by most available evidence, working. Monster Wolf is the product of Ohta Seiki, a small Hokkaido-based manufacturer that has been […] \n This story continues  at The Next Web",
+    "link": "https://thenextweb.com/news/japan-monster-wolf-robot-bear-attacks",
+    "published_at": "2026-05-16T08:22:52",
+    "keywords": [
+      "Asia",
+      "Robots"
+    ]
+  },
+  {
+    "id": 17235,
     "title": "Upside Robotics is reducing fertilizer use and waste in corn crops",
     "source": "robotics | TechCrunch",
     "summary": "Upside Robotics builds autonomous solar-powered robots that can help farmers reduce their fertilizer use by 70%.",
@@ -55020,7 +55117,7 @@
     ]
   },
   {
-    "id": 17087,
+    "id": 17236,
     "title": "Oshen built the first ocean robot to collect data in a Category 5 hurricane",
     "source": "robotics | TechCrunch",
     "summary": "Oshen has signed contracts with multiple government agencies for its C-Star robots to collect ocean data autonomously.",
@@ -55038,7 +55135,7 @@
     ]
   },
   {
-    "id": 17088,
+    "id": 17237,
     "title": "Pickle Robot adds Tesla veteran as first CFO",
     "source": "robotics | TechCrunch",
     "summary": "Jeff Evanson recently joined Pickle Robot as the company's first CFO as the startup has allegedly expanded its partnership with UPS.",
@@ -55057,7 +55154,7 @@
     ]
   },
   {
-    "id": 17089,
+    "id": 17238,
     "title": "1X struck a deal to send its ‘home’ humanoids to factories and warehouses",
     "source": "robotics | TechCrunch",
     "summary": "Despite launching as a humanoid robot designed to help consumers around the house, 1X's Neo robots are heading to industrial use cases.",
@@ -55077,7 +55174,7 @@
     ]
   },
   {
-    "id": 17090,
+    "id": 17239,
     "title": "This Khosla-backed startup can track drones, trucks, and robotaxis, inch by inch",
     "source": "robotics | TechCrunch",
     "summary": "Point One Navigation, now valued at $230 million, is building out well beyond automotive.",
@@ -55093,7 +55190,7 @@
     ]
   },
   {
-    "id": 17091,
+    "id": 17240,
     "title": "Why a researcher is building robots that look and act like bats",
     "source": "robotics | TechCrunch",
     "summary": "These palm-sized robots use ultrasound signals to navigate harsh conditions in search and rescue missions.",
@@ -55107,7 +55204,7 @@
     ]
   },
   {
-    "id": 17092,
+    "id": 17241,
     "title": "AI researchers ’embodied’ an LLM into a robot – and it started channeling Robin Williams",
     "source": "robotics | TechCrunch",
     "summary": "AI researchers at Andon Labs embedded various LLMs in a vacuum robot to test how ready they were to be embodied. And hilarity ensued.",
@@ -55125,7 +55222,7 @@
     ]
   },
   {
-    "id": 17093,
+    "id": 17242,
     "title": "Coco Robotics taps UCLA professor to lead new physical AI research lab",
     "source": "robotics | TechCrunch",
     "summary": "Coco Robotics is working toward automating its fleet of delivery robots using its millions of miles of collected data.",
@@ -55146,7 +55243,7 @@
     ]
   },
   {
-    "id": 17094,
+    "id": 17243,
     "title": "Why Runway is eyeing the robotics industry for future revenue growth",
     "source": "robotics | TechCrunch",
     "summary": "Runway is building up a robotics-focused team and fine-tuning its existing models for robotics and self-driving car customers.",
@@ -55165,7 +55262,7 @@
     ]
   },
   {
-    "id": 17095,
+    "id": 17244,
     "title": "How to watch NASA’s Artemis II splash back down to Earth",
     "source": "Space | TechCrunch",
     "summary": "NASA's Artemis II mission has traveled farther from Earth than any mission before. Here's how to watch the crew's return landing in the Pacific Ocean.",
@@ -55179,7 +55276,7 @@
     ]
   },
   {
-    "id": 17096,
+    "id": 17245,
     "title": "Jeff Bezos’ Blue Origin enters the space data center game",
     "source": "Space | TechCrunch",
     "summary": "\"Project Sunrise\" would include more than 50,000 satellites performing high-energy compute on orbit.",
@@ -55193,7 +55290,7 @@
     ]
   },
   {
-    "id": 17097,
+    "id": 17246,
     "title": "Space DOTS raises $1.5M seed round to provide insights on orbital threats",
     "source": "Space | TechCrunch",
     "summary": "Cefalo is the founder of Space DOTs, which launched in 2022 to detect space threats. She and her team have created a software platform for space tech manufacturers and operators to help them capture various data points, like radiation interference, as well as track any in-orbit anomalies, to help make space travel safer.",
@@ -55207,7 +55304,7 @@
     ]
   },
   {
-    "id": 17098,
+    "id": 17247,
     "title": "Castelion is raising a $350M Series B to scale hypersonic missile business",
     "source": "Space | TechCrunch",
     "summary": "A hypersonics weapon startup is lining up a massive new funding round to scale its business with the U.S Department of Defense.",
@@ -55222,7 +55319,7 @@
     ]
   },
   {
-    "id": 17099,
+    "id": 17248,
     "title": "Blue Origin pushes second flight of New Glenn mega-rocket to August",
     "source": "Space | TechCrunch",
     "summary": "It's a slight delay from the previous target of \"late spring.\" New Glenn's first mission happened in January.",
@@ -55235,7 +55332,7 @@
     ]
   },
   {
-    "id": 17100,
+    "id": 17249,
     "title": "A second Intuitive Machines spacecraft just landed on the moon — and probably tipped over",
     "source": "Space | TechCrunch",
     "summary": "Intuitive Machines has landed a second spacecraft on the moon, just one year after accomplishing the feat for the first time ever. Unfortunately, much like that first attempt, it seems the company’s spacecraft may have tipped on its side. The lunar lander, called Athena, touched down on the moon’s surface at around 12:30 p.m. ET […]",
@@ -55249,7 +55346,7 @@
     ]
   },
   {
-    "id": 17101,
+    "id": 17250,
     "title": "Lockheed Martin to buy satellite maker Terran Orbital in $450M deal",
     "source": "Space | TechCrunch",
     "summary": "Lockheed, which holds a 28.3% stake in Terran Orbital, will take the satellite maker private in a deal that's expected to close before the end of 2024.",
@@ -55264,7 +55361,7 @@
     ]
   },
   {
-    "id": 17102,
+    "id": 17251,
     "title": "Gravitics to develop ‘tactically responsive’ orbital platforms for the Space Force",
     "source": "Space | TechCrunch",
     "summary": "The contract is part of a larger push from the Force to procure space capabilities from private industry on timelines that have been previously unheard of.",
@@ -55277,7 +55374,7 @@
     ]
   },
   {
-    "id": 17103,
+    "id": 17252,
     "title": "Overcoming Core Engineering Barriers in Humanoid Robotics Development",
     "source": "IEEE Spectrum",
     "summary": "A technical examination of the sensing, motion control, power, and thermal challenges facing humanoid robotics engineers — with component-level design strategies for real-world deployment. What Attendees will Learn Why motion control remains the hardest unsolved problem — Explore the modelling complexity, real-time feedback requirements, and sensor fusion demands of maintaining stable bipedal locomotion across dynamic environments. How sensing architectures enable perception and safety — Understand the role of inertial measurement units, force/torque feedback, and tactile sensing in achieving reliable human-robot interaction and collision avoidance. What power and thermal constraints mean for system design — Examine the trade-offs in battery chemistry selection (LFP vs. NCA), DC/DC converter topologies, and thermal protection strategies that determine operational endurance. How the industry is transitioning from prototype to mass production — Learn about the shift toward modular architectures, cost-driven component selection, and supply chain readiness projected for the late 2020s. Download this free whitepaper now!",
@@ -55291,19 +55388,7 @@
     ]
   },
   {
-    "id": 17104,
-    "title": "Musk v. Altman week 3: Musk and Altman traded blows over each other’s credibility. Now the jury will pick a side.",
-    "source": "MIT Technology Review",
-    "summary": "In the final week of the Musk v. Altman trial, lawyers traded blows over Elon Musk’s and OpenAI CEO Sam Altman’s credibility. Altman was grilled on his alleged history of lying and self-dealing involving companies that do business with OpenAI. But he fired back, painting Musk as a power-seeker who wanted to control the development…",
-    "link": "https://www.technologyreview.com/2026/05/15/1137357/musk-v-altman-week-3/",
-    "published_at": "2026-05-15T23:39:35",
-    "keywords": [
-      "Artificial intelligence",
-      "App"
-    ]
-  },
-  {
-    "id": 17105,
+    "id": 17253,
     "title": "The Download: China’s AI drama factory and the WHO’s missing health targets",
     "source": "MIT Technology Review",
     "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. How Chinese short dramas became AI content machines China’s short drama industry is fueled by bite-sized, melodramatic, and smutty shows built for smartphone scrolling. Now, many are being made entirely with…",
@@ -55314,7 +55399,7 @@
     ]
   },
   {
-    "id": 17106,
+    "id": 17254,
     "title": "The world is on track to miss its health targets",
     "source": "MIT Technology Review",
     "summary": "Every year the World Health Organization publishes a global health statistics report. It features the numbers behind world health trends and, importantly, assesses whether we’re on track to reach ambitious goals set in 2015. It’s a bit like a health grade. The 2026 report was published on Wednesday. And the results aren’t looking brilliant. While…",
@@ -55327,19 +55412,7 @@
     ]
   },
   {
-    "id": 17107,
-    "title": "How Chinese short dramas became AI content machines",
-    "source": "MIT Technology Review",
-    "summary": "In a dimly lit bedroom, a frightened young woman is thrown onto a bed by a tall, muscular man. He grabs her hand, and flame-like vines crawl across her body, fusing with her flesh. She levitates, then drops. A dragon-shaped tattoo appears across her chest. “Two months,” the man says. “Give me an heir, or…",
-    "link": "https://www.technologyreview.com/2026/05/15/1137326/chinese-short-dramas-ai/",
-    "published_at": "2026-05-15T09:00:00",
-    "keywords": [
-      "Artificial intelligence",
-      "App"
-    ]
-  },
-  {
-    "id": 17108,
+    "id": 17255,
     "title": "Data readiness for agentic AI in financial services",
     "source": "MIT Technology Review",
     "summary": "Financial services companies have unique needs when it comes to business AI. They operate in one of the most highly regulated sectors while responding to external events that are updated by the second. As a result, the success of agentic AI in financial services depends less on the sophistication of the system and more on…",
@@ -55351,7 +55424,7 @@
     ]
   },
   {
-    "id": 17109,
+    "id": 17256,
     "title": "Establishing AI and data sovereignty in the age of autonomous systems",
     "source": "MIT Technology Review",
     "summary": "When generative AI first moved from research labs into real-world business applications, enterprises made a tacit bargain: “Capability now, control later.” Feed your proprietary data into third-party AI models, and you will get powerful results. But your data passes through systems you do not own, under governance you do not set. The protections you rely…",
@@ -55363,7 +55436,7 @@
     ]
   },
   {
-    "id": 17110,
+    "id": 17257,
     "title": "The Download: deepfake porn’s stolen bodies and AI sharing private numbers",
     "source": "MIT Technology Review",
     "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. The shock of seeing your body used in deepfake porn When Jennifer got a research job in 2023, she ran her new professional headshot through a facial recognition program. She wanted…",
@@ -55374,7 +55447,7 @@
     ]
   },
   {
-    "id": 17111,
+    "id": 17258,
     "title": "The Tesla Semi could be a big deal for electric trucking",
     "source": "MIT Technology Review",
     "summary": "The Tesla Semi has officially arrived. The company recently released a photo of the first vehicle rolling off its new full-scale production line. This moment has been nearly a decade in the making: The company first announced the truck in late 2017. And now we’ve got final battery specs, official prices, and big news about…",
@@ -55387,7 +55460,7 @@
     ]
   },
   {
-    "id": 17112,
+    "id": 17259,
     "title": "Top Licensing Questions Answered: Your Guide to NASA Technology Transfer",
     "source": "T2 Portal",
     "summary": "Top Licensing Questions Answered: Your Guide to NASA Technology Transfer \n hso1 \n Tue, 08/27/2024 - 09:38\n \n \n\n  \n    Author\n              \n\n  \n      \n            Cory Abercrombie\n      \n    \n  \n  \n    Image\n                \n\n\n\n          \n\n  \n    Title\n              Agency Licensing Concierge\n          \n\n  \n    Center\n              Marshall Space Flight Center\n          \n\n\n\n          \n\n              \n\n\n      \n             Curious about licensing groundbreaking NASA technologies for your business? In this post, we dive into the most frequently asked questions about the NASA Technology Transfer Program’s licensing process. Read on for practical insights on how to unlock innovative solutions and bring space-age advancements to your enterprise.  \n Where can I find key details on NASA’s licensing process? Where is the best place to start? \n The NASA Technology Transfer Program evaluates, patents, and then licenses out new NASA-developed technologies that have potential to benefit the country through commercialization. You can find a general overview of the licensing process here -  Licensing NASA Technology | T2 Portal . \n What exactly is NASA offering with a “patent license”? \n NASA offers research licenses (sometimes called evaluation licenses) and commercial licenses. Most companies start off with the research license, a fixed-term agreement (usually 12 months, but can be longer) that typically allows the licensee to do any development work, testing, and prototyping needed to create a final product or service. It allows access to any supporting materials NASA may have available for the licensed technology and often consultation hours with the inventors. What is available will vary by the technology. Typically, this license agreement carries a one-time $2,500 royalty to NASA. The research license does not allow commercial sales as that requires a commercial license. You can think of it like a “trial period” license for those early development and integration stages of working with a new technology. \n The commercial license is a longer-term agreement, typically lasting for the life of the patent unless terminated early by either party. In addition to the benefits of the research license, it also grants you the rights to develop, market, and sell products or services based on the technology, enabling you to bring innovations to the market and generate revenue. The royalty structure includes an initial fee, an annual minimum royalty, and a small running royalty based on the percentage of sales. The dollar amounts will vary and can be negotiated during the application period. In some cases, NASA can negotiate exclusivity with a licensee. U.S.-based startup companies may qualify for more startup-friendly commercial or research license terms, but the NASA licensing team can tailor license terms to meet a company’s needs.  \n What if we want to collaborate with NASA, or need additional hands-on support from NASA? \n In cases where a licensee will require more hands on support or collaboration from our inventors, or perhaps needs to leverage NASA capabilities as part of their work, NASA would typically need to pair a license with a  Space Act Agreement (SAA) . Several conditions have to be met before an SAA can be considered, and details would need to be discussed with the licensing team. In some cases, these agreements may arise through licensing conversations, but are often initiated through  NASA Partnerships - NASA . If you are interested in doing business with NASA beyond patent licensing, those opportunities are covered by  Doing Business with NASA - NASA . \n What if we are a non-US company? How does the licensing process differ? \n For Non-US Companies: \n NASA’s priority is to license its U.S. taxpayer-funded technologies to benefit the American taxpayers, through increasing US economic competitiveness and/or promoting public availability of new products and services.  \n While our licenses are most often to domestic companies, NASA can consider granting licenses to foreign-owned companies, though with some additional considerations: \n • NASA’s patents are filed with the USPTO and within the United States jurisdiction. We only file PCT applications when a licensee is willing to pay for the additional patenting costs in the countries they select (within 1 year of filing the original U.S. patent.) \n • Licenses to foreign-owned companies requires additional steps and reviews, which can introduce an additional 6 to 8 weeks to the licensing process. This includes approval by the U.S. Trade Representative coordinated by NASA.  \n • The license shall normally be granted only to a licensee who agrees that any products embodying the invention or produced using the invention will be manufactured substantially in the U.S. However, this condition can be waived or modified. \n For more information see  eCFR :: 37 CFR Part 404 -- Licensing of Government-Owned Inventions  and NPD 2090.6A \n \n Can you give an overview of the licensing process, and what to expect?: \n There is a brief summary of the license process here:  Licensing NASA Technology | T2 Portal . Typically, companies first review the technology listing, the patents, and additional sources of information that are included on the technology listing page. Additional information can also be found on the   NASA Technical Reports Server . If the company wants to move forward and explore licensing options in more detail, they will initiate the license application process online and the application submission will give the NASA licensing team all they need to work through licensing options for that technology, including which type of agreement and terms might best fit the company and goals. This is a good time to ask lingering technical questions or get clarity on what support is available to licensees of that intellectual property. Once complete, the NASA licensing team will draft an agreement for both parties to sign.  \n What are the steps to submit a License Application? \n License Application Process Instructions: \n \n Open the technology listing you want to apply for (browse  T2 Patent Portfolio | T2 Portal (nasa.gov)  for listings)  and click “apply to license” on the upper right side of the technology listing. \n\t  \n  Read the text on the next page closely before you continue. You will be prompted to create a NASA guest account if you do not have one yet. This can also be referred to as your AUID (Agency User ID) login when you return to log in later. You can also set up the account at this link:  https://guest.nasa.gov/.   \n \n If you get logged out in the future, the login credentials would be the email you associated with the guest account and the password you create. \n\t\t  \n \n \n The application should now open automatically. If not, return to the TOPS listing and click to apply again and it should open. This application form is designed to work for any licensing case, but if you feel any questions are difficult to answer at this point just try to give the best answer you can. \n\t  \n Complete the rest of the application form with detailed and specific answers to the extent possible.  Remember to save your application regularly as you work on it.  \n \n Do not leave the application open in your browser for an extended time and come back to it later or you may have cached data issues – save and close when you are not actively working. \n\t\t  \n \n \n Click “sign and submit”, then a read-only version of your application will load for your review. Scroll to the bottom of the form and complete the e-signature to verify your application looks correct and complete this initial submission. You will receive a confirmation email from our automated system once completed. \n\t  \n From here, the NASA licensing team will review your submission and follow up with you to discuss agreement terms, answer any lingering questions you have. \n\t  \n Assuming both parties intend to move forward with a license agreement, your initial submission will be accepted by NASA and you will be prompted by email to complete one more set of questions that are specific to your license type. Once you submit those, your application process is complete and the NASA team can complete their final decision/approval and move to next steps (draft license for review and signature).  \n \n Any other tips to ensure a smooth application process?  \n Save your applications regularly as you work on them, and you can return to your applications at any time using this link:  https://technology.nasa.gov/apply/dashboard/ \n Who can I contact if I have more in-depth questions about the licensing process? \n If you have questions about the licensing process, please contact us at  Agency-Patent-Licensing@mail.nasa.gov .  \n \n We hope this Q&A has shed light on your most pressing licensing questions and provided you with a clearer understanding of the application process. Whether you’re an entrepreneur looking to innovate with NASA technology or a researcher aiming to advance scientific frontiers, our goal is to support your journey every step of the way. If you have further inquiries, don’t hesitate to reach out to our team.",
@@ -55396,7 +55469,7 @@
     "keywords": []
   },
   {
-    "id": 17113,
+    "id": 17260,
     "title": "Tech Transfer, With a Fresh Beat: NASA’s Patent Remix Accelerates Commercialization",
     "source": "T2 Portal",
     "summary": "Tech Transfer, With a Fresh Beat: NASA’s Patent Remix Accelerates Commercialization \n hso1 \n Mon, 05/04/2026 - 15:21",
@@ -55405,7 +55478,7 @@
     "keywords": []
   },
   {
-    "id": 17114,
+    "id": 17261,
     "title": "Kurt Kessel",
     "source": "T2 Portal",
     "summary": "Kurt Kessel \n dcai1 \n Wed, 04/08/2026 - 14:06\n \n\n  \n    Staff Center\n               KSC \n          \n\n  \n    Staff Email\n              kurt.r.kessel@nasa.gov\n          \n\n  \n    Staff Headshot\n                \n\n\n          \n\n  \n    Staff Phone Number\n              321.861.7158\n          \n\n  \n    Staff Title\n              Technology Transfer Specialist",
@@ -55414,7 +55487,7 @@
     "keywords": []
   },
   {
-    "id": 17115,
+    "id": 17262,
     "title": "Steven Gerker",
     "source": "T2 Portal",
     "summary": "Steven Gerker \n dcai1 \n Wed, 04/01/2026 - 20:21\n \n\n  \n    Staff Center\n               JSC \n          \n\n  \n    Staff Email\n              steven.f.gerker@nasa.gov\n          \n\n  \n    Staff Headshot\n                \n\n\n          \n\n  \n    Staff Title\n              License Administrator",
@@ -55423,7 +55496,7 @@
     "keywords": []
   },
   {
-    "id": 17116,
+    "id": 17263,
     "title": "Janet Zacharias",
     "source": "T2 Portal",
     "summary": "Janet Zacharias \n dcai1 \n Wed, 04/01/2026 - 20:09\n \n\n  \n    Staff Center\n               LARC \n          \n\n  \n    Staff Email\n              janet.m.zacharias@nasa.gov\n          \n\n  \n    Staff Headshot\n                \n\n\n          \n\n  \n    Staff Title\n              Technology Transfer Commercialization Manager",
@@ -55432,7 +55505,7 @@
     "keywords": []
   },
   {
-    "id": 17117,
+    "id": 17264,
     "title": "Shawn Maynor",
     "source": "T2 Portal",
     "summary": "Shawn Maynor \n dcai1 \n Wed, 04/01/2026 - 20:05\n \n\n  \n    Staff Center\n               MSFC \n          \n\n  \n    Staff Email\n              shawn.b.maynor@nasa.gov\n          \n\n  \n    Staff Headshot\n                \n\n\n          \n\n  \n    Staff Phone Number\n              256.903.8909\n          \n\n  \n    Staff Title\n              IP Portfolio Manager",
@@ -55441,7 +55514,7 @@
     "keywords": []
   },
   {
-    "id": 17118,
+    "id": 17265,
     "title": "Michael Riccio",
     "source": "T2 Portal",
     "summary": "Michael Riccio \n dcai1 \n Wed, 04/01/2026 - 19:59\n \n\n  \n    Staff Center\n               ARC \n          \n\n  \n    Staff Email\n              michael.riccio@nasa.gov\n          \n\n  \n    Staff Headshot\n                \n\n\n          \n\n  \n    Staff Phone Number\n              650.604.2896\n          \n\n  \n    Staff Title\n              Program Specialist",
@@ -55450,7 +55523,7 @@
     "keywords": []
   },
   {
-    "id": 17119,
+    "id": 17266,
     "title": "Katie Smyth",
     "source": "T2 Portal",
     "summary": "Katie Smyth \n dcai1 \n Wed, 04/01/2026 - 19:58\n \n\n  \n    Staff Center\n               ARC \n          \n\n  \n    Staff Email\n              kathryn.l.smyth@nasa.gov\n          \n\n  \n    Staff Headshot\n                \n\n\n          \n\n  \n    Staff Phone Number\n              650.604.1754\n          \n\n  \n    Staff Title\n              Licensing Manager",
@@ -55459,7 +55532,7 @@
     "keywords": []
   },
   {
-    "id": 17120,
+    "id": 17267,
     "title": "Hong Vong",
     "source": "T2 Portal",
     "summary": "Hong Vong \n dcai1 \n Wed, 04/01/2026 - 19:56\n \n\n  \n    Staff Center\n               ARC \n          \n\n  \n    Staff Email\n              hong.v.vong@nasa.gov\n          \n\n  \n    Staff Headshot\n                \n\n\n          \n\n  \n    Staff Phone Number\n              650.604.5560\n          \n\n  \n    Staff Title\n              Software Release Authority / Program Specialist",
@@ -55468,138 +55541,178 @@
     "keywords": []
   },
   {
-    "id": 17121,
-    "title": "Restoring a 3DO Blaster Card from the Early 90s",
+    "id": 17268,
+    "title": "Running Windows CE on the Nintendo 64",
     "source": "Blog – Hackaday",
-    "summary": "Before the modern trifecta of video game giants came to dominate the market around two decades ago, the world was awash in video game consoles. Many of these retro platforms  …read more",
-    "link": "https://hackaday.com/2026/05/15/restoring-a-3do-blaster-card-from-the-early-90s/",
-    "published_at": "2026-05-16T05:00:01",
+    "summary": "Although Windows CE doesn’t use the NT kernel, it’s similarly designed to run on a wide variety of system architectures. Since the Nintendo 64 uses a MIPS CPU it should  …read more",
+    "link": "https://hackaday.com/2026/05/17/running-windows-ce-on-the-nintendo-64/",
+    "published_at": "2026-05-17T08:00:21",
     "keywords": [
-      "Retrocomputing",
-      "386",
-      "3do",
-      "3do blaster",
-      "console",
-      "expansion card",
-      "pc",
-      "retro gaming",
-      "retrocomputing",
-      "video game"
+      "Games",
+      "Nintendo Hacks",
+      "mips",
+      "nintendo 64",
+      "Windows CE"
     ]
   },
   {
-    "id": 17122,
-    "title": "Inside the Heathkit Factory",
+    "id": 17269,
+    "title": "Your Browser Probably Lies to the Big Sites (Blame Chrome)",
     "source": "Blog – Hackaday",
-    "summary": "If you are a certain age, you doubtlessly remember Heathkit. They produced a wide array of electronic kits that were models of completeness and clear instructions. They started with surplus  …read more",
-    "link": "https://hackaday.com/2026/05/15/inside-the-heathkit-factory/",
-    "published_at": "2026-05-16T02:00:26",
+    "summary": "When you visit certain large sites in Firefox or Safari, the browser may detect your visit and change its behavior. It could be as simple as lying about its identity,  …read more",
+    "link": "https://hackaday.com/2026/05/16/your-browser-probably-lies-to-the-big-sites-blame-chrome/",
+    "published_at": "2026-05-17T05:00:40",
     "keywords": [
-      "History",
-      "heathkit",
-      "history"
-    ]
-  },
-  {
-    "id": 17123,
-    "title": "Adding Capabilities to Inexpensive Solar Modules",
-    "source": "Blog – Hackaday",
-    "summary": "Solar power has gotten cheap enough that putting up panels is among the cheapest ways of providing energy. This isn’t just the case for bulk electricity on a power grid,  …read more",
-    "link": "https://hackaday.com/2026/05/15/adding-capabilities-to-inexpensive-solar-modules/",
-    "published_at": "2026-05-15T23:00:33",
-    "keywords": [
-      "News",
-      "home automation",
-      "home-assistant",
-      "landscape",
-      "lighting",
-      "microcontroller",
-      "nRF24L01+",
-      "python",
-      "remote",
-      "solar",
-      "stm32"
-    ]
-  },
-  {
-    "id": 17124,
-    "title": "Building A Die Filer From Scratch",
-    "source": "Blog – Hackaday",
-    "summary": "A die filer is a useful tool to have if you find yourself filing parts on the regular. It’s basically a machine that reciprocates a file up and down for  …read more",
-    "link": "https://hackaday.com/2026/05/15/building-a-die-filer-from-scratch/",
-    "published_at": "2026-05-15T20:00:37",
-    "keywords": [
-      "Tool Hacks",
-      "die filer",
-      "filing",
-      "Machine tool",
-      "tool",
-      "tools"
-    ]
-  },
-  {
-    "id": 17125,
-    "title": "Mod this IKEA Lamp into Smart Lighting For Not A Lot",
-    "source": "Blog – Hackaday",
-    "summary": "The IKEA SKAFTSÄRV is an economical LED accent lamp, but while highly affordable it has only fixed lighting options. [simoneluconi] shows how it can easily be turned into a fully-configurable,  …read more",
-    "link": "https://hackaday.com/2026/05/15/mod-this-ikea-lamp-into-smart-lighting-for-not-a-lot/",
-    "published_at": "2026-05-15T18:30:15",
-    "keywords": [
-      "LED Hacks",
-      "diy",
-      "ESP32",
-      "homeassistant",
-      "ikea",
-      "LED lighting",
-      "RGB LED",
-      "WLED"
-    ]
-  },
-  {
-    "id": 17126,
-    "title": "Hacking Hard Drive Firmware",
-    "source": "Blog – Hackaday",
-    "summary": "You probably flash new firmware on a variety of devices regularly, even though that’s rare for non-technical types. But what about your hard drive firmware? Most of us don’t want  …read more",
-    "link": "https://hackaday.com/2026/05/15/hacking-hard-drive-firmware/",
-    "published_at": "2026-05-15T15:30:26",
-    "keywords": [
-      "Reverse Engineering",
-      "firmware",
-      "hard drive",
-      "reverse engineering"
-    ]
-  },
-  {
-    "id": 17127,
-    "title": "preFlight Slicer Brings Added Part Strength Feature, and Many More",
-    "source": "Blog – Hackaday",
-    "summary": "Interested in taking some wild new 3D printing features for a test drive? preFlight is a free and open source slicer that brings a host of processing improvements as well  …read more",
-    "link": "https://hackaday.com/2026/05/15/preflight-slicer-brings-added-part-strength-feature-and-many-more/",
-    "published_at": "2026-05-15T11:00:31",
-    "keywords": [
-      "3d Printer hacks",
+      "internet hacks",
       "Software Hacks",
-      "3d printing",
-      "FDM",
-      "slicer"
+      "chrome",
+      "firefox",
+      "html",
+      "safari",
+      "web browser"
     ]
   },
   {
-    "id": 17128,
-    "title": "Meridian Ventures launched a $35M fund with a focus on MBA-deferred founders",
-    "source": "TechCrunch",
-    "summary": "This new fund will back founders building enterprise technology in the United States. Meridian is agnostic, co-founder Devon Gethers said, noting that the firm has already invested in companies in fintech, logistics, healthcare, and of course, AI.",
-    "link": "https://techcrunch.com/2026/05/15/meridian-ventures-launched-35m-fund-to-back-mba-deferred-founders/",
-    "published_at": "2026-05-15T13:00:00",
+    "id": 17270,
+    "title": "Asimov is an Open Source Humanoid Robot For the Rest of Us",
+    "source": "Blog – Hackaday",
+    "summary": "Given that some of the more famous demos were by Honda and Tesla, you might be forgiven for thinking you need pockets as deep as a car company to get  …read more",
+    "link": "https://hackaday.com/2026/05/16/asimov-is-an-open-source-humanoid-robot-for-the-rest-of-us/",
+    "published_at": "2026-05-17T02:00:02",
     "keywords": [
-      "Enterprise",
-      "Startups",
-      "Venture",
-      "Meridian Ventures"
+      "Robots Hacks",
+      "asimov",
+      "open source robotics"
     ]
   },
   {
-    "id": 17129,
+    "id": 17271,
+    "title": "After Stumbling From CVE to CVE Will Linux get a Kill Switch?",
+    "source": "Blog – Hackaday",
+    "summary": "For the few people who have spent the past weeks living under a security rock, the Linux kernel has found itself the subject of multiple severe bugs in the form  …read more",
+    "link": "https://hackaday.com/2026/05/16/after-stumbling-from-cve-to-cve-will-linux-get-a-kill-switch/",
+    "published_at": "2026-05-16T23:00:20",
+    "keywords": [
+      "Linux Hacks",
+      "Security Hacks",
+      "exploit",
+      "killswitch",
+      "linux",
+      "vulnerabilities"
+    ]
+  },
+  {
+    "id": 17272,
+    "title": "21st Century Punch Cards are 3D Printed and Read By OpenCV",
+    "source": "Blog – Hackaday",
+    "summary": "While a punch card is perhaps the lowest-density storage medium available, it has some distinct advantages. As [Bitroller] points out in the write-up of his punch card project, if he  …read more",
+    "link": "https://hackaday.com/2026/05/16/21st-century-punch-cards-are-3d-printed-and-read-by-opencv/",
+    "published_at": "2026-05-16T20:00:55",
+    "keywords": [
+      "classic hacks",
+      "computer hacks",
+      "3d print",
+      "computer vision",
+      "opencv",
+      "punch card"
+    ]
+  },
+  {
+    "id": 17273,
+    "title": "Salvaged VFDs in Nixie-Like Clock",
+    "source": "Blog – Hackaday",
+    "summary": "In between the Nixie tube era of the 50s and 60s and the advent of multi-digit vacuum fluorescent displays (VFDs) common in 80s and 90s consumer technology, there was a  …read more",
+    "link": "https://hackaday.com/2026/05/16/salvaged-vfds-in-nixie-like-clock/",
+    "published_at": "2026-05-16T17:00:57",
+    "keywords": [
+      "clock hacks",
+      "AVR",
+      "clock",
+      "microcontroller",
+      "Quartz",
+      "vacuum fluorescent display",
+      "vfd"
+    ]
+  },
+  {
+    "id": 17274,
+    "title": "Fixing a Cotton Candy Vending Machine",
+    "source": "Blog – Hackaday",
+    "summary": "Cotton candy is probably the best way to eat pure sugar, which makes having your very own cotton candy vending machine to automate making it a bit of a dream.  …read more",
+    "link": "https://hackaday.com/2026/05/16/fixing-a-cotton-candy-vending-machine/",
+    "published_at": "2026-05-16T14:00:05",
+    "keywords": [
+      "Repair Hacks",
+      "cotton candy",
+      "sugar",
+      "thermocouple"
+    ]
+  },
+  {
+    "id": 17275,
+    "title": "Power prices are up 76% on America’s biggest grid, and a watchdog is pointing fingers",
+    "source": "TechCrunch",
+    "summary": "The price spike is a reminder of a deeper problem: The U.S. power grid was not designed for the electricity demands of an AI-driven economy, and the gap between what the grid can deliver and what the industry needs is widening.",
+    "link": "https://techcrunch.com/2026/05/15/power-prices-are-up-76-on-americas-biggest-grid-and-a-watchdog-is-pointing-fingers/",
+    "published_at": "2026-05-15T15:45:53",
+    "keywords": [
+      "Climate",
+      "data centers",
+      "electrical grid",
+      "electricity"
+    ]
+  },
+  {
+    "id": 17276,
+    "title": "US orders travelers on Air Force One to throw away gifts, pins, and burner phones after China trip",
+    "source": "TechCrunch",
+    "summary": "While the summit appeared cordial, China remains a key adversary of the United States, given its advanced intelligence and espionage capabilities.",
+    "link": "https://techcrunch.com/2026/05/15/us-orders-travelers-on-air-force-one-to-throw-away-gifts-pins-and-burner-phones-after-china-trip/",
+    "published_at": "2026-05-15T15:42:11",
+    "keywords": [
+      "Security",
+      "China",
+      "cybersecurity",
+      "Donald Trump",
+      "espionage",
+      "In Brief",
+      "OPSEC",
+      "U.S. government",
+      "White House"
+    ]
+  },
+  {
+    "id": 17277,
+    "title": "Runway started by helping filmmakers — now it wants to beat Google at AI",
+    "source": "TechCrunch",
+    "summary": "AI video-generation startup Runway is betting that video generation is the path to world models. And that being an AI outsider is an advantage, not a liability.",
+    "link": "https://techcrunch.com/2026/05/15/runway-started-by-helping-filmmakers-now-it-wants-to-beat-google-at-ai/",
+    "published_at": "2026-05-15T14:00:00",
+    "keywords": [
+      "AI",
+      "Media & Entertainment",
+      "AI video generation",
+      "Exclusive",
+      "runway",
+      "video intelligence",
+      "world models"
+    ]
+  },
+  {
+    "id": 17278,
+    "title": "Even GoPro is pivoting to defense",
+    "source": "TechCrunch",
+    "summary": "The action camera maker, like so many other companies these days, is looking to defense applications as it evaluates a possible sale.",
+    "link": "https://techcrunch.com/2026/05/15/even-gopro-is-pivoting-to-defense/",
+    "published_at": "2026-05-15T13:14:13",
+    "keywords": [
+      "Gadgets",
+      "defense",
+      "GoPro"
+    ]
+  },
+  {
+    "id": 17279,
     "title": "Osaurus brings both local and cloud AI models to your Mac",
     "source": "TechCrunch",
     "summary": "Osaurus￼ combines local and cloud AI models in a Mac app that keeps users’ memory, files, and tools on their own hardware.",
@@ -55614,7 +55727,7 @@
     ]
   },
   {
-    "id": 17130,
+    "id": 17280,
     "title": "Indian Uber rival Rapido raises $240M at $3B valuation",
     "source": "TechCrunch",
     "summary": "Rapido has driven its growth by enabling ride-hailing for lower-cost and more flexible modes of transport such as motorbikes and auto-rickshaws.",
@@ -55630,97 +55743,7 @@
     ]
   },
   {
-    "id": 17131,
-    "title": "What the jury will actually decide in the case of Elon Musk vs. Sam Altman",
-    "source": "TechCrunch",
-    "summary": "Here's what the biggest tech court case of the year is all about.",
-    "link": "https://techcrunch.com/2026/05/14/what-the-jury-will-actually-decide-in-the-case-of-elon-musk-vs-sam-altman/",
-    "published_at": "2026-05-14T22:47:51",
-    "keywords": [
-      "AI",
-      "Elon Musk",
-      "OpenAI",
-      "sam altman"
-    ]
-  },
-  {
-    "id": 17132,
-    "title": "Elon Musk’s SpaceXAI has been bleeding staff since its merger",
-    "source": "TechCrunch",
-    "summary": "More than 50 employees have reportedly left Elon Musk’s newly merged SpaceXAI since February, raising questions about burnout, leadership changes, talent poaching, and whether liquidity events weakened retention incentives.",
-    "link": "https://techcrunch.com/2026/05/14/elon-musks-spacexai-has-been-bleeding-staff-since-its-merger/",
-    "published_at": "2026-05-14T21:30:44",
-    "keywords": [
-      "AI",
-      "Space",
-      "Elon Musk",
-      "SpaceX",
-      "xAI",
-      "spacexai"
-    ]
-  },
-  {
-    "id": 17133,
-    "title": "OpenAI says Codex is coming to your phone",
-    "source": "TechCrunch",
-    "summary": "The update gives users enhanced flexibility over how they can manage their workflows.",
-    "link": "https://techcrunch.com/2026/05/14/openai-says-codex-is-coming-to-your-phone/",
-    "published_at": "2026-05-14T20:58:55",
-    "keywords": [
-      "AI",
-      "Anthropic",
-      "ChatGPT",
-      "codex",
-      "In Brief",
-      "OpenAI"
-    ]
-  },
-  {
-    "id": 17134,
-    "title": "Lovable just backed a company that’s looking to bring vibe coding to hardware",
-    "source": "TechCrunch",
-    "summary": "Hardware company Atech raised $800,000 in pre-seed funding, including from a16z’s scout fund, Sequoia Scout Fund, and Nordic Makers.",
-    "link": "https://techcrunch.com/2026/05/14/lovable-just-backed-a-company-thats-looking-to-bring-vibe-coding-to-hardware/",
-    "published_at": "2026-05-14T20:43:03",
-    "keywords": [
-      "Hardware",
-      "Startups",
-      "Atech",
-      "In Brief",
-      "Lovable",
-      "Sequoia Scout Fund"
-    ]
-  },
-  {
-    "id": 17135,
-    "title": "Cerebras IPO makes billions for Benchmark but VC Eric Vishria almost didn’t take the meeting",
-    "source": "TechCrunch",
-    "summary": "Benchmark almost never backs hardware startups. So Eric Vishria dragged his feet 10 years ago before agreeing to hear Cerebras' pitch.",
-    "link": "https://techcrunch.com/2026/05/14/cerebras-ipo-makes-billions-for-benchmark-but-vc-eric-vishria-almost-didnt-take-the-meeting/",
-    "published_at": "2026-05-14T20:23:03",
-    "keywords": [
-      "Venture",
-      "Benchmark Partners",
-      "cerebras systems",
-      "IPOs"
-    ]
-  },
-  {
-    "id": 17136,
-    "title": "OpenAI is reportedly preparing legal action against Apple; it wouldn’t be the first partner to feel burned",
-    "source": "TechCrunch",
-    "summary": "OpenAI is so frustrated with Apple over a ChatGPT integration that failed to deliver the subscribers and prominence it expected that the company is now actively exploring legal action against the iPhone maker.",
-    "link": "https://techcrunch.com/2026/05/14/openai-is-reportedly-preparing-legal-action-against-apple-it-wouldnt-be-the-first-partner-to-feel-burned/",
-    "published_at": "2026-05-14T19:12:03",
-    "keywords": [
-      "AI",
-      "jony ive",
-      "lawsuit",
-      "OpenAI"
-    ]
-  },
-  {
-    "id": 17137,
+    "id": 17281,
     "title": "Harshita Arora Joins YC as General Partner",
     "source": "Y Combinator Blog",
     "summary": "We're thrilled to announce that Harshita Arora is joining Y Combinator as a General Partner.  She brings deep fintech and infrastructure experience, a founder's instinct for product, and the perspective of someone who's been building companies since she was a teenager.",
@@ -55731,7 +55754,7 @@
     ]
   },
   {
-    "id": 17138,
+    "id": 17282,
     "title": "Adding Canada Back to Our List of Accepted Countries of Incorporation",
     "source": "Y Combinator Blog",
     "summary": "After hearing feedback from Canadian founders in our network, we are adding Canada back to our list of accepted countries of incorporation.",
@@ -55742,7 +55765,7 @@
     ]
   },
   {
-    "id": 17139,
+    "id": 17283,
     "title": "Congratulations to EquipmentShare on Going Public",
     "source": "Y Combinator Blog",
     "summary": "Today, EquipmentShare (YC W15) goes public. From Missouri to 373 locations nationwide, they've built the operating system construction has been missing—built by contractors, for contractors. Congrats to Jabbok, Willy, and the EquipmentShare team on a huge milestone.",
@@ -55753,7 +55776,7 @@
     ]
   },
   {
-    "id": 17140,
+    "id": 17284,
     "title": "Announcing the YC AI Stack",
     "source": "Y Combinator Blog",
     "summary": "We've partnered with nearly two dozen companies to offer students who attend YC events a suite of over $25,000 in free credits for AI devtools.",
@@ -55765,7 +55788,7 @@
     ]
   },
   {
-    "id": 17141,
+    "id": 17285,
     "title": "2026 Demo Day Dates",
     "source": "Y Combinator Blog",
     "summary": "We’re excited to share the Demo Day dates for 2026 so founders, investors, and our broader community can plan ahead.",
@@ -55777,7 +55800,7 @@
     ]
   },
   {
-    "id": 17142,
+    "id": 17286,
     "title": "Meesho Goes Public",
     "source": "Y Combinator Blog",
     "summary": "Meesho goes public today. From S16 to IPO, they’ve built one of India’s largest e-commerce platforms—empowering millions of small merchants to grow their businesses.\n\nCongrats to Vidit and Sanjeev on a decade of relentless building and listening to users!",
@@ -55788,7 +55811,7 @@
     ]
   },
   {
-    "id": 17143,
+    "id": 17287,
     "title": "Congratulations to Groww",
     "source": "Y Combinator Blog",
     "summary": "Today, Groww, India's leading digital investing platform, goes public. Tens of millions use Groww to invest simply and confidently in stocks, mutual funds, and ETFs. As YC's first company to list in India, we couldn't be more proud.",
@@ -55799,7 +55822,7 @@
     ]
   },
   {
-    "id": 17144,
+    "id": 17288,
     "title": "BillionToOne Goes Public — The Startup That Made Genetic Testing Universal",
     "source": "Y Combinator Blog",
     "summary": "Today, BillionToOne goes public, becoming YC's fourth publicly traded biotech company. More importantly, they have built one of the most important genetic tests in the U.S. Today, 1 in 11 babies born in the US are tested with BillionToOne's fetal genetic test.",
@@ -55810,7 +55833,7 @@
     ]
   },
   {
-    "id": 17145,
+    "id": 17289,
     "title": "Meet YC's Newest Visiting Partners",
     "source": "Y Combinator Blog",
     "summary": "We're excited to announce that nine exceptional founders are joining us as Visiting Partners at YC: Matt Riley, Harshita Arora, Grey Baker, Christopher Golda, Raphael Schaad, Christina Gilbert, Francois Chaubard, Vivian Shen, and James Evans.",
@@ -55821,7 +55844,7 @@
     ]
   },
   {
-    "id": 17146,
+    "id": 17290,
     "title": "YC x Coinbase RFS: Build Onchain",
     "source": "Y Combinator Blog",
     "summary": "We are entering the era of Fintech 3.0.\n\nRegulatory clarity, growing consumer adoption, and low-cost chains have paved the way for a golden age of building in crypto — and at YC, Base, and Coinbase, we want to fund builders to seize this moment.",
@@ -55833,61 +55856,52 @@
     ]
   },
   {
-    "id": 17147,
-    "title": "Raybeam",
+    "id": 17291,
+    "title": "Vivago Video Agent",
     "source": "Product Hunt — The best new products, every day",
-    "summary": "A better way to screen share on macOS\n           \n \n Discussion \n            |\n             Link",
-    "link": "https://www.producthunt.com/products/raybeam",
-    "published_at": "2026-05-16T04:29:06",
+    "summary": "Skip the prompting. Produce consistently compelling videos. \n           \n \n Discussion \n            |\n             Link",
+    "link": "https://www.producthunt.com/products/viva",
+    "published_at": "2026-05-13T13:02:37",
     "keywords": []
   },
   {
-    "id": 17148,
-    "title": "Wring",
+    "id": 17292,
+    "title": "SUN-to-Spotify",
     "source": "Product Hunt — The best new products, every day",
-    "summary": "Developer tools, one menu click away.\n           \n \n Discussion \n            |\n             Link",
-    "link": "https://www.producthunt.com/products/wring",
-    "published_at": "2026-05-15T14:24:23",
+    "summary": "Generate audio with SUN and send it to your Spotify library\n           \n \n Discussion \n            |\n             Link",
+    "link": "https://www.producthunt.com/products/sun-ai",
+    "published_at": "2025-03-17T05:09:16",
     "keywords": []
   },
   {
-    "id": 17149,
-    "title": "Gemini 3.1 Flash-Lite",
+    "id": 17293,
+    "title": "Fere AI",
     "source": "Product Hunt — The best new products, every day",
-    "summary": "Lightweight Gemini model for high-volume AI pipelines \n           \n \n Discussion \n            |\n             Link",
-    "link": "https://www.producthunt.com/products/gemini-3-1-flash-lite-2",
-    "published_at": "2026-05-11T07:41:05",
+    "summary": "AI agents that turn signals into crypto + Polymarket trades\n           \n \n Discussion \n            |\n             Link",
+    "link": "https://www.producthunt.com/products/fere-ai",
+    "published_at": "2026-04-30T17:44:29",
     "keywords": []
   },
   {
-    "id": 17150,
-    "title": "Agentmemory",
+    "id": 17294,
+    "title": "Kirki",
     "source": "Product Hunt — The best new products, every day",
-    "summary": "#1 Persistent memory for Codex, Hermes, OpenClaw, Claude ++\n           \n \n Discussion \n            |\n             Link",
-    "link": "https://www.producthunt.com/products/agent-memory-dev",
-    "published_at": "2026-05-11T09:53:56",
+    "summary": "WordPress finally has a freeform canvas website builder.\n           \n \n Discussion \n            |\n             Link",
+    "link": "https://www.producthunt.com/products/kirki",
+    "published_at": "2026-05-16T11:15:00",
     "keywords": []
   },
   {
-    "id": 17151,
-    "title": "ChatGPT for Personal Finance",
+    "id": 17295,
+    "title": "Files SDK",
     "source": "Product Hunt — The best new products, every day",
-    "summary": "Personal finance guidance powered by ChatGPT\n           \n \n Discussion \n            |\n             Link",
-    "link": "https://www.producthunt.com/products/openai",
-    "published_at": "2026-05-15T19:16:51",
+    "summary": "A unified storage SDK for object and blob backends\n           \n \n Discussion \n            |\n             Link",
+    "link": "https://www.producthunt.com/products/files-sdk",
+    "published_at": "2026-05-11T08:34:09",
     "keywords": []
   },
   {
-    "id": 17152,
-    "title": "M5Stack PaperColor",
-    "source": "Product Hunt — The best new products, every day",
-    "summary": "4-inch color E-ink dev board with ESP32 and audio I/O\n           \n \n Discussion \n            |\n             Link",
-    "link": "https://www.producthunt.com/products/m5stack",
-    "published_at": "2026-05-15T14:37:56",
-    "keywords": []
-  },
-  {
-    "id": 17153,
+    "id": 17296,
     "title": "Loova Agents",
     "source": "Product Hunt — The best new products, every day",
     "summary": "Your AI director for creating cinematic videos with ease\n           \n \n Discussion \n            |\n             Link",
@@ -55896,36 +55910,92 @@
     "keywords": []
   },
   {
-    "id": 17154,
-    "title": "PHBench",
+    "id": 17297,
+    "title": "M5Stack PaperColor",
     "source": "Product Hunt — The best new products, every day",
-    "summary": "Predict the next Series A from a ProductHunt launch\n           \n \n Discussion \n            |\n             Link",
-    "link": "https://www.producthunt.com/products/vela-terminal",
-    "published_at": "2026-05-11T18:22:01",
+    "summary": "4-inch color E-ink dev board with ESP32 and audio I/O\n           \n \n Discussion \n            |\n             Link",
+    "link": "https://www.producthunt.com/products/m5stack",
+    "published_at": "2026-05-15T14:37:56",
     "keywords": []
   },
   {
-    "id": 17155,
-    "title": "Agentic Website Builder 2.0 by Lokuma",
+    "id": 17298,
+    "title": "ChatGPT for Personal Finance",
     "source": "Product Hunt — The best new products, every day",
-    "summary": "Design, build, and run your site with a design agent harness\n           \n \n Discussion \n            |\n             Link",
-    "link": "https://www.producthunt.com/products/agentic-website-builder-2-0-by-lokuma",
-    "published_at": "2026-05-14T02:51:00",
+    "summary": "Personal finance guidance powered by ChatGPT\n           \n \n Discussion \n            |\n             Link",
+    "link": "https://www.producthunt.com/products/openai",
+    "published_at": "2026-05-15T19:16:51",
     "keywords": []
   },
   {
-    "id": 17156,
-    "title": "Relay",
+    "id": 17299,
+    "title": "Agentmemory",
     "source": "Product Hunt — The best new products, every day",
-    "summary": "Stop repeating yourself to every AI\n           \n \n Discussion \n            |\n             Link",
-    "link": "https://www.producthunt.com/products/relay-15",
-    "published_at": "2026-04-18T12:32:01",
+    "summary": "Persistent memory for Claude Code, Codex & coding agents\n           \n \n Discussion \n            |\n             Link",
+    "link": "https://www.producthunt.com/products/agent-memory-dev",
+    "published_at": "2026-05-11T09:53:56",
     "keywords": []
   },
   {
-    "id": 17157,
+    "id": 17300,
+    "title": "Wring",
+    "source": "Product Hunt — The best new products, every day",
+    "summary": "Developer tools, one menu click away.\n           \n \n Discussion \n            |\n             Link",
+    "link": "https://www.producthunt.com/products/wring",
+    "published_at": "2026-05-15T14:24:23",
+    "keywords": []
+  },
+  {
+    "id": 17301,
+    "title": "NASA Science, Cargo Launch on 34th SpaceX Resupply Mission to Station",
+    "source": "NASA",
+    "summary": "The 34th SpaceX commercial resupply mission under contract with NASA is headed to the International Space Station with new scientific experiments after lifting off at 6:05 p.m. EDT Friday on a Falcon 9 rocket from Space Launch Complex 40 at Cape Canaveral Space Force Station in Florida. The SpaceX spacecraft, loaded with nearly 6,500 pounds […]",
+    "link": "https://www.nasa.gov/news-release/nasa-science-cargo-launch-on-34th-spacex-resupply-mission-to-station/",
+    "published_at": "2026-05-15T22:52:14",
+    "keywords": [
+      "Commercial Resupply",
+      "Humans in Space",
+      "International Space Station (ISS)",
+      "Johnson Space Center",
+      "Kennedy Space Center",
+      "Missions",
+      "NASA Headquarters",
+      "SpaceX Commercial Resupply"
+    ]
+  },
+  {
+    "id": 17302,
+    "title": "Curiosity Shakes Loose a Pesky Rock",
+    "source": "NASA",
+    "summary": "After NASA’s Curiosity Mars rover drilled a sample from this rock on April 25, 2026, it withdrew its robotic arm and pulled the entire rock off the surface with it. Engineers spent several days repositioning the arm and vibrating the drill to try and get the rock loose. When it finally detached on May 1, […]",
+    "link": "https://www.nasa.gov/image-article/curiosity-shakes-loose-a-pesky-rock/",
+    "published_at": "2026-05-15T14:45:52",
+    "keywords": [
+      "Mars"
+    ]
+  },
+  {
+    "id": 17303,
+    "title": "Hubble Sights Galaxy in Transition",
+    "source": "NASA",
+    "summary": "This NASA Hubble Space Telescope image reveals an enigmatic galaxy with a bright center and a face that hints at spiral structure, yet it holds no obvious spiral arms. Reddish-brown clumps and filaments of dust partially obscure the galaxy’s full face, while red, blue, and orange light from distant galaxies shines through its diffuse outer […]",
+    "link": "https://science.nasa.gov/missions/hubble/hubble-sights-galaxy-in-transition/",
+    "published_at": "2026-05-15T12:01:37",
+    "keywords": [
+      "Active Galaxies",
+      "Astrophysics",
+      "Astrophysics Division",
+      "Galaxies",
+      "Goddard Space Flight Center",
+      "Hubble Space Telescope",
+      "Lenticular Galaxies",
+      "The Universe"
+    ]
+  },
+  {
+    "id": 17304,
     "title": "Picturing Earth in a New Light",
-    "source": "Technology – NASA",
+    "source": "NASA",
     "summary": "A recent analysis revealed where artificial light at night has intensified, as well as where it has diminished.",
     "link": "https://science.nasa.gov/earth/earth-observatory/picturing-earth-in-a-new-light/",
     "published_at": "2026-05-15T04:00:00",
@@ -55936,9 +56006,9 @@
     ]
   },
   {
-    "id": 17158,
+    "id": 17305,
     "title": "NASA Draws on Industry for Mars Telecommunications Network",
-    "source": "Technology – NASA",
+    "source": "NASA",
     "summary": "On Thursday, NASA issued a Request for Proposal (RFP), seeking industry collaboration for the Mars Telecommunications Network. Reliable, high bandwidth communications is necessary to relay science data, high-definition imagery, and critical information during Mars missions. The network will use high-performance Mars telecommunications orbiters at the Red Planet to support future surface, orbital, and human exploration. […]",
     "link": "https://www.nasa.gov/directorates/esdmd/nasa-draws-on-industry-for-mars-telecommunications-network/",
     "published_at": "2026-05-14T20:53:24",
@@ -55950,7 +56020,64 @@
     ]
   },
   {
-    "id": 17159,
+    "id": 17306,
+    "title": "NASA, Industry Prepare Cryogenic Fuel Technology Demo",
+    "source": "NASA",
+    "summary": "NASA is collaborating with Eta Space of Rockledge, Florida, on an in‑orbit technology demonstration to advance a key capability for future deep space missions. The Liquid Oxygen Flight Demonstration, or LOXSAT, will test cryogenic fluid management technologies necessary for creating in-space propellant depots, essentially gas stations in space, that could support long-term exploration. During a […]",
+    "link": "https://www.nasa.gov/directorates/stmd/tech-demo-missions-program/cryogenic-fluid-management-cfm/nasa-industry-prepare-cryogenic-fuel-technology-demo/",
+    "published_at": "2026-05-14T16:32:09",
+    "keywords": [
+      "Cryogenic Fluid Management (CFM)",
+      "Kennedy Space Center",
+      "Marshall Space Flight Center",
+      "Space Technology Mission Directorate",
+      "Technology Demonstration Missions Program"
+    ]
+  },
+  {
+    "id": 17307,
+    "title": "Fresh Food Delivery for Space Station",
+    "source": "NASA",
+    "summary": "NASA astronauts Jack Hathaway (bottom left), Jessica Meir (middle left), and Chris Williams (bottom right), and ESA (European Space Agency) astronaut Sophie Adenot (top right) have some fun with food and microgravity in this April 19, 2026, photo. Northrop Grumman’s Cygnus XL cargo spacecraft delivered a shipment of fresh food, including oranges, apples, onions, and […]",
+    "link": "https://www.nasa.gov/image-article/fresh-food-delivery-for-space-station/",
+    "published_at": "2026-05-14T14:55:08",
+    "keywords": [
+      "Christopher L. Williams",
+      "International Space Station (ISS)",
+      "Jack Hathaway",
+      "Jessica U. Meir"
+    ]
+  },
+  {
+    "id": 17308,
+    "title": "Ice Moves Out of Aniak",
+    "source": "NASA",
+    "summary": "Spring melt along Alaska’s Kuskokwim River caused ice jams and flooding.",
+    "link": "https://science.nasa.gov/earth/earth-observatory/ice-moves-out-of-aniak/",
+    "published_at": "2026-05-14T04:01:00",
+    "keywords": [
+      "Earth Observatory",
+      "Floods",
+      "Landsat 9",
+      "Snow",
+      "Surface Water"
+    ]
+  },
+  {
+    "id": 17309,
+    "title": "NASA-Supported Space Tech Advances Earthly Construction",
+    "source": "NASA",
+    "summary": "An innovative 3D printing process that advanced NASA’s approach to outfitting a lunar habitat is making buildings on Earth beautiful, efficient, and strong.  Instead of building structures layer by layer, Branch Technology Inc. of Chattanooga, Tennessee, has developed a process the company calls Freeform 3D Printing, which creates shapes with lightweight lattice structures that can be filled or covered. The company uses the technique to manufacture […]",
+    "link": "https://www.nasa.gov/technology/tech-transfer-spinoffs/nasa-supported-space-tech-advances-earthly-construction/",
+    "published_at": "2026-05-13T19:47:08",
+    "keywords": [
+      "Technology Transfer & Spinoffs",
+      "Spinoffs",
+      "Technology Transfer"
+    ]
+  },
+  {
+    "id": 17310,
     "title": "Meet the Fleet: NASA Armstrong Continues Legacy of Flight Research",
     "source": "Aeronautics – NASA",
     "summary": "NASA’s home for experimental flight is welcoming more flyers to its already high-performing fleet as it continues to support science and aeronautics test missions – continuing the legacy of pioneers like Neil Armstrong. NASA’s Armstrong Flight Research Center in Edwards, California, added multiple aircraft this year: two F-15s supersonic jets, a Pilatus PC-12 utility plane, […]",
@@ -55964,7 +56091,26 @@
     ]
   },
   {
-    "id": 17160,
+    "id": 17311,
+    "title": "There’s No Place Like NASA’s New X-59 Hangar Home",
+    "source": "Aeronautics – NASA",
+    "summary": "There’s no sign reading “home sweet home” in the hangar where the X‑59 now sits, but the sentiment is unmistakable among those tending to the quiet supersonic aircraft. Located at NASA’s Armstrong Flight Research Center in Edwards, California, the X-59 hangar was built in 1968 but looks like new thanks to a full renovation and […]",
+    "link": "https://www.nasa.gov/centers-and-facilities/armstrong/new-x-59-hangar-home/",
+    "published_at": "2026-04-28T19:41:27",
+    "keywords": [
+      "Armstrong Flight Research Center",
+      "Aeronautics",
+      "Aeronautics Research Mission Directorate",
+      "Commercial Supersonic Technology",
+      "High-Speed Flight",
+      "Low Boom Flight Demonstrator",
+      "Quesst (X-59)",
+      "Quesst: The Vehicle",
+      "Supersonic Flight"
+    ]
+  },
+  {
+    "id": 17312,
     "title": "NASA Celebrates Decade of University Innovation in Aeronautics",
     "source": "Aeronautics – NASA",
     "summary": "For 10 years, a NASA initiative has helped the agency produce breakthrough aeronautical innovations while fostering the aviation workforce of tomorrow – and the University Leadership Initiative (ULI) is still flying high, making awards with the potential to change 21st century air travel.  Through ULI, NASA has supported more than 1,100 students at 100 schools, allowing them […]",
@@ -55979,7 +56125,29 @@
     ]
   },
   {
-    "id": 17161,
+    "id": 17313,
+    "title": "NASA Releases Powerful LAVA Software to US Aerospace Industry",
+    "source": "Aeronautics – NASA",
+    "summary": "For years, NASA engineers have turned to a tool called the Launch, Ascent, and Vehicle Aerodynamics (LAVA) framework to solve airflow challenges that could mean the difference between mission success or failure. When engineers need to know how a spacecraft will navigate re-entry or whether a new aircraft wing design will create enough lift, they […]",
+    "link": "https://www.nasa.gov/aeronautics/nasa-releases-powerful-lava-software-to-us-aerospace-industry/",
+    "published_at": "2026-04-23T16:07:30",
+    "keywords": [
+      "Aeronautics",
+      "Advanced Air Vehicles Program",
+      "Aeronautics Research Mission Directorate",
+      "Ames Research Center",
+      "Exploration Systems Development Mission Directorate",
+      "General",
+      "High-Speed Flight",
+      "High-Tech Computing",
+      "Space Technology Mission Directorate",
+      "Subsonic Vehicle Technologies and Tools",
+      "Transformational Tools Technologies",
+      "Transformative Aeronautics Concepts Program"
+    ]
+  },
+  {
+    "id": 17314,
     "title": "NASA, Organ Sharing Network UNOS to Study Faster Organ Transport",
     "source": "Aeronautics – NASA",
     "summary": "Editor’s Note: On April 23, we updated this story to acknowledge a change in the type of organ being used for testing. Every second counts in the life-saving world of medical transplants. To help address that urgency, NASA’s Langley Research Center in Hampton, Virginia, is teaming up with the United Network for Organ Sharing (UNOS) to explore faster, […]",
@@ -55996,7 +56164,18 @@
     ]
   },
   {
-    "id": 17162,
+    "id": 17315,
+    "title": "2025-2026 Dream with Us Design Challenge Winners",
+    "source": "Aeronautics – NASA",
+    "summary": "2025-2026 Dream with Us Winners Congratulation to our 2025-2026 Dream with Us Design Challenge Winners! We are pleased to share this year’s winning projects:  Middle School 1st Place: Scout Farm (Varenya D., Aashritha P., and Alvitha P., NJ) 2nd Place: AgriTech (Charlotte W. and Richard F., CA) 3rd Place: AgriVision (Vivaan G. and Yajvin M., CA) High […]",
+    "link": "https://www.nasa.gov/aeronautics/aeronautics-stem/2025-2026-dwu-winners/",
+    "published_at": "2026-04-14T18:44:49",
+    "keywords": [
+      "Aeronautics STEM"
+    ]
+  },
+  {
+    "id": 17316,
     "title": "Nicholas Houghton: Engineering Crew Safety for NASA’s Artemis Missions",
     "source": "Artemis – NASA",
     "summary": "Nicholas Houghton always dreamed of working at NASA and one day becoming an astronaut. Today, he helps design systems that keep crews safe during missions aboard NASA’s Orion spacecraft, including the successful Artemis II mission around the Moon. After joining NASA as a Pathways intern, Houghton later became a full-time engineer on the Orion Crew Survival Systems (OCSS) […]",
@@ -56011,7 +56190,20 @@
     ]
   },
   {
-    "id": 17163,
+    "id": 17317,
+    "title": "NASA Welcomes Ireland as Newest Artemis Accords Signatory",
+    "source": "Artemis – NASA",
+    "summary": "Ireland signed the Artemis Accords Monday during a signing ceremony hosted by NASA, becoming the latest nation to commit to the responsible exploration of space for all humanity. Ireland, a longstanding member of ESA (European Space Agency) and a valued international partner for NASA, now joins all 23 ESA member states as a signatory of […]",
+    "link": "https://www.nasa.gov/missions/artemis/nasa-welcomes-ireland-as-newest-artemis-accords-signatory/",
+    "published_at": "2026-05-04T21:09:23",
+    "keywords": [
+      "Artemis",
+      "Artemis Accords",
+      "Office of International and Interagency Relations (OIIR)"
+    ]
+  },
+  {
+    "id": 17318,
     "title": "NASA Welcomes Malta as Newest Artemis Accords Signatory",
     "source": "Artemis – NASA",
     "summary": "The Republic of Malta became the 65th signatory to the Artemis Accords on Monday during a ceremony in the town of Kalkara with NASA and U.S. Department of State officials present. “Today, it’s my pleasure to welcome the Republic of Malta to the Artemis Accords community,” NASA Administrator Jared Isaacman said in recorded remarks. “By […]",
@@ -56024,34 +56216,112 @@
     ]
   },
   {
-    "id": 17164,
+    "id": 17319,
+    "title": "NASA’s SpaceX 34th Commercial Resupply Mission Overview",
+    "source": "International Space Station (ISS) – NASA",
+    "summary": "NASA and SpaceX are targeting a mid-May launch to deliver scientific investigations, supplies, and equipment to the International Space Station.  Loaded with about 6,500 pounds of supplies, the SpaceX Dragon spacecraft will lift off aboard the company’s Falcon 9 rocket from Launch Complex 40 at Cape Canaveral Space Force Station in Florida. Following its arrival to the orbital complex, Dragon will dock autonomously to the forward port of […]",
+    "link": "https://www.nasa.gov/general/nasas-spacex-34th-commercial-resupply-mission-overview/",
+    "published_at": "2026-05-08T22:50:03",
+    "keywords": [
+      "General",
+      "Commercial Resupply",
+      "International Space Station (ISS)",
+      "SpaceX Commercial Resupply"
+    ]
+  },
+  {
+    "id": 17320,
+    "title": "NASA Astronaut to Answer Questions from Students in Florida",
+    "source": "International Space Station (ISS) – NASA",
+    "summary": "Students in Florida will hear from NASA astronaut Chris Williams as he answers prerecorded science, technology, engineering, and mathematics (STEM) questions while aboard the International Space Station. The Earth-to-space call will begin at 11 a.m. EDT Friday, May 8, and will stream live on the agency’s Learn With NASA YouTube channel. This event is hosted […]",
+    "link": "https://www.nasa.gov/general/nasa-astronaut-to-answer-questions-from-students-in-florida/",
+    "published_at": "2026-05-05T16:59:59",
+    "keywords": [
+      "General",
+      "Humans in Space",
+      "In-flight Education Downlinks",
+      "International Space Station (ISS)",
+      "Learning Resources"
+    ]
+  },
+  {
+    "id": 17321,
+    "title": "NASA’s STORIE Mission to Tell Tale of Earth’s Ring Current",
+    "source": "International Space Station (ISS) – NASA",
+    "summary": "Earth’s magnetic field is like a powerful trap. It lures electrically charged particles in space, near our planet, and snares them in an invisible, doughnut-shaped pen around Earth known as the ring current. This captive swarm of charged particles plays an important role in how Earth reacts to changing conditions in space, called space weather, which […]",
+    "link": "https://science.nasa.gov/science-research/heliophysics/nasas-storie-mission-to-tell-tale-of-earths-ring-current/",
+    "published_at": "2026-05-01T15:31:08",
+    "keywords": [
+      "Earth's Magnetic Field",
+      "Goddard Space Flight Center",
+      "Heliophysics",
+      "Heliophysics Division",
+      "International Space Station (ISS)",
+      "ISS Research",
+      "Magnetosphere",
+      "Space Weather",
+      "The Sun"
+    ]
+  },
+  {
+    "id": 17322,
+    "title": "NASA Astronauts to Answer Questions from Missouri Students",
+    "source": "International Space Station (ISS) – NASA",
+    "summary": "Students in Missouri will hear from NASA astronauts Jessica Meir and Jack Hathaway as they answer prerecorded science, technology, engineering, and mathematics (STEM) questions while aboard the International Space Station. The Earth-to-space call will begin at 10:50 a.m. EDT Thursday, April 30, and will stream live on the agency’s Learn With NASA YouTube channel. This […]",
+    "link": "https://www.nasa.gov/news-release/nasa-astronauts-to-answer-questions-from-missouri-students/",
+    "published_at": "2026-04-24T14:47:12",
+    "keywords": [
+      "In-flight Education Downlinks",
+      "Humans in Space",
+      "International Space Station (ISS)",
+      "Johnson Space Center",
+      "Learning Resources",
+      "NASA Headquarters"
+    ]
+  },
+  {
+    "id": 17323,
+    "title": "Johnson Leaders Honored by National Space Club & Foundation",
+    "source": "International Space Station (ISS) – NASA",
+    "summary": "The National Space Club & Foundation announced its annual award recipients March 13, 2026, in Washington, D.C.   Two dedicated leaders from NASA’s Johnson Space Center were recognized for their contributions to human spaceflight.  Orion Program Manager Howard Hu received the Norman L. Baker Astronautics Engineer Award for sustained technical contributions to multiple human spaceflight efforts, culminating in […]",
+    "link": "https://www.nasa.gov/centers-and-facilities/johnson/johnson-leaders-honored-by-national-space-club-foundation/",
+    "published_at": "2026-04-23T23:24:14",
+    "keywords": [
+      "Johnson Space Center",
+      "Artemis",
+      "International Space Station (ISS)",
+      "Orion Program"
+    ]
+  },
+  {
+    "id": 17324,
     "title": "National Science Foundation Translation to Practice (NSF TTP)",
     "source": "NSF Upcoming Due Dates",
     "summary": "Full Proposal Deadline Date: May 19, 2026 NSF TTP-T and TTP-P Tracks Program Guidelines: NSF 25-540 The U.S. NSF  Directorate for Technology, Innovation and Partnerships  (NSF TIP) partners across sectors to advance three primary focus areas – accelerating technology translation and development, fostering regional innovation and ... More at https://www.nsf.gov/funding/opportunities This is an NSF Upcoming Due Dates item.",
     "link": "https://www.nsf.gov/funding/opportunities/nsf-ttp-national-science-foundation-translation-practice/nsf25-540",
-    "published_at": "2026-05-16T07:58:23.658919",
+    "published_at": "2026-05-17T08:15:36.022973",
     "keywords": []
   },
   {
-    "id": 17165,
+    "id": 17325,
     "title": "Tribal Colleges and Universities Program (TCUP)",
     "source": "NSF Upcoming Due Dates",
     "summary": "Full Proposal Deadline Date: June 1, 2026 TCU Enterprise Advancement Centers (TEA Centers) Program Guidelines: NSF 21-595 The Tribal Colleges and Universities Program (TCUP) provides awards to federally recognized 1   Tribal Colleges and Universities, Alaska Native-serving institutions, and Native Hawaiian-serving institutions to promote high quality science (including sociology, psychology, anthropology, ... More at https://www.nsf.gov/funding/opportunities This is an NSF Upcoming Due Dates item.",
     "link": "https://www.nsf.gov/funding/opportunities/tcup-tribal-colleges-universities-program/nsf21-595",
-    "published_at": "2026-05-16T07:58:24.102873",
+    "published_at": "2026-05-17T08:15:36.066769",
     "keywords": []
   },
   {
-    "id": 17166,
-    "title": "Arctic Doctoral Dissertation Research Improvement Grants Arctic Social Sciences, Arctic System Sciences, and Arctic Observing Network (DDRIG)",
+    "id": 17326,
+    "title": "TechAccess: AI-Ready America",
     "source": "NSF Upcoming Due Dates",
-    "summary": "Full Proposal Deadline Date: June 15, 2026 Program Guidelines: NSF 20-597 The National Science Foundation (NSF) invites investigators at U.S. organizations to submit proposals for Doctoral Dissertation Research Improvement Grants (DDRIGs) to the Arctic Sciences Section, Office of Polar Programs (OPP) to conduct dissertation-level research about and related to the ... More at https://www.nsf.gov/funding/opportunities This is an NSF Upcoming Due Dates item.",
-    "link": "https://www.nsf.gov/funding/opportunities/ddrig-arctic-doctoral-dissertation-research-improvement-grants/nsf20-597",
-    "published_at": "2026-05-16T07:58:24.163286",
+    "summary": "Letter of Intent Deadline Date: June 16, 2026 Program Guidelines: NSF 26-508 TechAccess: AI‑Ready America is a national-scale initiative to accelerate Artificial Intelligence (AI) readiness and adoption across the U.S. by strengthening coordination, leveraging partnerships and resources, filling gaps, and scaling what works—so local and state priorities can ... More at https://www.nsf.gov/funding/opportunities This is an NSF Upcoming Due Dates item.",
+    "link": "https://www.nsf.gov/funding/opportunities/techaccess-ai-ready-america/nsf26-508",
+    "published_at": "2026-05-17T08:15:36.317796",
     "keywords": []
   },
   {
-    "id": 17167,
+    "id": 17327,
     "title": "NSF announces $1.5B NSF X-Labs initiative to pursue generational breakthrough science efforts",
     "source": "NSF News",
     "summary": "Today, the U.S. National Science Foundation announced $1.5 billion over the next decade toward the NSF X-Labs initiative to tackle pressing scientific challenges through novel and innovative...",
@@ -56060,7 +56330,7 @@
     "keywords": []
   },
   {
-    "id": 17168,
+    "id": 17328,
     "title": "Podcast: Photonic quantum chips promise fast future",
     "source": "NSF News",
     "summary": "Miloš Popović, an NSF-supported associate professor, discusses a collaboration that has built a photonic quantum system into a traditional electronic chip...",
@@ -56069,7 +56339,7 @@
     "keywords": []
   },
   {
-    "id": 17169,
+    "id": 17329,
     "title": "Podcast:  Increasing domestic critical minerals supplies",
     "source": "NSF News",
     "summary": "Critical minerals play an essential role in modern technologies, and a domestic supply is essential for national security. Elizabeth Holley discusses recovering critical minerals from...",
@@ -56078,7 +56348,7 @@
     "keywords": []
   },
   {
-    "id": 17170,
+    "id": 17330,
     "title": "NSF announces 2026 Graduate Research Fellowship Program award offers",
     "source": "NSF News",
     "summary": "The U.S. National Science Foundation (NSF) today announced that it has made offers and will award 2,500 Graduate Research Fellowships for the 2026-2027 academic year...",
@@ -56087,7 +56357,7 @@
     "keywords": []
   },
   {
-    "id": 17171,
+    "id": 17331,
     "title": "Podcast: AI-powered labs accelerating scientific discovery",
     "source": "NSF News",
     "summary": "U.S. National Science Foundation-supported engineers are developing a bold new vision for chemical and materials discovery. Milad Abolhasani, a professor in the Department of Chemical and Biomolecular Engineering at North Carolina State University…",
@@ -56096,7 +56366,7 @@
     "keywords": []
   },
   {
-    "id": 17172,
+    "id": 17332,
     "title": "NSF invests $11M to expand AI professional development for K-12 teachers nationwide",
     "source": "NSF News",
     "summary": "The U.S. National Science Foundation today announced an $11 million award to the Computer Science Teachers Association (CSTA) in furtherance of the executive order on \"Advancing Artificial Intelligence Education for American Youth.\" The award will…",
@@ -56105,7 +56375,7 @@
     "keywords": []
   },
   {
-    "id": 17173,
+    "id": 17333,
     "title": "NSF-DOE Vera C. Rubin Observatory launches real-time discovery machine for monitoring the night sky",
     "source": "NSF News",
     "summary": "NSF-DOE Rubin Observatory has issued its first scientific alerts, enabling dynamic, real-time observation of the night sky. The alerts are expected to increase to about 7 million per night...",
@@ -56114,7 +56384,7 @@
     "keywords": []
   },
   {
-    "id": 17174,
+    "id": 17334,
     "title": "NSF to proceed with demolition and site restoration at Sacramento Peak Observatory",
     "source": "NSF News",
     "summary": "The U.S. National Science Foundation announced today it will proceed with demolition and site restoration at the Sacramento Peak Observatory, also known as Sunspot Solar Observatory, in Sunspot, New Mexico, following years of reduced operations and…",
@@ -56123,7 +56393,7 @@
     "keywords": []
   },
   {
-    "id": 17175,
+    "id": 17335,
     "title": "NSF announces first AI-ENGAGE awards to modernize global agriculture",
     "source": "NSF News",
     "summary": "The U.S. National Science Foundation, in coordination with partner agencies from Australia, India and Japan, today announced the first cohort of awards made under the Advancing Innovations for Empowering NextGen AGriculturE (AI-ENGAGE) initiative…",
@@ -56132,61 +56402,61 @@
     "keywords": []
   },
   {
-    "id": 17176,
+    "id": 17336,
     "title": "Federal R&D Obligations Increased 4.4% in FY 2024; Most Agencies Estimate Declines in FY 2025",
     "source": "RSS Feed",
     "summary": "Federal obligations for research and experimental development saw an increase of 4.4% from FY 2023 to FY 2024. However, although preliminary federal agency obligations for FY 2025 indicate most federal agencies will see declining R&D obligations in FY 2025 the total is estimated to decrease by 0.1%. These data are from the latest edition of the Survey of Federal Funds for Research and Development, sponsored by the National Center for Science and Engineering Statistics within the U.S. National Science Foundation.",
     "link": "https://ncses.nsf.gov/pubs/nsf26317",
-    "published_at": "2026-05-16T07:58:25.711784",
+    "published_at": "2026-05-17T08:15:38.060367",
     "keywords": []
   },
   {
-    "id": 17177,
+    "id": 17337,
     "title": "Translation to Impact: U.S. and Global Science, Technology, and Innovation Output",
     "source": "RSS Feed",
     "summary": "Science, technology, and innovation activities expand the frontiers of fundamental and technical knowledge, often leading to new discoveries. These may be translated into outputs such as new products, licensed technologies, and companies, ultimately impacting economic output, productivity, and global trade. This thematic report presents indicators of these activities and the innovation process, which contribute to the economic competitiveness and national security of the United States and countries globally.",
     "link": "https://ncses.nsf.gov/pubs/nsb20262",
-    "published_at": "2026-05-16T07:58:25.978869",
+    "published_at": "2026-05-17T08:15:38.131141",
     "keywords": []
   },
   {
-    "id": 17178,
+    "id": 17338,
     "title": "Distribution of Federal Science and Engineering Support to Higher Education Institutions Across States",
     "source": "RSS Feed",
     "summary": "In FY 2023, federal agency obligations to universities and colleges for science and engineering (S&E) support totaled $49.0 billion, with higher education institutions in California and New York receiving the most ($6.1 billion and $3.9 billion, respectively). However, when the data were normalized by the number of recipient institutions within each state, Maryland and Arizona received the most federal support for S&E on a per-institution basis. Estimates are from the FY 2023 Survey of Federal S&E Support module within the Survey of Federal Funds for R&D, conducted by the National Center for Science and Engineering Statistics within the U.S. National Science Foundation.",
     "link": "https://ncses.nsf.gov/pubs/nsf26318",
-    "published_at": "2026-05-16T07:58:26.248128",
+    "published_at": "2026-05-17T08:15:38.205595",
     "keywords": []
   },
   {
-    "id": 17179,
+    "id": 17339,
     "title": "Doctorate Recipients from U.S. Universities: 2024",
     "source": "RSS Feed",
     "summary": "The number of doctorate recipients from U.S. universities reached 58,131 in 2024, an increase of 325 students from 2023, similar to the increase between 2022 and 2023. Since the inception of the Survey of Earned Doctorates in academic year 1958, there has been an upward trend in the number of doctorates awarded by U.S. institutions—with an average annual growth of 3.0%, punctuated by periods of slower growth and some declines.",
     "link": "https://ncses.nsf.gov/pubs/nsf26315",
-    "published_at": "2026-05-16T07:58:26.491677",
+    "published_at": "2026-05-17T08:15:38.258362",
     "keywords": []
   },
   {
-    "id": 17180,
+    "id": 17340,
     "title": "U.S. R&D Totaled $937 Billion in 2023; Estimate for 2024 Indicates Further Increase to $993 Billion",
     "source": "RSS Feed",
     "summary": "Research and experimental development (R&D) performed in the United States totaled $937 billion in 2023: $138 billion was basic research, $174 billion was applied research, and $625 billion was experimental development. U.S. total R&D expenditures are estimated to be $993 billion for 2024, or $792 billion when adjusted for inflation (in constant 2017 dollars). Data from the National Patterns of R&D Resources annual series by the National Center for Science and Engineering Statistics (NCSES) within the U.S. National Science Foundation.",
     "link": "https://ncses.nsf.gov/pubs/nsf26314",
-    "published_at": "2026-05-16T07:58:26.781850",
+    "published_at": "2026-05-17T08:15:38.353010",
     "keywords": []
   },
   {
-    "id": 17181,
+    "id": 17341,
     "title": "Survey of Graduate Students and Postdoctorates in Science and Engineering: Fall 2024",
     "source": "RSS Feed",
     "summary": "This report presents data from the 2024 Survey of Graduate Students and Postdoctorates in Science and Engineering, sponsored by the National Center for Science and Engineering Statistics within the U.S. National Science Foundation and by the National Institutes of Health. The tables show trends within science, engineering, and selected health fields on graduate student enrollment, postdoc appointments, and doctorate-holding nonfaculty researchers, as well as counts by selected characteristics, such as sex, ethnicity, race, citizenship, field of study, and source of financial support.",
     "link": "https://ncses.nsf.gov/pubs/nsf26307",
-    "published_at": "2026-05-16T07:58:27.144530",
+    "published_at": "2026-05-17T08:15:38.439901",
     "keywords": []
   },
   {
-    "id": 17182,
+    "id": 17342,
     "title": "Moon Monday #274: Artemis updates and Japanese missions galore",
     "source": "jatan.space 🌙",
     "summary": "Artemis updates\n\n * Science communicator Hank Green made this interactive website of photos spread across the timeline of the Artemis II lunar mission and flyby.\n * Among the technological checkpoints passed by Artemis II, the NASA-MIT-developed optical laser communications terminal on the Orion spacecraft was successfully used to transmit and receive data",
@@ -56197,7 +56467,7 @@
     ]
   },
   {
-    "id": 17183,
+    "id": 17343,
     "title": "Articles on moons other than our Moon",
     "source": "jatan.space 🌙",
     "summary": "The not-Moon-Monday edition. 🌝",
@@ -56208,7 +56478,7 @@
     ]
   },
   {
-    "id": 17184,
+    "id": 17344,
     "title": "Articles on future Chandrayaan missions",
     "source": "jatan.space 🌙",
     "summary": "* Chandrayaan 4 will bring unique Moon materials—and maybe a giant scientific leap for India\n   * The case for India and China to exchange lunar samples\n   * Why India needs to launch Chandrayaan 4 in time to ensure maximum national and international benefits\n * Chandrayaan 5 LUPEX mission will drill for water on",
@@ -56219,7 +56489,7 @@
     ]
   },
   {
-    "id": 17185,
+    "id": 17345,
     "title": "Articles: Science from Chandrayaan 3",
     "source": "jatan.space 🌙",
     "summary": "* How Chandrayaan 3 contributed insights on our Moon’s origin and evolution\n * Results from Chandrayaan 3 thermal experiment benefit future missions eyeing lunar water\n * Chandrayaan 3 rover may (or may not) have stumbled upon the Moon’s mantle material\n * Chandrayaan 3 orbiter observed Earth like an exoplanet\n * An overview of",
@@ -56230,7 +56500,7 @@
     ]
   },
   {
-    "id": 17186,
+    "id": 17346,
     "title": "Poem: Don’t screw up the Moon",
     "source": "jatan.space 🌙",
     "summary": "Let’s explore\nexplore our Moon\nand its archival boon\nof Earth’s midnight and afternoon\n\nLet’s return\nreturn to the gray blemishes\nfor its scientific promises\nand its technological wishes\n\nLet’s also preserve\npreserve Luna’s natural dents\nits phases and cultural crescents\nand the serene sights",
@@ -56241,7 +56511,7 @@
     ]
   },
   {
-    "id": 17187,
+    "id": 17347,
     "title": "Articles on Chandrayaan 2, the orbiter to remember",
     "source": "jatan.space 🌙",
     "summary": "* ISRO’s Chandrayaan 2 orbiter has been creating the highest resolution map of the Moon\n   * Lunar science galore from Chandrayaan 2\n   * How the Chandrayaan 2 orbiter is a Sun watcher at the Moon\n   * The search for lunar water deepens\n\n * International collaboration and outlook:\n   * ISRO has been aiding NASA in Artemis",
@@ -56252,7 +56522,7 @@
     ]
   },
   {
-    "id": 17188,
+    "id": 17348,
     "title": "Articles on Chandrayaan 1, India’s first Moon mission",
     "source": "jatan.space 🌙",
     "summary": "* Looking back at Chandrayaan 1 and forward to Artemis\n * How NASA and India discovered water on our Moon\n * Interviewing Chandrayaan 1’s Mission Director\n\n * How Chandrayaan 1 viewed a solar eclipse from the Moon\n * Tangent: Kids in South Korea and a Moon mission\n\n\n\n\n\n\n\n\n\nLike my efforts to provide free resources",
@@ -56263,7 +56533,7 @@
     ]
   },
   {
-    "id": 17189,
+    "id": 17349,
     "title": "Did NASA’s Artemis II mission really do lunar science or go to the Moon for all humanity?",
     "source": "jatan.space 🌙",
     "summary": "An unfortunate breakdown of too many giant leaps of imagination. | Moon Monday #271",
@@ -56274,7 +56544,7 @@
     ]
   },
   {
-    "id": 17190,
+    "id": 17350,
     "title": "Poem: Back to the Moon..",
     "source": "jatan.space 🌙",
     "summary": "For me not thee, but still for humanity..",
@@ -56285,7 +56555,7 @@
     ]
   },
   {
-    "id": 17191,
+    "id": 17351,
     "title": "Poem: Selene, smashed not shattered",
     "source": "jatan.space 🌙",
     "summary": "Tucked in a tiny timed capsule\nagainst its wonky, worldly windows\nmesmerized the momentary Moonfarers\nat sweeping sights of Selene\n\nCreased by craters and crowning peaks\nmelts and mountains molded in weeks\namid barrages of ballistically laid beads\nlingered the landscape of Luna\n\nWhat the world could view\nis impact",
@@ -56296,7 +56566,80 @@
     ]
   },
   {
-    "id": 17192,
+    "id": 17352,
+    "title": "Get $341 off the limited X edition of the Vaonis Vespera II at Walmart",
+    "source": "Latest from Space.com",
+    "summary": "The Vespera II X edition features a sleek, transparent shell and has internal temperature sensors for optimized deep sky observation.",
+    "link": "https://www.space.com/stargazing/skywatching-kit/get-usd341-off-the-limited-x-edition-of-the-vaonis-vespera-ii-at-walmart",
+    "published_at": "2026-05-16T18:00:00",
+    "keywords": [
+      "Skywatching Kit",
+      "Stargazing"
+    ]
+  },
+  {
+    "id": 17353,
+    "title": "With the Vespera III and Vespera Pro 2, telescope-maker Vaonis unveils its sharpest optics yet",
+    "source": "Latest from Space.com",
+    "summary": "They boast a new optical design for sharper images and host a bunch of upgraded features to make stargazing a breeze. The Vaonis Vespera III and Vespera Pro 2 are available now.",
+    "link": "https://www.space.com/stargazing/skywatching-kit/with-the-vespera-iii-and-vespera-pro-2-telescope-maker-vaonis-unveils-its-sharpest-optics-yet",
+    "published_at": "2026-05-16T17:00:00",
+    "keywords": [
+      "Skywatching Kit",
+      "Stargazing"
+    ]
+  },
+  {
+    "id": 17354,
+    "title": "This Week In Space podcast: Episode 210 — ESCAPADES at Mars",
+    "source": "Latest from Space.com",
+    "summary": "On Episode 210 of This Week In Space, Rod Pyle and Tariq Malik  talk with Dr. Robert Lillis of the Mars ESCAPADE mission.",
+    "link": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-210-escapades-at-mars",
+    "published_at": "2026-05-16T14:43:45",
+    "keywords": [
+      "Space Movies &amp; Shows",
+      "Entertainment"
+    ]
+  },
+  {
+    "id": 17355,
+    "title": "New moon of May 2026 brings stunning views of the Milky Way, Venus and Mars",
+    "source": "Latest from Space.com",
+    "summary": "See dazzling planets, the Milky Way and a trio of celestial animals brightening the spring sky around May's new moon.",
+    "link": "https://www.space.com/stargazing/new-moon-of-may-2026-brings-stunning-views-of-the-milky-way-venus-and-mars",
+    "published_at": "2026-05-16T13:00:00",
+    "keywords": [
+      "Stargazing"
+    ]
+  },
+  {
+    "id": 17356,
+    "title": "NASA's Psyche spacecraft is flying to a metal asteroid. So, why did it just visit Mars?",
+    "source": "Latest from Space.com",
+    "summary": "NASA's Psyche flyby of Mars highlights how gravity assists help spacecraft gain speed, conserve fuel and travel across the solar system.",
+    "link": "https://www.space.com/space-exploration/asteroid-comet-missions/nasas-psyche-spacecraft-is-flying-to-a-metal-asteroid-so-why-did-it-just-visit-mars",
+    "published_at": "2026-05-16T12:00:00",
+    "keywords": [
+      "Asteroid &amp; Comet Missions",
+      "Space Exploration",
+      "Missions"
+    ]
+  },
+  {
+    "id": 17357,
+    "title": "Astronomers find interstellar comet 3I/ATLAS hiding in images taken before its official discovery",
+    "source": "Latest from Space.com",
+    "summary": "Interstellar comet 3I/ATLAS was almost called 3I/Rubin, after researchers found that the giant survey telescope coincidentally spotted this visitor from the stars over a week before it was officially discovered.",
+    "link": "https://www.space.com/astronomy/comets/astronomers-find-interstellar-comet-3i-atlas-hiding-in-images-taken-before-its-official-discovery",
+    "published_at": "2026-05-16T10:00:00",
+    "keywords": [
+      "Comets",
+      "Astronomy",
+      "Solar System"
+    ]
+  },
+  {
+    "id": 17358,
     "title": "The devil may wear Prada on Earth, but NASA Artemis astronauts will on the moon. Here's why.",
     "source": "Latest from Space.com",
     "summary": "What the devil does the fashion industry in The Devil Wears Prada 2 have to do with NASA?",
@@ -56307,7 +56650,7 @@
     ]
   },
   {
-    "id": 17193,
+    "id": 17359,
     "title": "'Battlestar Galactica: Scattered Hopes' is a relentlessly oppressive roguelite inspired by FTL",
     "source": "Latest from Space.com",
     "summary": "The Cylons are hot on the trail of a fleet of survivors, and rejoining the Battlestar Galactica is their only hope in this brutal roguelite.",
@@ -56319,7 +56662,7 @@
     ]
   },
   {
-    "id": 17194,
+    "id": 17360,
     "title": "The Canon EOS R5 Mark II is our choice as the best-resolution Canon camera – it's perfect for astrophotography and is $501 off in this Walmart deal",
     "source": "Latest from Space.com",
     "summary": "Expert tester James Abbott rated the R5 Mark II with a flawless review, it produces impressive astrophotography and is a brilliant all-round mirrorless powerhouse, now at its best-ever price",
@@ -56330,7 +56673,7 @@
     ]
   },
   {
-    "id": 17195,
+    "id": 17361,
     "title": "Mars orbiter captures striking images of 'chaos and craters' carved by ancient floods",
     "source": "Latest from Space.com",
     "summary": "ESA's Mars Express orbiter captured dramatic new views of a rugged Martian landscape shaped by catastrophic floods billions of years ago.",
@@ -56343,77 +56686,66 @@
     ]
   },
   {
-    "id": 17196,
-    "title": "I thought my backyard had too much light pollution for astrophotography. This telescope proved me wrong",
-    "source": "Latest from Space.com",
-    "summary": "Surrounded by streetlights and terraced houses, I never expected to capture detailed deep-space images from my backyard until I tried the Vaonis Vespera Pro telescope.",
-    "link": "https://www.space.com/stargazing/astrophotography/i-thought-my-backyard-had-too-much-light-pollution-for-astrophotography-this-telescope-proved-me-wrong",
-    "published_at": "2026-05-15T15:00:00",
+    "id": 17362,
+    "title": "8-year-old African American boy from Colonial Maryland found buried with white Colonists, and it's unclear if he was enslaved",
+    "source": "Latest from Live Science",
+    "summary": "A 17th-century cemetery from Colonial Maryland held the remains of an 8-year-old boy with majority African ancestry, as well as two indentured servants.",
+    "link": "https://www.livescience.com/archaeology/americas/8-year-old-african-american-boy-from-colonial-maryland-found-buried-with-white-colonists-and-its-unclear-if-he-was-enslaved",
+    "published_at": "2026-05-16T15:00:00",
     "keywords": [
-      "Astrophotography",
-      "Stargazing"
+      "The Americas",
+      "Archaeology"
     ]
   },
   {
-    "id": 17197,
-    "title": "Auroras over Australia look like sci-fi from space | Space photo of the day for May 15, 2026",
-    "source": "Latest from Space.com",
-    "summary": "An astronaut aboard the ISS captured the brilliant green and pink glow.",
-    "link": "https://www.space.com/astronomy/auroras-over-australia-look-like-sci-fi-from-space-space-photo-of-the-day-for-may-15-2026",
-    "published_at": "2026-05-15T14:00:00",
+    "id": 17363,
+    "title": "What counts as 'close contact'? Why the risk of hantavirus transmission is tricky to define",
+    "source": "Latest from Live Science",
+    "summary": "Health officials have said the Andes virus implicated in the cruise ship outbreak spreads via \"close contact.\" Live Science spoke to experts about what that means.",
+    "link": "https://www.livescience.com/health/viruses-infections-disease/what-counts-as-close-contact-why-the-risk-of-hantavirus-transmission-is-tricky-to-define",
+    "published_at": "2026-05-16T14:00:00",
     "keywords": [
+      "Viruses, Infections &amp; Disease",
+      "Health"
+    ]
+  },
+  {
+    "id": 17364,
+    "title": "Science news this week: PCOS has a new name, Neanderthals were the world's oldest dentists, and the first nuclear bomb explosion spawned an 'alien' crystal",
+    "source": "Latest from Live Science",
+    "summary": "May 16, 2026: Our weekly roundup of the latest science in the news, as well as a few fascinating articles to keep you entertained over the weekend.",
+    "link": "https://www.livescience.com/health/science-news-this-week-pcos-has-a-new-name-neanderthals-were-the-worlds-oldest-dentists-and-the-first-nuclear-bomb-explosion-spawned-an-alien-crystal",
+    "published_at": "2026-05-16T11:00:00",
+    "keywords": [
+      "Health"
+    ]
+  },
+  {
+    "id": 17365,
+    "title": "Newly discovered, blue-whale-size asteroid will fly super close to Earth Monday — and you can watch it live",
+    "source": "Latest from Live Science",
+    "summary": "Newly spotted asteroid 2026 JH2, which could be up to 115 feet wide, will fly past Earth closer than some satellites on Monday (May 18). The close approach will be visible to stargazers and can be viewed via livestream.",
+    "link": "https://www.livescience.com/space/asteroids/asteroid-2026-jh2",
+    "published_at": "2026-05-16T10:00:00",
+    "keywords": [
+      "Asteroids",
+      "Space",
       "Astronomy"
     ]
   },
   {
-    "id": 17198,
-    "title": "James Webb Space Telescope maps our universe's largest structure in unprecedented detail",
-    "source": "Latest from Space.com",
-    "summary": "Using the James Webb Space Telescope, astronomers have mapped the \"cosmic web\" of galaxies, the largest structure in the universe, with unprecedented detail.",
-    "link": "https://www.space.com/astronomy/james-webb-space-telescope/james-webb-space-telescope-maps-our-universes-largest-structure-in-unprecedented-detail",
-    "published_at": "2026-05-15T13:00:00",
+    "id": 17366,
+    "title": "Can people catch infections from plants?",
+    "source": "Latest from Live Science",
+    "summary": "Catching diseases from plants may not just be the domain of science fiction.",
+    "link": "https://www.livescience.com/health/can-people-catch-infections-from-plants",
+    "published_at": "2026-05-16T09:00:00",
     "keywords": [
-      "James Webb Space Telescope",
-      "Astronomy"
+      "Health"
     ]
   },
   {
-    "id": 17199,
-    "title": "4 bright stars form a giant 'diamond' in the May night sky: Here's how to find it",
-    "source": "Latest from Space.com",
-    "summary": "Look for the Great Diamond of Spring in May's night sky and discover the rich realm of galaxies within.",
-    "link": "https://www.space.com/stargazing/4-bright-stars-form-a-giant-diamond-in-the-may-night-sky-heres-how-to-find-it",
-    "published_at": "2026-05-15T12:00:00",
-    "keywords": [
-      "Stargazing"
-    ]
-  },
-  {
-    "id": 17200,
-    "title": "We still can't see dark matter. But what if we can hear it?",
-    "source": "Latest from Space.com",
-    "summary": "Black holes smashing together may churn dark matter \"butter,\" scientists say.",
-    "link": "https://www.space.com/astronomy/dark-universe/we-still-cant-see-dark-matter-but-what-if-we-can-hear-it",
-    "published_at": "2026-05-15T10:00:00",
-    "keywords": [
-      "Dark Universe",
-      "Astronomy"
-    ]
-  },
-  {
-    "id": 17201,
-    "title": "The 'Doctor Who' TV movie at 30: Too British for America, too American for the UK",
-    "source": "Latest from Space.com",
-    "summary": "How an unlikely transatlantic alliance attempted to bring a Time Lord back from the dead.",
-    "link": "https://www.space.com/entertainment/space-movies-shows/the-doctor-who-tv-movie-at-30-too-british-for-america-too-american-for-the-uk",
-    "published_at": "2026-05-14T22:00:00",
-    "keywords": [
-      "Space Movies &amp; Shows",
-      "Entertainment"
-    ]
-  },
-  {
-    "id": 17202,
+    "id": 17367,
     "title": "'The biggest El Niño event since the 1870s': 'Super' El Niño is now the most likely scenario by the end of this year ‪—‬ and the humanitarian cost could be huge",
     "source": "Latest from Live Science",
     "summary": "A \"very strong\" El Niño is now the most probable scenario for the October-to-February period.",
@@ -56425,7 +56757,7 @@
     ]
   },
   {
-    "id": 17203,
+    "id": 17368,
     "title": "Antarctica’s sudden sea ice loss is one of the most extreme and confusing events in the modern climate record. Scientists now know why it's happening.",
     "source": "Latest from Live Science",
     "summary": "In 2015, after decades of relative stability, Antarctica's sea ice suddenly began to disappear. Sea ice extent reached a record low in 2023, and scientists have now figured out what happened in that period.",
@@ -56437,7 +56769,7 @@
     ]
   },
   {
-    "id": 17204,
+    "id": 17369,
     "title": "Don Juan Pond: Antarctica's salty, syrupy lake that never freezes, even when it's minus 58 F",
     "source": "Latest from Live Science",
     "summary": "Don Juan Pond is a mysterious lake in Antarctica that contains so much calcium chloride, it doesn't freeze in subzero temperatures.",
@@ -56449,7 +56781,7 @@
     ]
   },
   {
-    "id": 17205,
+    "id": 17370,
     "title": "Withings ScanWatch 2 review: A stunningly elegant, health-focused ECG smartwatch",
     "source": "Latest from Live Science",
     "summary": "This hybrid smartwatch is everything your regular fitness tracker is not, and we absolutely love it for that. It is not without its faults, though.",
@@ -56461,7 +56793,7 @@
     ]
   },
   {
-    "id": 17206,
+    "id": 17371,
     "title": "'I heard gasps' and 'oh my God': Artemis II astronauts reveal inside story of their mind-bending solar eclipse",
     "source": "Latest from Live Science",
     "summary": "In their first visit to Canada since returning to Earth, the Artemis II astronauts opened up about the moments that blew their minds — and brought them to tears.",
@@ -56473,77 +56805,25 @@
     ]
   },
   {
-    "id": 17207,
-    "title": "'There are 4 people in those pixels': Earth-based telescope snapped Artemis II crew orbiting the moon",
-    "source": "Latest from Live Science",
-    "summary": "A blurry new photo captured by the Green Bank Telescope in West Virginia shows Artemis II's Orion capsule circling the moon more than 200,000 miles away, making it a candidate for the longest-distance image of humans ever taken from Earth.",
-    "link": "https://www.livescience.com/space/space-exploration/there-are-4-people-in-those-pixels-earth-based-telescope-snapped-artemis-ii-crew-orbiting-the-moon",
-    "published_at": "2026-05-14T16:44:16",
-    "keywords": [
-      "Space Exploration",
-      "Space"
-    ]
-  },
-  {
-    "id": 17208,
-    "title": "A pill can stop people from developing COVID after being exposed to the virus, trial finds",
-    "source": "Latest from Live Science",
-    "summary": "A pill called ensitrelvir is the first drug shown to effectively reduce infection after exposure to SARS-CoV-2.",
-    "link": "https://www.livescience.com/health/coronavirus/a-pill-can-stop-people-from-developing-covid-after-being-exposed-to-the-virus-trial-finds",
-    "published_at": "2026-05-14T16:32:08",
-    "keywords": [
-      "Coronavirus",
-      "Health",
-      "Viruses, Infections &amp; Disease"
-    ]
-  },
-  {
-    "id": 17209,
-    "title": "High-status Roman woman was buried in a lead coffin with jet hairpins and exotic resins, archaeologists find",
-    "source": "Latest from Live Science",
-    "summary": "A burial of an elite Roman-era woman who appears to have been buried with exotic resins has been discovered in Colchester.",
-    "link": "https://www.livescience.com/archaeology/romans/high-status-roman-woman-was-buried-in-a-lead-coffin-with-jet-hairpins-and-exotic-resins-archaeologists-find",
-    "published_at": "2026-05-14T14:54:20",
-    "keywords": [
-      "Romans",
-      "Archaeology"
-    ]
-  },
-  {
-    "id": 17210,
-    "title": "We tested the 'first self-cleaning air purifier' and it's a pet owner's dream",
-    "source": "Latest from Live Science",
-    "summary": "The Dreame FP10 excels at removing hair, pet dander and bad odors, all without making excessive noise or requiring never-ending filter maintenance.",
-    "link": "https://www.livescience.com/products/health-fitness/dreame-fp10-air-purifier-review",
-    "published_at": "2026-05-14T11:00:00",
-    "keywords": [
-      "Health &amp; Fitness",
-      "Products"
-    ]
-  },
-  {
-    "id": 17211,
-    "title": "'Membership in WHO is critical': America is no longer at the helm of international outbreak responses, Emory epidemiologist says",
-    "source": "Latest from Live Science",
-    "summary": "Live Science spoke with a leading epidemiologist from Emory University about her impressions of how the hantavirus outbreak is being managed in the U.S.",
-    "link": "https://www.livescience.com/health/viruses-infections-disease/were-less-prepared-for-contagious-pathogens-the-us-has-degraded-its-ability-to-track-and-squash-outbreaks-emory-epidemiologist-says",
-    "published_at": "2026-05-13T18:50:00",
-    "keywords": [
-      "Viruses, Infections &amp; Disease",
-      "Health"
-    ]
-  },
-  {
-    "id": 17212,
-    "title": "Hantavirus can persist in semen for years, but that doesn’t mean it remains contagious",
+    "id": 17372,
+    "title": "NASA reveals new clues to 2027’s Artemis III, the final test mission before a moon landing",
     "source": "Scientific American",
-    "summary": "Researchers know very little about how long the Andes version of the hantavirus can remain in human hosts",
-    "link": "https://www.scientificamerican.com/article/hantavirus-can-persist-in-semen-for-years-but-that-doesnt-mean-it-remains-contagious/",
-    "published_at": "2026-05-15T19:45:00",
+    "summary": "NASA is starting to paint in some of the details of its planned 2027  Artemis III  mission, but key questions, such as who its astronauts will be, are yet to be answered",
+    "link": "https://www.scientificamerican.com/article/nasa-reveals-new-clues-to-2027s-artemis-iii-the-final-test-mission-before-a-moon-landing/",
+    "published_at": "2026-05-16T12:00:00",
     "keywords": []
   },
   {
-    "id": 17213,
+    "id": 17373,
+    "title": "Scientists catalog the ‘fractal dimensions’ of more than 130,000 islands",
+    "source": "Scientific American",
+    "summary": "The “coastline paradox” helped to define fractals, but coastlines themselves turn out to be less fractal than thought",
+    "link": "https://www.scientificamerican.com/article/scientists-catalog-the-fractal-dimensions-of-more-than-130-000-islands/",
+    "published_at": "2026-05-16T11:00:00",
+    "keywords": []
+  },
+  {
+    "id": 17374,
     "title": "A real Mr. Snuffleupagus? Meet the ocean’s strangest new fish species",
     "source": "Scientific American",
     "summary": "A strange, tiny fish that resembles the famous Sesame Street character camouflages amid red algae thanks to its flamboyant reddish “hairs”",
@@ -56552,16 +56832,7 @@
     "keywords": []
   },
   {
-    "id": 17214,
-    "title": "This startup wants to make drugs in orbit. If it succeeds, it could transform the space economy",
-    "source": "Scientific American",
-    "summary": "Varda’s plan to develop medicines in microgravity has its advantages, but it requires a big up-front cost",
-    "link": "https://www.scientificamerican.com/article/this-startup-wants-to-make-drugs-in-orbit-if-it-succeeds-it-could-transform-the-space-economy/",
-    "published_at": "2026-05-15T18:00:00",
-    "keywords": []
-  },
-  {
-    "id": 17215,
+    "id": 17375,
     "title": "How to arm yourself against hantavirus misinformation",
     "source": "Scientific American",
     "summary": "Hantavirus misinformation is spreading fast. COVID trauma and social media algorithms may be to blame",
@@ -56570,7 +56841,7 @@
     "keywords": []
   },
   {
-    "id": 17216,
+    "id": 17376,
     "title": "Can plants have consciousness? The film Silent Friend reimagines the science",
     "source": "Scientific American",
     "summary": "The filmmaker behind the newly released movie  Silent Friend  shares the scientific and historical inspiration for its story of botanical consciousness",
@@ -56579,7 +56850,7 @@
     "keywords": []
   },
   {
-    "id": 17217,
+    "id": 17377,
     "title": "Asking AI to explain your medical results? What doctors want you to know",
     "source": "Scientific American",
     "summary": "As more people turn to chatbots for medical guidance, the technology is revealing both its promise and its risks",
@@ -56588,7 +56859,7 @@
     "keywords": []
   },
   {
-    "id": 17218,
+    "id": 17378,
     "title": "Microbe ‘cities’ may solve a key ocean mystery",
     "source": "Scientific American",
     "summary": "Some of Earth’s tiniest life-forms inhabit slowly sinking particles of fish poop and debris, playing a crucial role in ocean carbon storage",
@@ -56597,7 +56868,7 @@
     "keywords": []
   },
   {
-    "id": 17219,
+    "id": 17379,
     "title": "Are astronomers ignoring some of the cosmos?",
     "source": "Scientific American",
     "summary": "There are parts of the universe, and of the electromagnetic spectrum, that we’re not covering with our telescopes—but not as many as you might think!",
@@ -56606,7 +56877,7 @@
     "keywords": []
   },
   {
-    "id": 17220,
+    "id": 17380,
     "title": "Why Black women are at greater risk for fibroids and endometrial cancer",
     "source": "Scientific American",
     "summary": "A new book argues that disparities in fibroids, cancer and diagnosis reveal a lifelong gynecologic health crisis for Black women",
@@ -56615,7 +56886,7 @@
     "keywords": []
   },
   {
-    "id": 17221,
+    "id": 17381,
     "title": "To celebrate Endangered Species Day, meet the scaly-foot snail, the most metal animal in the world",
     "source": "Scientific American",
     "summary": "This snail became the first animal living on deep-sea hydrothermal vents to be added to the IUCN Red List of Threatened Species—it also turns poisonous sulfur into armor",
@@ -56624,7 +56895,7 @@
     "keywords": []
   },
   {
-    "id": 17222,
+    "id": 17382,
     "title": "Changing Car Culture Can Benefit Our Health and Our Planet",
     "source": "Scientific American: Technology",
     "summary": "We need to rethink the American love affair with the automobile and redesign cities to reduce car pollution",
@@ -56637,7 +56908,7 @@
     ]
   },
   {
-    "id": 17223,
+    "id": 17383,
     "title": "Why Writing by Hand Is Better for Memory and Learning",
     "source": "Scientific American: Technology",
     "summary": "Engaging the fine motor system to produce letters by hand has positive effects on learning and memory",
@@ -56652,7 +56923,7 @@
     ]
   },
   {
-    "id": 17224,
+    "id": 17384,
     "title": "The Sophisticated Threads behind a Hat That Senses Traffic Lights",
     "source": "Scientific American: Technology",
     "summary": "A new technique to make electronic fibers could help solve wearable technology’s flexibility problem",
@@ -56664,7 +56935,7 @@
     ]
   },
   {
-    "id": 17225,
+    "id": 17385,
     "title": "Electric Vehicles Aren't Ready for Extreme Heat and Cold. Here's How to Fix Them",
     "source": "Scientific American: Technology",
     "summary": "New materials would help the cars of the future survive cold snaps and other climate disruptions",
@@ -56677,7 +56948,7 @@
     ]
   },
   {
-    "id": 17226,
+    "id": 17386,
     "title": "Cybercrime Security Gap Leaves People Who Aren't Proficient in English Poorly Protected",
     "source": "Scientific American: Technology",
     "summary": "Our research finds that language is often a barrier for people dealing with cybercrime issues and that it’s important to close this security gap",
@@ -56689,7 +56960,7 @@
     ]
   },
   {
-    "id": 17227,
+    "id": 17387,
     "title": "New AI Circuitry That Mimics Human Brains Makes Models Smarter",
     "source": "Scientific American: Technology",
     "summary": "A new kind of transistor allows AI hardware to remember and process information more like the human brain does",
@@ -56701,7 +56972,7 @@
     ]
   },
   {
-    "id": 17228,
+    "id": 17388,
     "title": "AI Unravels Ancient Roman Scroll Charred By Volcano",
     "source": "Scientific American: Technology",
     "summary": "AI helps decipher the text of a 2,000-year-old scroll burned at Pompeii",
@@ -56713,7 +56984,7 @@
     ]
   },
   {
-    "id": 17229,
+    "id": 17389,
     "title": "We Need Cybersecurity in Space to Protect Satellites",
     "source": "Scientific American: Technology",
     "summary": "Amid rising numbers of cyber threats, safeguarding our satellites is no longer optional but a necessity for global security and reliability",
@@ -56726,7 +56997,7 @@
     ]
   },
   {
-    "id": 17230,
+    "id": 17390,
     "title": "The Government's Former UFO Hunter Found Something More Concerning than Aliens",
     "source": "Scientific American: Technology",
     "summary": "Sean Kirkpatrick looked into the skies and deep into government archives for extraterrestrials. What he found is, to him, more concerning than little green men.",
@@ -56739,7 +57010,7 @@
     ]
   },
   {
-    "id": 17231,
+    "id": 17391,
     "title": "Why Is Superconductivity Research Plagued by Controversy?",
     "source": "Scientific American: Technology",
     "summary": "A materials scientist unravels the hype around research on high-temperature superconductor research like LK-99",
@@ -56751,154 +57022,190 @@
     ]
   },
   {
-    "id": 17232,
-    "title": "Trump announces elimination of 'world's most active terrorist' found hiding in Africa",
+    "id": 17392,
+    "title": "Free TV Licence for pensioners demands grow as 'there's a desperate need'",
     "source": "Mirror - News",
-    "summary": "Donald Trump says American and Nigerian forces have killed 'second in command of ISIS' Abu-Bilal al-Minuki",
-    "link": "https://www.mirror.co.uk/news/world-news/abu-bilal-al-minuki-dead-37164240",
-    "published_at": "2026-05-16T07:13:14",
+    "summary": "A petition has almost gained 10,000 signatures",
+    "link": "https://www.mirror.co.uk/tv/tv-news/free-tv-licence-pensioners-demands-37160484",
+    "published_at": "2026-05-17T08:04:59",
     "keywords": [
       "News",
-      "ISIS",
-      "Donald Trump",
-      "Terrorism",
+      "State pension",
+      "TV Licensing",
+      "Parliament",
+      "poverty"
+    ]
+  },
+  {
+    "id": 17393,
+    "title": "Chelsea confirm stunning Xabi Alonso appointment as ex-Real Madrid manager pens big deal",
+    "source": "Mirror - News",
+    "summary": "Former Real Madrid boss and ex-Liverpool midfielder Xabi Alonso has been appointed Chelsea's new permanent manager and will start work in the summer ahead of the 2026-27 campaign",
+    "link": "https://www.mirror.co.uk/sport/football/news/chelsea-xabi-alonso-new-manager-37166492",
+    "published_at": "2026-05-17T08:00:44",
+    "keywords": [
+      "News",
+      "Liam Rosenior",
+      "Xabi Alonso",
+      "Chelsea FC",
+      "Real Madrid CF",
+      "Premier League"
+    ]
+  },
+  {
+    "id": 17394,
+    "title": "Belfast murder probe as man dies after break-in and police swarm apartments",
+    "source": "Mirror - News",
+    "summary": "The Police Service of Northern Ireland says emergency services were called to reports of an assault in the Holywood Road area of east Belfast",
+    "link": "https://www.mirror.co.uk/news/uk-news/belfast-murder-probe-man-dies-37167273",
+    "published_at": "2026-05-17T07:58:10",
+    "keywords": [
+      "News",
+      "PSNI",
+      "Murder",
+      "CCTV footage",
+      "Crime",
       "Breaking News"
     ]
   },
   {
-    "id": 17233,
-    "title": "Doctor Michael Mosley's red drink that may slash diabetes risk and lower cholesterol",
+    "id": 17395,
+    "title": "'We've travelled Australia and New Zealand for years and barely spent on accommodation'",
     "source": "Mirror - News",
-    "summary": "This with your next meal could be a good idea - but everyhing in moderation, of course",
-    "link": "https://www.mirror.co.uk/lifestyle/health/doctor-michael-mosleys-red-drink-37150267",
-    "published_at": "2026-05-16T07:10:23",
+    "summary": "UK couple Mike Lucas and Emily Gillingham have been travelling around New Zealand and Australia for the past four years",
+    "link": "https://www.mirror.co.uk/travel/weve-travelled-australia-new-zealand-37167272",
+    "published_at": "2026-05-17T07:52:54",
     "keywords": [
       "News",
-      "Fitness And Health",
-      "Doctors",
-      "Michael Mosley",
-      "Health"
+      "Save money",
+      "Animals",
+      "Travel",
+      "Australia",
+      "New Zealand"
     ]
   },
   {
-    "id": 17234,
-    "title": "Martin Lewis warns pensioners could be 'throwing away free cash'",
+    "id": 17396,
+    "title": "EasyJet flight struck by lightning tells Gatwick it needs to make emergency landing",
     "source": "Mirror - News",
-    "summary": "Money Saving Expert founder Martin Lewis warns workers against opting out of workplace pension contributions",
-    "link": "https://www.mirror.co.uk/money/martin-lewis-warns-pensioners-could-37156451",
-    "published_at": "2026-05-16T07:08:14",
+    "summary": "The alarming incident happened during stormy weather as the jet travelled from London Gatwick to Milan",
+    "link": "https://www.mirror.co.uk/news/uk-news/easyjet-struck-lightning-gatwick-emergency-37167219",
+    "published_at": "2026-05-17T07:38:08",
     "keywords": [
       "News",
-      "Martin Lewis",
-      "Pensions",
-      "State pension",
-      "Make money",
-      "Employment rights"
+      "EasyJet",
+      "Gatwick Airport",
+      "Lightning strikes"
     ]
   },
   {
-    "id": 17235,
-    "title": "DWP £304 alert for families as limit scrapped",
+    "id": 17397,
+    "title": "Dad dies after getting trapped in Boston subway escalator as people walk past without helping",
     "source": "Mirror - News",
-    "summary": "The Department for Work and Pensions (DWP) has issued an alert to UK families",
-    "link": "https://www.mirror.co.uk/money/dwp-304-alert-families-limit-37155756",
-    "published_at": "2026-05-16T07:07:02",
+    "summary": "Steven McCluskey, 40, got caught in an escalator after he lost his balance with responding firefighters later discovering some of the skin on his back was sucked into the machine",
+    "link": "https://www.mirror.co.uk/news/us-news/dad-dies-after-getting-trapped-37167167",
+    "published_at": "2026-05-17T07:33:21",
+    "keywords": [
+      "News",
+      "Accidental death"
+    ]
+  },
+  {
+    "id": 17398,
+    "title": "Ofgem shares three ways Brits can lower their energy bills",
+    "source": "Mirror - News",
+    "summary": "Ofgem has issued new guidance on how to cut energy costs as UK bills are expected to rise again from July",
+    "link": "https://www.mirror.co.uk/money/ofgem-shares-three-ways-brits-37154435",
+    "published_at": "2026-05-17T07:20:18",
+    "keywords": [
+      "News",
+      "Energy bills",
+      "Ofgem",
+      "Middle East",
+      "Energy",
+      "Gas prices"
+    ]
+  },
+  {
+    "id": 17399,
+    "title": "New DWP rules to extend PIP awards for Brits",
+    "source": "Mirror - News",
+    "summary": "The move follows growing concern within the department",
+    "link": "https://www.mirror.co.uk/money/new-dwp-rules-extend-pip-37156333",
+    "published_at": "2026-05-17T07:18:36",
     "keywords": [
       "News",
       "Department for Work and Pensions",
-      "Universal Credit",
-      "Benefits"
+      "PIP",
+      "Benefits",
+      "Stephen Timms"
     ]
   },
   {
-    "id": 17236,
-    "title": "Santander offers free £180 cash plus £30 Amazon voucher - how to get",
+    "id": 17400,
+    "title": "'I was diagnosed with cancer aged 38 after ignoring 1 sign I thought was normal'",
     "source": "Mirror - News",
-    "summary": "Santander is offering new customers a free £180 cash switching bonus plus a £30 Amazon voucher",
-    "link": "https://www.mirror.co.uk/money/santander-offers-free-180-cash-37161961",
-    "published_at": "2026-05-16T07:05:26",
+    "summary": "Laura recently posted a video on TikTok explaining one symptom she had experienced which she thought was \"normal\" - but was actually a sign she had bowel cancer",
+    "link": "https://www.mirror.co.uk/news/real-life-stories/i-diagnosed-cancer-aged-38-37151450",
+    "published_at": "2026-05-17T07:08:36",
     "keywords": [
       "News",
-      "Martin Lewis",
-      "Banks",
-      "Santander",
-      "Save money",
-      "Make money"
+      "Bowel cancer",
+      "Cancer",
+      "TikTok",
+      "Viral"
     ]
   },
   {
-    "id": 17237,
-    "title": "Coins from before this date could be worth a 'small fortune' - how to spot",
+    "id": 17401,
+    "title": "Owner clocks up 436,000 miles in Suzuki car and it's still on original engine and gearbox",
     "source": "Mirror - News",
-    "summary": "An expert has urged Brits to check their old coins",
-    "link": "https://www.mirror.co.uk/lifestyle/coins-before-date-could-worth-37154660",
-    "published_at": "2026-05-16T07:04:29",
+    "summary": "A Suzuki Vitara owner clocked up more than 436,000 miles in less than a decade",
+    "link": "https://www.mirror.co.uk/lifestyle/motoring/owner-clocks-up-436000-miles-37149520",
+    "published_at": "2026-05-17T07:06:00",
     "keywords": [
       "News",
-      "Rare coins",
-      "Royal Mint",
-      "Make money",
-      "TikTok"
-    ]
-  },
-  {
-    "id": 17238,
-    "title": "Drivers urged to check parking rules over 'significant' price increase",
-    "source": "Mirror - News",
-    "summary": "You may want to rethink where you usually park up",
-    "link": "https://www.mirror.co.uk/money/drivers-urged-check-parking-rules-37149556",
-    "published_at": "2026-05-16T07:02:44",
-    "keywords": [
-      "News",
-      "Parking tickets",
+      "Suzuki",
       "Cars"
     ]
   },
   {
-    "id": 17239,
-    "title": "Ryanair warns passengers travelling to 12 popular destinations",
-    "source": "Mirror - News",
-    "summary": "Popular budget airline is to cancel routes in 2026 after a row with officials",
-    "link": "https://www.mirror.co.uk/travel/ryanair-warns-passengers-travelling-12-37162198",
-    "published_at": "2026-05-16T07:01:46",
+    "id": 17402,
+    "title": "Last living blonde bombshell, 95, on Marilyn Monroe's drug habit and problem with rejection",
+    "source": "Mirror - US News",
+    "summary": "Mamie Van Doren is the last living blonde bombshell, one of the \"Three M's\", a group formed by Marilyn Monroe and Jayne Mansfield. And she's ready to shatter some Hollywood myths",
+    "link": "https://www.mirror.co.uk/3am/celebrity-news/mamie-van-doren-marilyn-monroe-37163802",
+    "published_at": "2026-05-16T18:49:02",
     "keywords": [
-      "News",
-      "Ryanair",
-      "Tax",
-      "Travel",
-      "Air travel"
+      "US News",
+      "Jayne Mansfield",
+      "Rock Hudson",
+      "Jean Harlow",
+      "Janet Leigh",
+      "Quincy Jones",
+      "Howard Hughes",
+      "Tony Curtis",
+      "Marilyn Monroe",
+      "Clark Gable",
+      "Audrey Hepburn",
+      "Princess Grace of Monaco",
+      "John Wayne"
     ]
   },
   {
-    "id": 17240,
-    "title": "Your rights to refuse going through airport body scanners explained",
-    "source": "Mirror - News",
-    "summary": "Although it seems non-optional, passengers always have a choice to go with an alternative",
-    "link": "https://www.mirror.co.uk/travel/news/your-rights-refuse-going-through-37151192",
-    "published_at": "2026-05-16T07:00:52",
+    "id": 17403,
+    "title": "Trump's gold MAGA phone finally on the way to customers after sneaky 'guarantee' update",
+    "source": "Mirror - US News",
+    "summary": "Pre-ordered phones 'are starting to be delivered to customers this week' according to the CEO of Trump Mobile following criticism of the gold, president-branded devices",
+    "link": "https://www.mirror.co.uk/news/us-news/donald-trump-gold-phone-latest-37166278",
+    "published_at": "2026-05-16T17:43:21",
     "keywords": [
-      "News",
-      "Travel",
-      "Air travel",
-      "Travel Tips"
+      "US News",
+      "Donald Trump"
     ]
   },
   {
-    "id": 17241,
-    "title": "Banned hair-loss drugs flood UK despite threat of 'erectile dysfunction and suicidal thoughts'",
-    "source": "Mirror - News",
-    "summary": "Some 65,194 unlicensed drugs were confiscated by border force agents between 2021 and 2026, according to MHRA figures",
-    "link": "https://www.mirror.co.uk/news/uk-news/hair-loss-bald-cures-uk-37157410",
-    "published_at": "2026-05-16T06:58:57",
-    "keywords": [
-      "News",
-      "Prescriptions",
-      "Border Force",
-      "Medicine"
-    ]
-  },
-  {
-    "id": 17242,
+    "id": 17404,
     "title": "Cher admits she never got paid for writing biggest hit and makes sad Sonny confession",
     "source": "Mirror - US News",
     "summary": "As Cher approaches 80, we look at the moments that made the megastar who has sold more than 100 million records worldwide, is worth £280m. And it all started with the King...",
@@ -56915,7 +57222,7 @@
     ]
   },
   {
-    "id": 17243,
+    "id": 17405,
     "title": "Trump tells Xi 'I don't talk about' whether US would defend Taiwan against China",
     "source": "Mirror - US News",
     "summary": "Donald Trump said he refused to directly answer Chinese President Xi Jinping when asked if the United States would defend Taiwan if it were attacked by China.",
@@ -56929,7 +57236,7 @@
     ]
   },
   {
-    "id": 17244,
+    "id": 17406,
     "title": "Huge home for sale on Billionaire's Island for NOTHING - but there is a very unusual catch",
     "source": "Mirror - US News",
     "summary": "A house on Massachusetts' Billionaire Island is up for grabs, and instead of costing millions, the property is being given away for free - but there are things you need to know!",
@@ -56942,7 +57249,7 @@
     ]
   },
   {
-    "id": 17245,
+    "id": 17407,
     "title": "Two-year-old girl killed after 80lb chest of drawers fell on top of her",
     "source": "Mirror - US News",
     "summary": "Helena was trying to reach a toy on top of the furniture",
@@ -56956,7 +57263,7 @@
     ]
   },
   {
-    "id": 17246,
+    "id": 17408,
     "title": "I'm in a relationship with an AI chatbot and won't go back to dating humans",
     "source": "Mirror - US News",
     "summary": "She currently has five AI 'companions' including one she is romantically connected with",
@@ -56974,7 +57281,7 @@
     ]
   },
   {
-    "id": 17247,
+    "id": 17409,
     "title": "Netflix's The Crash: Inside Mackenzie Shirilla's 'posessive' romance with boyfriend before murder",
     "source": "Mirror - US News",
     "summary": "A new Netflix documentary reveals the dark truth behind a horrific 100mph car crash that ended two lives. The driver, Mackenzie Shirilla, is languishing in jail after being found guilty of murder",
@@ -56993,7 +57300,7 @@
     ]
   },
   {
-    "id": 17248,
+    "id": 17410,
     "title": "Monster executed for attacking his ex with hammer, burning her alive and killing her baby",
     "source": "Mirror - US News",
     "summary": "WARNING: DISTRESSING CONTENT Raymond Johnson, 52, was sentenced to death for killing his ex-girlfriend Brooke Whitaker and her 7-month-old daughter, Kya, in June 2007",
@@ -57009,7 +57316,7 @@
     ]
   },
   {
-    "id": 17249,
+    "id": 17411,
     "title": "Donald Trump deflects Xi's 'declining nation' comment and claims US-China relations 'stronger than ever'",
     "source": "Mirror - US News",
     "summary": "Donald Trump has attempted to brush off President Xi Jinping's comments about the US being a 'declining nation', insisting the Chinese leader was referring to the Biden era",
@@ -57024,44 +57331,7 @@
     ]
   },
   {
-    "id": 17250,
-    "title": "Why Melania Trump didn't join Donald Trump's China trip - and her key role later in 2026",
-    "source": "Mirror - US News",
-    "summary": "US President Donald Trump is in China for a high-stakes summit with President Xi Jinping, but First Lady Melania Trump was nowhere to be seen, setting tongues wagging regarding her absence from the trip",
-    "link": "https://www.mirror.co.uk/news/us-news/reason-melania-trump-missed-china-37158513",
-    "published_at": "2026-05-14T23:49:46",
-    "keywords": [
-      "US News",
-      "Amazon",
-      "Apple",
-      "NBC News",
-      "Air Force One",
-      "The Washington Post Company",
-      "Elon Musk",
-      "Xi Jinping",
-      "Tim Cook",
-      "Peng Liyuan",
-      "Brett Ratner",
-      "Donald Trump",
-      "Documentaries",
-      "Melania Trump"
-    ]
-  },
-  {
-    "id": 17251,
-    "title": "Sign Trump desperate to be 'seen as powerful heavyweight statesman' on China visit",
-    "source": "Mirror - US News",
-    "summary": "Donald Trump dropped some of his usual mannerisms and behaviour as he met with Chinese President Xi Jinping in Beijing in a ceremony full of the pomp the US President enjoys",
-    "link": "https://www.mirror.co.uk/news/world-news/donald-trump-china-xi-jinping-37156199",
-    "published_at": "2026-05-14T14:09:59",
-    "keywords": [
-      "US News",
-      "Donald Trump",
-      "Xi Jinping"
-    ]
-  },
-  {
-    "id": 17252,
+    "id": 17412,
     "title": "Vulva Cupcakes, BDSM Lessons and Pole Dancing: Inside \"Sex Week\" at Stanford",
     "source": "The Stanford Review",
     "summary": "Warning: This article contains explicit sexual content. This week was “Sex Week” at Stanford. This was not a traditional sex-ed class; indeed, very little, if any, of sex week focused on consent or contraception. Instead, students were offered displays on “kink training,” “BDSM lessons,”",
@@ -57070,7 +57340,7 @@
     "keywords": []
   },
   {
-    "id": 17253,
+    "id": 17413,
     "title": "Number of Right-Wing Students at Stanford Nearly Doubles",
     "source": "The Stanford Review",
     "summary": "The Political Tide Turns at Stanford Marriage Pact , Stanford’s online matching platform, has released its aggregated data from the 2025–26 cycle, covering 4,177 submissions. Its annual questionnaire asks students about academic interests, professional ambitions, faith, preferences, and politics. Libertarian, Conservative, Republican, Apolitical, Independent, Democrat, Liberal,",
@@ -57081,7 +57351,7 @@
     ]
   },
   {
-    "id": 17254,
+    "id": 17414,
     "title": "Prediction Markets Are a Bet Against America",
     "source": "The Stanford Review",
     "summary": "Warren Buffett  said  two years ago that the stock market was becoming increasingly “casino-like”. He and his longtime business partner, Charlie Munger, argued that market speculation solely for quick profits, without regard for the value of underlying assets, is really just gambling. Buffett attributed the problem to the",
@@ -57090,7 +57360,7 @@
     "keywords": []
   },
   {
-    "id": 17255,
+    "id": 17415,
     "title": "The Last Frontier: Why Stanford?",
     "source": "The Stanford Review",
     "summary": "Stanford is not the safe choice.  Every elite university will promise you community, intellectual rigor, and friendships that last a lifetime. Most of them will deliver, but Stanford offers something none of them can: The future is actually being built here, and you have the chance to help build",
@@ -57101,7 +57371,7 @@
     ]
   },
   {
-    "id": 17256,
+    "id": 17416,
     "title": "The Stanford Surveillance State",
     "source": "The Stanford Review",
     "summary": "Take a walk around our campus, and you’ll quickly notice that Stanford is home to a massive number of security cameras. Scattered throughout campus, they sit above doors entering dorms and overlook main areas. They watch roads and parking lots. They sit outside dining halls and academic buildings.",
@@ -57110,7 +57380,7 @@
     "keywords": []
   },
   {
-    "id": 17257,
+    "id": 17417,
     "title": "ASSU Senate Candidates Refuse to Speak to Review Reporters",
     "source": "The Stanford Review",
     "summary": "On Wednesday,  Stanford Review  reporters attended the open event for ASSU Senate candidates to  interview them ahead  of this Thursday's election. Every candidate was asked one question: “What is your biggest priority as a Senate candidate?” While many candidates wanted to talk to us about their",
@@ -57119,7 +57389,7 @@
     "keywords": []
   },
   {
-    "id": 17258,
+    "id": 17418,
     "title": "Undergraduate Senate Candidates In Their Own Words",
     "source": "The Stanford Review",
     "summary": "We are less than a week from ASSU elections, and campaign events are in full swing. At the Undergraduate Senate Candidate event this past Wednesday, we went from candidate to candidate, asking them what their top priority would be during their tenure as a Senator. 6 of the 15  candidates",
@@ -57128,7 +57398,7 @@
     "keywords": []
   },
   {
-    "id": 17259,
+    "id": 17419,
     "title": "The Class of 2026 is struggling to find jobs—and it’s not because of AI",
     "source": "The Stanford Review",
     "summary": "Professor Jan Liphardt recently told the Los Angeles Times , Stanford CS graduates “are struggling to find entry-level jobs” in “a dramatic reversal from three years ago.” This year’s graduating class is facing one of the most difficult recruiting seasons in modern history, and the",
@@ -57137,7 +57407,7 @@
     "keywords": []
   },
   {
-    "id": 17260,
+    "id": 17420,
     "title": "Classes for the College Contrarian: Spring '26",
     "source": "The Stanford Review",
     "summary": "History HISTORY 137D: Germany's Wars and the World, 1848-2010 Professor Steven Press Units: 5 Meeting time: Mon, Wed, 1:30 – 2:50 PM Taught by Steven Press, one of Stanford's great professors on modern European and German history, this course traces Germany's military",
@@ -57146,7 +57416,7 @@
     "keywords": []
   },
   {
-    "id": 17261,
+    "id": 17421,
     "title": "Stanford Celebrates Holy Week",
     "source": "The Stanford Review",
     "summary": "In the Roman Catholic liturgical calendar, the week leading up to Easter is the holiest time of the year, unsurprisingly bearing the name “Holy Week.” For the Christians on campus, Holy Week reminds the faithful of what separates them from the world, especially against a traditionally secular backdrop",
