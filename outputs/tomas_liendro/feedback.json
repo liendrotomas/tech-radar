@@ -1,26 +1,26 @@
 [
   {
-    "label": "explore",
-    "id": 1,
     "title": "Zero-Trust Autonomous Systems Governance Platform",
-    "notes": "integrates systems and raising demand in cybersecurity is expected",
+    "id": 1,
+    "label": "explore",
     "opportunity_id": 1,
+    "notes": "integrates systems and raising demand in cybersecurity is expected",
     "founder_name": "Tomas Liendro"
   },
   {
-    "label": "liked",
-    "id": 2,
     "title": "AI-Enabled Space Robotics Operations Platform",
-    "notes": "AI for decision making",
+    "id": 2,
+    "label": "liked",
     "opportunity_id": 2,
+    "notes": "AI for decision making",
     "founder_name": "Tomas Liendro"
   },
   {
-    "label": "rejected",
-    "id": 3,
     "title": "Space Systems Market Intelligence and Procurement Support SaaS",
-    "notes": "contracts, SaaS",
+    "id": 3,
+    "label": "rejected",
     "opportunity_id": 3,
+    "notes": "contracts, SaaS",
     "founder_name": "Tomas Liendro"
   }
 ]
